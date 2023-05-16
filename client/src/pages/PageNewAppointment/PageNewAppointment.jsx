@@ -1,7 +1,9 @@
+import FormUser from "../../components/formUser/FormUser";
+
 const PageNuevoTurno = () => {
 	return (
 		<>
-			<h2>page nuevo turno</h2>
+			<FormUser/>
 		</>
 	);
 };
