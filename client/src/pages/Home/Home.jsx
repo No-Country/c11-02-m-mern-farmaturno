@@ -1,5 +1,9 @@
 const Home = () => {
-	return <section className="panelIngreso">Panel principal</section>;
+	return (
+		<>
+	<section className="panelIngreso"></section>
+		</>
+	)
 };
 
 export default Home;
