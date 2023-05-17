@@ -1,7 +1,8 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import '../NavBar/navbar.css';
-
+import { useNavigate } from 'react-router-dom';
 const NavBar = () => {
+  const navigate=useNavigate()
   return (
     <>
       <Navbar expand="md" className="navbar mt-3 ">
@@ -35,7 +36,7 @@ const NavBar = () => {
             <Nav className="me-auto"></Nav>
             <Nav className="txCategory">
               <Nav.Link href="">
-                <p className="txCategory m-2 ">Soy farmacia</p>
+                <p className="txCategory m-2 " onClick={()=>navigate('/adminitration_allowed')}>Soy farmacia</p>
               </Nav.Link>
               <Nav.Link href="">
                 <p className="txCategory m-2">Ayuda</p>
