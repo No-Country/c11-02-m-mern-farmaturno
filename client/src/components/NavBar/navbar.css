@@ -1,23 +1,23 @@
 .navbar{
 
-        border-bottom: 0.01em solid rgb(110, 110, 110);
-     
+        border-bottom: 0.001em solid rgb(110, 110, 110);
+
+     height: 130%;
 }
 .txCategory{
-    font-size: 1.5em;
-    /* font-family: ; */
+    font-size: 1.2em;
     font-weight:500;
-    color: black;
+    color: rgb(85, 83, 83);
+}
+.txCategory1{   
+    font-size: 1.4em;
+    font-weight:500;
+    color: rgb(85, 83, 83);
 }
 
 .txSubcategory{
-    font-size: 1.5em;
-    /* font-family: ; */
+    font-size: 1.2em;
     font-weight:400;
-    color: black;
+    color: rgb(219, 69, 69);
 }
 
-.txTitle{
-    font-size: 2em;
-    font-weight: 600;
-}
