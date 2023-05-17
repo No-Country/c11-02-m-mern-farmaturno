@@ -14,9 +14,6 @@ const NavBar = () => {
     <>
       <Navbar
         expand="md"
-        // fixed="top"
-        // className={colorNav ? "navbar navbar-bg" : "navbar"}
-        // bg='danger'
         className="navbar mt-3 "
       >
         <Container>
@@ -40,10 +37,10 @@ const NavBar = () => {
               className="txCategory1 mx-2"
             >
               <NavDropdown.Item href="#action/3.1" className="txSubcategory">
-                <p className="txSubcategory m-2">Action</p>
+                <p className="txSubcategory m-2">Cliente</p>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2" className="txSubcategory">
-                <p className="txSubcategory m-2">Another action</p>
+                <p className="txSubcategory m-2">Farmacia</p>
               </NavDropdown.Item>
             </NavDropdown>
             <Nav className="me-auto"></Nav>
