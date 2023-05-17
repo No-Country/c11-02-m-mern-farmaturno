@@ -26,3 +26,17 @@
     background-color: rgb(26, 156, 113);
    
 }
+
+.modal{
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttonModal{
+    margin: 1rem;
+    font-size: 1.6rem;
+    
+    background-color: rgb(26, 156, 113);
+   
+}
