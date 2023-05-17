@@ -10,6 +10,11 @@ import Ratio from "react-bootstrap/Ratio";
 import "./FormUserStyle.css";
 
 const FormUser = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <Container className="container">
@@ -38,12 +43,11 @@ const FormUser = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" as={Col} xs={4} controlId="formGridState">
-              <Form.Label>Tu turno</Form.Label>
-              <Form.Select className="form" defaultValue="Choose...">
-                <option>Seleccionar turno...</option>
-                <option>...</option>
-              </Form.Select>
+            <Form.Group className="mb-3" as={Col}  >
+              
+              <Button className="button2 mt-5" variant="secondary"   onClick={handleShow}>
+              ELEGIR HORARIO
+            </Button>
             </Form.Group>
           </Row>
           <br />
@@ -55,6 +59,24 @@ const FormUser = () => {
           </Stack>
         </Form>
       </Container>
+
+
+      {/* modal elegir horario */}
+
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
