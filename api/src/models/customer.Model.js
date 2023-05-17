@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 
 const CustomerSchema = new mongoose.Schema(
+
+
   {
     name: {
       type: String
@@ -11,12 +13,21 @@ const CustomerSchema = new mongoose.Schema(
     },
     identificationNumber: {
       type: Number,
-      unique: true
+      unique: true,
+      require: true
     },
     mobilePhone: {
       type: Number,
-      unique: true
-    }
+      unique: true,
+      require: true
+    },
+    turnHistory: [
+      {
+        registry: {
+          type: Date
+        }
+      }
+    ]
   },
   {
     timestamps: true,

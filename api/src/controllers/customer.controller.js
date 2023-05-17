@@ -55,7 +55,11 @@ const getCustomers = async (req, res) => {
  */
 const createCustomer = async (req, res) => {
   try {
-    const data = await customerModel(req.body).save();
+    const data = await customerModel(req.body);
+    data.turnHistory = [{
+      registry: new Date(Date.now()).toISOString()
+    }];
+    data.save();
     res
       .json({
         message: "Customer Created",
