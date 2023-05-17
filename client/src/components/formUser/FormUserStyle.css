@@ -1,0 +1,21 @@
+.container {
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 10rem;
+    aspect-ratio: 16/7;
+    background-color: rgb(233, 227, 227);
+    font-size: 1.6em;
+    border-radius: 20px;
+}
+
+.form{
+    
+    font-size: 1.6rem;
+}
+
+.button{
+    font-size: 1.6rem;
+    border-radius: 15px;
+    background-color: rgb(195, 198, 201);
+    color: black;
+}
