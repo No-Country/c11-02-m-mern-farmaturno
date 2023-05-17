@@ -13,18 +13,26 @@
     font-size: 1.6rem;
 }
 
-.button{
+.buttonTurno{
     font-size: 1.6rem;
     border-radius: 15px;
     background-color: rgb(195, 198, 201);
     color: black;
 }
 
-.button2{
+.buttonHorario{
     font-size: 1.6rem;
     
     background-color: rgb(26, 156, 113);
    
+}
+
+.buttonTurno--active{
+    background-color: rgb(26, 156, 113);
+}
+
+.buttonHorario--inactive{
+    background-color: rgb(195, 198, 201);
 }
 
 .modal{
@@ -36,7 +44,8 @@
 .buttonModal{
     margin: 1rem;
     font-size: 1.6rem;
+    color:  rgb(26, 156, 113);
     
-    background-color: rgb(26, 156, 113);
+    background-color: rgb(254, 255, 255);
    
 }

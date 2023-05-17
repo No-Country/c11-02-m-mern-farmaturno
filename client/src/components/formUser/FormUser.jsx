@@ -6,35 +6,25 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import Stack from "react-bootstrap/Stack";
-import Ratio from "react-bootstrap/Ratio";
 import "./FormUserStyle.css";
 import ToggleButton from "react-bootstrap/ToggleButton";
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
-
   const [radioValue, setRadioValue] = useState("0");
-  
-  const [titulo, setTitulo] = useState ("Elige un horario")
- 
+  const [titulo, setTitulo] = useState("Elige un horario");
+  const [isHorarioElegido, setIsHorarioElegido] = useState(false);
+  const [isTurnoDisponible, setIsTurnoDisponible] = useState(false);
 
-  const radios = [
-    { name: "08 hs", value: "1" },
-    { name: "09 hs", value: "2" },
-    { name: "10 hs", value: "3" },
-    { name: "11 hs", value: "4" },
-    { name: "12 hs", value: "5" },
-    { name: "13 hs", value: "6" },
-    { name: "14 hs", value: "7" },
-    { name: "15 hs", value: "8" },
-    { name: "16 hs", value: "9" },
-    { name: "17 hs", value: "10" },
-    { name: "18 hs", value: "11" },
-    { name: "19 hs", value: "12" },
-  ];
+  const radios = [];
 
+  for (let i = 8; i <= 19; i++) {
+    const radio = {
+      name: `${i < 10 ? "0" : ""}${i} hs`,
+      value: (i - 7).toString(),
+    };
+    radios.push(radio);
+  }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -42,6 +32,8 @@ const FormUser = () => {
     const { value, dataset } = event.currentTarget;
     setRadioValue(value);
     setTitulo(dataset.name);
+    setIsHorarioElegido(true);
+    setIsTurnoDisponible(true);
     handleClose();
   };
 
@@ -50,7 +42,7 @@ const FormUser = () => {
       <Container className="container">
         <Form>
           <h1>Farmacia Cruz Verde</h1>
-          <h2 >/Direccion</h2>
+          <h2>/Direccion</h2>
           <h2 className="mb-3">/Horario de atencion</h2>
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridName">
@@ -84,7 +76,9 @@ const FormUser = () => {
 
             <Form.Group className="mb-3" as={Col}>
               <Button
-                className="button2 mt-5"
+                className={`buttonHorario mt-5 ${
+                  isHorarioElegido ? "buttonHorario--inactive" : ""
+                }`}
                 variant="secondary"
                 onClick={handleShow}
               >
@@ -95,7 +89,13 @@ const FormUser = () => {
           <br />
 
           <Stack gap={2} className="col-md-5 mx-auto">
-            <Button className="button" variant="secondary" type="submit">
+            <Button
+              className={`buttonTurno ${
+                isTurnoDisponible ? "buttonTurno--active" : ""
+              }`}
+              variant="secondary"
+              type="submit"
+            >
               PEDIR TURNO
             </Button>
           </Stack>
@@ -110,11 +110,12 @@ const FormUser = () => {
         </Modal.Header>
         <Modal.Body className="modal">
           {radios.map((radio, idx) => (
-            <ToggleButton  className="buttonModal "
+            <ToggleButton
+              className="buttonModal "
               key={idx}
               id={`radio-${idx}`}
               type="radio"
-              variant="secondary"
+              variant="success"
               name="radio"
               value={radio.value}
               checked={radioValue === radio.value}
@@ -126,7 +127,6 @@ const FormUser = () => {
             </ToggleButton>
           ))}
         </Modal.Body>
-        
       </Modal>
     </>
   );
