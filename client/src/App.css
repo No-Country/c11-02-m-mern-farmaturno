@@ -1,9 +1,6 @@
 main {
+	position: relative;
 	height: 100%;
 	display: grid;
-	grid-template-rows: 7.7rem 100% 7.7rem;
-}
-.panelIngreso {
-	width: 90%;
-	height: 48.6rem;
+	grid-template-rows: 7.7rem 100%;
 }
