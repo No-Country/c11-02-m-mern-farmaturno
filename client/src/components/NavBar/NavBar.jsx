@@ -1,22 +1,51 @@
-import './navbar.css';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import '../NavBar/navbar.css';
+
 const NavBar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <img src="/Farmaturno.jpg" alt="" />
-      </div>
-      <div className="navbar-section">
-        <a className="navbar-link" href="#">
-          A cerca de FarmaTurno
-          <span className="navbar-icon"></span>
-          <i className="bi bi-chevron-down"></i>
-        </a>
-      </div>
-      <div className="nav-support">
-        <h3>Soy Farmacia</h3>
-        <a href="#">Ayuda</a>
-      </div>
-    </nav>
+    <>
+      <Navbar expand="md" className="navbar mt-3 ">
+        <Container>
+          <Navbar.Brand href="/" className="txTitle ">
+            <img
+              src="..\src\assets\img\logo.png"
+              alt="logo"
+              height={87}
+              className="mx-2"
+            />
+          </Navbar.Brand>
+
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-end m-4"
+          >
+            <NavDropdown
+              title="A cerca de FarmaTurno"
+              id="basic-nav-dropdown"
+              className="txCategory1 mx-2"
+            >
+              <NavDropdown.Item href="#action/3.1" className="txSubcategory">
+                <p className="txSubcategory m-2">Cliente</p>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2" className="txSubcategory">
+                <p className="txSubcategory m-2">Farmacia</p>
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav className="me-auto"></Nav>
+            <Nav className="txCategory">
+              <Nav.Link href="">
+                <p className="txCategory m-2 ">Soy farmacia</p>
+              </Nav.Link>
+              <Nav.Link href="">
+                <p className="txCategory m-2">Ayuda</p>
+              </Nav.Link>
+              {/* </div> */}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 
