@@ -25,7 +25,7 @@ const NavBar = () => {
               src="..\src\assets\img\logo.png"
               alt="logo"
               height={87}
-              className=""
+              className="mx-2"
             />
           </Navbar.Brand>
 
@@ -43,16 +43,16 @@ const NavBar = () => {
                 <p className="txSubcategory m-2">Action</p>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2" className="txSubcategory">
-                <p className="txSubcategory">Another action</p>
+                <p className="txSubcategory m-2">Another action</p>
               </NavDropdown.Item>
             </NavDropdown>
             <Nav className="me-auto"></Nav>
             <Nav className="txCategory">
-              <Nav.Link href="#sobreMi">
-                <p className="txCategory mx-2 ">Soy farmacia</p>
+              <Nav.Link href="">
+                <p className="txCategory m-2 ">Soy farmacia</p>
               </Nav.Link>
-              <Nav.Link href="#tecnologias" >
-                <p className="txCategory mx-2">Ayuda</p>
+              <Nav.Link href="" >
+                <p className="txCategory m-2">Ayuda</p>
               </Nav.Link>
               {/* </div> */}
             </Nav>

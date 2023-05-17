@@ -5,19 +5,20 @@
      height: 130%;
 }
 .txCategory{
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight:500;
-    color: rgb(85, 83, 83);
+    color:#111;
+
 }
 .txCategory1{   
-    font-size: 1.4em;
+    font-size: 1.5em;
     font-weight:500;
-    color: rgb(85, 83, 83);
+    color: #111;
 }
 
 .txSubcategory{
     font-size: 1.2em;
     font-weight:400;
-    color: rgb(219, 69, 69);
+    color: #111;
 }
 
