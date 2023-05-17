@@ -1,4 +1,4 @@
-import Footer from './Footer/Footer';
+/* import Footer from './Footer/Footer'; */
 import PanelIngreso from './panelIngreso/PanelIngreso';
 import './home.css';
 const Home = () => {
