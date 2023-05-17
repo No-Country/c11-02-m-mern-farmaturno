@@ -95,6 +95,7 @@ const FormUser = () => {
               }`}
               variant="secondary"
               type="submit"
+              disabled={!isTurnoDisponible}
             >
               PEDIR TURNO
             </Button>
