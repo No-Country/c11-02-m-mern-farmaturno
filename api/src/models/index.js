@@ -1,5 +1,5 @@
 const models = {
-  customerModel: require('./customer.Model'),
+  customerModel: require('./customer.model'),
 }
 
 
