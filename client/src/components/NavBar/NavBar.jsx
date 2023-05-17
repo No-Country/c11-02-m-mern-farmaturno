@@ -5,7 +5,7 @@ const NavBar = () => {
   const navigate=useNavigate()
   return (
     <>
-      <Navbar expand="md" className="navbar mt-3 ">
+      <Navbar expand="md" className="navbar">
         <Container>
           <Navbar.Brand href="/" className="txTitle ">
             <img

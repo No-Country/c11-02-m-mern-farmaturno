@@ -1,8 +1,6 @@
 .navbar{
-
-        border-bottom: 0.001em solid rgb(110, 110, 110);
-
-     height: 130%;
+     border-bottom: 0.001em solid rgb(110, 110, 110);
+     height: 100%;
 }
 .txCategory{
     font-size: 1.3em;
