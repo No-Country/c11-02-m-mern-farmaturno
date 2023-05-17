@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const router = Router();
-const {getCustomer, getCustomers, createCustomer, deleteCustomer} = require('../controllers/customer.controller');
+const {getCustomer, getCustomers, createCustomer, updateCustomer, deleteCustomer} = require('../controllers/customer.controller');
 
 
 /**
@@ -17,6 +17,11 @@ router.get('/', getCustomers);
  * Create customer in DB
  */
 router.post('/', createCustomer);
+
+/**
+ * Create customer in DB
+ */
+router.put('/:id', updateCustomer);
 
 /**
  * Delete customer
