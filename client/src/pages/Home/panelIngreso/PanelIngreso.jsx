@@ -2,11 +2,15 @@ import './panelIngreso.css';
 
 import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addIdentificationNumer, addUser } from '../../../redux/userSlice';
 
 const PanelIngreso = () => {
   const [validated, setValidated] = useState(false);
   const [dni, setDni] = useState('');
   const [dniError, setDniError] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,8 +24,7 @@ const PanelIngreso = () => {
     } else {
       setDniError('');
       setValidated(true);
-
-      // Realizar acciones adicionales con el DNI
+      dispatch(addIdentificationNumer(dni));
     }
   };
 
