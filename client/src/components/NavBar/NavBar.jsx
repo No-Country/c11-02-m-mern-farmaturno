@@ -6,25 +6,25 @@ const NavBar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Navbar expand="md" className="navbar">
-        <Container fluid className=" m-4">
+      <Navbar expand="md" className="navbar p-0">
+        <Container fluid className=" mx-4 ">
           {/* <div className="d-flex align-items-center justify-content-between"> */}
           <Navbar.Brand href="/" className="txTitle">
             <img
-              src="https://i.ibb.co/xH5FmCb/logo.png"
+              src="https://i.ibb.co/Z8NKxKV/logo-removebg-preview.png"
               alt="logo"
-              height={87}
-              className="mr-3 align-self-start"
+              height={50}
+              className="mr-3 align-self-start   "
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-4 p-4" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
           {/* </div> */}
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="justify-content-end ml-md-auto m-4 p-4"
           >
             <NavDropdown
-              title="A cerca de FarmaTurno"
+              title="Acerca de FarmaTurno"
               id="basic-nav-dropdown"
               className="txCategory1 mx-2"
             >
