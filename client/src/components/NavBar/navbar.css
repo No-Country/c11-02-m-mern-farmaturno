@@ -1,22 +1,20 @@
-.navbar{
-     border-bottom: 0.001em solid rgb(110, 110, 110);
-     height: 100%;
+.navbar {
+  border-bottom: 0.1em solid rgba(169, 165, 165, 0.37);
+  height: 55%;
 }
-.txCategory{
-    font-size: 1.3em;
-    font-weight:500;
-    color:#111;
-
+.txCategory {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: #111;
 }
-.txCategory1{   
-    font-size: 1.5em;
-    font-weight:500;
-    color: #111;
-}
-
-.txSubcategory{
-    font-size: 1.2em;
-    font-weight:400;
-    color: #111;
+.txCategory1 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #111;
 }
 
+.txSubcategory {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #111;
+}
