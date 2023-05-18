@@ -1,0 +1,51 @@
+.container {
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 5rem;
+    aspect-ratio: 16/7;
+    background-color: rgb(233, 227, 227);
+    font-size: 1.6em;
+    border-radius: 20px;
+}
+
+.form{
+    
+    font-size: 1.6rem;
+}
+
+.buttonTurno{
+    font-size: 1.6rem;
+    border-radius: 15px;
+    background-color: rgb(119, 121, 122);
+    
+}
+
+.buttonHorario{
+    font-size: 1.6rem;
+    
+    background-color: rgb(26, 156, 113);
+   
+}
+
+.buttonTurno--active{
+    background-color: rgb(26, 156, 113);
+}
+
+.buttonHorario--inactive{
+    background-color: rgb(117, 120, 122);
+}
+
+.modal{
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttonModal{
+    margin: 1rem;
+    font-size: 1.6rem;
+    color:  rgb(26, 156, 113);
+    
+    background-color: rgb(254, 255, 255);
+   
+}

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
 	<>
     <footer className="footer">
-      <Container>
+      <div>
         <p>
           <span className="footer-brand">© 2023 <span className="brand-color">FarmaTurno</span>.</span> Todos los derechos reservados
         </p>
@@ -15,7 +15,7 @@ const Footer = () => {
           <a href="/terminos" className="footer-link">Términos y condiciones</a>
           <a href="/preguntas" className="footer-link">Preguntas frecuentes</a>
         </div>
-      </Container>
+      </div>
     </footer>
 	</>
   )
