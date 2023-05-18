@@ -87,6 +87,9 @@ const FormUser = () => {
             </Form.Group>
           </Row>
           <br />
+          <Form.Group className="mb-3" id="formGridCheckbox">
+        <Form.Check type="checkbox" label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad" />
+      </Form.Group>
 
           <Stack gap={2} className="col-md-5 mx-auto">
             <Button

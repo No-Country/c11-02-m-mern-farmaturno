@@ -16,8 +16,8 @@
 .buttonTurno{
     font-size: 1.6rem;
     border-radius: 15px;
-    background-color: rgb(195, 198, 201);
-    color: black;
+    background-color: rgb(119, 121, 122);
+    
 }
 
 .buttonHorario{
@@ -32,7 +32,7 @@
 }
 
 .buttonHorario--inactive{
-    background-color: rgb(195, 198, 201);
+    background-color: rgb(117, 120, 122);
 }
 
 .modal{
