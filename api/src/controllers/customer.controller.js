@@ -9,9 +9,13 @@ const { customerModel } = require("../models");
  */
 const getCustomer = async (req, res) => {
   try {
+    
+    req = matchedData(req);
+    console.log(req.id)
     const data = await customerModel.findOne({
-      identificationNumber: req.params.id
+      _id: req.id
     });
+    
     if (!data){
       handleHttpError(res, "Customer Not Found", 404, "getCustomer");
       return;
@@ -55,7 +59,10 @@ const getCustomers = async (req, res) => {
  */
 const createCustomer = async (req, res) => {
   try {
-    const data = await customerModel(req.body);
+    req = matchedData(req);
+    
+    const data = await customerModel(req);
+    
     data.turnHistory = [{
       registry: new Date(Date.now()).toISOString()
     }];
@@ -88,9 +95,11 @@ const createCustomer = async (req, res) => {
  */
 const updateCustomer = async (req, res) => {
   try {
+    req = matchedData(req);
+    console.log(req)
     const data = await customerModel.findOneAndUpdate(
-      { identificationNumber: req.params.id },
-      { mobilePhone: req.body.mobilePhone },
+      { _id: req.id },
+      { mobilePhone: req.mobilePhone },
       { new: true }
       );
     if (!data){
@@ -118,8 +127,9 @@ const updateCustomer = async (req, res) => {
  */
 const deleteCustomer = async (req, res) => {
   try {
+    req = matchedData(req);
     const data = await customerModel.findOneAndDelete({
-      identificationNumber: req.params.id
+      _id: req.id
     });
     if (!data){
       handleHttpError(res, "Customer Not Found", 404, "getCustomer");

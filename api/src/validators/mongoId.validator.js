@@ -19,6 +19,4 @@ const validatorMongoId = [
 
 
 
-module.exports = {
-  validatorMongoId,
-}
+module.exports = validatorMongoId;
