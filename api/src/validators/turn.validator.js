@@ -24,6 +24,4 @@ const validatorCreateTurn = [
 
 
 
-module.exports = {
-  validatorCreateTurn,
-}
+module.exports = validatorCreateTurn;

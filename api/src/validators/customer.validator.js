@@ -6,18 +6,23 @@ const validatorCreateCustomer = [
 
   check('name')
   .exists()
-  .notEmpty(),
+  .notEmpty()
+  .isString(),
   check('surName')
   .exists()
-  .notEmpty(),
+  .notEmpty()
+  .isString(),
   check('identificationNumber')
   .exists()
   .notEmpty()
+  .isNumeric()
   .isLength({min: 6, max: 10}),
   check('mobilePhone')
   .exists()
   .notEmpty()
+  .isNumeric()
   .isLength({min: 10, max: 10}),
+  
 
   (req, res, next) => {
     return validateResults(req, res, next);
@@ -28,6 +33,4 @@ const validatorCreateCustomer = [
 
 
 
-module.exports = {
-  validatorCreateCustomer,
-}
+module.exports = validatorCreateCustomer;

@@ -6,7 +6,7 @@ const validateResulst = (req, res, next) => {
     validationResult(req).throw();
     return next();
   } catch (error) {
-    console.log(Colors.red(`** Invalid Params in Request -- Errors: [${error.array()}] **`))
+    console.log(Colors.red(`** Error in Validation, Invalid Params in Request **`))
     res.status(400).send({message: 'Invalid Params', Errors: error.array()})
   }
 
