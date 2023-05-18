@@ -8,10 +8,10 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     //Aca van botones navbar y todo lo que este en el home
-    <main className='main_container'>
+    <main className="main_container">
       <NavBar />
       <Outlet />
-      <Footer/>
+      <Footer />
     </main>
   );
 }
