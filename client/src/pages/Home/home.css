@@ -1,0 +1,26 @@
+.home {
+  height: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.mensajeBienvenida {
+  padding: 2rem;
+  height: 19.4rem;
+  font-size: 4rem;
+  font-weight: semibold;
+}
+
+.mensajeBienvenida p:nth-child(2) {
+  font-size: 5rem;
+  color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding-top: 4rem;
+    flex-direction: column;
+    gap: 6rem;
+  }
+}
