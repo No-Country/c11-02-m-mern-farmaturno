@@ -1,6 +1,6 @@
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
-const { turnModel } = require("../models");
+const { turnModel, customerModel } = require("../models");
 
 /**
  * Get Turn by id
@@ -9,10 +9,14 @@ const { turnModel } = require("../models");
 */
 const getTurn = async (req, res) => {
     const id = req.params.id.toString();
-    const finded= await turnModel.findById(id);
+    const find= await turnModel.findById(id);
     try {
-      res.status(200).send(finded);
-      
+      if (!find) {
+      handleHttpError(res, "Id not found", 404, "getTurn");
+      return;
+     } else {
+      res.status(200).send(find);
+     }
     } catch (error) {
       handleHttpError(res, "Internal Server Error", 500, "getTurn", error);
     }
@@ -26,7 +30,12 @@ const getTurn = async (req, res) => {
 const getAllTurns = async (req, res) => {
   const turns = await turnModel.find({});
     try {
-      res.status(200).send(turns);
+      if(!turns.length){
+        handleHttpError(res, "Turns not Found", 404, "getAllTurns");
+        return;
+      }else{
+        res.status(200).send(turns);
+      }
     } catch (error) {
       handleHttpError(res, "Internal Server Error", 500, "getAllTurns", error);
     }
@@ -39,9 +48,15 @@ const getAllTurns = async (req, res) => {
 */
 const createTurn = async (req, res) => {
     const body=req.body;
-    await turnModel.create(body);
+    const user= await customerModel.findById(body.customer.customerId);
     try {
+      if (!user) {
+        handleHttpError(res, "User not registred", 404, "createTurn");
+        return;
+      }else{
+      await turnModel.create(body);
       res.status(200).send("Turn created");
+      }
     } catch (error) {
       handleHttpError(res, "Internal Server Error", 400, "createTurn", error);
     }
@@ -54,10 +69,10 @@ const createTurn = async (req, res) => {
  */
 const modifyTurn = async (req, res) => {
    const id = req.params.id.toString();
-   const modify= await turnModel.updateOne({ _id: id }, {status: false });
+   await turnModel.updateOne({ _id: id }, {status: false });
    try {
-     const finded= await turnModel.findById(id);
-      res.status(200).send("Turno modificado: "+finded);
+     const find= await turnModel.findById(id);
+      res.status(200).send("Turn update: "+find);
    } catch (error) {
       handleHttpError(res, "Internal Server Error", 500, "modifyTurn", error);
     }
