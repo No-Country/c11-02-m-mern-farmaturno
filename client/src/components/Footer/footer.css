@@ -1,17 +1,17 @@
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+    
     width: 100%;
-    /* background-color: #f8f9fa; */
-    padding: 20px 0;
+     /* background-color: #f8f9fa;  */
+     padding: 20px 0;
     text-align: center;
     border-top:0.15em solid #008C73 ;
   }
-  
   .footer p {
     margin-bottom: 10px;
-  }
+  } 
   
   .brand-color {
     color: #008C73;
