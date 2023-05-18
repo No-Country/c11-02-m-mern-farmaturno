@@ -1,0 +1,29 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: #f8f9fa; */
+    padding: 20px 0;
+    text-align: center;
+    border-top:0.15em solid #008C73 ;
+  }
+  
+  .footer p {
+    margin-bottom: 10px;
+  }
+  
+  .brand-color {
+    color: #008C73;
+    font-size: 1.4em;
+  }
+  
+  .footer-links {
+    margin-top: 10px;
+  }
+  
+  .footer-links .footer-link {
+    color: #008C73;
+    margin-right: 10px;
+    font-size: 1.4em;
+  }

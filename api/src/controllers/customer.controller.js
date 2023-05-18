@@ -9,8 +9,18 @@ const { customerModel } = require("../models");
  */
 const getCustomer = async (req, res) => {
   try {
-    res.status(200).send("In the getCustomer controller");
-    
+    const data = await customerModel.findOne({
+      identificationNumber: req.params.id
+    });
+    if (!data){
+      handleHttpError(res, "Customer Not Found", 404, "getCustomer");
+      return;
+    } else {
+      res
+        .json(data)
+        .status(200);
+      return;
+    }
   } catch (error) {
     handleHttpError(res, "Internal Server Error", 500, "getCustomer", error);
   }
@@ -23,7 +33,16 @@ const getCustomer = async (req, res) => {
  */
 const getCustomers = async (req, res) => {
   try {
-    res.status(200).send("In the getCustomers controller");
+    const data = await customerModel.find();
+    if (!data){
+      handleHttpError(res, "Customers Not Found", 404, "getCustomers");
+      return;
+    } else {
+      res
+        .json(data)
+        .status(200);
+      return;
+    }
   } catch (error) {
     handleHttpError(res, "Internal Server Error", 500, "getCustomers", error);
   }
@@ -36,9 +55,49 @@ const getCustomers = async (req, res) => {
  */
 const createCustomer = async (req, res) => {
   try {
-    res.status(200).send("In the createCustomer controller");
+    const data = await customerModel(req.body);
+    data.turnHistory = [{
+      registry: new Date(Date.now()).toISOString()
+    }];
+    data.save();
+    res
+      .json({
+        message: "Customer Created",
+        data: data
+      })
+      .status(200);
+    return;
   } catch (error) {
     handleHttpError(res, "Internal Server Error", 400, "createCustomer", error);
+  }
+};
+
+/**
+ * Updated customer in DataBase
+ * @param {*} req
+ * @param {*} res
+ */
+const updateCustomer = async (req, res) => {
+  try {
+    const data = await customerModel.findOneAndUpdate(
+      { identificationNumber: req.params.id },
+      { mobilePhone: req.body.mobilePhone },
+      { new: true }
+      );
+    if (!data){
+      handleHttpError(res, "Customer Not Found", 404, "getCustomer");
+      return;
+    } else {
+      res
+        .json({
+          message: "Customer Updated",
+          data: data
+        })
+        .status(200);
+      return;
+    }
+  } catch (error) {
+    handleHttpError(res, "Internal Server Error", 400, "updateCustomer", error);
   }
 };
 
@@ -49,7 +108,21 @@ const createCustomer = async (req, res) => {
  */
 const deleteCustomer = async (req, res) => {
   try {
-    res.status(200).send("In the deleteCustomer controller");
+    const data = await customerModel.findOneAndDelete({
+      identificationNumber: req.params.id
+    });
+    if (!data){
+      handleHttpError(res, "Customer Not Found", 404, "getCustomer");
+      return;
+    } else {
+      res
+        .json({
+          message: "Customer Deleted",
+          data: data
+        })
+        .status(200);
+      return;
+    }
   } catch (error) {
     handleHttpError(res, "Internal Server Error", 500, "deleteCustomer", error);
   }
@@ -59,5 +132,6 @@ module.exports = {
   getCustomer,
   getCustomers,
   createCustomer,
+  updateCustomer,
   deleteCustomer,
 };
