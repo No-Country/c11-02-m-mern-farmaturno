@@ -2,7 +2,7 @@ import FormUser from "../../components/formUser/FormUser";
 import moment from "moment";
 
 const PageNuevoTurno = () => {
-  const currentDate = moment().format(" D / MM / YYYY");
+  const currentDate = moment().format(" D/MM/YYYY");
 
   return (
     <>
