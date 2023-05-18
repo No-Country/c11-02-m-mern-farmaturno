@@ -1,10 +1,11 @@
 .panelIngreso {
   position: relative;
-  padding: 2rem;
+  padding: 2rem 0;
   width: 64.4rem;
   height: 48.6rem;
-  background-color: #d9d9d9;
-  border-radius: 1rem;
+  border: 0.1px solid #767676;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .top-buttons-container {
@@ -12,17 +13,26 @@
   height: 6rem;
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid var(--gray);
 }
 
 .top-button {
+  padding-bottom: 1rem;
+  width: 100%;
   background-color: transparent;
   border: none;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .top-button:hover {
   cursor: pointer;
-  border-bottom: 1px solid;
+  border-bottom: 2px solid;
+  color: var(--green);
+}
+.top-button.active {
+  border-bottom: 2px solid;
+  color: var(--green);
 }
 
 .bottom-section {
@@ -58,8 +68,8 @@
   width: 31.5rem;
   height: 4.4rem;
   position: absolute;
-  bottom: 1rem;
-  border-radius: 2rem;
+  bottom: 5.3rem;
+  border-radius: 0.4rem;
   font-size: 1.8rem;
   line-height: 2.1rem;
   font-weight: semibold;
@@ -67,4 +77,14 @@
 
 .custom-feedback {
   font-size: 1.4rem;
+}
+
+.form-control-lg::-webkit-inner-spin-button,
+.custom-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control-lg[type='number'] {
+  -moz-appearance: textfield;
 }
