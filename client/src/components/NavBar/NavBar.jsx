@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import '../NavBar/navbar.css';
 import { useNavigate } from 'react-router-dom';
+import imgLogo from "../../assets/img/logo.png"
 const NavBar = () => {
   const navigate = useNavigate();
   return (
@@ -10,7 +11,7 @@ const NavBar = () => {
     {/* <div className="d-flex align-items-center justify-content-between"> */}
       <Navbar.Brand href="/" className="txTitle">
         <img
-          src="..\src\assets\img\logo.png"
+          src={imgLogo}
           alt="logo"
           height={87}
           className="mr-3 align-self-start"
