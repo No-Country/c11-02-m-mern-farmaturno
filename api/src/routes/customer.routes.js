@@ -1,13 +1,18 @@
 const {Router} = require('express');
 const router = Router();
-const {validatorMongoId, validatorCreateCustomer, validatorPhoneNumber} = require('../validators');
-const {getCustomer, getCustomers, createCustomer, updateCustomer, deleteCustomer} = require('../controllers/customer.controller');
+const {validatorMongoId, validatorIdentification, validatorCreateCustomer, validatorPhoneNumber} = require('../validators');
+const {getCustomerById, getCustomerByIdentificationNumber, getCustomers, createCustomer, updateCustomer, deleteCustomer} = require('../controllers/customer.controller');
 
 
 /**
- * Get customer details
+ * Get customer details by id
  */
-router.get('/:id',validatorMongoId, getCustomer);
+router.get('/:id',validatorMongoId, getCustomerById);
+
+/**
+ * Get customer details by identification number
+ */
+router.get('/in/:in',validatorIdentification, getCustomerByIdentificationNumber);
 
 /**
  * Get list of customers
