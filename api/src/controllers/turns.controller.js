@@ -8,6 +8,7 @@ const { turnModel, customerModel } = require("../models");
  * @param {*} res
 */
 const getTurn = async (req, res) => {
+    
     const id = req.params.id.toString();
     const find= await turnModel.findById(id);
     try {
@@ -48,11 +49,19 @@ const getAllTurns = async (req, res) => {
 */
 const createTurn = async (req, res) => {
     const body=req.body;
-    const user= await customerModel.findById(body.customer.customerId);
+    const user= await customerModel.find({identificationNumber:{$eq:body.customer.identificationNumber}});
+    const newUser={
+      name:body.customer.name,
+      surName:body.customer.surName,
+      identificationNumber:body.customer.identificationNumber,
+      mobilePhone:body.customer.mobilePhone,
+    }
     try {
-      if (!user) {
-        handleHttpError(res, "User not registred", 404, "createTurn");
-        return;
+      if (!user.length) {
+        await customerModel.create(newUser);
+        await customerModel.updateOne({identificationNumber:body.customer.identificationNumber},{turnHistory:[{registry:new Date(Date.now()).toISOString()}]});
+        await turnModel.create(body);
+        res.status(200).send("User and Turn created")
       }else{
       await turnModel.create(body);
       res.status(200).send("Turn created");

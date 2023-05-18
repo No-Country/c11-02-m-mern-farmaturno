@@ -27,12 +27,12 @@ const turnSchema = new mongoose.Schema(
       },
       identificationNumber: {
         type: Number,
-        unique: true,
+        // unique: true,
         require: true
       },
       mobilePhone: {
         type: Number,
-        unique: true,
+        // unique: true,
         require: true
       }
     }
