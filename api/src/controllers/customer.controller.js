@@ -3,17 +3,43 @@ const { matchedData } = require("express-validator");
 const { customerModel } = require("../models");
 
 /**
- * Get customer details
+ * Get customer details by id
  * @param {*} req
  * @param {*} res
  */
-const getCustomer = async (req, res) => {
+const getCustomerById = async (req, res) => {
   try {
     
     req = matchedData(req);
-    console.log(req.id)
     const data = await customerModel.findOne({
       _id: req.id
+    });
+    
+    if (!data){
+      handleHttpError(res, "Customer Not Found", 404, "getCustomer");
+      return;
+    } else {
+      res
+        .json(data)
+        .status(200);
+      return;
+    }
+  } catch (error) {
+    handleHttpError(res, "Internal Server Error", 500, "getCustomer", error);
+  }
+};
+
+/**
+ * Get customer details by identification number
+ * @param {*} req
+ * @param {*} res
+ */
+const getCustomerByIdentificationNumber = async (req, res) => {
+  try {
+    
+    req = matchedData(req);
+    const data = await customerModel.findOne({
+      identificationNumber: req.in
     });
     
     if (!data){
@@ -96,7 +122,6 @@ const createCustomer = async (req, res) => {
 const updateCustomer = async (req, res) => {
   try {
     req = matchedData(req);
-    console.log(req)
     const data = await customerModel.findOneAndUpdate(
       { _id: req.id },
       { mobilePhone: req.mobilePhone },
@@ -150,7 +175,8 @@ const deleteCustomer = async (req, res) => {
 };
 
 module.exports = {
-  getCustomer,
+  getCustomerById,
+  getCustomerByIdentificationNumber,
   getCustomers,
   createCustomer,
   updateCustomer,
