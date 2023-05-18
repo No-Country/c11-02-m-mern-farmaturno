@@ -6,7 +6,7 @@ const Home = () => {
     <div className="home">
       <div className="mensajeBienvenida">
         <p>Te damos la bienvenida a</p>
-        <p> Farmaturnoooo</p>
+        <p> <Farmaasdf></Farmaasdf></p>
         <p> ¡Gracias por elegirnos!</p>
       </div>
       <PanelIngreso />
