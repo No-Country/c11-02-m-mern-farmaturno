@@ -59,16 +59,25 @@ const createCustomer = async (req, res) => {
     data.turnHistory = [{
       registry: new Date(Date.now()).toISOString()
     }];
-    data.save();
+
+    await data.save();
+
     res
       .json({
+        success: true,
         message: "Customer Created",
         data: data
       })
       .status(200);
     return;
+
   } catch (error) {
-    handleHttpError(res, "Internal Server Error", 400, "createCustomer", error);
+    if (error.name === 'MongoServerError' && error.code === 11000){
+      handleHttpError(res, "Mobile phone already exists", 422, "createCustomer", error);
+    }
+    else {
+      handleHttpError(res, "Internal Server Error", 400, "createCustomer", error);
+    }
   }
 };
 
@@ -90,6 +99,7 @@ const updateCustomer = async (req, res) => {
     } else {
       res
         .json({
+          success: true,
           message: "Customer Updated",
           data: data
         })
@@ -117,6 +127,7 @@ const deleteCustomer = async (req, res) => {
     } else {
       res
         .json({
+          success: true,
           message: "Customer Deleted",
           data: data
         })
