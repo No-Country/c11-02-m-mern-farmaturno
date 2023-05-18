@@ -10,6 +10,8 @@ const PanelIngreso = () => {
   const [validated, setValidated] = useState(false);
   const [dni, setDni] = useState('');
   const [dniError, setDniError] = useState('');
+  const [activePideTurno, setActivePideTurno] = useState(true);
+  const [activeConsultaTurno, setActiveConsultaTurno] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -37,35 +39,59 @@ const PanelIngreso = () => {
   return (
     <div className="panelIngreso">
       <div className="top-buttons-container">
-        <button className="top-button">Pide tu turno</button>
-        <button className="top-button">consulta tu turno</button>
+        <button
+          className={`${activePideTurno ? 'top-button active' : 'top-button'} `}
+          onClick={() => {
+            setActivePideTurno(!activePideTurno);
+            setActiveConsultaTurno(false);
+          }}
+        >
+          Pide tu turno
+        </button>
+        <button
+          className={`${
+            activeConsultaTurno ? 'top-button active' : 'top-button'
+          } `}
+          onClick={() => {
+            setActiveConsultaTurno(!activeConsultaTurno);
+            setActivePideTurno(false);
+          }}
+        >
+          consulta tu turno
+        </button>
       </div>
-      <hr />
-      <div className="bottom-section">
-        <h3>Optimiza tu tiempo y solicita un turno aquí</h3>
-        <p>Pide un turno para ser atendido en tu farmacia</p>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Form.Group controlId="validationCustom01">
-            <Form.Label>Número de identidad </Form.Label>
-            <Form.Control
-              required
-              type="number"
-              value={dni}
-              onChange={handleDniChange}
-              isInvalid={dniError !== ''}
-              className="form-control-lg"
-            />
+      {activePideTurno ? (
+        <div className="bottom-section">
+          <h3>Optimiza tu tiempo y solicita un turno aquí</h3>
+          <p>Pide un turno para ser atendido en tu farmacia</p>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Group controlId="validationCustom01">
+              <Form.Label>Número de identidad </Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={dni}
+                onChange={handleDniChange}
+                isInvalid={dniError !== ''}
+                className="form-control-lg"
+                inputMode="numeric"
+                pattern="\d*"
+                onWheel={(e) => e.currentTarget.blur()}
+              />
 
-            <Form.Control.Feedback type="invalid" className="custom-feedback">
-              {dniError}
-            </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid" className="custom-feedback">
+                {dniError}
+              </Form.Control.Feedback>
 
-            <Button type="submit" variant="secondary">
-              Continuar
-            </Button>
-          </Form.Group>
-        </Form>
-      </div>
+              <Button type="submit" variant="secondary">
+                Continuar
+              </Button>
+            </Form.Group>
+          </Form>
+        </div>
+      ) : (
+        <div>En construccion</div>
+      )}
     </div>
   );
 };
