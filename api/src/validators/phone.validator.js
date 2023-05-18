@@ -2,13 +2,14 @@ const {check} = require('express-validator');
 const validateResults = require('../utils/handleValidators');
 
 
-const validatorIdentification = [
+const validatorPhoneNumber = [
 
-  check('in')
+ 
+  check('mobilePhone')
   .exists()
   .notEmpty()
   .isNumeric()
-  .isLength({min: 6, max: 10}),
+  .isLength({min: 10, max: 10}),
   
 
   (req, res, next) => {
@@ -20,4 +21,4 @@ const validatorIdentification = [
 
 
 
-module.exports = validatorIdentification;
+module.exports = validatorPhoneNumber;
