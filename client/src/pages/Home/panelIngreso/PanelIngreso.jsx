@@ -2,11 +2,16 @@ import './panelIngreso.css';
 
 import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addIdentificationNumer } from '../../../redux/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const PanelIngreso = () => {
   const [validated, setValidated] = useState(false);
   const [dni, setDni] = useState('');
   const [dniError, setDniError] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,14 +19,14 @@ const PanelIngreso = () => {
     if (dni.trim() === '') {
       setDniError('El número de identidad es obligatorio');
       setValidated(false);
-    } else if (dni.length !== 10) {
-      setDniError('El número de identidad debe tener 10 dígitos');
+    } else if (dni.length > 10) {
+      setDniError('El número de identidad debe tener menos de 10 dígitos');
       setValidated(false);
     } else {
       setDniError('');
       setValidated(true);
-
-      // Realizar acciones adicionales con el DNI
+      dispatch(addIdentificationNumer({ identificationNumber: dni }));
+      navigate('nuevoTurno');
     }
   };
 
