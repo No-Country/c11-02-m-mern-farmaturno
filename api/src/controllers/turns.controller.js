@@ -49,23 +49,32 @@ const getAllTurns = async (req, res) => {
 */
 const createTurn = async (req, res) => {
     
-    const body=matchedData(req.body);
-    const user= await customerModel.find({identificationNumber:{$eq:body.identificationNumber}});
-
+   const body=matchedData(req);
+   const user= await customerModel.find({identificationNumber:{$eq:body.identificationNumber}});
     const newUser={
       name:body.name,
       surName:body.surName,
       identificationNumber:body.identificationNumber,
       mobilePhone:body.mobilePhone,
     }
+    const newTurn={
+      timeSlot: body.timeSlot,
+      customer: {
+      customerId: body.customerId,
+      name:body.name,
+      surName:body.surName,
+      identificationNumber:body.identificationNumber,
+      mobilePhone:body.mobilePhone,
+    }
+  }
     try {
       if (!user.length) {
         await customerModel.create(newUser);
         await customerModel.updateOne({identificationNumber:body.identificationNumber},{turnHistory:[{registry:new Date(Date.now()).toISOString()}]});
-        await turnModel.create(body);
-        res.status(200).send("User and Turn created")
+        await turnModel.create(newTurn);
+        res.status(200).send("User and Turn created");
       }else{
-        await turnModel.create(body);
+        await turnModel.create(newTurn);
         await customerModel.updateOne({identificationNumber:body.identificationNumber},{$push:{turnHistory:[{registry:new Date(Date.now()).toISOString()}]}});
         res.status(200).send("Turn created");
       }
