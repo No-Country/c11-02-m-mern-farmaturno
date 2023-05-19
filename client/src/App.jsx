@@ -12,7 +12,7 @@ function App() {
     <main className="main_container">
       <NavBar />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
 	  
     </main>
   );
