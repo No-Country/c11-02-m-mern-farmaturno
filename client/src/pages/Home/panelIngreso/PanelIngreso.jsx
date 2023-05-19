@@ -34,6 +34,16 @@ const PanelIngreso = () => {
 
   const handleDniChange = (event) => {
     setDni(event.target.value);
+    if (dni.trim() === '') {
+      setDniError('El número de identidad es obligatorio');
+      setValidated(false);
+    } else if (dni.length > 10) {
+      setDniError('El número de identidad debe tener menos de 10 dígitos');
+      setValidated(false);
+    } else {
+      setDniError('');
+      setValidated(true);
+    }
   };
 
   return (
