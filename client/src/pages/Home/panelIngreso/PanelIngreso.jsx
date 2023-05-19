@@ -88,7 +88,7 @@ const PanelIngreso = () => {
                 pattern="\d*"
                 onWheel={(e) => e.currentTarget.blur()}
               />
-
+              <div className="transparentBackground"></div>
               <Form.Control.Feedback type="invalid" className="custom-feedback">
                 {dniError}
               </Form.Control.Feedback>
