@@ -1,8 +1,10 @@
 import React from 'react';
 import '../noAppointment/noAppointment.css';
 import { Image,Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const NoAppointment = () => {
+    const navigate = useNavigate()
     return (
       <div className="container">
         <div className='p-0'>
@@ -22,7 +24,7 @@ const NoAppointment = () => {
           </p>
         </div>
         <div className='divBtn'>
-            <Button className='BtnVolverInicio'>Volver al inicio</Button>
+            <Button className='BtnVolverInicio'onClick={e=>navigate('/')} >Volver al inicio</Button>
         </div>
       </div>
     );

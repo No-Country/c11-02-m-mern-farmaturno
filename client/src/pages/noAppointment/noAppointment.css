@@ -25,12 +25,14 @@
   .title {
     font-size:2rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-top: 10%;
   }
   
   .description {
     font-size: 1.5rem;
-    width: 32rem;
+    width: 32.625rem;
+    height: 5.375rem;
+    margin-bottom: 10%;
   }
 
 .divBtn{
@@ -40,14 +42,36 @@
     justify-content: center;
     align-items: center;
 }
-  .BtnVolverInicio{
+  /* .BtnVolverInicio{
     background-color: #008C73;
     border-color: #008C73;
     border-radius: 0;
     width: 25.875rem;
     height: 3rem;
     font-size: 1.5rem;
+  } */
+
+
+  .BtnVolverInicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    background-color: #008C73;
+    border-color: #008C73;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    width: 25.875rem;
+    height: 3rem;
   }
+  
+
+
+  
   
   @media (max-width: 600px) {
     .container {
