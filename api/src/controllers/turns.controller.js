@@ -63,8 +63,9 @@ const createTurn = async (req, res) => {
         await turnModel.create(body);
         res.status(200).send("User and Turn created")
       }else{
-      await turnModel.create(body);
-      res.status(200).send("Turn created");
+        await turnModel.create(body);
+        await customerModel.updateOne({identificationNumber:body.customer.identificationNumber},{$push:{turnHistory:[{registry:new Date(Date.now()).toISOString()}]}});
+        res.status(200).send("Turn created");
       }
     } catch (error) {
       handleHttpError(res, "Internal Server Error", 400, "createTurn", error);
