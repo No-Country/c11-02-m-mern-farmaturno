@@ -1,7 +1,8 @@
- .main_container {
-	width: 100vw;
-	height: 100vh;
-	display: grid;
-	grid-template-columns: 1fr;
-	 grid-template-rows: 13% 67% 20%; 
-}   
+.main_container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 13% 67% 20%;
+  overflow-y: hidden;
+}
