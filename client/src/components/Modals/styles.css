@@ -1,0 +1,25 @@
+.modal_container{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    font-size: large;
+}
+.modal_container > article {
+    width: min(400px,80%);
+    height: min(300px,50%);
+    border: 2px solid black;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% repeat(15,1fr) 10px;
+    background-color: white;
+}

@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import Modal from "react-bootstrap/Modal";
-import Stack from "react-bootstrap/Stack";
-import "./FormUserStyle.css";
-import ToggleButton from "react-bootstrap/ToggleButton";
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Modal from 'react-bootstrap/Modal';
+import Stack from 'react-bootstrap/Stack';
+import './FormUserStyle.css';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import { useState } from 'react';
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
-  const [radioValue, setRadioValue] = useState("0");
-  const [titulo, setTitulo] = useState("Elige un horario");
+  const [radioValue, setRadioValue] = useState('0');
+  const [titulo, setTitulo] = useState('Elige un horario');
   const [isHorarioElegido, setIsHorarioElegido] = useState(false);
   const [isTurnoDisponible, setIsTurnoDisponible] = useState(false);
 
@@ -20,7 +20,7 @@ const FormUser = () => {
 
   for (let i = 8; i <= 19; i++) {
     const radio = {
-      name: `${i < 10 ? "0" : ""}${i} hs`,
+      name: `${i < 10 ? '0' : ''}${i} hs`,
       value: (i - 7).toString(),
     };
     radios.push(radio);
@@ -77,7 +77,7 @@ const FormUser = () => {
             <Form.Group className="mb-3" as={Col}>
               <Button
                 className={`buttonHorario mt-5 ${
-                  isHorarioElegido ? "buttonHorario--inactive" : ""
+                  isHorarioElegido ? 'buttonHorario--inactive' : ''
                 }`}
                 variant="secondary"
                 onClick={handleShow}
@@ -88,13 +88,16 @@ const FormUser = () => {
           </Row>
           <br />
           <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad" />
-      </Form.Group>
+            <Form.Check
+              type="checkbox"
+              label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
+            />
+          </Form.Group>
 
           <Stack gap={2} className="col-md-5 mx-auto">
             <Button
               className={`buttonTurno ${
-                isTurnoDisponible ? "buttonTurno--active" : ""
+                isTurnoDisponible ? 'buttonTurno--active' : ''
               }`}
               variant="secondary"
               type="submit"

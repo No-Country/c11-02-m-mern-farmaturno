@@ -3,15 +3,45 @@ const { matchedData } = require("express-validator");
 const { customerModel } = require("../models");
 
 /**
- * Get customer details
+ * Get customer details by id
  * @param {*} req
  * @param {*} res
  */
-const getCustomer = async (req, res) => {
+const getCustomerById = async (req, res) => {
   try {
+    
+    req = matchedData(req);
     const data = await customerModel.findOne({
-      identificationNumber: req.params.id
+      _id: req.id
     });
+    
+    if (!data){
+      handleHttpError(res, "Customer Not Found", 404, "getCustomer");
+      return;
+    } else {
+      res
+        .json(data)
+        .status(200);
+      return;
+    }
+  } catch (error) {
+    handleHttpError(res, "Internal Server Error", 500, "getCustomer", error);
+  }
+};
+
+/**
+ * Get customer details by identification number
+ * @param {*} req
+ * @param {*} res
+ */
+const getCustomerByIdentificationNumber = async (req, res) => {
+  try {
+    
+    req = matchedData(req);
+    const data = await customerModel.findOne({
+      identificationNumber: req.in
+    });
+    
     if (!data){
       handleHttpError(res, "Customer Not Found", 404, "getCustomer");
       return;
@@ -55,7 +85,10 @@ const getCustomers = async (req, res) => {
  */
 const createCustomer = async (req, res) => {
   try {
-    const data = await customerModel(req.body);
+    req = matchedData(req);
+    
+    const data = await customerModel(req);
+    
     data.turnHistory = [{
       registry: new Date(Date.now()).toISOString()
     }];
@@ -88,9 +121,10 @@ const createCustomer = async (req, res) => {
  */
 const updateCustomer = async (req, res) => {
   try {
+    req = matchedData(req);
     const data = await customerModel.findOneAndUpdate(
-      { identificationNumber: req.params.id },
-      { mobilePhone: req.body.mobilePhone },
+      { _id: req.id },
+      { mobilePhone: req.mobilePhone },
       { new: true }
       );
     if (!data){
@@ -118,8 +152,9 @@ const updateCustomer = async (req, res) => {
  */
 const deleteCustomer = async (req, res) => {
   try {
+    req = matchedData(req);
     const data = await customerModel.findOneAndDelete({
-      identificationNumber: req.params.id
+      _id: req.id
     });
     if (!data){
       handleHttpError(res, "Customer Not Found", 404, "getCustomer");
@@ -140,7 +175,8 @@ const deleteCustomer = async (req, res) => {
 };
 
 module.exports = {
-  getCustomer,
+  getCustomerById,
+  getCustomerByIdentificationNumber,
   getCustomers,
   createCustomer,
   updateCustomer,

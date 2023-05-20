@@ -34,6 +34,16 @@ const PanelIngreso = () => {
 
   const handleDniChange = (event) => {
     setDni(event.target.value);
+    if (dni.trim() === '') {
+      setDniError('El número de identidad es obligatorio');
+      setValidated(false);
+    } else if (dni.length > 10) {
+      setDniError('El número de identidad debe tener menos de 10 dígitos');
+      setValidated(false);
+    } else {
+      setDniError('');
+      setValidated(true);
+    }
   };
 
   return (
@@ -78,7 +88,7 @@ const PanelIngreso = () => {
                 pattern="\d*"
                 onWheel={(e) => e.currentTarget.blur()}
               />
-
+              <div className="transparentBackground"></div>
               <Form.Control.Feedback type="invalid" className="custom-feedback">
                 {dniError}
               </Form.Control.Feedback>
