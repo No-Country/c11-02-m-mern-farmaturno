@@ -17,10 +17,10 @@ export default function LoginForPharmacyOwner(){
         e.preventDefault()
         console.log(dataPharm)
         if(dataPharm.userName === '' || dataPharm.userPassword === ''){
-            setMsgAlert('completar todos los campos')
+            setMsgAlert('Debe completar todos los campos')
             setAlert(true)
         }else if(!regexNameUser.test(dataPharm.userName)){
-            setMsgAlert('usuario no valido')
+            setMsgAlert('Nombre de usuario no valido, solo caracteres alfabeticos')
             setAlert(true)
         }
     }

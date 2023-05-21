@@ -109,3 +109,9 @@
     height: fit-content;
     margin: auto;
 }
+@media (max-width:840px) {
+    .form_allowed_container{
+        grid-template-rows: 30% 70%;
+        grid-template-columns:1fr ;
+    }
+}
