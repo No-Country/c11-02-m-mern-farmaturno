@@ -12,6 +12,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 .mensajeBienvenida {
   height: 100%;
@@ -28,11 +29,27 @@
 
 @media (max-width: 768px) {
   .home {
-    padding-top: 4rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 90vh repeat(5, 100vh);
+  }
+  .welcomeSection {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 300px;
+    gap: 2rem;
   }
   .mensajeBienvenida {
     width: 100%;
+    min-width: 395px;
+    font-size: 4rem;
+    line-height: 4.7rem;
+  }
+  .mensajeBienvenida p:nth-child(2) {
+    font-size: 5rem;
+    color: var(--green);
+  }
+  .mensajeBienvenida p:nth-child(3) {
+    line-height: 10rem;
   }
 }

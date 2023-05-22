@@ -72,8 +72,10 @@ const PanelIngreso = () => {
       </div>
       {activePideTurno ? (
         <div className="bottom-section">
-          <h3>Optimiza tu tiempo y solicita un turno aquí</h3>
-          <p>Pide un turno para ser atendido en tu farmacia</p>
+          <div className="titleAndSubtitle_container">
+            <h3>Optimiza tu tiempo y solicita un turno aquí</h3>
+            <p>Pide un turno para ser atendido en tu farmacia</p>
+          </div>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group controlId="validationCustom01">
               <Form.Label>Número de identidad </Form.Label>
