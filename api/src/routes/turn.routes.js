@@ -1,12 +1,17 @@
 const {Router} = require('express');
 const router = Router();
-const {getTurn, getAllTurns, createTurn, modifyTurn} = require("../controllers/turns.controller");
+const {getTurn, getAllTurns, createTurn, modifyTurn, getTurnByDI} = require("../controllers/turns.controller");
 const {validatorCreateCustomer, validatorCreateTurn} = require('../validators')
 
 /**
  * Get Turn details
  */
 router.get('/:id', getTurn);
+
+/**
+ * Get Turn details
+ */
+router.get('/usturn/:doc', getTurnByDI);
 
 /**
  * Get list of Turns
