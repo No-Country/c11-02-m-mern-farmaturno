@@ -1,5 +1,36 @@
+
+
 .divider {
-  height: 100%;
-  width: 100%;
-  background-color: green;
+  display: grid;
+  padding:100px;
+  font-size: 24px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.section_parrafo {
+  font-size: 28px;
+}
+
+.divider h1 {
+  margin-bottom: 15px;
+  font-size: 48px;
+}
+
+.column-left {
+  justify-self: start;
+}
+
+.column-right {
+  justify-self: end;
+}
+
+.column-right img{
+  width: 110%;
+}
+
+.divider h2 {
+  position: relative;
+  font-weight: 600;
+  top: 28px;
+  font-size: 30px;
 }

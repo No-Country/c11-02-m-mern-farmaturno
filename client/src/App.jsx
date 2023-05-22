@@ -12,6 +12,7 @@ function App() {
       <NavBar />
       <Outlet />
       <Footer />
+      
     </main>
   );
 }
