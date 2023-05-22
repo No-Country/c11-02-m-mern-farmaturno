@@ -6,7 +6,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Navbar expand="md" className="navbar p-0">
+      <Navbar expand="lg" className="navbar p-0">
         <Container fluid className=" mx-4 ">
           {/* <div className="d-flex align-items-center justify-content-between"> */}
           <Navbar.Brand href="/" className="txTitle">
