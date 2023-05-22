@@ -4,6 +4,7 @@ import FirstDescription from './firstDescription/FirstDescription';
 import Divider from './divider/Divider';
 import About from './about/About';
 import Instructions from './instructions/Instructions';
+import Footer from '../../components/Footer/Footer';
 const Home = () => {
   return (
     <div className="home">
@@ -19,6 +20,7 @@ const Home = () => {
       <Divider />
       <About />
       <Instructions />
+      <Footer />
     </div>
   );
 };

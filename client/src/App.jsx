@@ -4,14 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
-
+import { useLocation } from 'react-router-dom';
 function App() {
+  let location = useLocation();
   return (
     //Aca van botones navbar y todo lo que este en el home
     <main className="main_container">
       <NavBar />
       <Outlet />
-      <Footer />
+      {location.pathname === '/' ? <></> : <Footer />}
     </main>
   );
 }
