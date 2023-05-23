@@ -4,7 +4,7 @@ import PageNewAppointment from '../pages/PageNewAppointment/PageNewAppointment';
 import PageTurno from '../pages/pageTurno/PageTurno';
 import Home from '../pages/Home/Home';
 import LoginForPharmacyOwner from '../components/PharmaceuticalLogin/LoginScreen';
-import NoAppointment from '../pages/noAppointment/NoAppointment';
+import NoAppointmentPrueba from '../pages/noAppointment/NoAppointmentprueba';
 import { Confirmation } from "../pages/Confirmation/Confirmation";
 
 
@@ -20,7 +20,8 @@ export const router = createBrowserRouter([
         path: 'adminitration_allowed',
         element: <LoginForPharmacyOwner />,
       },
-	  {path:'no_appointment', element:<NoAppointment/>},
+
+    {path:'no_appointment', element:<NoAppointmentPrueba/>},
 	  {
 		path:'confirmacion_turno',
 		element: <Confirmation/>

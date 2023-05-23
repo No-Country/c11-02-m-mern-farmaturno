@@ -1,24 +1,37 @@
-import React from 'react'
-import { Container } from 'react-bootstrap';
-import "../Footer/footer.css"
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import '../Footer/footer.css';
 
 const Footer = () => {
   return (
-	<>
     <footer className="footer">
-      <div>
-        <p>
-          <span className="footer-brand">© 2023 <span className="brand-color">FarmaTurno</span>.</span> Todos los derechos reservados
+      <Row className="footer-container">
+        <p className="footer-brand">
+          <span className="footer-brand">
+            © 2023 <span className="brand-color">FarmaTurno</span>.
+          </span>{' '}
+          Todos los derechos reservados
         </p>
-        <div className="footer-links">
-          <a href="/privacidad" className="footer-link">Políticas de privacidad</a>
-          <a href="/terminos" className="footer-link">Términos y condiciones</a>
-          <a href="/preguntas" className="footer-link">Preguntas frecuentes</a>
-        </div>
-      </div>
+        <Row lg={4} className="footer-links justify-content-center">
+          <Col xs={12}>
+            <a href="/privacidad" className="footer-link p-0">
+              Políticas de privacidad
+            </a>
+          </Col>
+          <Col xs={12}>
+            <a href="/terminos" className="footer-link p-0">
+              Términos y condiciones
+            </a>
+          </Col>
+          <Col xs={12}>
+            <a href="/preguntas" className="footer-link p-0">
+              Preguntas frecuentes
+            </a>
+          </Col>
+        </Row>
+      </Row>
     </footer>
-	</>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

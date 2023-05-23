@@ -105,6 +105,7 @@
     font-size: 1.8rem;
   }
   .bottom-section {
+    padding: 2rem 4rem 1rem 4rem;
     height: 80%;
   }
   .bottom-section .titleAndSubtitle_container {
@@ -127,9 +128,42 @@
     height: 4.2rem;
     width: 40%;
     right: 2rem;
-    bottom: 3.7rem;
+    bottom: 2rem;
   }
   .custom-feedback {
-    line-height: 3rem;
+    line-height: 1.6rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 360px) {
+  .panelIngreso {
+    padding: 0rem;
+    width: 80%;
+    min-width: 300px;
+  }
+  .top-buttons-container {
+    height: 6rem;
+  }
+  .top-button {
+    height: 100%;
+    line-height: 6rem;
+  }
+  .bottom-section {
+    padding: 1rem;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bottom-section input {
+    width: 100%;
+  }
+  .bottom-section button {
+    right: 1rem;
+    width: 93%;
+  }
+  .custom-feedback {
+    line-height: 2rem;
   }
 }
