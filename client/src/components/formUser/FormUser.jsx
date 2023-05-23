@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../redux/userSlice'
 
 
 
@@ -29,8 +31,8 @@ const FormUser = () => {
     lastName:false,
     phone: false
   })
-  
- 
+
+  const dispatch = useDispatch();
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -135,7 +137,11 @@ const FormUser = () => {
       if (form.checkValidity()) {
         if (formData.isCheckboxChecked) {
           setValidated(true);
-          console.log(formData);
+          dispatch(addUser({ 
+            name: formData.name,
+            surName: formData.lastName,
+           mobilePhone: formData.phone,
+           }));
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -348,7 +354,7 @@ const FormUser = () => {
               name="isCheckboxChecked"
               checked={formData.isCheckboxChecked}
               onChange={handleCheckboxChange}
-              isinvalid={errors.isCheckboxChecked !== ''? false : true}
+              // isinvalid={errors.isCheckboxChecked !== ''}
             />
             <Form.Control.Feedback type="invalid" className="custom-feedback">
               {errors.isCheckboxChecked}
