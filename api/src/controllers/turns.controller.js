@@ -32,7 +32,6 @@ const getTurnByDI = async (req, res) => {
     
     const doc = req.params.doc;
     const find= await turnModel.find({"customer.identificationNumber":{$eq:doc}});
-    console.log(find);
     try {
       if (!find.length) {
       handleHttpError(res, "Turns for document not found", 404, "getTurn");
