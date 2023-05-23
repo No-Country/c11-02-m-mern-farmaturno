@@ -19,25 +19,14 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse
             id="basic-navbar-nav"
-            className="justify-content-end ml-md-auto m-4 p-4 bg-white"
+            className="justify-content-end ml-md-auto bg-white"
           >
              <Nav.Link href="">
                 <p className="txCategory mx-1 my-1">Acerca de FarmaTurno</p>
               </Nav.Link>
-            {/* <NavDropdown
-              title="Acerca de FarmaTurno"
-              id="basic-nav-dropdown"
-              className="txCategory1 mx-2"
-            >
-              <NavDropdown.Item href="#action/3.1" className="txSubcategory">
-                <p className="txSubcategory m-2">Cliente</p>
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className="txSubcategory">
-                <p className="txSubcategory m-2">Farmacia</p>
-              </NavDropdown.Item>
-            </NavDropdown> */}
+  
             <Nav className="me-auto"></Nav>
-            <Nav className="txCategory">
+            <Nav className="txCategory mx-4 px-4">
               <Nav.Link href="">
                 <p
                   className="txCategory my-1 mx-2"
