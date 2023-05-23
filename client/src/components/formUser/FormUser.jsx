@@ -3,8 +3,6 @@ import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
 
-
-
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -15,7 +13,7 @@ const FormUser = () => {
     hour: 0,
     isCheckboxChecked: false,
     isTurnoDisponible: false,
-    isHorarioElegido: false
+    isHorarioElegido: false,
   });
   const [errors, setErrors] = useState({
     name: '',
@@ -23,14 +21,12 @@ const FormUser = () => {
     phone: '',
     isCheckboxChecked: '',
   });
-  
+
   const [valid, setValid] = useState({
-    name:false,
-    lastName:false,
-    phone: false
-  })
-  
- 
+    name: false,
+    lastName: false,
+    phone: false,
+  });
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -54,7 +50,7 @@ const FormUser = () => {
       ...prevData,
       [name]: value,
     }));
-    validateField(name,value)
+    validateField(name, value);
   };
   const handleCheckboxChange = (e) => {
     const { checked } = e.target;
@@ -71,9 +67,8 @@ const FormUser = () => {
       hour: dataset.name,
       isHorarioElegido: true,
       isTurnoDisponible: true,
-      
     }));
-    
+
     handleClose();
   };
 
@@ -85,36 +80,37 @@ const FormUser = () => {
       case 'lastName':
         if (!expresiones.name.test(value)) {
           errorMessage = `El ${name} sólo puede contener letras, espacios y acentos`;
-          setValid((prevValid)=>({
+          setValid((prevValid) => ({
             ...prevValid,
-            [name]:false
+            [name]: false,
           }));
         } else if (value.length < 3) {
           errorMessage = `El ${name} debe contener al menos 3 dígitos`;
-          setValid((prevValid)=>({
+          setValid((prevValid) => ({
             ...prevValid,
-            [name]:false
+            [name]: false,
           }));
-        }else {
-          setValid((prevValid)=>({
+        } else {
+          setValid((prevValid) => ({
             ...prevValid,
-            [name]:true
-          }))
+            [name]: true,
+          }));
         }
         break;
-        
+
       case 'phone':
         if (!expresiones.phone.test(value)) {
           errorMessage = 'El número telefónico debe tener 10 dígitos';
-          setValid((prevValid)=>({
+          setValid((prevValid) => ({
             ...prevValid,
-            [name]:false
+            [name]: false,
           }));
         } else {
-          setValid((prevValid)=>({
+          setValid((prevValid) => ({
             ...prevValid,
-            [name]:true,
-          }))}
+            [name]: true,
+          }));
+        }
         break;
       default:
         break;
@@ -124,18 +120,19 @@ const FormUser = () => {
       ...prevErrors,
       [name]: errorMessage,
     }));
-    console.log(errorMessage)
+    console.log(errorMessage);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    if(valid.name & valid.lastName & valid.phone){
+    if (valid.name & valid.lastName & valid.phone) {
       if (form.checkValidity()) {
         if (formData.isCheckboxChecked) {
           setValidated(true);
           console.log(formData);
+          /* Mandarlo al estado de redux */
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -147,7 +144,6 @@ const FormUser = () => {
         setValidated(true);
       }
     }
-    
   };
 
   const resetForm = () => {
@@ -171,7 +167,7 @@ const FormUser = () => {
       name: false,
       lastName: false,
       phone: false,
-    })
+    });
   };
 
   // const handleNameChange = (e) => {
@@ -282,7 +278,7 @@ const FormUser = () => {
                 isValid={valid.name}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-              {errors.name}
+                {errors.name}
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -293,14 +289,14 @@ const FormUser = () => {
                 type="name"
                 placeholder="Ingrese su Apellido"
                 required
-                name='lastName'
+                name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
                 isInvalid={errors.lastName !== ''}
                 isValid={valid.lastName}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-              {errors.lastName}
+                {errors.lastName}
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
@@ -314,7 +310,7 @@ const FormUser = () => {
                 placeholder="Ingrese su número telefónico"
                 required
                 inputMode="numeric"
-                name='phone'
+                name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
                 isInvalid={errors.phone !== ''}
@@ -332,10 +328,11 @@ const FormUser = () => {
                 }`}
                 variant="secondary"
                 onClick={handleShow}
-                disabled={!formData.name || !formData.lastName || !formData.phone}
-                >
-              
-                {formData.isHorarioElegido ? formData.hour : "Elige un horario"}
+                disabled={
+                  !formData.name || !formData.lastName || !formData.phone
+                }
+              >
+                {formData.isHorarioElegido ? formData.hour : 'Elige un horario'}
               </Button>
             </Form.Group>
           </Row>
@@ -348,7 +345,7 @@ const FormUser = () => {
               name="isCheckboxChecked"
               checked={formData.isCheckboxChecked}
               onChange={handleCheckboxChange}
-              isinvalid={errors.isCheckboxChecked !== ''? false : true}
+              isinvalid={errors.isCheckboxChecked !== '' ? false : true}
             />
             <Form.Control.Feedback type="invalid" className="custom-feedback">
               {errors.isCheckboxChecked}
