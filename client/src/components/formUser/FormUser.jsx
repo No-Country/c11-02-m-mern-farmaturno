@@ -3,6 +3,9 @@ import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
 
+
+
+
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -23,10 +26,12 @@ const FormUser = () => {
   });
 
   const [valid, setValid] = useState({
-    name: false,
-    lastName: false,
-    phone: false,
-  });
+    name:false,
+    lastName:false,
+    phone: false
+  })
+
+  const dispatch = useDispatch();
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -131,8 +136,12 @@ const FormUser = () => {
       if (form.checkValidity()) {
         if (formData.isCheckboxChecked) {
           setValidated(true);
-          console.log(formData);
-          /* Mandarlo al estado de redux */
+          dispatch(addUser({ 
+            name: formData.name,
+            surName: formData.lastName,
+           mobilePhone: formData.phone,
+           }));
+           dispatch(addTimeSlot({timeSlot: formData.hour}))
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -345,7 +354,7 @@ const FormUser = () => {
               name="isCheckboxChecked"
               checked={formData.isCheckboxChecked}
               onChange={handleCheckboxChange}
-              isinvalid={errors.isCheckboxChecked !== '' ? false : true}
+              // isinvalid={errors.isCheckboxChecked !== ''}
             />
             <Form.Control.Feedback type="invalid" className="custom-feedback">
               {errors.isCheckboxChecked}
