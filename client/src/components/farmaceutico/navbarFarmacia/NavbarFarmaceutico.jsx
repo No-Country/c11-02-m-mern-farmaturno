@@ -47,7 +47,7 @@ const NavbarFarmaceutico = () => {
                 <NavDropdown
               title="Soy Farmacia"
               id="basic-nav-dropdown"
-              className="txCategory1 mx-2"
+              className="txCategory1 m-2"
             >
               <NavDropdown.Item href="#action/3.1" className="txSubcategory">
                 <p className="txSubcategory m-2">Nuevos Turnos</p>
