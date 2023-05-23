@@ -98,6 +98,7 @@
 
 @media (max-width: 768px) {
   .panelIngreso {
+    align-self: center;
     margin: 0 auto;
     height: 100%;
   }

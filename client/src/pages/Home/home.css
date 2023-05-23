@@ -34,13 +34,16 @@
     grid-template-rows: 75vh repeat(4, 100vh) 99px;
   }
   .welcomeSection {
+    padding-left: 0rem;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 300px;
+    align-content: center;
     gap: 2rem;
   }
   .mensajeBienvenida {
+    padding-left: 2rem;
     width: 100%;
     min-width: 395px;
     font-size: 4rem;
@@ -56,9 +59,12 @@
 }
 
 @media (max-width: 360px) {
+  .home {
+    padding: 0;
+    grid-template-rows: 100vh repeat(4, 100vh) 99px;
+  }
   .welcomeSection {
-    grid-template-rows: 30vh 75vh;
-    padding-top: 6rem;
+    grid-template-rows: 30vh 60vh;
     height: 600px;
   }
   .mensajeBienvenida {
