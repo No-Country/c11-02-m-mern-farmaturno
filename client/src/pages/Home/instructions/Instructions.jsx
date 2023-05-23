@@ -2,7 +2,7 @@ import './instructions.css';
 const Instructions = () => {
   return <div className="instructions">
     <div className='container'>
-      <img src="/instruction.svg" alt="description" />
+      <img src="/instruction.svg" alt="" />
     </div>
   </div>;
 };
