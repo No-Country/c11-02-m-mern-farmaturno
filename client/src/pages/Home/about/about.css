@@ -1,5 +1,40 @@
 .about {
+  
   height: 100%;
   width: 100%;
-  background-color: red;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.column {
+  padding: 8rem;
+  flex-basis: 45%;
+
+}
+
+.column h2 {
+  font-size: 38px;
+  
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.column img{
+  margin-bottom: 15px;
+}
+
+
+p {
+  
+  font-size: 28px;
+}
+
+span{
+  margin-bottom: 10px;
+}
+
+.span_title{
+  display: grid;
+  margin-top: 15px;
 }

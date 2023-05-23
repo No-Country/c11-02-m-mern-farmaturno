@@ -1,5 +1,28 @@
+
+
 .firstDescription {
-  height: 100%;
-  width: 100%;
-  background-color: blue;
+  display: flex;
+  color: white;
+  height: 36%;
+  width: 120%;
+  border-radius: 10px;
+  background-color: rgb(4, 108, 94);
 }
+
+.div_section{
+  padding: 80px;
+}
+
+.div_parrafo {
+  position: relative;
+ /** margin-bottom: 20px;*/
+  font-size: 20px;
+}
+
+.div_section h1{
+  position: relative;
+  
+  font-size: 35px;
+}
+
+
