@@ -7,13 +7,13 @@ const NavBar = () => {
   return (
     <>
       <Navbar expand="lg" className="navbar p-0">
-        <Container fluid className=" mx-4 ">
+        <Container fluid className=" p-4 my-1 ">
           <Navbar.Brand href="/" className="txTitle">
             <img
-              src="https://i.ibb.co/Z8NKxKV/logo-removebg-preview.png"
+              src="https://i.ibb.co/p4pJLg6/logo1-1.png"
               alt="logo"
               height={50}
-              className="mr-3 align-self-start   "
+              className="mx-1 my-1 align-self-start   "
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -21,7 +21,10 @@ const NavBar = () => {
             id="basic-navbar-nav"
             className="justify-content-end ml-md-auto m-4 p-4 bg-white"
           >
-            <NavDropdown
+             <Nav.Link href="">
+                <p className="txCategory mx-1 my-1">Acerca de FarmaTurno</p>
+              </Nav.Link>
+            {/* <NavDropdown
               title="Acerca de FarmaTurno"
               id="basic-nav-dropdown"
               className="txCategory1 mx-2"
@@ -32,19 +35,19 @@ const NavBar = () => {
               <NavDropdown.Item href="#action/3.2" className="txSubcategory">
                 <p className="txSubcategory m-2">Farmacia</p>
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <Nav className="me-auto"></Nav>
             <Nav className="txCategory">
               <Nav.Link href="">
                 <p
-                  className="txCategory m-2"
+                  className="txCategory my-1 mx-2"
                   onClick={() => navigate('/adminitration_allowed')}
                 >
                   Soy farmacia
                 </p>
               </Nav.Link>
               <Nav.Link href="">
-                <p className="txCategory m-2">Ayuda</p>
+                <p className="txCategory my-1 mx-2">Ayuda</p>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

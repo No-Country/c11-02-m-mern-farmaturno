@@ -8,21 +8,18 @@
 }
 
 .txCategory {
-  font-size: 1.15em;
-  font-weight: 700;
+  font-size: 1.3331rem;
+  font-weight:500;
   color: #111;
 }
 .txCategory1 {
-  font-size: 1.3em;
-  font-weight: 700;
+  font-size: 1.3331rem;
+  font-weight:500;
+  /* font-size: 1.3em;
+  font-weight: 700; */
   color: #111;
 }
 
-.txSubcategory {
-  font-size: 1.2em;
-  font-weight: 400;
-  color: #111;
-}
 
 @media (max-width: 991.98px) {
   /* .navbar .navbar-collapse { */
@@ -39,6 +36,6 @@
   .navbar .navbar-brand {
     text-align: center;
     margin-right: auto;
-    margin-left: 0.5rem;
+    margin-left: 2rem;
   }
 }
