@@ -1,34 +1,36 @@
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Modal from 'react-bootstrap/Modal';
-import Stack from 'react-bootstrap/Stack';
+import { useState } from 'react';
+import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
+import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import { useState, useEffect } from 'react';
+
+
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
-
-  const [hour, setHour] = useState(0);
-  const [isHorarioElegido, setIsHorarioElegido] = useState(false);
-  const [isTurnoDisponible, setIsTurnoDisponible] = useState(false);
-  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-  const [isCheckboxError, setIsCheckboxError] = useState(false);
-
   const [validated, setValidated] = useState(false);
-
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [nameError, setNameError] = useState('');
-  const [lastNameError, setLastNameError] = useState('');
-  const [phoneError, setPhoneError] = useState('');
-  const [nameValid, setNameValid] = useState(false);
-  const [lastNameValid, setLastNameValid] = useState(false);
-  const [phoneValid, setPhoneValid] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    lastName: '',
+    phone: '',
+    hour: 0,
+    isCheckboxChecked: false,
+    isTurnoDisponible: false,
+    isHorarioElegido: false
+  });
+  const [errors, setErrors] = useState({
+    name: '',
+    lastName: '',
+    phone: '',
+    isCheckboxChecked: '',
+  });
+  
+  const [valid, setValid] = useState({
+    name:false,
+    lastName:false,
+    phone: false
+  })
+  
+ 
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -46,91 +48,217 @@ const FormUser = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-    if (!expresiones.name.test(e.target.value)) {
-      setNameError('El nombre sólo puede contener letras, espacios y acentos');
-      setNameValid(false);
-    } else if (e.target.value.length < 3) {
-      setNameError('El nombre debe contener al menos 3 digitos');
-      setNameValid(false);
-    } else {
-      setNameError('');
-      setNameValid(true);
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    validateField(name,value)
   };
-
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-    if (!expresiones.name.test(e.target.value)) {
-      setLastNameError(
-        'El apellido sólo puede contener letras, espacios y acentos',
-      );
-      setLastNameValid(false);
-    } else {
-      setLastNameError('');
-      setLastNameValid(true);
-    }
-  };
-
-  const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
-    if (!expresiones.phone.test(e.target.value)) {
-      setPhoneError('El nro de letefono debe tener 10 digitos');
-      setPhoneValid(false)
-    } else {
-      setPhoneError('');
-      setPhoneValid(true);
-    }
-  };
-
   const handleCheckboxChange = (e) => {
-    setIsCheckboxChecked(e.target.checked);
-    setIsCheckboxError(false);
+    const { checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      isCheckboxChecked: true,
+    }));
   };
 
   const handlechoose = (event) => {
     const { value, dataset } = event.currentTarget;
-
-    setHour(dataset.name);
-    setIsHorarioElegido(true);
-    setIsTurnoDisponible(true);
+    setFormData((prevData) => ({
+      ...prevData,
+      hour: dataset.name,
+      isHorarioElegido: true,
+      isTurnoDisponible: true,
+      
+    }));
+    
     handleClose();
   };
 
-  const resetForm = () => {
-    setName('');
-    setLastName('');
-    setPhone('');
-    setHour(0);
-    setIsHorarioElegido(false);
-    setIsTurnoDisponible(false);
-    setValidated(false);
-    setIsCheckboxChecked(false);
-    setIsCheckboxError(false);
-    setNameValid(false);
-    setLastNameValid(false);
-    setPhoneValid(false);
+  const validateField = (name, value) => {
+    let errorMessage = '';
+
+    switch (name) {
+      case 'name':
+      case 'lastName':
+        if (!expresiones.name.test(value)) {
+          errorMessage = `El ${name} sólo puede contener letras, espacios y acentos`;
+          setValid((prevValid)=>({
+            ...prevValid,
+            [name]:false
+          }));
+        } else if (value.length < 3) {
+          errorMessage = `El ${name} debe contener al menos 3 dígitos`;
+          setValid((prevValid)=>({
+            ...prevValid,
+            [name]:false
+          }));
+        }else {
+          setValid((prevValid)=>({
+            ...prevValid,
+            [name]:true
+          }))
+        }
+        break;
+        
+      case 'phone':
+        if (!expresiones.phone.test(value)) {
+          errorMessage = 'El número telefónico debe tener 10 dígitos';
+          setValid((prevValid)=>({
+            ...prevValid,
+            [name]:false
+          }));
+        } else {
+          setValid((prevValid)=>({
+            ...prevValid,
+            [name]:true,
+          }))}
+        break;
+      default:
+        break;
+    }
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: errorMessage,
+    }));
+    console.log(errorMessage)
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (nameValid && lastNameValid && phoneValid) {
-      if (isCheckboxChecked) {
-        setValidated(true);
-        const formData = {
-          name,
-          lastName,
-          phone,
-          hour,
-        };
-        console.log(formData);
-        resetForm()
+
+    const form = e.currentTarget;
+    if(valid.name & valid.lastName & valid.phone){
+      if (form.checkValidity()) {
+        if (formData.isCheckboxChecked) {
+          setValidated(true);
+          console.log(formData);
+          resetForm();
+        } else {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            isCheckboxChecked: 'Debes aceptar los términos y condiciones',
+          }));
+        }
       } else {
-        setIsCheckboxError(true);
+        setValidated(true);
       }
     }
+    
   };
+
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      lastName: '',
+      phone: '',
+      hour: 0,
+      isCheckboxChecked: false,
+      isHorarioElegido: false,
+      isTurnoDisponible: false,
+    });
+    setValidated(false);
+    setErrors({
+      name: '',
+      lastName: '',
+      phone: '',
+      isCheckboxChecked: false,
+    });
+    setValid({
+      name: false,
+      lastName: false,
+      phone: false,
+    })
+  };
+
+  // const handleNameChange = (e) => {
+  //   setName(e.target.value);
+  //   if (!expresiones.name.test(e.target.value)) {
+  //     setNameError('El nombre sólo puede contener letras, espacios y acentos');
+  //     setNameValid(false);
+  //   } else if (e.target.value.length < 3) {
+  //     setNameError('El nombre debe contener al menos 3 digitos');
+  //     setNameValid(false);
+  //   } else {
+  //     setNameError('');
+  //     setNameValid(true);
+  //   }
+  // };
+
+  // const handleLastNameChange = (e) => {
+  //   setLastName(e.target.value);
+  //   if (!expresiones.name.test(e.target.value)) {
+  //     setLastNameError(
+  //       'El apellido sólo puede contener letras, espacios y acentos',
+  //     );
+  //     setLastNameValid(false);
+  //   } else {
+  //     setLastNameError('');
+  //     setLastNameValid(true);
+  //   }
+  // };
+
+  // const handlePhoneChange = (e) => {
+  //   setPhone(e.target.value);
+  //   if (!expresiones.phone.test(e.target.value)) {
+  //     setPhoneError('El nro de letefono debe tener 10 digitos');
+  //     setPhoneValid(false)
+  //   } else {
+  //     setPhoneError('');
+  //     setPhoneValid(true);
+  //   }
+  // };
+
+  // const handleCheckboxChange = (e) => {
+  //   setIsCheckboxChecked(e.target.checked);
+  //   setIsCheckboxError(false);
+  // };
+
+  // const handlechoose = (event) => {
+  //   const { value, dataset } = event.currentTarget;
+
+  //   setHour(dataset.name);
+  //   setIsHorarioElegido(true);
+  //   setIsTurnoDisponible(true);
+  //   handleClose();
+  // };
+
+  // const resetForm = () => {
+  //   setName('');
+  //   setLastName('');
+  //   setPhone('');
+  //   setHour(0);
+  //   setIsHorarioElegido(false);
+  //   setIsTurnoDisponible(false);
+  //   setValidated(false);
+  //   setIsCheckboxChecked(false);
+  //   setIsCheckboxError(false);
+  //   setNameValid(false);
+  //   setLastNameValid(false);
+  //   setPhoneValid(false);
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (nameValid && lastNameValid && phoneValid) {
+  //     if (isCheckboxChecked) {
+  //       setValidated(true);
+  //       const formData = {
+  //         name,
+  //         lastName,
+  //         phone,
+  //         hour,
+  //       };
+  //       console.log(formData);
+  //       resetForm()
+  //     } else {
+  //       setIsCheckboxError(true);
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -147,13 +275,14 @@ const FormUser = () => {
                 type="name"
                 placeholder="Ingrese su nombre"
                 required
-                value={name}
-                onChange={handleNameChange}
-                isInvalid={nameError !== ''}
-                isValid={nameValid}
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                isInvalid={errors.name !== ''}
+                isValid={valid.name}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-                {nameError}
+              {errors.name}
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -164,13 +293,14 @@ const FormUser = () => {
                 type="name"
                 placeholder="Ingrese su Apellido"
                 required
-                value={lastName}
-                onChange={handleLastNameChange}
-                isInvalid={lastNameError !== ''}
-                isValid={lastNameValid}
+                name='lastName'
+                value={formData.lastName}
+                onChange={handleInputChange}
+                isInvalid={errors.lastName !== ''}
+                isValid={valid.lastName}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-                {lastNameError}
+              {errors.lastName}
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
@@ -184,26 +314,28 @@ const FormUser = () => {
                 placeholder="Ingrese su número telefónico"
                 required
                 inputMode="numeric"
-                value={phone}
-                onChange={handlePhoneChange}
-                isInvalid={phoneError !== ''}
-                isValid={phoneValid}
+                name='phone'
+                value={formData.phone}
+                onChange={handleInputChange}
+                isInvalid={errors.phone !== ''}
+                isValid={valid.phone}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-                {phoneError}
+                {errors.phone}
               </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" as={Col}>
               <Button
                 className={`buttonHorario mt-5 ${
-                  isHorarioElegido ? 'buttonHorario--inactive' : ''
+                  formData.isHorarioElegido ? 'buttonHorario--inactive' : ''
                 }`}
                 variant="secondary"
                 onClick={handleShow}
-                disabled={!nameValid || !lastNameValid || !phoneValid}
-              >
-                {isHorarioElegido ? hour : "Elige un horario"}
+                disabled={!formData.name || !formData.lastName || !formData.phone}
+                >
+              
+                {formData.isHorarioElegido ? formData.hour : "Elige un horario"}
               </Button>
             </Form.Group>
           </Row>
@@ -213,20 +345,24 @@ const FormUser = () => {
               type="checkbox"
               label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
               required
-              checked={isCheckboxChecked}
+              name="isCheckboxChecked"
+              checked={formData.isCheckboxChecked}
               onChange={handleCheckboxChange}
-              isInvalid={isCheckboxError}
+              isinvalid={errors.isCheckboxChecked !== ''? false : true}
             />
+            <Form.Control.Feedback type="invalid" className="custom-feedback">
+              {errors.isCheckboxChecked}
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Stack gap={2} className="col-md-5 mx-auto">
             <Button
               className={`buttonTurno ${
-                isTurnoDisponible ? 'buttonTurno--active' : ''
+                formData.isTurnoDisponible ? 'buttonTurno--active' : ''
               }`}
               variant="secondary"
               type="submit"
-              disabled={!isTurnoDisponible}
+              disabled={!formData.isTurnoDisponible}
             >
               PEDIR TURNO
             </Button>
@@ -248,9 +384,9 @@ const FormUser = () => {
               id={`radio-${idx}`}
               type="radio"
               variant="success"
-              name="hora"
+              name="hour"
               value={hora.value}
-              checked={hora === hora.value}
+              checked={formData.hour === hora.value}
               // onChange={(e) => setRadioValue(e.currentTarget.value)}
               onClick={handlechoose}
               data-name={hora.name}
