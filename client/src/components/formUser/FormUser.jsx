@@ -4,12 +4,14 @@ import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
 import {addUser, addTimeSlot} from '../../redux/userSlice'
 import { useDispatch } from 'react-redux';
+import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
 
 
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
+  const [seeModalConfirm,setSeeModalConfirm] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     lastName: '',
@@ -268,6 +270,7 @@ const FormUser = () => {
 
   return (
     <>
+    {seeModalConfirm && <ModalToConfirmYourTurn closeMenu={()=>setSeeModalConfirm(false)}/>}
       <Container className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1>Farmacia Cruz Verde</h1>
@@ -370,6 +373,7 @@ const FormUser = () => {
               variant="secondary"
               type="submit"
               disabled={!formData.isTurnoDisponible}
+              onClick={()=>setSeeModalConfirm(true)}
             >
               PEDIR TURNO
             </Button>
