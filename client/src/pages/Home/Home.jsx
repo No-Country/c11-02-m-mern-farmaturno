@@ -20,7 +20,7 @@ const Home = () => {
       <Divider />
       <About />
       <Instructions />
-      <Footer />
+      <Footer className="footer" />
     </div>
   );
 };

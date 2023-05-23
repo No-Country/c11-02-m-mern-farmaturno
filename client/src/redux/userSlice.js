@@ -23,6 +23,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  timeSlot: '',
   name: '',
   surName: '',
   identificationNumber: '',
@@ -43,9 +44,14 @@ export const userSlice = createSlice({
       state.surName = surName;
       state.mobilePhone = mobilePhone;
     },
+    addTimeSlot: (state, action) => {
+      const { timeSlot } = action.payload;
+      state.timeSlot = timeSlot;
+    },
   },
 });
 
-export const { addIdentificationNumer, addUser } = userSlice.actions;
+export const { addIdentificationNumer, addUser, addTimeSlot } =
+  userSlice.actions;
 
 export default userSlice.reducer;
