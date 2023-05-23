@@ -39,6 +39,6 @@
   .navbar .navbar-brand {
     text-align: center;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 0.5rem;
   }
 }
