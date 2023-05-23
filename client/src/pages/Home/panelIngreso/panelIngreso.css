@@ -105,6 +105,7 @@
     font-size: 1.8rem;
   }
   .bottom-section {
+    padding: 2rem 4rem 1rem 4rem;
     height: 80%;
   }
   .bottom-section .titleAndSubtitle_container {
@@ -127,9 +128,10 @@
     height: 4.2rem;
     width: 40%;
     right: 2rem;
-    bottom: 3.7rem;
+    bottom: 2rem;
   }
   .custom-feedback {
-    line-height: 3rem;
+    line-height: 1.6rem;
+    width: 90%;
   }
 }
