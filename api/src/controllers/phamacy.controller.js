@@ -32,7 +32,7 @@ const getMyPharmacy = async (req, res) => {
  * @param {*} req 
  * @param {*} res 
  */
-const createPhamacy = async (req, res) => {
+const createPharmacy = async (req, res) => {
 
 
   try {
@@ -43,12 +43,16 @@ const createPhamacy = async (req, res) => {
     res.status(201).json({msg: 'Pharmacy Created', data: create});
     
   } catch (error) {
+    if (error.name === 'MongoServerError' && error.code === 11000){
+      handleHttpError(res, "Company Already Exist", 400, "createPharmacy", error);
+      return;
+    }
     handleHttpError(res, "Internal Server Error", 500, "getCustomer", error);
   }
 }
 
 
 module.exports = {
-  createPhamacy,
+  createPharmacy,
   getMyPharmacy,
 }
