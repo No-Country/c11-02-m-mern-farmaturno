@@ -1,10 +1,11 @@
 .navbar {
   border-bottom: 0.1em solid rgba(169, 165, 165, 0.37);
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
 }
 
 .txCategory {
@@ -21,7 +22,7 @@
 }
 
 
-@media (max-width: 991.98px) {
+@media (max-width: 991.98px),(max-height: 680px ){
   /* .navbar .navbar-collapse { */
     /* display: flex;
     flex-direction: column;
@@ -29,7 +30,9 @@
     width: 100%;
     margin-top: 1rem; */
   /* } */
-  
+  .navbar{
+    height: 115%;
+  }
   .navbar .navbar-toggler {
     order: -1;
   }

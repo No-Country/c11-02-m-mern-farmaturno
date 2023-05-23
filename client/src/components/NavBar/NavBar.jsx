@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <>
       <Navbar expand="lg" className="navbar p-0">
-        <Container fluid className=" p-4 my-1 ">
+        <Container fluid className="  my-1 ">
           <Navbar.Brand href="/" className="txTitle">
             <img
               src="https://i.ibb.co/p4pJLg6/logo1-1.png"
