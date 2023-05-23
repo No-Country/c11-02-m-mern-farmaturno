@@ -6,6 +6,7 @@ import Home from '../pages/Home/Home';
 import LoginForPharmacyOwner from '../components/PharmaceuticalLogin/LoginScreen';
 import NoAppointmentPrueba from '../pages/noAppointment/NoAppointmentprueba';
 import { Confirmation } from "../pages/Confirmation/Confirmation";
+import PageHomeFarmacia from '../pages/pagePerfilFarmaceutico/PageHomeFarmacia';
 
 
 export const router = createBrowserRouter([
@@ -25,7 +26,8 @@ export const router = createBrowserRouter([
 	  {
 		path:'confirmacion_turno',
 		element: <Confirmation/>
-	  }
+	  },
+    {path:'perfil_farmacia', element:<PageHomeFarmacia/>}
 			
 		],
 	},
