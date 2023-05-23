@@ -8,7 +8,6 @@ const NavBar = () => {
     <>
       <Navbar expand="lg" className="navbar p-0">
         <Container fluid className=" mx-4 ">
-          {/* <div className="d-flex align-items-center justify-content-between"> */}
           <Navbar.Brand href="/" className="txTitle">
             <img
               src="https://i.ibb.co/Z8NKxKV/logo-removebg-preview.png"
@@ -17,11 +16,10 @@ const NavBar = () => {
               className="mr-3 align-self-start   "
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
-          {/* </div> */}
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse
             id="basic-navbar-nav"
-            className="justify-content-end ml-md-auto m-4 p-4"
+            className="justify-content-end ml-md-auto m-4 p-4 bg-white"
           >
             <NavDropdown
               title="Acerca de FarmaTurno"

@@ -38,7 +38,7 @@ const PanelIngreso = () => {
       setDniError('El número de identidad es obligatorio');
       setValidated(false);
     } else if (dni.length > 10) {
-      setDniError('El número de identidad debe tener menos de 10 dígitos');
+      setDniError('Su DNI debe tener menos de 10 dígitos');
       setValidated(false);
     } else {
       setDniError('');
