@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
-
+import {addUser, addTimeSlot} from '../../redux/userSlice'
+import { useDispatch } from 'react-redux';
 
 
 
