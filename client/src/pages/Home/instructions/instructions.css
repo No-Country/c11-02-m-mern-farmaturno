@@ -1,5 +1,23 @@
-.instructions {
-  height: 100%;
+.instructions{
+  padding: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.container img{
+  display: relative;
   width: 100%;
-  background-color: violet;
+}
+
+@media (max-width: 768px) {
+  .instructions {
+    padding: 1.5rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  .instructions {
+    padding: 1.5rem;
+    margin-bottom: 30px;
+  }
 }

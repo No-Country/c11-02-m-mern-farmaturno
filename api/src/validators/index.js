@@ -4,6 +4,7 @@ const validators = {
   validatorCreateTurn: require('./turn.validator'),
   validatorIdentification: require('./identification.validator'),
   validatorPhoneNumber: require('./phone.validator'),
+  validatorCreatePharmacy: require('./pharmacy.validator'),
 
 }
 
