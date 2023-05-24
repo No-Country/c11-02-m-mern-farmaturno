@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
-import {addUser, addTimeSlot} from '../../redux/userSlice'
+import { addUser, addTimeSlot } from '../../redux/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
 import { postTurn } from '../../services/PostTurn';
 
-
-
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
-  const [seeModalConfirm,setSeeModalConfirm] = useState(false)
-  const { name, surName, mobilePhone, timeSlot } = useSelector((state) => state.user);
+  const [seeModalConfirm, setSeeModalConfirm] = useState(false);
+  const { name, surName, mobilePhone, timeSlot } = useSelector(
+    (state) => state.user,
+  );
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
@@ -32,10 +32,10 @@ const FormUser = () => {
   });
 
   const [valid, setValid] = useState({
-    name:false,
-    lastName:false,
-    phone: false
-  })
+    name: false,
+    lastName: false,
+    phone: false,
+  });
 
   const dispatch = useDispatch();
 
@@ -143,20 +143,15 @@ const FormUser = () => {
       if (form.checkValidity()) {
         if (formData.isCheckboxChecked) {
           setValidated(true);
-          dispatch(addUser({ 
-            name: formData.name,
-            surName: formData.lastName,
-           mobilePhone: formData.phone,
-           }));
-           dispatch(addTimeSlot({timeSlot: formData.range}));
-           const data = {
-            name,
-            surName,
-            mobilePhone,
-            timeSlot,
-           };
-           console.log(data)
-postTurn(data);
+          dispatch(
+            addUser({
+              name: formData.name,
+              surName: formData.lastName,
+              mobilePhone: formData.phone,
+            }),
+          );
+          dispatch(addTimeSlot({ timeSlot: formData.range }));
+
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -195,95 +190,11 @@ postTurn(data);
     });
   };
 
-  // const handleNameChange = (e) => {
-  //   setName(e.target.value);
-  //   if (!expresiones.name.test(e.target.value)) {
-  //     setNameError('El nombre sólo puede contener letras, espacios y acentos');
-  //     setNameValid(false);
-  //   } else if (e.target.value.length < 3) {
-  //     setNameError('El nombre debe contener al menos 3 digitos');
-  //     setNameValid(false);
-  //   } else {
-  //     setNameError('');
-  //     setNameValid(true);
-  //   }
-  // };
-
-  // const handleLastNameChange = (e) => {
-  //   setLastName(e.target.value);
-  //   if (!expresiones.name.test(e.target.value)) {
-  //     setLastNameError(
-  //       'El apellido sólo puede contener letras, espacios y acentos',
-  //     );
-  //     setLastNameValid(false);
-  //   } else {
-  //     setLastNameError('');
-  //     setLastNameValid(true);
-  //   }
-  // };
-
-  // const handlePhoneChange = (e) => {
-  //   setPhone(e.target.value);
-  //   if (!expresiones.phone.test(e.target.value)) {
-  //     setPhoneError('El nro de letefono debe tener 10 digitos');
-  //     setPhoneValid(false)
-  //   } else {
-  //     setPhoneError('');
-  //     setPhoneValid(true);
-  //   }
-  // };
-
-  // const handleCheckboxChange = (e) => {
-  //   setIsCheckboxChecked(e.target.checked);
-  //   setIsCheckboxError(false);
-  // };
-
-  // const handlechoose = (event) => {
-  //   const { value, dataset } = event.currentTarget;
-
-  //   setHour(dataset.name);
-  //   setIsHorarioElegido(true);
-  //   setIsTurnoDisponible(true);
-  //   handleClose();
-  // };
-
-  // const resetForm = () => {
-  //   setName('');
-  //   setLastName('');
-  //   setPhone('');
-  //   setHour(0);
-  //   setIsHorarioElegido(false);
-  //   setIsTurnoDisponible(false);
-  //   setValidated(false);
-  //   setIsCheckboxChecked(false);
-  //   setIsCheckboxError(false);
-  //   setNameValid(false);
-  //   setLastNameValid(false);
-  //   setPhoneValid(false);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (nameValid && lastNameValid && phoneValid) {
-  //     if (isCheckboxChecked) {
-  //       setValidated(true);
-  //       const formData = {
-  //         name,
-  //         lastName,
-  //         phone,
-  //         hour,
-  //       };
-  //       console.log(formData);
-  //       resetForm()
-  //     } else {
-  //       setIsCheckboxError(true);
-  //     }
-  //   }
-  // };
-
   return (
     <>
-    {seeModalConfirm && <ModalToConfirmYourTurn closeMenu={()=>setSeeModalConfirm(false)}/>}
+      {seeModalConfirm && (
+        <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
+      )}
       <Container className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1>Farmacia Cruz Verde</h1>
@@ -386,7 +297,7 @@ postTurn(data);
               variant="secondary"
               type="submit"
               disabled={!formData.isTurnoDisponible}
-              onClick={()=>setSeeModalConfirm(true)}
+              onClick={() => setSeeModalConfirm(true)}
             >
               PEDIR TURNO
             </Button>
@@ -425,3 +336,89 @@ postTurn(data);
 };
 
 export default FormUser;
+
+// const handleNameChange = (e) => {
+//   setName(e.target.value);
+//   if (!expresiones.name.test(e.target.value)) {
+//     setNameError('El nombre sólo puede contener letras, espacios y acentos');
+//     setNameValid(false);
+//   } else if (e.target.value.length < 3) {
+//     setNameError('El nombre debe contener al menos 3 digitos');
+//     setNameValid(false);
+//   } else {
+//     setNameError('');
+//     setNameValid(true);
+//   }
+// };
+
+// const handleLastNameChange = (e) => {
+//   setLastName(e.target.value);
+//   if (!expresiones.name.test(e.target.value)) {
+//     setLastNameError(
+//       'El apellido sólo puede contener letras, espacios y acentos',
+//     );
+//     setLastNameValid(false);
+//   } else {
+//     setLastNameError('');
+//     setLastNameValid(true);
+//   }
+// };
+
+// const handlePhoneChange = (e) => {
+//   setPhone(e.target.value);
+//   if (!expresiones.phone.test(e.target.value)) {
+//     setPhoneError('El nro de letefono debe tener 10 digitos');
+//     setPhoneValid(false)
+//   } else {
+//     setPhoneError('');
+//     setPhoneValid(true);
+//   }
+// };
+
+// const handleCheckboxChange = (e) => {
+//   setIsCheckboxChecked(e.target.checked);
+//   setIsCheckboxError(false);
+// };
+
+// const handlechoose = (event) => {
+//   const { value, dataset } = event.currentTarget;
+
+//   setHour(dataset.name);
+//   setIsHorarioElegido(true);
+//   setIsTurnoDisponible(true);
+//   handleClose();
+// };
+
+// const resetForm = () => {
+//   setName('');
+//   setLastName('');
+//   setPhone('');
+//   setHour(0);
+//   setIsHorarioElegido(false);
+//   setIsTurnoDisponible(false);
+//   setValidated(false);
+//   setIsCheckboxChecked(false);
+//   setIsCheckboxError(false);
+//   setNameValid(false);
+//   setLastNameValid(false);
+//   setPhoneValid(false);
+// };
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   if (nameValid && lastNameValid && phoneValid) {
+//     if (isCheckboxChecked) {
+//       setValidated(true);
+//       const formData = {
+//         name,
+//         lastName,
+//         phone,
+//         hour,
+//       };
+//       console.log(formData);
+//       resetForm()
+//     } else {
+//       setIsCheckboxError(true);
+//     }
+//   }
+// };

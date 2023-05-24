@@ -37,7 +37,7 @@ const PanelIngreso = () => {
     } else {
       setDniError('');
       setValidated(true);
-      dispatch(addIdentificationNumer({ identificationNumber: dni }));
+      dispatch(addIdentificationNumer({ identificationNumber: parseInt(dni) }));
       fetchData('http://localhost:3002/api/customer/')
         .then((data) => {
           console.log(data);
