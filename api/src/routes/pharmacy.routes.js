@@ -4,14 +4,15 @@ const {getMyPharmacy, createPharmacy} = require('../controllers/phamacy.controll
 const router = Router();
 
 
-
+/**
+ * Get pharmacy details by Name
+ */
 router.get('/:pharmacyName', getMyPharmacy);
+
+/**
+ * Create pharmacy in DB
+ */
 router.post('/',validatorCreatePharmacy, createPharmacy);
-
-
-
-
-
 
 
 
