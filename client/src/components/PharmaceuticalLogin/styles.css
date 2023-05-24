@@ -103,11 +103,13 @@
     color: #008C73;
     display: inline;
     cursor: pointer;
+    font-size: small;
 }
 .submit_btn > p {
     width: fit-content;
     height: fit-content;
     margin: auto;
+    font-size: small;
 }
 @media (max-width:840px) {
     .form_allowed_container{

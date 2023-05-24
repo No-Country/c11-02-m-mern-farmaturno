@@ -3,18 +3,23 @@ import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
 import {addUser, addTimeSlot} from '../../redux/userSlice'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
+import { postTurn } from '../../helpers/PostTurn';
 
 
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
+  const [seeModalConfirm,setSeeModalConfirm] = useState(false)
+  const { name, surName, mobilePhone, timeSlot } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({
-    name: '',
-    lastName: '',
-    phone: '',
+    name: name,
+    lastName: surName,
+    phone: mobilePhone,
     hour: 0,
+    range: 0,
     isCheckboxChecked: false,
     isTurnoDisponible: false,
     isHorarioElegido: false,
@@ -71,6 +76,7 @@ const FormUser = () => {
     setFormData((prevData) => ({
       ...prevData,
       hour: dataset.name,
+      range: dataset.value,
       isHorarioElegido: true,
       isTurnoDisponible: true,
     }));
@@ -142,7 +148,14 @@ const FormUser = () => {
             surName: formData.lastName,
            mobilePhone: formData.phone,
            }));
-           dispatch(addTimeSlot({timeSlot: formData.hour}))
+           dispatch(addTimeSlot({timeSlot: formData.range}));
+           const data = {
+            name,
+            surName,
+            mobilePhone,
+            timeSlot,
+           };
+postTurn(data);
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -158,10 +171,11 @@ const FormUser = () => {
 
   const resetForm = () => {
     setFormData({
-      name: '',
-      lastName: '',
-      phone: '',
+      name: name,
+      lastName: surName,
+      phone: mobilePhone,
       hour: 0,
+      range: 0,
       isCheckboxChecked: false,
       isHorarioElegido: false,
       isTurnoDisponible: false,
@@ -268,6 +282,7 @@ const FormUser = () => {
 
   return (
     <>
+    {seeModalConfirm && <ModalToConfirmYourTurn closeMenu={()=>setSeeModalConfirm(false)}/>}
       <Container className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1>Farmacia Cruz Verde</h1>
@@ -370,6 +385,7 @@ const FormUser = () => {
               variant="secondary"
               type="submit"
               disabled={!formData.isTurnoDisponible}
+              onClick={()=>setSeeModalConfirm(true)}
             >
               PEDIR TURNO
             </Button>
@@ -392,7 +408,7 @@ const FormUser = () => {
               type="radio"
               variant="success"
               name="hour"
-              value={hora.value}
+              data-value={hora.value}
               checked={formData.hour === hora.value}
               // onChange={(e) => setRadioValue(e.currentTarget.value)}
               onClick={handlechoose}
