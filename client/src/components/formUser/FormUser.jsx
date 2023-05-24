@@ -145,9 +145,9 @@ const FormUser = () => {
           setValidated(true);
           dispatch(
             addUser({
-              name: formData.name,
-              surName: formData.lastName,
-              mobilePhone: formData.phone,
+            name: formData.name,
+            surName: formData.lastName,
+           mobilePhone: formData.phone,
             }),
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));
