@@ -5,7 +5,7 @@ import './FormUserStyle.css';
 import {addUser, addTimeSlot} from '../../redux/userSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
-import { postTurn } from '../../helpers/PostTurn';
+import { postTurn } from '../../services/PostTurn';
 
 
 
@@ -155,6 +155,7 @@ const FormUser = () => {
             mobilePhone,
             timeSlot,
            };
+           console.log(data)
 postTurn(data);
           resetForm();
         } else {
