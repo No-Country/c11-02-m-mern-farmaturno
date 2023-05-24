@@ -2,8 +2,6 @@ const {matchedData} = require('express-validator');
 const {pharmacyModel} = require('../models');
 const {handleHttpError} = require('../utils/handleError');
 
-
-
 /**
  * Get Pharmacy data
  * @param {*} req 
