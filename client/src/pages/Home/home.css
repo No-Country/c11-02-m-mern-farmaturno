@@ -3,7 +3,7 @@
   overflow-y: scroll;
   height: 92vh;
   display: grid;
-  grid-template-rows: 100vh 20rem repeat(4, 100vh) 99px;
+  grid-template-rows: 100vh 20rem 100vh 100vh 50vh 30px;
   align-items: center;
   justify-content: center;
   gap: 10rem;

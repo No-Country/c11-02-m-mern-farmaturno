@@ -1,0 +1,10 @@
+.signUpPharmacy {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 70% 20% 10%;
+  overflow-y: scroll;
+}
+
+.details {
+  padding-top: 5rem;
+}
