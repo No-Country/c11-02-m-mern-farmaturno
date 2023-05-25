@@ -1,14 +1,18 @@
 import { Button } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import './signUpPharmacy.css';
-
+import { useState } from 'react';
+import FistFormToComplete from './firstDataForm/firstForm';
 const SignUpPharmacy = () => {
+  const [seeFormRequired,setSeeFormRequired] = useState('')
   return (
     <div className="signUpPharmacy">
       <section className="details">
-        Aca se renderizaria la seccion que corresponda
+        <p>titulo mas boton</p>
+        {
+          seeFormRequired === '' ? <FistFormToComplete changeMenu={()=>setSeeFormRequired('a')}/> : <p>chau</p>
+        }
       </section>
-      <Button variant="secondary">Siguiente</Button>
       <ProgressBar variant="success" now={30} />
     </div>
   );
