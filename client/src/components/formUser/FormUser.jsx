@@ -11,9 +11,7 @@ const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, mobilePhone, timeSlot } = useSelector(
-    (state) => state.user,
-  );
+  const { name, surName, mobilePhone } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
@@ -145,9 +143,9 @@ const FormUser = () => {
           setValidated(true);
           dispatch(
             addUser({
-            name: formData.name,
-            surName: formData.lastName,
-           mobilePhone: formData.phone,
+              name: formData.name,
+              surName: formData.lastName,
+              mobilePhone: formData.phone,
             }),
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));

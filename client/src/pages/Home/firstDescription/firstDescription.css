@@ -1,27 +1,30 @@
-
-
 .firstDescription {
   display: flex;
+  align-content: center;
   color: white;
-  height: 36%;
+  height: 100%;
   width: 120%;
-  border-radius: 10px;
   background-color: rgb(4, 108, 94);
 }
 
-.div_section{
-  padding: 80px;
+.div_section {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 4rem;
 }
 
 .div_parrafo {
   position: relative;
- /** margin-bottom: 20px;*/
+  /** margin-bottom: 20px;*/
   font-size: 20px;
 }
 
-.div_section h1{
+.div_section h1 {
   position: relative;
-  
+
   font-size: 35px;
 }
 
