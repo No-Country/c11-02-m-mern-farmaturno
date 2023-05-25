@@ -18,7 +18,11 @@ const CustomerSchema = new mongoose.Schema(
         registry: {
           type: Date,
         },
+        timeSlot: {
+          type: String,
+        },
       },
+
     ],
   },
   {

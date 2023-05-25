@@ -1,6 +1,7 @@
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
 const { turnModel, customerModel } = require("../models");
+const moment = require('moment');
 
 /**
  * Get Turn by id
@@ -34,13 +35,34 @@ const getTurnByDI = async (req, res) => {
       "customer.identificationNumber": { $eq: doc },
     });
     if (!find.length) {
-      handleHttpError(res, "Turns for document not found", 404, "getTurn");
+      handleHttpError(res, "Turns for document not found", 404, "getTurnByDI");
       return;
     } else {
       res.status(200).send(find);
     }
   } catch (error) {
-    handleHttpError(res, "Internal Server Error", 500, "getTurn", error);
+    handleHttpError(res, "Internal Server Error", 500, "getTurnByDI", error);
+  }
+};
+
+/**
+ * Get Turn by Hour
+ * @param {*} req
+ * @param {*} res
+ */
+const getTurnByHour = async (req, res) => {
+  try {
+    const hour = req.params.hour.toString();
+    const find = await turnModel.find({ timeSlot: { $eq: hour }
+    });
+    if (!find.length) {
+      handleHttpError(res, "Turns for hour not found", 404, "getTurnByHour");
+      return;
+    } else {
+      res.status(200).send(find);
+    }
+  } catch (error) {
+    handleHttpError(res, "Internal Server Error", 500, "getTurnByHour", error);
   }
 };
 
@@ -94,7 +116,7 @@ const createTurn = async (req, res) => {
       await customerModel.create(newUser);
       await customerModel.updateOne(
         { identificationNumber: body.identificationNumber },
-        { turnHistory: [{ registry: new Date(Date.now()).toISOString() }] }
+        { turnHistory: [{ registry: new Date(Date.now()).toISOString(), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}] }
       );
       await turnModel.create(newTurn);
       res.status(200).send("User and Turn created");
@@ -104,7 +126,7 @@ const createTurn = async (req, res) => {
         { identificationNumber: body.identificationNumber },
         {
           $push: {
-            turnHistory: [{ registry: new Date(Date.now()).toISOString() }],
+            turnHistory: [{ registry: new Date(Date.now()).toISOString(), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}],
           },
         }
       );
@@ -137,4 +159,5 @@ module.exports = {
   createTurn,
   modifyTurn,
   getTurnByDI,
+  getTurnByHour
 };

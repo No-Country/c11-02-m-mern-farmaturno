@@ -12,7 +12,7 @@ const turnSchema = new mongoose.Schema(
       default: true,
     },
     timeSlot: {
-      type: Number,
+      type: String,
       require: true
     },
     customer: {
