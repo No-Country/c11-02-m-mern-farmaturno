@@ -31,6 +31,9 @@ const PanelIngreso = () => {
     if (dni.trim() === '') {
       setDniError('El número de identidad es obligatorio');
       setValidated(false);
+    } else if (dni.length < 6) {
+      setDniError('El número de identidad debe ser mayor a 6 dígitos');
+      setValidated(false);
     } else if (dni.length > 10) {
       setDniError('El número de identidad debe tener menos de 10 dígitos');
       setValidated(false);
@@ -122,7 +125,10 @@ const PanelIngreso = () => {
                 {dniError}
               </Form.Control.Feedback>
 
-              <Button type="submit" variant="secondary">
+              <Button
+                type="submit"
+                variant={validated ? 'success' : 'secondary'}
+              >
                 Continuar
               </Button>
             </Form.Group>

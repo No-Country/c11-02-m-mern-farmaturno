@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap'); */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,16 +7,15 @@
 }
 
 html {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 62.5%;
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   min-height: 100vh;
   height: 100%;
   width: 100vw;
   overflow-x: hidden;
-  /* color: theme.$font-color; */
 }
 
 #root {

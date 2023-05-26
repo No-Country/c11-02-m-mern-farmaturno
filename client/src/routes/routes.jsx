@@ -5,8 +5,8 @@ import PageTurno from '../pages/pageTurno/PageTurno';
 import Home from '../pages/Home/Home';
 import LoginForPharmacyOwner from '../components/PharmaceuticalLogin/LoginScreen';
 import NoAppointmentPrueba from '../pages/noAppointment/NoAppointmentprueba';
-import { Confirmation } from "../pages/Confirmation/Confirmation";
-
+import PharmacyPlans from '../pages/pharmacyPlans/PharmacyPlans';
+import SignUpPharmacy from '../pages/signUpPharmacy/SignUpPharmacy';
 
 export const router = createBrowserRouter([
   {
@@ -17,17 +17,21 @@ export const router = createBrowserRouter([
       { path: 'nuevoTurno', element: <PageNewAppointment /> },
       { path: 'miTurno', element: <PageTurno /> },
       {
-        path: 'adminitration_allowed',
+        path: 'no_appointment',
+        element: <NoAppointmentPrueba />,
+      },
+      {
+        path: 'pharmacy',
+        element: <PharmacyPlans />,
+      },
+      {
+        path: 'pharmacy/adminitration_allowed',
         element: <LoginForPharmacyOwner />,
       },
-
-    {path:'no_appointment', element:<NoAppointmentPrueba/>},
-	  {
-		path:'confirmacion_turno',
-		element: <Confirmation/>
-	  }
-			
-		],
-	},
-
+      {
+        path: 'pharmacy/signUp',
+        element: <SignUpPharmacy />,
+      },
+    ],
+  },
 ]);
