@@ -41,6 +41,10 @@ const PharmacySchema = new mongoose.Schema(
       require: true,
       unique: true,
     },
+    hourAttention: {
+      type: String,
+      require: true
+    },
     userName: {
       type: String,
       unique: true,
