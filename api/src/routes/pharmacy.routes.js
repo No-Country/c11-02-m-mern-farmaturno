@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const {validatorCreatePharmacy} = require('../validators');
-const {getMyPharmacy, createPharmacy} = require('../controllers/phamacy.controller');
+const {getMyPharmacy, createPharmacy} = require('../controllers/pharmacy.controller');
 const router = Router();
 
 
