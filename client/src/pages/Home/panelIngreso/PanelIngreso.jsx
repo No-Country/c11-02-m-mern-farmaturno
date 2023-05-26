@@ -122,7 +122,10 @@ const PanelIngreso = () => {
                 {dniError}
               </Form.Control.Feedback>
 
-              <Button type="submit" variant="secondary">
+              <Button
+                type="submit"
+                variant={validated ? 'success' : 'secondary'}
+              >
                 Continuar
               </Button>
             </Form.Group>
