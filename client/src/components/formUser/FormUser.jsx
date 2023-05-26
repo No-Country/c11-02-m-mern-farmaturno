@@ -149,7 +149,18 @@ const FormUser = () => {
             }),
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));
+         
+             
 
+            const data = {
+              name,
+              surName,
+              mobilePhone,
+              timeSlot,
+              
+            }
+            postTurn(data);
+  
           resetForm();
         } else {
           setErrors((prevErrors) => ({
