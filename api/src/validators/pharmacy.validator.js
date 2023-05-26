@@ -40,6 +40,10 @@ const validatorCreatePharmacy = [
   .exists()
   .notEmpty()
   .isEmail(),
+  check("hourAttention")
+  .exists()
+  .notEmpty()
+  .isString(),
   check("userName")
   .exists()
   .notEmpty()
