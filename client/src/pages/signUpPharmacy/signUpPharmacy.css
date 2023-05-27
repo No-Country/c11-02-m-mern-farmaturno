@@ -1,4 +1,30 @@
 .signUpPharmacy {
-  height: 100%;
+  height: 90vh;
   width: 100%;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-rows: 7.3rem auto 10rem;
+}
+
+.signUpPharmacy .goBackButton {
+  width: 2rem;
+  height: 2rem;
+}
+
+.title-button__container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-button__container p {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.title-button__container img {
+  position: absolute;
+  left: 1rem;
 }
