@@ -1,5 +1,16 @@
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
+
 const SignInDetails = () => {
-  return <div></div>;
+  const navigate = useNavigate();
+  return (
+    <div>
+      SignInDetails
+      <Button onClick={() => navigate('adminitration_allowed')}>
+        Siguiente
+      </Button>
+    </div>
+  );
 };
 
 export default SignInDetails;
