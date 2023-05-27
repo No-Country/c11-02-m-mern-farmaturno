@@ -1,16 +1,4 @@
 .signUpPharmacy {
   height: 100%;
-  width: auto;
-  display: grid;
-  grid-template-rows: 90% 10%;
-  grid-template-columns: 1fr;
-}
-
-.details {
-  width: auto;
-  height: 100%;
-  outline: 2px solid black;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 10% 90%;
+  width: 100%;
 }
