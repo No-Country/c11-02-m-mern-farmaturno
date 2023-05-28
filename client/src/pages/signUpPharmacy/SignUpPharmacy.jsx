@@ -37,7 +37,7 @@ const SignUpPharmacy = () => {
     }
   };
   return (
-    <Container className="signUpPharmacy p-4">
+    <Container className="signUpPharmacy">
       <div className="title-button__container">
         <img
           className="goBackButton"
@@ -50,7 +50,7 @@ const SignUpPharmacy = () => {
       {formToShow === 'a' && <PharmacyOwnerDetails />}
       {formToShow === 'b' && <PharmacyDetails />}
       {formToShow === 'c' && <SignInDetails />}
-      <ProgressBar now={now} variant="success" />
+      <ProgressBar now={now} variant="success" className="progressBar" />
       <Footer />
     </Container>
   );

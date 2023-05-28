@@ -2,6 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
+import './signInDetails.css';
 
 const SignInDetails = () => {
   const navigate = useNavigate();
@@ -16,18 +17,23 @@ const SignInDetails = () => {
   };
 
   return (
-    <div>
+    <div className="signIn-details">
+      <h2>Datos de inicio de sesión</h2>
+      <p>
+        Por último, completa los campos con la información correspondiente.
+        Recuerda que estos son los datos que usarás para iniciar sesión.
+      </p>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Row className="mb-3">
-          <Form.Label>Correo electrónico</Form.Label>
+        <Row className="custom-row">
+          <Form.Label className="label">Correo electrónico</Form.Label>
           <Form.Control required type="text" />
         </Row>
-        <Row className="mb-3">
-          <Form.Label>Usuario</Form.Label>
+        <Row className="custom-row">
+          <Form.Label className="label">Usuario</Form.Label>
           <Form.Control required type="text" />
         </Row>
-        <Row className="mb-3">
-          <Form.Label>Contraseña</Form.Label>
+        <Row className="custom-row">
+          <Form.Label className="label">Contraseña</Form.Label>
           <Form.Control required type="number" />
         </Row>
         <Form.Group className="mb-3" id="formGridCheckbox">
@@ -37,6 +43,7 @@ const SignInDetails = () => {
             required
             name="isCheckboxChecked"
             checked={true}
+            className="checkbox"
             /* onChange={} */
             // isinvalid={errors.isCheckboxChecked !== ''}
           />
@@ -44,8 +51,8 @@ const SignInDetails = () => {
             {}
           </Form.Control.Feedback>
         </Form.Group>
-        <Button type="submit" onClick={handleClick}>
-          Siguiente
+        <Button variant={`secondary`} type="submit" onClick={handleClick}>
+          Regístrate
         </Button>
       </Form>
     </div>

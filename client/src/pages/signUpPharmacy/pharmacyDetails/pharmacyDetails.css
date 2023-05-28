@@ -1,0 +1,44 @@
+.pharmacy-details {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.pharmacy-details form {
+  display: flex;
+  flex-direction: column;
+}
+.pharmacy-details h2 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-weight: 500;
+}
+.pharmacy-details p {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: 400;
+  margin-bottom: 2.7rem;
+}
+
+.pharmacy-details .label {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.9rem;
+}
+
+.pharmacy-details .custom-row {
+  margin-bottom: 1.6rem;
+  align-items: center;
+}
+
+.pharmacy-details .custom-row input {
+  widht: 100%;
+  height: 3.8rem;
+  margin-left: 0.7rem;
+}
+
+.pharmacy-details button {
+  width: 15.8rem;
+  height: 4rem;
+  font-size: 1.6rem;
+  align-self: center;
+}
