@@ -7,7 +7,10 @@ const PharmacyPlans = () => {
     <div className="pharmacyPlans">
       <button className="signUp_button" onClick={() => navigate('signUp')}>
         Registrate
-      </button>
+      </button> 
+      <div>
+        <p>Hola</p>
+      </div>
     </div>
   );
 };
