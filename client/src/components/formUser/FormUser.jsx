@@ -204,7 +204,7 @@ const FormUser = () => {
       {seeModalConfirm && (
         <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
       )}
-      <Container className="container">
+      <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1>Farmacia Cruz Verde</h1>
           <h2>/Direccion</h2>
@@ -312,7 +312,7 @@ const FormUser = () => {
             </Button>
           </Stack>
         </Form>
-      </Container>
+      </div>
 
       {/* modal elegir horario */}
 
