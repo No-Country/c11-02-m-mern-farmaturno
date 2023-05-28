@@ -9,7 +9,9 @@
 }
 
 .txCategory {
-  font-size: 1.3331rem;
+  position: relative;
+  font-size: 1.5rem;
+  left: 1.5rem; 
   font-weight:500;
   color: #111;
 }

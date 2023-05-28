@@ -12,7 +12,19 @@ function App() {
     <main className="main_container">
       <NavBar />
       <Outlet />
-      {location.pathname === '/' ? <></> : <Footer />}
+
+      {/*       {(location.pathname === '/') &
+      (location.pathname === 'pharmacy/signUp') ? (
+        <></>
+      ) : (
+        <Footer />
+      )} */}
+
+      {location.pathname !== '/' && location.pathname !== '/pharmacy/signUp' ? (
+        <Footer />
+      ) : (
+        <></>
+      )}
     </main>
   );
 }

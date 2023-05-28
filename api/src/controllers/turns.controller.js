@@ -116,7 +116,7 @@ const createTurn = async (req, res) => {
       await customerModel.create(newUser);
       await customerModel.updateOne(
         { identificationNumber: body.identificationNumber },
-        { turnHistory: [{ registry: new Date(Date.now()).toISOString(), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}] }
+        { turnHistory: [{ registry: moment().format('MMMM Do YYYY, h:mm:ss a'), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}] }
       );
       await turnModel.create(newTurn);
       res.status(200).send("User and Turn created");
@@ -126,7 +126,7 @@ const createTurn = async (req, res) => {
         { identificationNumber: body.identificationNumber },
         {
           $push: {
-            turnHistory: [{ registry: new Date(Date.now()).toISOString(), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}],
+            turnHistory: [{ registry: moment().format('MMMM Do YYYY, h:mm:ss a'), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}],
           },
         }
       );

@@ -1,20 +1,58 @@
-import { Button } from 'react-bootstrap';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import { ProgressBar } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Footer from '../../components/Footer/Footer';
+import PharmacyOwnerDetails from './pharmacyOwnerDetails/PharmacyOwnerDetails';
+import PharmacyDetails from './pharmacyDetails/PharmacyDetails';
+import SignInDetails from './signInDetails/SignInDetails';
 import './signUpPharmacy.css';
+import { useContext } from 'react';
+import { SignUpContext } from './context/pharmacyContext';
+import { useEffect } from 'react';
 import { useState } from 'react';
-import FistFormToComplete from './firstDataForm/firstForm';
+import backButton from './assets/backButton.svg';
+import { useNavigate } from 'react-router';
+
 const SignUpPharmacy = () => {
-  const [seeFormRequired,setSeeFormRequired] = useState('')
+  const { formToShow, setFormToShow } = useContext(SignUpContext);
+  const [now, setNow] = useState(0);
+  const navigate = useNavigate();
+  console.log(now);
+  useEffect(() => {
+    if (formToShow === 'a') {
+      setNow(0);
+    } else if (formToShow === 'b') {
+      setNow(33.3);
+    } else if (formToShow === 'c') {
+      setNow(66.6);
+    }
+  }, [formToShow]);
+
+  const handleClick = () => {
+    if (formToShow === 'b') {
+      setFormToShow('a');
+    } else if (formToShow === 'c') {
+      setFormToShow('b');
+    } else {
+      navigate('/pharmacy');
+    }
+  };
   return (
-    <div className="signUpPharmacy">
-      <section className="details">
-        <p>titulo mas boton</p>
-        {
-          seeFormRequired === '' ? <FistFormToComplete changeMenu={()=>setSeeFormRequired('a')}/> : <p>chau</p>
-        }
-      </section>
-      <ProgressBar variant="success" now={30} />
-    </div>
+    <Container className="signUpPharmacy">
+      <div className="title-button__container">
+        <img
+          className="goBackButton"
+          src={backButton}
+          alt="Boton para retornar al anterior formulario"
+          onClick={handleClick}
+        />
+        <p>Regístrate ahora</p>
+      </div>
+      {formToShow === 'a' && <PharmacyOwnerDetails />}
+      {formToShow === 'b' && <PharmacyDetails />}
+      {formToShow === 'c' && <SignInDetails />}
+      <ProgressBar now={now} variant="success" className="progressBar" />
+      <Footer />
+    </Container>
   );
 };
 

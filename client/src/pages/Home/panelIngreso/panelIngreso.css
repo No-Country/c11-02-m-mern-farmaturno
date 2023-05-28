@@ -139,9 +139,11 @@
 
 @media (max-width: 360px) {
   .panelIngreso {
+    display: flex;
     padding: 0rem;
     width: 80%;
     min-width: 300px;
+    
   }
   .top-buttons-container {
     height: 6rem;
