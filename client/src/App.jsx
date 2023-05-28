@@ -12,7 +12,7 @@ function App() {
     <main className="main_container">
       {/* <NavBar /> */}
       <Outlet />
-      {location.pathname === '/' ? <></> : <Footer />}
+      {/* {location.pathname === '/' ? <></> : <Footer />} */}
     </main>
   );
 }

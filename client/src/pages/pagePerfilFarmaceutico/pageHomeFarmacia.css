@@ -1,6 +1,18 @@
+/* .divPrincipal{
+    overflow-y: scroll;
+    height: min-content;
+} */
 .titulo{
     font-size:1.3331em ;
     font-weight:500;
+}
+.divImagen{
+    height: fit-content;
+}
+
+.imgHomeFarmacia{
+    width:25% ;
+    height:25% ;
 }
 .card{
     display: flex;
@@ -48,5 +60,9 @@
         min-height: 14.5831rem;
         min-width: 27.3325rem;
     
+    }
+    .imgHomeFarmacia{
+        width:12.5rem;
+        height:12.5rem ;
     }
 }

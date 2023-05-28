@@ -1,15 +1,24 @@
 import React from 'react'
 import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/NavbarFarmaceutico'
-import { Container,Row, Col, Card, Button } from 'react-bootstrap'
+import { Container,Row, Col, Card, Button, Image } from 'react-bootstrap'
 import "../pagePerfilFarmaceutico/pageHomeFarmacia.css"
+import Footer from '../../components/Footer/Footer'
 
 const PageHomeFarmacia = () => {
   return (
-    <>
+ <>
+
    <NavbarFarmaceutico/>
-   <Row className='mb-2'>
-    <p className='titulo mt-4 mx-4'>¿Qué quieres hacer?</p>
-    <Col sm={12} md={4}>
+ {/* <div className='divPrincipal'> */}
+   {/* <Row className='mb-2'> */}
+    {/* <p className='titulo mt-4 mx-4'>¿Qué quieres hacer?</p> */}
+      {/* <div className='divImagen'> */}
+    {/* <Image 
+    src='https://i.ibb.co/vs7FLtd/ON3-W8-H1-1.png'
+    className='imgHomeFarmacia'
+    /> */}
+    {/* </div> */}
+    {/* <Col sm={12} md={4}>
     <Card className="mx-4  my-1">
       <Card.Body>
         <Card.Title className='tituloCard'>Nuevos turnos</Card.Title>
@@ -38,10 +47,12 @@ const PageHomeFarmacia = () => {
         <Button className="btnVerMas d-block mx-auto"variant="primary">Ver más</Button>
       </Card.Body>
     </Card>
-    </Col>
+    </Col> */}
   
 
-   </Row>
+   {/* </Row> */}
+    {/* </div> */}
+   {/* <Footer/> */}
 
 
     </>

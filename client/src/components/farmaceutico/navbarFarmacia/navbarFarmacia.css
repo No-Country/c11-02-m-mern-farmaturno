@@ -27,6 +27,10 @@
     font-weight: 400;
     color: #111;
   }
+  .dropdownPerfil{
+    border: 0;
+    
+  }
   
   @media (max-width: 991.98px) {
     /* .navbar .navbar-collapse { */
