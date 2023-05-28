@@ -50,7 +50,7 @@ const NavbarFarmaceutico = () => {
                   </NavDropdown.Item>
                 </NavDropdown> */}
                 <Nav.Link href="">
-                  <p className="txCategory m-2">Ayuda</p>
+                  <p className="txCategory m-2 mx-4">Ayuda</p>
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>
