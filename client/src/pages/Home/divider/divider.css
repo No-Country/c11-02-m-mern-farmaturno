@@ -45,7 +45,10 @@
   }
 
   .column-right img {
-    width: 100%;
+    position: relative;
+    left: -25px;
+    margin-top: 20px;
+    width: 120%;
   }
 
   .divider h2 {
