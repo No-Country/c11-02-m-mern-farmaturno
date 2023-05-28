@@ -1,7 +1,7 @@
 .container {
-    max-width: 100rem;
+    /**max-width: 100rem;**/
     margin: 0 auto;
-    padding: 5rem;
+    padding: 0rem;
     aspect-ratio: 16/7;
     background-color: rgb(233, 227, 227);
     font-size: 1.6em;

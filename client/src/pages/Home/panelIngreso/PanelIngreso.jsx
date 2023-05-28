@@ -1,9 +1,10 @@
 import './panelIngreso.css';
 
 import { Form, Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState /* useEffect */ } from 'react';
+import { fetchData } from '../../../services/fetchData';
 import { useDispatch } from 'react-redux';
-import { addIdentificationNumer } from '../../../redux/userSlice';
+import { addIdentificationNumer, addUser } from '../../../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 const PanelIngreso = () => {
@@ -15,11 +16,23 @@ const PanelIngreso = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  /*   useEffect(() => {
+    fetchData('http://localhost:3002/api/customer/')
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log('Ocurrio un error: ' + err);
+      });
+  }, []); */
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (dni.trim() === '') {
       setDniError('El número de identidad es obligatorio');
+      setValidated(false);
+    } else if (dni.length < 6) {
+      setDniError('El número de identidad debe ser mayor a 6 dígitos');
       setValidated(false);
     } else if (dni.length > 10) {
       setDniError('El número de identidad debe tener menos de 10 dígitos');
@@ -27,7 +40,24 @@ const PanelIngreso = () => {
     } else {
       setDniError('');
       setValidated(true);
-      dispatch(addIdentificationNumer({ identificationNumber: dni }));
+      dispatch(addIdentificationNumer({ identificationNumber: parseInt(dni) }));
+      fetchData('http://localhost:3002/api/customer/')
+        .then((data) => {
+          console.log(data);
+          const dnis = data.map((user) => user.identificationNumber);
+          console.log(dnis);
+          console.log(typeof dni);
+          if (dnis.includes(parseInt(dni))) {
+            data.forEach((user) => {
+              user.identificationNumber === parseInt(dni) &&
+                dispatch(addUser({ name: user.name, surName: user.surName }));
+            });
+          }
+        })
+        .catch((err) => {
+          console.log('Ocurrio un error: ' + err);
+        });
+
       navigate('nuevoTurno');
     }
   };
@@ -95,7 +125,10 @@ const PanelIngreso = () => {
                 {dniError}
               </Form.Control.Feedback>
 
-              <Button type="submit" variant="secondary">
+              <Button
+                type="submit"
+                variant={validated ? 'success' : 'secondary'}
+              >
                 Continuar
               </Button>
             </Form.Group>

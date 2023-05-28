@@ -1,5 +1,54 @@
 .firstDescription {
-  height: 100%;
-  width: 100%;
-  background-color: blue;
+  display: flex;
+  align-content: center;
+  color: white;
+  background-color: rgb(4, 108, 94);
+}
+
+.div_section{
+  padding: 80px;
+}
+
+.div_parrafo {
+  position: relative;
+  /** margin-bottom: 20px;*/
+  font-size: 20px;
+}
+
+.div_section h1 {
+  position: relative;
+
+  font-size: 35px;
+}
+
+@media (max-width: 768px) {
+  .firstDescription {
+    width: 100%;
+  }
+
+  .div_section {
+    padding: 40px;
+  }
+
+  .div_section h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .firstDescription {
+    width: 100%;
+  }
+
+  .div_section {
+    padding: 40px;
+  }
+
+  .div_parrafo {
+    font-size: 16px;
+  }
+
+  .div_section h1 {
+    font-size: 28px;
+  }
 }
