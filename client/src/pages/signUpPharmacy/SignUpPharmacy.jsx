@@ -24,6 +24,8 @@ const SignUpPharmacy = () => {
       setNow(33.3);
     } else if (formToShow === 'c') {
       setNow(66.6);
+    } else if (formToShow === 'd') {
+      setNow(100);
     }
   }, [formToShow]);
 
