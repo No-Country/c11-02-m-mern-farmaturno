@@ -2,6 +2,19 @@
     overflow-y: scroll;
     height: min-content;
 } */
+.homeFarmacia{
+width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 90% ;
+  overflow-y: scroll;
+
+}
+.bodyHomeFarmacia{
+    width: 100vw;
+    background-color: white;
+}
 .titulo{
     font-size:1.3331em ;
     font-weight:500;
@@ -18,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 40%;
 }
 
 .tituloCard{
