@@ -93,6 +93,9 @@ const getAllTurns = async (req, res) => {
 const createTurn = async (req, res) => {
   try {
     const body = matchedData(req);
+    const cont = await turnModel.find({
+      timeSlot: { $eq: body.timeSlot },
+    });
     const user = await customerModel.find({
       identificationNumber: { $eq: body.identificationNumber },
     });
@@ -112,7 +115,7 @@ const createTurn = async (req, res) => {
         mobilePhone: body.mobilePhone,
       },
     };
-    if (!user.length) {
+    if (!user.length && !cont.length) {
       await customerModel.create(newUser);
       await customerModel.updateOne(
         { identificationNumber: body.identificationNumber },
@@ -120,7 +123,7 @@ const createTurn = async (req, res) => {
       );
       await turnModel.create(newTurn);
       res.status(200).send("User and Turn created");
-    } else {
+    } else if (cont.length < 10) {
       await turnModel.create(newTurn);
       await customerModel.updateOne(
         { identificationNumber: body.identificationNumber },
@@ -131,6 +134,8 @@ const createTurn = async (req, res) => {
         }
       );
       res.status(200).send("Turn created");
+    } else {
+      handleHttpError(res, "Turns not available for this time ", 404, "createTurn");
     }
   } catch (error) {
     handleHttpError(res, "Internal Server Error", 400, "createTurn", error);
