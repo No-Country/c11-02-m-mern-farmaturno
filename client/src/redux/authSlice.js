@@ -26,7 +26,7 @@ export const authSlice = createSlice({
       state.ownerSurname = ownerSurname;
       state.ownerDni = ownerDni;
     },
-    addFarmacyDetails: (state, action) => {
+    addPharmacyDetails: (state, action) => {
       const {
         pharmacyName,
         pharmacyNit,
@@ -54,7 +54,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { addOwnerDetails, addFarmacyDetails, addRegistrationDetails } =
+export const { addOwnerDetails, addPharmacyDetails, addRegistrationDetails } =
   authSlice.actions;
 
 export default authSlice.reducer;
