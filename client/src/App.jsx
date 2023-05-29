@@ -17,7 +17,6 @@ function App() {
       )}
       
       <Outlet />
-
       {/*       {(location.pathname === '/') &
       (location.pathname === 'pharmacy/signUp') ? (
         <></>
