@@ -12,7 +12,6 @@ function App() {
     <main className="main_container">
       <NavBar />
       <Outlet />
-
       {/*       {(location.pathname === '/') &
       (location.pathname === 'pharmacy/signUp') ? (
         <></>
