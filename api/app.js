@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const dbConnection = require('./src/config/mongoDB');
 const Colors = require('@colors/colors');
 const routes = require('./src/routes');
+const { handleTurns } = require('./src/utils/handleTurns');
 
 
 
@@ -23,6 +24,7 @@ function main(){
     console.log(Colors.bgGreen.black(`==>> Server is running on ${URL}:${PORT} `));
   })
   dbConnection();
+  handleTurns();
 }
 
 main();
