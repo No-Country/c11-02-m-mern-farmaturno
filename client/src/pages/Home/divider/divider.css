@@ -36,6 +36,8 @@
   font-size: 30px;
 }
 
+@media (max-wi)
+
 @media (max-width: 768px) {
   .divider {
     grid-template-columns: 1fr;
