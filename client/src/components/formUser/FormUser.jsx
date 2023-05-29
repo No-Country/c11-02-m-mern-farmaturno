@@ -11,13 +11,12 @@ const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, mobilePhone } = useSelector((state) => state.user);
+  const { name, surName, mobilePhone, timeSlot, identificationNumber } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
     phone: mobilePhone,
-    hour: 0,
-    range: 0,
+    hour: timeSlot,
     isCheckboxChecked: false,
     isTurnoDisponible: false,
     isHorarioElegido: false,
@@ -45,7 +44,7 @@ const FormUser = () => {
   const horarios = [];
   for (let i = 8; i <= 19; i++) {
     const hora = {
-      name: `${i < 10 ? 0 : ''}${i} `,
+      name: `${i < 10 ? '0' + i + ':00' : i + ':00'}`,
       value: (i - 7).toString(),
     };
     horarios.push(hora);
@@ -150,15 +149,16 @@ const FormUser = () => {
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));
          
-             
+          
 
             const data = {
-              name,
-              surName,
-              mobilePhone,
-              timeSlot,
-              
+              name: formData.name,
+              surName: formData.lastName,
+              mobilePhone: formData.phone,
+              timeSlot: formData.hour,
+              identificationNumber,
             }
+            console.log(data)
             postTurn(data);
   
           resetForm();
@@ -180,7 +180,7 @@ const FormUser = () => {
       lastName: surName,
       phone: mobilePhone,
       hour: 0,
-      range: 0,
+      range: timeSlot,
       isCheckboxChecked: false,
       isHorarioElegido: false,
       isTurnoDisponible: false,
@@ -192,11 +192,11 @@ const FormUser = () => {
       phone: '',
       isCheckboxChecked: false,
     });
-    setValid({
-      name: false,
-      lastName: false,
-      phone: false,
-    });
+    // setValid({
+    //   name: false,
+    //   lastName: false,
+    //   phone: false,
+    // });
   };
 
   return (
@@ -275,7 +275,7 @@ const FormUser = () => {
                 variant="secondary"
                 onClick={handleShow}
                 disabled={
-                  !formData.name || !formData.lastName || !formData.phone
+                  !valid.name || !valid.lastName || !valid.phone
                 }
               >
                 {formData.isHorarioElegido ? formData.hour : 'Elige un horario'}

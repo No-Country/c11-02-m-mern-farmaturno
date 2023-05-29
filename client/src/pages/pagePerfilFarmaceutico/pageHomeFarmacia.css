@@ -1,0 +1,81 @@
+/* .divPrincipal{
+    overflow-y: scroll;
+    height: min-content;
+} */
+.homeFarmacia{
+width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 90% ;
+  overflow-y: scroll;
+
+}
+.bodyHomeFarmacia{
+    width: 100vw;
+    background-color: white;
+}
+.titulo{
+    font-size:1.3331em ;
+    font-weight:500;
+}
+.divImagen{
+    height: fit-content;
+}
+
+.imgHomeFarmacia{
+    width:25% ;
+    height:25% ;
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+.tituloCard{
+    font-size:1.6669em ;
+    font-weight:500;
+    color: #111111;
+}
+.tituloText{
+    font-size:1.3331em ;
+    font-weight:400;
+    color: #111111;
+    min-height: 4rem;
+}
+.btnVerMas{
+    font-size:1.5em ;
+    font-weight:500;
+    background-color:#008C73;
+    border-color: #008C73;
+    height: 3rem;
+    width: 100%;
+    pointer-events: all;
+    
+}
+.btnVerMas:hover{
+    background-color: #008C73;
+    border-color: #008C73	;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 380px)  {
+    .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 14.5831rem;
+        min-width: 27.3325rem;
+    
+    }
+    .imgHomeFarmacia{
+        width:12.5rem;
+        height:12.5rem ;
+    }
+}
