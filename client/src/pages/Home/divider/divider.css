@@ -3,13 +3,13 @@
 .divider {
   display: grid;
   padding: 90px;
-  font-size: 24px;
- 
+  font-size: 25px;
   grid-template-columns: 1fr 1fr;
 }
 
-.section_parrafo {
-  font-size: 28px;
+.section_parrafo p {
+  font-size: 25px;
+  padding: ;
 }
 
 .divider h1 {
@@ -36,17 +36,11 @@
   font-size: 30px;
 }
 
-span {
-  font-weight:  400;
-}
-
 @media (max-width: 768px) {
   .divider {
     grid-template-columns: 1fr;
-    padding: 40px;
-    text-align: center;
+    padding: 34px;
   }
-
   .column-right img {
     width: 100%;
   }
@@ -64,15 +58,22 @@ span {
   }
 
   .divider h1 {
-    font-size: 36px;
+    font-size: 24px;
   }
 
   .divider h2 {
     top: 0;
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .column-right img {
-    width: 100%;
+   position: relative;
+   margin-top: 30px;
+   left: -35px;
+    width: 140%;
+  }
+  
+  .section_parrafo p {
+    font-size: 20px;
   }
 }

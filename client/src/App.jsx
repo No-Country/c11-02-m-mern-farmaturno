@@ -10,7 +10,7 @@ function App() {
   return (
     //Aca van botones navbar y todo lo que este en el home
     <main className="main_container">
-      <NavBar />
+      {/* <NavBar /> */}
       <Outlet />
 
       {/*       {(location.pathname === '/') &
