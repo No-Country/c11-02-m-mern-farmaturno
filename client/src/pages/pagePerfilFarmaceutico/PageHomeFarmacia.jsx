@@ -8,9 +8,10 @@ import { useDispatch,useSelector } from 'react-redux'
 
 const PageHomeFarmacia = () => {
 
-  const {list:turns}=useSelector (state => state.turn)
+  const {list:turns}=useSelector (state => state.turns)
   const dispatch=useDispatch();
   
+  console.log(turns)
 
   useEffect(() => {
     dispatch(getTurns())  
@@ -21,9 +22,9 @@ const PageHomeFarmacia = () => {
 
    <NavbarFarmaceutico/>
   
-  <Row>
+  <Container>
   
-   {turns.map((turn)=>(
+   {/* {turns.map((turn)=>(
      <Card className="mx-4  my-1" key={turn._id}>
      <Card.Body>
        <Card.Title className='tituloCard'>{turn.customer.name}</Card.Title>
@@ -32,8 +33,8 @@ const PageHomeFarmacia = () => {
        <Button className="btnVerMas d-block mx-auto">Ver más</Button>
      </Card.Body>
    </Card>
-   ))}
-   </Row>
+   ))} */}
+   </Container>
    
  {/* <div className='divPrincipal'> */}
    {/* <Row className='mb-2'> */}
