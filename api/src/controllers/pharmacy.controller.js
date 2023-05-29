@@ -1,6 +1,7 @@
 const {matchedData} = require('express-validator');
 const {pharmacyModel} = require('../models');
 const {handleHttpError} = require('../utils/handleError');
+const bcrypt = require('bcryptjs');
 
 /**
  * Get Pharmacy data
@@ -18,6 +19,7 @@ const getMyPharmacy = async (req, res) => {
       res.status(404).send('Data not Found');
       return;
     }
+    result.set('password', undefined, {strict: false});
     res.status(200).json({result});
     
   } catch (error) {
@@ -36,8 +38,14 @@ const createPharmacy = async (req, res) => {
   try {
 
     const body = matchedData(req);
-
-    const create = await pharmacyModel.create(body);
+    const passPlain = body.password
+    const hash = await bcrypt.hash(passPlain, 10);
+    const data = {
+      ...body,
+      password: hash
+    };
+    const create = await pharmacyModel.create(data);
+    create.set('password', undefined, {strict: false});
     res.status(201).json({msg: 'Pharmacy Created', data: create});
     
   } catch (error) {

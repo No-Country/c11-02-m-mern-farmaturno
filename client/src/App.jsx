@@ -10,9 +10,25 @@ function App() {
   return (
     //Aca van botones navbar y todo lo que este en el home
     <main className="main_container">
-      <NavBar />
+     {location.pathname !== '/perfil_farmacia' ? (
+        <NavBar />
+      ) : (
+        <></>
+      )}
+      
       <Outlet />
-      {location.pathname === '/' ? <></> : <Footer />}
+      {/*       {(location.pathname === '/') &
+      (location.pathname === 'pharmacy/signUp') ? (
+        <></>
+      ) : (
+        <Footer />
+      )} */}
+
+      {location.pathname !== '/' && location.pathname !== '/pharmacy/signUp' && location.pathname !== '/perfil_farmacia' ? (
+        <Footer />
+      ) : (
+        <></>
+      )}
     </main>
   );
 }

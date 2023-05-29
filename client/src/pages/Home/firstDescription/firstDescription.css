@@ -2,18 +2,12 @@
   display: flex;
   align-content: center;
   color: white;
-  height: 100%;
-  width: 120%;
   background-color: rgb(4, 108, 94);
+  margin-top: 20px;
 }
 
-.div_section {
-  height: 100%;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 4rem;
+.div_section{
+  padding: 80px;
 }
 
 .div_parrafo {

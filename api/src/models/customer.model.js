@@ -16,9 +16,13 @@ const CustomerSchema = new mongoose.Schema(
     turnHistory: [
       {
         registry: {
-          type: Date,
+          type: String,
+        },
+        timeSlot: {
+          type: String,
         },
       },
+
     ],
   },
   {

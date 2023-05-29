@@ -1,7 +1,9 @@
 const {Router} = require('express');
 const {validatorCreatePharmacy} = require('../validators');
+
 const {getMyPharmacy, createPharmacy} = require('../controllers/phamacy.controller');
 const verificateToken = require('../middlewares/token.middleware');
+
 const router = Router();
 
 
