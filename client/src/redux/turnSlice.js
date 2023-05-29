@@ -47,7 +47,7 @@ export const getTurns = ()=> async(dispatch) => {
   const url= "http://localhost:3002/api/turn/";
   const res= await fetch (url);
   const data= await (res.json())
-  
+  console.log(data)
     dispatch(setTurnList(data))
   }catch (error) {
     console.log(error.response)}
