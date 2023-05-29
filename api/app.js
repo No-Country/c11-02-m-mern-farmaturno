@@ -33,7 +33,7 @@ function main(){
   cron.schedule('59 06-18 * * *', async () => {
    await handleTurns();
   })
-  // handleTurns(); // linea para que ejecute la funcion sin temporizador
+  // handleTurns(); // Descomentar esta linea para que ejecute la funcion sin temporizador
 
   /**
    * Cron library that executes the function of restarting the Turn collection every day at 0 hours.
