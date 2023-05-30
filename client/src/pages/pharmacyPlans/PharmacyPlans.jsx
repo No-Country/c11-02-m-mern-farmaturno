@@ -7,19 +7,19 @@ const PharmacyPlans = () => {
     <div className="pharmacyPlans">
       <div className='pharmacyBiografi'>
         <h2>Accede a la manera más sencilla de gestionar tus turnos</h2>
-        <p>Mayor organización, eficcia y satisfaccíon tanto para los clientes como para el personal</p>
-        <p>¿Quieres comenzar a utilizarlo ya?</p>
+        <p>Mayor organización, eficiencia y satisfaccíon tanto para los clientes como para el personal.</p>
+        <span>¿Quieres comenzar a utilizarlo ya?</span>
         <button className="signUp_button" onClick={() => navigate('signUp')}>
           Registrate
         </button>
-        <p>Mas fácil que nunca</p>
 
-        <div>
+        <div className='pharmacy'>
+        <h3>Mas fácil que nunca</h3>
           <img src="/public/phon.svg" alt="" />
         </div>
 
         <div className="gallery">
-      <div className="column">
+      <div className="columns">
         <div className="item">
           <i className="bi bi-check-all"></i>
           <p>Turnos en simultáneo</p>
@@ -37,7 +37,7 @@ const PharmacyPlans = () => {
           <p>Diseño de web responsivo</p>
         </div>
       </div>
-      <div className="column">
+      <div className="columns">
         <div className="image-container">
           <img src="/public/photo.svg" alt="" />
         </div>

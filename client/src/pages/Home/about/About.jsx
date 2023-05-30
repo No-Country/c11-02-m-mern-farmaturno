@@ -9,10 +9,10 @@ const About = () => {
         Lograrás una atención organizada, personalizada y empática, marcando
         un diferencial.
         <br />
-        <span className='span_title'>
+        <p className='span_title'>
         Con un rápido y ágil registro, formarás parte de este nuevo sistema de
         gestion de turnos para farmacias.
-        </span>
+        </p>
 
       </p>
     </div>
@@ -23,8 +23,8 @@ const About = () => {
       <p>
         Conocemos la problemática que implican las largas filas de espera para obtener un turno en la farmacia, y nos comprometemos en brindas una solución.
         <br />
-        <span className='span_title'>
-        Podrás pedir un turno cuando quieras, sin importar dónde estés. Unos pocos datos serán necesarios para hacer tu reserva.</span>
+        <p className='span_title'>
+        Podrás pedir un turno cuando quieras, sin importar dónde estés. Unos pocos datos serán necesarios para hacer tu reserva.</p>
       </p>
     </div>
 
