@@ -6,6 +6,8 @@ import { SignUpContext } from '../context/pharmacyContext';
 import './signInDetails.css';
 import { addRegistrationDetails } from '../../../redux/authSlice';
 import { useDispatch } from 'react-redux';
+import { postTurn } from '../../../services/PostTurn';
+import { useSelector } from 'react-redux';
 
 const SignInDetails = () => {
   const navigate = useNavigate();
@@ -18,6 +20,18 @@ const SignInDetails = () => {
   });
   const dispatch = useDispatch();
   const [isValid, setIsValid] = useState(false);
+  const {
+    ownerName,
+    ownerSurname,
+    ownerDni,
+    pharmacyName,
+    pharmacyNit,
+    pharmacyCity,
+    pharmacyAdress,
+    pharmacyPhone,
+    pharmacyOpenHour,
+    pharmacyCloseHour,
+  } = useSelector((state) => state.auth);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +57,37 @@ const SignInDetails = () => {
         setFormToShow('d');
       }, 500);
 
+      const data = {
+        name: ownerName,
+        surName: ownerSurname,
+        identificationNumber: parseInt(ownerDni),
+        companyName: pharmacyName,
+        nit: pharmacyNit,
+        city: pharmacyCity,
+        address: pharmacyAdress,
+        phone: parseInt(pharmacyPhone),
+        email: registrationData.registrationEmail,
+        hourAttention: `${pharmacyOpenHour}-${pharmacyCloseHour}`,
+        userName: registrationData.registrationUsername,
+        password: registrationData.registrationPassword,
+      };
+      /*       const data = {
+        name: 'Marquetos',
+        surName: 'Martilo',
+        identificationNumber: 1234667127,
+        companyName: 'farmciaprueba',
+        nit: '123412345',
+        city: 'venezuela',
+        address: 'laprida',
+        phone: 3456789012,
+        email: 'marquetos@marquetos.com',
+        hourAttention: '07:00-17:00',
+        userName: 'diana123',
+        password: 'hackeamee1233',
+      }; */
+      postTurn(data, 'api/pharmacy');
       setTimeout(() => {
+        /*         console.log(data); */
         navigate('adminitration_allowed');
       }, 1500);
     } else {

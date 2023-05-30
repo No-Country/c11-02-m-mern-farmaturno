@@ -11,7 +11,8 @@ const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, mobilePhone, timeSlot, identificationNumber } = useSelector((state) => state.user);
+  const { name, surName, mobilePhone, timeSlot, identificationNumber } =
+    useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
@@ -147,20 +148,24 @@ const FormUser = () => {
               mobilePhone: formData.phone,
             }),
           );
+<<<<<<< HEAD
           dispatch(addTimeSlot({ timeSlot: formData.hour }));
          
           
+=======
+          dispatch(addTimeSlot({ timeSlot: formData.range }));
+>>>>>>> registroDeFarmacia
 
-            const data = {
-              name: formData.name,
-              surName: formData.lastName,
-              mobilePhone: formData.phone,
-              timeSlot: formData.hour,
-              identificationNumber,
-            }
-            console.log(data)
-            postTurn(data);
-  
+          const data = {
+            name: formData.name,
+            surName: formData.lastName,
+            mobilePhone: formData.phone,
+            timeSlot: formData.hour,
+            identificationNumber,
+          };
+          console.log(data);
+          postTurn(data, 'api/turn/');
+
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -274,9 +279,7 @@ const FormUser = () => {
                 }`}
                 variant="secondary"
                 onClick={handleShow}
-                disabled={
-                  !valid.name || !valid.lastName || !valid.phone
-                }
+                disabled={!valid.name || !valid.lastName || !valid.phone}
               >
                 {formData.isHorarioElegido ? formData.hour : 'Elige un horario'}
               </Button>
