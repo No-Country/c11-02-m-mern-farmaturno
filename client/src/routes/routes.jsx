@@ -3,11 +3,11 @@ import App from '../App';
 import PageNewAppointment from '../pages/PageNewAppointment/PageNewAppointment';
 import PageTurno from '../pages/pageTurno/PageTurno';
 import Home from '../pages/Home/Home';
-import LoginForPharmacyOwner from '../components/PharmaceuticalLogin/LoginScreen';
 import NoAppointmentPrueba from '../pages/noAppointment/NoAppointmentprueba';
 import PharmacyPlans from '../pages/pharmacyPlans/PharmacyPlans';
 import SignUpPharmacy from '../pages/signUpPharmacy/SignUpPharmacy';
 import PharmacyProvider from '../pages/signUpPharmacy/context/PharmacyProvider';
+import LoginPharmacy from '../pages/logInPharmacy/LoginPharmacy';
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'pharmacy/signUp/adminitration_allowed',
-        element: <LoginForPharmacyOwner />,
+        element: <LoginPharmacy />,
       },
       {
         path: 'pharmacy/signUp',

@@ -2,6 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router';
 import { useContext, useState } from 'react';
+import { SignUpContext } from '../context/pharmacyContext';
 import './signInDetails.css';
 import { addRegistrationDetails } from '../../../redux/authSlice';
 import { useDispatch } from 'react-redux';
@@ -40,7 +41,11 @@ const SignInDetails = () => {
       );
       setTimeout(() => {
         setFormToShow('d');
-      }, 1000);
+      }, 500);
+
+      setTimeout(() => {
+        navigate('adminitration_allowed');
+      }, 1500);
     } else {
       setRegistrationData((prevregistrationData) => ({
         ...prevregistrationData,
@@ -54,18 +59,19 @@ const SignInDetails = () => {
 
     // Validación para registrationEmail
     if (
-      !registrationData.registrationName.match(
-        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/,
+      !registrationData.registrationEmail.match(
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
       )
     ) {
-      errors.registrationName = 'Ingrese un Email válido Ej: example@gmail.com';
+      errors.registrationEmail =
+        'Ingrese un Email válido Ej: example@gmail.com';
     }
 
     // Validación para registrationPassword
     if (
       !registrationData.registrationUsername.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)
     ) {
-      errors.registrationSurname = 'Ingrese un nombre de usuario válido';
+      errors.registrationUsername = 'Ingrese un nombre de usuario válido';
     }
 
     // Validación para registrationPassword
@@ -74,7 +80,7 @@ const SignInDetails = () => {
         /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚñÑ]).{8,16}$/,
       )
     ) {
-      errors.registrationDni =
+      errors.registrationPassword =
         'Ingrese una contraseña válida (8 a 16 caracteres) sin espacios ni acentos';
     }
 
@@ -89,18 +95,55 @@ const SignInDetails = () => {
         Por último, completa los campos con la información correspondiente.
         Recuerda que estos son los datos que usarás para iniciar sesión.
       </p>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form noValidate onSubmit={handleSubmit}>
         <Row className="custom-row">
           <Form.Label className="label">Correo electrónico</Form.Label>
-          <Form.Control required type="text" />
+          <Form.Control
+            required
+            type="text"
+            name="registrationEmail"
+            value={registrationData.registrationEmail}
+            onChange={handleChange}
+            isInvalid={!isValid && !!registrationData.errors.registrationEmail}
+            isValid={isValid && !registrationData.errors.registrationEmail}
+          />
+          <Form.Control.Feedback type="invalid">
+            {registrationData.errors.registrationEmail}
+          </Form.Control.Feedback>
         </Row>
         <Row className="custom-row">
           <Form.Label className="label">Usuario</Form.Label>
-          <Form.Control required type="text" />
+          <Form.Control
+            required
+            type="text"
+            name="registrationUsername"
+            value={registrationData.registrationUsername}
+            onChange={handleChange}
+            isInvalid={
+              !isValid && !!registrationData.errors.registrationUsername
+            }
+            isValid={isValid && !registrationData.errors.registrationUsername}
+          />
+          <Form.Control.Feedback type="invalid">
+            {registrationData.errors.registrationUsername}
+          </Form.Control.Feedback>
         </Row>
         <Row className="custom-row">
           <Form.Label className="label">Contraseña</Form.Label>
-          <Form.Control required type="number" />
+          <Form.Control
+            required
+            type="password"
+            name="registrationPassword"
+            value={registrationData.registrationPassword}
+            onChange={handleChange}
+            isInvalid={
+              !isValid && !!registrationData.errors.registrationPassword
+            }
+            isValid={isValid && !registrationData.errors.registrationPassword}
+          />
+          <Form.Control.Feedback type="invalid">
+            {registrationData.errors.registrationPassword}
+          </Form.Control.Feedback>
         </Row>
         <Form.Group className="mb-3" id="formGridCheckbox">
           <Form.Check
@@ -117,7 +160,11 @@ const SignInDetails = () => {
             {}
           </Form.Control.Feedback>
         </Form.Group>
-        <Button variant={`secondary`} type="submit" onClick={handleClick}>
+        <Button
+          variant={`${isValid ? 'success' : 'secondary'}`}
+          type="submit"
+          onClick={handleSubmit}
+        >
           Regístrate
         </Button>
       </Form>
