@@ -1,5 +1,5 @@
 .about {
-  padding: 52px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
 }
@@ -59,11 +59,11 @@ span {
 
 @media (max-width: 360px) {
   .about {
-    padding: 34px;
+    padding: 14px;
   }
 
   .column {
-    padding: 1.5rem;
+    padding: 0.5rem;
   }
 
   .column h2 {

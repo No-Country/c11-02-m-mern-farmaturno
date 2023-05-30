@@ -2,14 +2,14 @@
 
 .divider {
   display: grid;
-  padding: 90px;
+  padding: 40px;
   font-size: 25px;
   grid-template-columns: 1fr 1fr;
 }
 
 .section_parrafo p {
   font-size: 25px;
-  padding: ;
+  
 }
 
 .divider h1 {
@@ -58,7 +58,7 @@
 
 @media (max-width: 360px) {
   .divider {
-    padding: 60px;
+    padding: 14px;
     grid-template-columns: 1fr;
   }
 
@@ -74,8 +74,7 @@
   .column-right img {
    position: relative;
    margin-top: 30px;
-   left: -35px;
-    width: 140%;
+   width: 120%;
   }
   
   .section_parrafo p {
