@@ -1,9 +1,26 @@
-.general {
-    padding-left: 4rem;
+.general{
+    padding: 0rem 4rem;
     height: 100%;
+    background-color: #FAFAFA;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15% 85%
+}
+
+
+.body {
+   
+    
+    display: grid;
+    
+    grid-template-columns: 1fr 2fr;
     align-items: center;
   justify-content: center;
     gap: 2rem;
+  }
+
+  .img{
+    height: 250px;
+    
+    align-items: center;
+    
   }
