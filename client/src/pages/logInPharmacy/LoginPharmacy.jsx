@@ -62,13 +62,14 @@ export default function LoginPharmacy() {
     <div className="logIn_container">
       <div className="welcome_div">
         <div className="container_welcome">
-          <p className="set_text">Te damos la bienvenida a</p>
+          <p className="first_text">Te damos la bienvenida a</p>
           <p className="title_page">FarmaTurno</p>
-          <p className="set_text">¡Gracias por elegirnos!</p>
+          <p className="second_text">¡Gracias por elegirnos!</p>
         </div>
       </div>
       <Form noValidate onSubmit={handleSubmit}>
         <Row className="custom-row">
+          <h2>Inicio de sesión</h2>
           <Form.Label className="label">Usuario</Form.Label>
           <Form.Control
             required
@@ -111,7 +112,8 @@ export default function LoginPharmacy() {
           ¿Olvidaste tu contraseña? <Link to="/"> Contáctanos</Link>
         </p>
         <p>
-          ¿Aun no tienes tu cuenta? <Link to="/"> Regístrate aquí </Link>
+          ¿Aun no tienes tu cuenta?
+          <Link to="/pharmacy/signUp"> Regístrate aquí </Link>
         </p>
       </div>
     </div>
