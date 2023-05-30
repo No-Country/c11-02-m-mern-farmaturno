@@ -30,6 +30,14 @@ span {
 .span_title {
   display: grid;
   margin-top: 16px;
+  font-size: 25px;
+}
+
+@media (max-width: 1024px) {
+  .column-right{
+    
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
@@ -41,6 +49,11 @@ span {
   .column {
     flex-basis: 100%;
     margin-bottom: 24px;
+  }
+
+  .column-right{
+    display: flex;
+    left: 100px;
   }
 }
 
@@ -73,5 +86,9 @@ span {
   .span_title {
     display: block;
     margin-top: 12px;
+  }
+  
+  .column-right{
+    width: 100%;
   }
 }
