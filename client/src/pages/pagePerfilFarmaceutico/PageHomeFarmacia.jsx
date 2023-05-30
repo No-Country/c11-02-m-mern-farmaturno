@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/NavbarFarmaceutico';
-import { Container, Row, Col, Card, Button, Image } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../pagePerfilFarmaceutico/pageHomeFarmacia.css';
 import Footer from '../../components/Footer/Footer';
 import { useGetTurnsQuery } from '../../services/apiSlices';
 import { ButtonEstado } from '../../components/farmaceutico/navbarFarmacia/BotonConfirmacionTurno';
 import moment from 'moment';
 
-
 const PageHomeFarmacia = () => {
-
   const currentDate = moment().format(' D/MM/YYYY');
-  const currentTime = moment().format("HH ")
+  const currentTime = moment().format('HH ');
 
   const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
 
@@ -25,61 +22,59 @@ const PageHomeFarmacia = () => {
         <NavbarFarmaceutico />
         <Container className="bodyHomeFarmacia">
           <h1>Turnos reservados</h1>
-        <p>Gestiona y visualiza los turnos que ya fueron reservados por tus clientes, junto a sus datos personales.</p>
-        <p>Fecha de hoy: {currentDate}</p>
-        <p>Horario de atención: de 7:00 a 19:00</p>
-        <p>HORA: {Number(currentTime)}</p>
-        
+          <p>
+            Gestiona y visualiza los turnos que ya fueron reservados por tus
+            clientes, junto a sus datos personales.
+          </p>
+          <p>Fecha de hoy: {currentDate}</p>
+          <p>Horario de atención: de 7:00 a 19:00</p>
+          <p>HORA: {Number(currentTime)}</p>
+
           <Row>
-            {data.map((turn) => (
-              
-              turn.status?(
-             (Number(turn.timeSlot)+7)<=Number(currentTime)? 
+            {data.map((turn) =>
+              turn.status ? (
+                Number(turn.timeSlot) + 7 <= Number(currentTime) ? (
                   <Card className="mx-4  my-1" bg="white" key={turn._id}>
                     <Card.Body>
                       <Card.Title className="tituloCard">
                         {turn.customer.name} {turn.customer.surName}
                       </Card.Title>
                       <Card.Text className="tituloText">
-                        {turn.status ? 'sin confirmar' : 'confirmado'}{' '}
-                        <br/>
-
-                        {Number(turn.timeSlot)+7}:00
+                        {turn.status ? 'sin confirmar' : 'confirmado'} <br />
+                        {Number(turn.timeSlot) + 7}:00
                       </Card.Text>
                       <ButtonEstado _id={turn._id} />
                     </Card.Body>
                   </Card>
-                  : 
+                ) : (
                   <Card className="mx-4  my-1" bg="secondary" key={turn._id}>
                     <Card.Body>
                       <Card.Title className="tituloCard">
                         {turn.customer.name} {turn.customer.surName}
                       </Card.Title>
                       <Card.Text className="tituloText">
-                        {turn.status ? 'sin confirmar' : 'confirmado'}{' '}
-                        <br/>
-
-                        {Number(turn.timeSlot)+7}:00
+                        {turn.status ? 'sin confirmar' : 'confirmado'} <br />
+                        {Number(turn.timeSlot) + 7}:00
                       </Card.Text>
                       <ButtonEstado _id={turn._id} />
                     </Card.Body>
-                  </Card>  )
-                 : 
-                  <Card className="mx-4  my-1" bg="success" key={turn._id}>
-                    <Card.Body>
-                      <Card.Title className="tituloCard">
-                        {turn.customer.name} {turn.customer.surName}
-                      </Card.Title>
-                      <Card.Text className="tituloText">
-                        {turn.status ? 'sin confirmar' : 'confirmado'}{' '}
-                        <br/>
-
-                        {Number(turn.timeSlot)+7}:00
-                      </Card.Text>
-                      <ButtonEstado _id={turn._id} />
-                    </Card.Body>
-                  </Card>       
-            ))}
+                  </Card>
+                )
+              ) : (
+                <Card className="mx-4  my-1" bg="success" key={turn._id}>
+                  <Card.Body>
+                    <Card.Title className="tituloCard">
+                      {turn.customer.name} {turn.customer.surName}
+                    </Card.Title>
+                    <Card.Text className="tituloText">
+                      {turn.status ? 'sin confirmar' : 'confirmado'} <br />
+                      {Number(turn.timeSlot) + 7}:00
+                    </Card.Text>
+                    <ButtonEstado _id={turn._id} />
+                  </Card.Body>
+                </Card>
+              ),
+            )}
 
             <Col sm={12}>
               <Footer />
