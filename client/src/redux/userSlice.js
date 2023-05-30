@@ -48,6 +48,10 @@ export const userSlice = createSlice({
       const { timeSlot } = action.payload;
       state.timeSlot = timeSlot;
     },
+    addDate: (state, action) => {
+      const {date} = action.payload;
+      state.date = date;
+    }
   },
 });
 

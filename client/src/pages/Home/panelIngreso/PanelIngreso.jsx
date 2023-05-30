@@ -50,7 +50,7 @@ const PanelIngreso = () => {
           if (dnis.includes(parseInt(dni))) {
             data.forEach((user) => {
               user.identificationNumber === parseInt(dni) &&
-                dispatch(addUser({ name: user.name, surName: user.surName }));
+                dispatch(addUser({ name: user.name, surName: user.surName, mobilePhone: user.mobilePhone }));
             });
           }
         })
@@ -58,7 +58,7 @@ const PanelIngreso = () => {
           console.log('Ocurrio un error: ' + err);
         });
 
-      navigate('nuevoTurno');
+        {activePideTurno ? (navigate('nuevoTurno')): (navigate('miTurno'))};
     }
   };
 
@@ -135,7 +135,39 @@ const PanelIngreso = () => {
           </Form>
         </div>
       ) : (
-        <div>En construccion</div>
+        <div className="bottom-section">
+          <div className="titleAndSubtitle_container">
+            <h3>Visualiza y administra tu historial de turnos y datos.</h3>
+            <p>Por favor ingresa tu número de identidad</p>
+          </div>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Group controlId="validationCustom01">
+              <Form.Label>Número de identidad </Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={dni}
+                onChange={handleDniChange}
+                isInvalid={dniError !== ''}
+                className="form-control-lg"
+                inputMode="numeric"
+                pattern="\d*"
+                onWheel={(e) => e.currentTarget.blur()}
+              />
+              <div className="transparentBackground"></div>
+              <Form.Control.Feedback type="invalid" className="custom-feedback">
+                {dniError}
+              </Form.Control.Feedback>
+
+              <Button
+                type="submit"
+                variant={validated ? 'success' : 'secondary'}
+              >
+                Continuar
+              </Button>
+            </Form.Group>
+          </Form>
+        </div>
       )}
     </div>
   );
