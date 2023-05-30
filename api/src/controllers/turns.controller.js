@@ -115,14 +115,14 @@ const createTurn = async (req, res) => {
         mobilePhone: body.mobilePhone,
       },
     };
-    if (!user.length && !cont.length) {
+    if (!user.length && cont.length < 10) {
       await customerModel.create(newUser);
       await customerModel.updateOne(
         { identificationNumber: body.identificationNumber },
         { turnHistory: [{ registry: moment().format('MMMM Do YYYY, h:mm:ss a'), timeSlot:moment(body.timeSlot, "h:mm").format("HH:mm")}] }
       );
       await turnModel.create(newTurn);
-      res.status(200).send("User and Turn created");
+      res.status(201).json({msg:"User and Turn created", status:true});
     } else if (cont.length < 10) {
       await turnModel.create(newTurn);
       await customerModel.updateOne(
@@ -133,9 +133,9 @@ const createTurn = async (req, res) => {
           },
         }
       );
-      res.status(200).send("Turn created");
+      res.status(201).json({msg:"Turn created", status:true});
     } else {
-      handleHttpError(res, "Turns not available for this time ", 404, "createTurn");
+      res.status(404).json({msg:"Turns not available for this time ", status:false});
     }
   } catch (error) {
     handleHttpError(res, "Internal Server Error", 400, "createTurn", error);
