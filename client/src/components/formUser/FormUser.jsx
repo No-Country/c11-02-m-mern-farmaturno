@@ -147,7 +147,7 @@ const FormUser = () => {
               mobilePhone: formData.phone,
             }),
           );
-          dispatch(addTimeSlot({ timeSlot: formData.range }));
+          dispatch(addTimeSlot({ timeSlot: formData.hour }));
          
           
 
@@ -204,14 +204,14 @@ const FormUser = () => {
       {seeModalConfirm && (
         <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
       )}
-      <Container className="container">
+      <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <h1>Farmacia Cruz Verde</h1>
-          <h2>/Direccion</h2>
-          <h2 className="mb-3">/Horario de atencion</h2>
+          <h1 className='titulo'>Farmacia Cruz Verde</h1>
+          <p className='mb-0 info'>/Direccion</p>
+          <p className="mb-3 info">/Horario de atencion</p>
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridName">
-              <Form.Label>Nombre</Form.Label>
+              <Form.Label className='texto'>Nombre</Form.Label>
               <Form.Control
                 className="form"
                 type="name"
@@ -229,7 +229,7 @@ const FormUser = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" as={Col} controlId="formGridLastname">
-              <Form.Label>Apellido</Form.Label>
+              <Form.Label className='texto'>Apellido</Form.Label>
               <Form.Control
                 className="form"
                 type="name"
@@ -249,7 +249,7 @@ const FormUser = () => {
           <br />
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridNumber">
-              <Form.Label>Número telefónico</Form.Label>
+              <Form.Label className='texto'>Número telefónico</Form.Label>
               <Form.Control
                 className="form"
                 type="number"
@@ -283,7 +283,7 @@ const FormUser = () => {
             </Form.Group>
           </Row>
           <br />
-          <Form.Group className="mb-3" id="formGridCheckbox">
+          <Form.Group className="mb-3 info" id="formGridCheckbox">
             <Form.Check
               type="checkbox"
               label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
@@ -312,7 +312,7 @@ const FormUser = () => {
             </Button>
           </Stack>
         </Form>
-      </Container>
+      </div>
 
       {/* modal elegir horario */}
 
