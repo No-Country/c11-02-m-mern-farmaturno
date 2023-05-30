@@ -51,7 +51,7 @@ const SignUpPharmacy = () => {
       </div>
       {formToShow === 'a' && <PharmacyOwnerDetails />}
       {formToShow === 'b' && <PharmacyDetails />}
-      {formToShow === 'c' && <SignInDetails />}
+      {(formToShow === 'c' || formToShow === 'd') && <SignInDetails />}
       <ProgressBar now={now} variant="success" className="progressBar" />
       <Footer />
     </Container>

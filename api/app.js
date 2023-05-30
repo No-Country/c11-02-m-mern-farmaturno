@@ -6,6 +6,7 @@ const dbConnection = require('./src/config/mongoDB');
 const Colors = require('@colors/colors');
 const cron = require('node-cron');
 const routes = require('./src/routes');
+const { handleTurns } = require('./src/utils/handleTurns');
 const handleRestartDBTurn = require('./src/utils/handleRestartDBTurn');
 
 
@@ -27,12 +28,21 @@ function main(){
   dbConnection();
 
   /**
+   * Cron library that executes the function of load all turns every hour.
+  */
+  cron.schedule('59 06-18 * * *', async () => {
+   await handleTurns();
+  })
+  // handleTurns(); // Descomentar esta linea para que ejecute la funcion sin temporizador
+
+  /**
    * Cron library that executes the function of restarting the Turn collection every day at 0 hours.
-   */
+  */
   cron.schedule('0 0 0 * * *', async () => {
     console.log(Colors.cyan('==>> Restarting Turn collection'))
     await handleRestartDBTurn()
   })
+
 }
 
 main();
