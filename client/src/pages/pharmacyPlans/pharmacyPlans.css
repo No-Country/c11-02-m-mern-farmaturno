@@ -1,7 +1,93 @@
+
 .pharmacyPlans {
   height: 100%;
   width: 100%;
+  padding: 15px; 
 }
 .signUp_button {
-  height: 20px;
+  position: relative;
+  left: 10px;
+  background: #008C73;
+  color: white;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  width: 32rem;
+  height: 50px;
+}
+
+.pharmacyBiografi {
+  display: grid;
+}
+
+.pharmacyPlans h2 {
+  color: #008C73;
+  font-weight: 600;
+  font-size: 20px;
+}
+.pharmacyPlans p {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+span{
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.pharmacy{
+  display: grid;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pharmacy h3{
+  margin-top: 15px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.pharmacy img {
+  margin-top: 10px;
+}
+
+.gallery {
+  display: grid;
+  margin-top: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.columns {
+  display: grid;
+  grid-template-rows: repeat(1, auto);
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.item i {
+  color: #008C73;
+  font-size: 20px;
+}
+
+.item p{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  max-width: 100;
+  height: auto;
 }

@@ -1,0 +1,121 @@
+import './loginPharmacy.css';
+import { Button, Form } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+/* import { useNavigate } from 'react-router'; */
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+export default function LoginPharmacy() {
+  const [dataLogin, setDataLogin] = useState({
+    userName: '',
+    userPassword: '',
+    errors: {},
+  });
+  const [isValid, setIsValid] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDataLogin((prevdataLogin) => ({
+      ...prevdataLogin,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateLoginForm();
+    if (Object.keys(errors).length === 0) {
+      //Hacer el post
+      //si retorna un hash guardarlo y pasar a la siguiente pagina
+      //si no retorna el hash mostrar un cartel que diga: Los datos ingresados
+      //no corresponden con un usuario existente. Por favor regístrate para utilizar
+      //el servicio
+    } else {
+      setDataLogin((prevdataLogin) => ({
+        ...prevdataLogin,
+        errors,
+      }));
+    }
+  };
+
+  const validateLoginForm = () => {
+    const errors = {};
+
+    if (!dataLogin.userName.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)) {
+      errors.nameError = 'El nombre de usuario ingresado no es válido';
+    }
+
+    if (
+      !dataLogin.userPassword.match(
+        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚñÑ]).{8,16}$/,
+      )
+    ) {
+      errors.passwordError =
+        'Ingrese una contraseña válida (8 a 16 caracteres) sin espacios ni acentos';
+    }
+
+    setIsValid(Object.keys(errors).length === 0);
+    return errors;
+  };
+
+  return (
+    <div className="logIn_container">
+      <div className="welcome_div">
+        <div className="container_welcome">
+          <p className="first_text">Te damos la bienvenida a</p>
+          <p className="title_page">FarmaTurno</p>
+          <p className="second_text">¡Gracias por elegirnos!</p>
+        </div>
+      </div>
+      <Form noValidate onSubmit={handleSubmit}>
+        <Row className="custom-row">
+          <h2>Inicio de sesión</h2>
+          <Form.Label className="label">Usuario</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            name="userName"
+            value={dataLogin.userName}
+            onChange={handleChange}
+            isInvalid={!isValid && !!dataLogin.errors.nameError}
+            isValid={isValid && !dataLogin.errors.nameError}
+          />
+          <Form.Control.Feedback type="invalid">
+            {dataLogin.errors.nameError}
+          </Form.Control.Feedback>
+        </Row>
+        <Row className="custom-row">
+          <Form.Label className="label">Contraseña</Form.Label>
+          <Form.Control
+            required
+            type="password"
+            name="userPassword"
+            value={dataLogin.userPassword}
+            onChange={handleChange}
+            isInvalid={!isValid && !!dataLogin.errors.passwordError}
+            isValid={isValid && !dataLogin.errors.passwordError}
+          />
+          <Form.Control.Feedback type="invalid">
+            {dataLogin.errors.passwordError}
+          </Form.Control.Feedback>
+        </Row>
+        <Button
+          variant={`${isValid ? 'success' : 'secondary'}`}
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Iniciar sesión
+        </Button>
+      </Form>
+      <div>
+        <p>
+          ¿Olvidaste tu contraseña? <Link to="/"> Contáctanos</Link>
+        </p>
+        <p>
+          ¿Aun no tienes tu cuenta?
+          <Link to="/pharmacy/signUp"> Regístrate aquí </Link>
+        </p>
+      </div>
+    </div>
+  );
+}

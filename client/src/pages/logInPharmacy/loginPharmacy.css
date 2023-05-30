@@ -1,0 +1,66 @@
+.logIn_container {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.logIn_container .welcome_div .container_welcome .first_text {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+.logIn_container .welcome_div .container_welcome .title_page {
+  font-size: 3.8rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+  color: var(--green);
+}
+.logIn_container .welcome_div .container_welcome .second_text {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+.logIn_container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.logIn_container h2 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-weight: 500;
+}
+.logIn_container p {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: 400;
+  margin-bottom: 2.7rem;
+}
+
+.logIn_container .label {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.9rem;
+}
+
+.logIn_container .custom-row {
+  margin-bottom: 1.6rem;
+  align-items: center;
+}
+
+.logIn_container .custom-row input {
+  widht: 100%;
+  height: 3.8rem;
+  margin-left: 0.7rem;
+  font-size: 1.6rem;
+}
+.logIn_container .checkbox {
+  margin-top: 6.7rem;
+  margin-bottom: 4rem;
+}
+.logIn_container button {
+  width: 100%;
+  height: 4rem;
+  font-size: 1.6rem;
+  align-self: center;
+}

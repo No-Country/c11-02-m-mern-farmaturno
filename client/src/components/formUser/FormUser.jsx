@@ -11,7 +11,8 @@ const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, mobilePhone, timeSlot, identificationNumber } = useSelector((state) => state.user);
+  const { name, surName, mobilePhone, timeSlot, identificationNumber } =
+    useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
@@ -148,19 +149,17 @@ const FormUser = () => {
             }),
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));
-         
-          
 
-            const data = {
-              name: formData.name,
-              surName: formData.lastName,
-              mobilePhone: formData.phone,
-              timeSlot: formData.hour,
-              identificationNumber,
-            }
-            console.log(data)
-            postTurn(data);
-  
+          const data = {
+            name: formData.name,
+            surName: formData.lastName,
+            mobilePhone: formData.phone,
+            timeSlot: formData.hour,
+            identificationNumber,
+          };
+          console.log(data);
+          postTurn(data, 'api/turn/');
+
           resetForm();
         } else {
           setErrors((prevErrors) => ({
@@ -204,14 +203,14 @@ const FormUser = () => {
       {seeModalConfirm && (
         <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
       )}
-      <Container className="container">
+      <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <h1>Farmacia Cruz Verde</h1>
-          <h2>/Direccion</h2>
-          <h2 className="mb-3">/Horario de atencion</h2>
+          <h1 className="titulo">Farmacia Cruz Verde</h1>
+          <p className="mb-0 info">/Direccion</p>
+          <p className="mb-3 info">/Horario de atencion</p>
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridName">
-              <Form.Label>Nombre</Form.Label>
+              <Form.Label className="texto">Nombre</Form.Label>
               <Form.Control
                 className="form"
                 type="name"
@@ -229,7 +228,7 @@ const FormUser = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" as={Col} controlId="formGridLastname">
-              <Form.Label>Apellido</Form.Label>
+              <Form.Label className="texto">Apellido</Form.Label>
               <Form.Control
                 className="form"
                 type="name"
@@ -249,7 +248,7 @@ const FormUser = () => {
           <br />
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridNumber">
-              <Form.Label>Número telefónico</Form.Label>
+              <Form.Label className="texto">Número telefónico</Form.Label>
               <Form.Control
                 className="form"
                 type="number"
@@ -274,16 +273,14 @@ const FormUser = () => {
                 }`}
                 variant="secondary"
                 onClick={handleShow}
-                disabled={
-                  !valid.name || !valid.lastName || !valid.phone
-                }
+                disabled={!valid.name || !valid.lastName || !valid.phone}
               >
                 {formData.isHorarioElegido ? formData.hour : 'Elige un horario'}
               </Button>
             </Form.Group>
           </Row>
           <br />
-          <Form.Group className="mb-3" id="formGridCheckbox">
+          <Form.Group className="mb-3 info" id="formGridCheckbox">
             <Form.Check
               type="checkbox"
               label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
@@ -312,7 +309,7 @@ const FormUser = () => {
             </Button>
           </Stack>
         </Form>
-      </Container>
+      </div>
 
       {/* modal elegir horario */}
 
