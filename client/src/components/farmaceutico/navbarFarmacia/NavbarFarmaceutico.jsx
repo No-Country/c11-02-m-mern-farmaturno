@@ -1,17 +1,22 @@
-import React from 'react';
 import {
   Navbar,
   Container,
   Nav,
   NavDropdown,
   Offcanvas,
-  Dropdown ,
+  Dropdown,
 } from 'react-bootstrap';
 import '../navbarFarmacia/navbarFarmacia.css';
 import { useNavigate } from 'react-router-dom';
 
 const NavbarFarmaceutico = () => {
   const navigate = useNavigate();
+
+  const cerrarSesion=()=>{
+    sessionStorage.removeItem('token');
+    navigate(`/pharmacy`)
+  }
+
   return (
     <>
       <Navbar expand="lg" className="navbar p-0">
@@ -21,7 +26,6 @@ const NavbarFarmaceutico = () => {
             <img
               src="https://i.ibb.co/Z8NKxKV/logo-removebg-preview.png"
               alt="logo"
-              height={50}
               className="mr-3 align-self-start   "
             />
           </Navbar.Brand>
@@ -36,7 +40,6 @@ const NavbarFarmaceutico = () => {
             <Offcanvas.Body>
               <Nav className="me-auto"></Nav>
               <Nav className="txCategory">
-  
                 {/* <NavDropdown
                   title="Soy Farmacia"
                   id="basic-nav-dropdown"
@@ -56,24 +59,26 @@ const NavbarFarmaceutico = () => {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
 
-          <Dropdown 
-          // drop='start'
-          align={'end'}
-          className='mx-4'
-          variant="white"
+          <Dropdown
+            // drop='start'
+            align={'end'}
+            className="mx-4"
+            variant="white"
           >
-            <Dropdown.Toggle variant='white' id="dropdown-basic">
-              <img 
-              src="https://i.ibb.co/d49Hfgt/person-circle.png"
-              height={24}
-               />
+            <Dropdown.Toggle variant="white" id="dropdown-basic">
+              <img
+                src="https://i.ibb.co/d49Hfgt/person-circle.png"
+                height={24}
+              />
             </Dropdown.Toggle>
 
-            <Dropdown.Menu className=' dropdownPerfil' 
-            
-            >
-              <Dropdown.Item className=' dropItem' href="#/action-1">Mi perfil</Dropdown.Item>
-              <Dropdown.Item className='dropItem' href="#/action-2">Cerrar sesion</Dropdown.Item>
+            <Dropdown.Menu className=" dropdownPerfil">
+              <Dropdown.Item className=" dropItem" href="#/action-1">
+                Mi perfil
+              </Dropdown.Item>
+              <Dropdown.Item className="dropItem" onClick={(e)=>cerrarSesion()}>
+                Cerrar sesion
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Container>

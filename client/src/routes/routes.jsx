@@ -37,13 +37,13 @@ export const router = createBrowserRouter([
         path: 'confirmacion_turno',
         element: <Confirmation />,
       },
-      { path: 'perfil_farmacia', element: <PageHomeFarmacia /> },
+      { path: 'pharmacy/profile', element: <PageHomeFarmacia /> },
 
       {
         path: 'pharmacy/signUp',
         element: (
           <PharmacyProvider>
-            <SignUpPharmacy />s
+            <SignUpPharmacy />
           </PharmacyProvider>
         ),
         children: [{}],

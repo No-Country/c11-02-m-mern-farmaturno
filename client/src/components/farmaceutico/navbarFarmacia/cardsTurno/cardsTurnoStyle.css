@@ -1,9 +1,53 @@
-.tarde{
-    background-color: rgba(169, 153, 129, 0.36);
+.badge{
+    width: 182px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px!important ;
 }
-.proximo{
-    background-color: rgb(216, 16, 16);
+.tx-tabla{
+    font-size: 18px;
+    color: #767676;
 }
-.atendido{
-    background-color: rgb(129, 169, 145);
+.badge-proximo{
+    background-color: #4034CF!important;
 }
+.badge-atendido{
+    background-color: #008C73!important;
+}
+.badge-tarde{
+    background-color: #F65800!important;
+}
+
+.checkbox{
+    background-color: white;
+    border-color: 1px solid rgba(47, 47, 47, 0.5);
+    width: 30px;
+    height: 30px;
+
+} 
+
+.iconosCards{
+width: 16px!important;
+}
+
+@media (max-width: 400px) {
+    .mi-tabla-responsive {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    
+      .mi-tabla-responsive > div {
+        flex: 0 0 100%;
+      }
+    
+      .mi-tabla-responsive > div:nth-child(1),
+      .mi-tabla-responsive > div:nth-child(7) {
+        flex: 0 0 30%;
+      }
+  }

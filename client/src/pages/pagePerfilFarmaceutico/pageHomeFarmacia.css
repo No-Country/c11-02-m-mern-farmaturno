@@ -1,63 +1,58 @@
-/* .divPrincipal{
-    overflow-y: scroll;
-    height: min-content;
-} */
-.homeFarmacia{
-width: 100vw;
+
+.homeFarmacia {
+  width: 100%!important;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10% 90% ;
+  grid-template-rows: 10% 90%;
   overflow-y: scroll;
-
+  padding: 0;
+  margin: 0;
+  overflow-x:hidden;
 }
-.bodyHomeFarmacia{
-    width: 100vw;
-    background-color: white;
+.bodyHomeFarmacia {
+  width: 100%!important;
+  background-color: white;
+  padding: 0;
 }
-.titulo{
-    font-size:1.3331em ;
-    font-weight:500;
-}
-.divImagen{
-    height: fit-content;
-}
-
-.imgHomeFarmacia{
-    width:25% ;
-    height:25% ;
-}
-.card{
+.divTituloFarmacia{
+    height: 100px;
+    background-color: #008c73;
+    color: white;
+    font-size: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40%;
+    text-align: center;
 }
 
-.tituloCard{
-    font-size:1.6669em ;
-    font-weight:500;
-    color: #111111;
+.titulo{
+    font-size: 28px;
 }
-.tituloText{
-    font-size:1.3331em ;
-    font-weight:400;
-    color: #111111;
-    min-height: 4rem;
+.texto{
+    font-size: 18px;
 }
-.btnVerMas{
-    font-size:1.5em ;
-    font-weight:500;
-    background-color:#008C73;
-    border-color: #008C73;
-    height: 3rem;
-    width: 100%;
-    pointer-events: all;
-    
+.divImagen {
+  height: fit-content;
 }
-.btnVerMas:hover{
-    background-color: #008C73;
-    border-color: #008C73	;
+
+.imgHomeFarmacia {
+  width: 25%;
+  height: 25%;
+}
+
+
+.btnVerMas {
+  font-size: 1.5em;
+  font-weight: 500;
+  background-color: #008c73;
+  border-color: #008c73;
+  height: 3rem;
+  width: 100%;
+  pointer-events: all;
+}
+.btnVerMas:hover {
+  background-color: #008c73;
+  border-color: #008c73;
 }
 
 .mx-auto {
@@ -78,4 +73,25 @@ width: 100vw;
         width:12.5rem;
         height:12.5rem ;
     }
+
 }
+
+@media (max-width: 767px) {
+    .mi-tabla-responsive {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .mi-tabla-responsive > div {
+      flex: 0 0 100%;
+    }
+  
+    .mi-tabla-responsive > div:nth-child(1),
+    .mi-tabla-responsive > div:nth-child(7) {
+      flex: 0 0 30%;
+    }
+  }
+
+
+  
