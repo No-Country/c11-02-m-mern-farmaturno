@@ -12,6 +12,7 @@ const FormUser = () => {
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
   const { name, surName, mobilePhone, timeSlot, identificationNumber } = useSelector((state) => state.user);
+  console.log(name)
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
