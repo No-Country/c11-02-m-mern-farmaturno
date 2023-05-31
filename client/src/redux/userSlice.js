@@ -28,6 +28,7 @@ const initialState = {
   surName: '',
   identificationNumber: '',
   customerEmail: '',
+  date: '',
 };
 
 export const userSlice = createSlice({
@@ -55,7 +56,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addIdentificationNumer, addUser, addTimeSlot } =
+export const { addIdentificationNumer, addUser, addTimeSlot, addDate } =
   userSlice.actions;
 
 export default userSlice.reducer;

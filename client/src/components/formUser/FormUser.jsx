@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
-import { addUser, addTimeSlot } from '../../redux/userSlice';
+import { addUser, addTimeSlot, addDate } from '../../redux/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
 import { postTurn } from '../../services/PostTurn';
+import moment from 'moment';
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, customerEmail, timeSlot, identificationNumber } =
+  const currentDate = moment().format(' D/MM/YYYY');
+  const { name, surName, customerEmail, timeSlot, identificationNumber, date } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
@@ -148,8 +150,8 @@ const FormUser = () => {
               customerEmail: formData.email,
             }),
           );
-          dispatch(addTimeSlot({ timeSlot: formData.range }));
-
+          dispatch(addTimeSlot({ timeSlot: formData.hour }));
+          dispatch(addDate({ date: currentDate }));
           const data = {
             name: formData.name,
             surName: formData.lastName,
@@ -161,10 +163,9 @@ const FormUser = () => {
           postTurn(data, 'api/turn/')
           .then((response) => {
             console.log(response);
-            alert('Su cuenta ha sido creada con éxito');
-            {seeModalConfirm && (
-              <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
-            )}
+            
+            setSeeModalConfirm(true);
+            
             
           })
           .catch((error) => {
@@ -216,7 +217,9 @@ const FormUser = () => {
 
   return (
     <>
-      
+      {seeModalConfirm && (
+              <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
+            )}
       <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1 className="titulo">Farmacia Cruz Verde</h1>
@@ -317,7 +320,7 @@ const FormUser = () => {
               variant="secondary"
               type="submit"
               disabled={!formData.isTurnoDisponible}
-              onClick={() => setSeeModalConfirm(true)}
+              
             >
               PEDIR TURNO
             </Button>
