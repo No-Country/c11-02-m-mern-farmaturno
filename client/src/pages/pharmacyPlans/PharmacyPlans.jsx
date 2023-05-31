@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import './pharmacyPlans.css';
 const PharmacyPlans = () => {
   const navigate = useNavigate();
@@ -9,11 +10,11 @@ const PharmacyPlans = () => {
         <h2>Accede a la manera más sencilla de gestionar tus turnos</h2>
         <p>Mayor organización, eficiencia y satisfaccíon tanto para los clientes como para el personal.</p>
         <span>¿Quieres comenzar a utilizarlo ya?</span>
-        <button className="signUp_button" onClick={() => navigate('signUp')}>
-          Registrate
-        </button>
-
+        
         <div className='pharmacy'>
+        <Button variant="success" className="signUp_button"  onClick={() => navigate('signUp')}>
+          Registrate
+        </Button>
         <h3>Mas fácil que nunca</h3>
           <img src="/public/phon.svg" alt="" />
         </div>
@@ -37,7 +38,7 @@ const PharmacyPlans = () => {
           <p>Diseño de web responsivo</p>
         </div>
       </div>
-      <div className="columns">
+      <div className="columnas">
         <div className="image-container">
           <img src="/public/photo.svg" alt="" />
         </div>
