@@ -6,9 +6,21 @@ const handleTurns = async () => {
     if(!turns.length){
         console.log(Colors.bgWhite.black(`==>>** Not Turns in DB **`));
     }else{
-        const turnSort = turns.sort((a, b) =>{
-            const [hourA, minA] = a.timeSlot?.split(":").map(Number);
-            const [hourB, minB] = b.timeSlot?.split(":").map(Number);
+        const data = [];
+        turns.forEach(a => {
+            data.push({
+                _id: a._id,
+                customerEmail: a.customer.mobilePhone,
+                customerName: a.customer.name +" "+ a.customer.surName,
+                hour: a.timeSlot,
+                action: 'update'
+            })
+            return data;
+        });
+        
+        const turnSort = data.sort((a, b) =>{
+            const [hourA, minA] = a.hour?.split(":").map(Number);
+            const [hourB, minB] = b.hour?.split(":").map(Number);
 
             if (hourA === hourB && minA === minB) {
                 return a._id - b._id; 
@@ -17,6 +29,7 @@ const handleTurns = async () => {
         });
         console.log(Colors.bgCyan.black(`==>>** Turns Loaded **`));
         console.log(turnSort);
+        return turnSort;
     }
     
 };
