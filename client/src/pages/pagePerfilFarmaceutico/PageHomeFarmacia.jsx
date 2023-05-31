@@ -2,7 +2,7 @@ import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/Nav
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../pagePerfilFarmaceutico/pageHomeFarmacia.css';
 import Footer from '../../components/Footer/Footer';
-import { useGetTurnsQuery } from '../../services/apiSlices';
+import { useGetTurnsQuery } from '../../redux/turnSlices';
 import moment from 'moment';
 import CardsTurno from '../../components/farmaceutico/navbarFarmacia/cardsTurno/CardsTurno';
 

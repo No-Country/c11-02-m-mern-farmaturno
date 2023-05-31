@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/React"; */
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/React';
 
-export const apiSlices = createApi({
+export const turnSlices = createApi({
   reducerPath: 'turnosApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3002/api',
@@ -36,4 +36,4 @@ export const apiSlices = createApi({
   }),
 });
 
-export const { useGetTurnsQuery, useUpdateEstadoTurnoMutation } = apiSlices; //hook para solicitar datos //esto es un hook que da redux toolkit para usarlo en el frontend y me permite maejar cuadno esta cargando , cuando hay un error, etc
+export const { useGetTurnsQuery, useUpdateEstadoTurnoMutation } = turnSlices; //hook para solicitar datos //esto es un hook que da redux toolkit para usarlo en el frontend y me permite maejar cuadno esta cargando , cuando hay un error, etc

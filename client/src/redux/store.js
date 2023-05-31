@@ -1,16 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './userSlice';
 import authSlice from './authSlice';
-import { apiSlices } from "../services/apiSlices";
+import {turnSlices } from "../redux/turnSlices";
+
 
 
 export const store = configureStore({
   reducer: {
     user: userSlice,
     auth: authSlice,
-    [apiSlices.reducerPath]: apiSlices.reducer,
+    [turnSlices.reducerPath]: turnSlices.reducer,
   },
-  middleware: (gDM) => gDM().concat(apiSlices.middleware),
+  middleware: (gDM) => gDM().concat(turnSlices.middleware),
 });
 
 

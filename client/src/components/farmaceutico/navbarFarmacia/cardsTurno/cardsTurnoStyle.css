@@ -9,6 +9,10 @@
     text-align: center;
     margin: 20px!important ;
 }
+.tx-tabla{
+    font-size: 18px;
+    color: #767676;
+}
 .badge-proximo{
     background-color: #4034CF!important;
 }
