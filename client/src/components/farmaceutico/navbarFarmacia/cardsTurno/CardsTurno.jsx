@@ -35,7 +35,7 @@ const CardsTurno = ({turn,turnoTardeNumero},_id) => {
               )}
           </Col>
           <Col>
-        <p>Turno: </p>
+        <p className='tx-tabla'>Turno: </p>
         </Col>
           </Row>
           </td>
@@ -43,17 +43,17 @@ const CardsTurno = ({turn,turnoTardeNumero},_id) => {
           <Row>
 
         <Col>
-        <p>{turn.timeSlot}</p>
+        <p className='tx-tabla'>{turn.timeSlot}</p>
         </Col>
         <Col>
-        <p>{turn.customer.name} {turn.customer.surName}</p>
+        <p className='tx-tabla'>{turn.customer.name} {turn.customer.surName}</p>
         </Col>
         <Col>
             <img src="https://i.ibb.co/chhy7gC/Vector-1.png" alt="" className='iconosCards'/>
-        <p> {turn.customer.mobilePhone}</p>
+        <p className='tx-tabla'> {turn.customer.mobilePhone}</p>
         </Col>
         <Col>
-        <p>{turn.customer.identificationNumber}</p>
+        <p className='tx-tabla'>{turn.customer.identificationNumber}</p>
         </Col>
           </Row>
         </td>
