@@ -68,6 +68,7 @@ const CardsTurno = ({ turn, turnoTardeNumero }, _id) => {
                 onClick={(e) => confirmar(turn._id)}
                 disabled={disabled}
                 className="checkbox"
+                checked={turn.status===false}
               />
             </td>
           </tr>
