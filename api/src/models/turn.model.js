@@ -31,8 +31,8 @@ const turnSchema = new mongoose.Schema(
         type: Number,
         require: true
       },
-      mobilePhone: {
-        type: Number,
+      customerEmail: {
+        type: String,
         require: true
       }
     }
