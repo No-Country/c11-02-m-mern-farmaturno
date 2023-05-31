@@ -71,25 +71,21 @@ const SignInDetails = () => {
         userName: registrationData.registrationUsername,
         password: registrationData.registrationPassword,
       };
-      /*       const data = {
-        name: 'Marquetos',
-        surName: 'Martilo',
-        identificationNumber: 1234667127,
-        companyName: 'farmciaprueba',
-        nit: '123412345',
-        city: 'venezuela',
-        address: 'laprida',
-        phone: 3456789012,
-        email: 'marquetos@marquetos.com',
-        hourAttention: '07:00-17:00',
-        userName: 'diana123',
-        password: 'hackeamee1233',
-      }; */
-      postTurn(data, 'api/pharmacy');
-      setTimeout(() => {
-        /*         console.log(data); */
-        navigate('adminitration_allowed');
-      }, 1500);
+
+      postTurn(data, 'api/pharmacy')
+        .then((response) => {
+          console.log(response);
+          alert('Su cuenta ha sido creada con éxito');
+          setTimeout(() => {
+            navigate('adminitration_allowed');
+          }, 1500);
+        })
+        .catch((error) => {
+          console.error(error);
+          alert(
+            'Hubo un error al crear su cuneta, revise que todos los datos sean correctos y que no haya creado otra cuenta con los mismos datos',
+          );
+        });
     } else {
       setRegistrationData((prevregistrationData) => ({
         ...prevregistrationData,

@@ -9,8 +9,8 @@ export const postTurn = async (data, url) => {
       },
       body: JSON.stringify(data),
     });
-    console.log(data);
-    console.log(response);
+    //console.log(data);
+    //console.log(response);
     if (!response.ok) {
       throw new Error('Error al enviar los datos');
     }
