@@ -103,7 +103,7 @@ const createTurn = async (req, res) => {
       name: body.name,
       surName: body.surName,
       identificationNumber: body.identificationNumber,
-      mobilePhone: body.mobilePhone,
+      customerEmail: body.customerEmail,
     };
     const newTurn = {
       timeSlot: body.timeSlot,
@@ -112,7 +112,7 @@ const createTurn = async (req, res) => {
         name: body.name,
         surName: body.surName,
         identificationNumber: body.identificationNumber,
-        mobilePhone: body.mobilePhone,
+        customerEmail: body.customerEmail,
       },
     };
     if (!user.length && cont.length < 10) {
