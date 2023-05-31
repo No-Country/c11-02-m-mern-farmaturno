@@ -5,6 +5,7 @@ import Divider from './divider/Divider';
 import About from './about/About';
 import Instructions from './instructions/Instructions';
 import Footer from '../../components/Footer/Footer';
+import FarmaciaAdicionales from './FarmaciasAdicionales/FarmaciaAdicionales';
 const Home = () => {
   return (
     <div className="home">
@@ -16,6 +17,7 @@ const Home = () => {
         </div>
         <PanelIngreso />
       </div>
+      <FarmaciaAdicionales />
       <FirstDescription />
       <Divider />
       <About />
