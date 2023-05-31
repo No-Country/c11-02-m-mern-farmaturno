@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useGetTurnsQuery } from "../../services/apiSlices";
+import { useGetTurnsQuery } from "../../redux/turnSlices";
 import Table from 'react-bootstrap/Table';
 
 

@@ -11,6 +11,12 @@ import { useNavigate } from 'react-router-dom';
 
 const NavbarFarmaceutico = () => {
   const navigate = useNavigate();
+
+  const cerrarSesion=()=>{
+    sessionStorage.removeItem('token');
+    navigate(`/pharmacy`)
+  }
+
   return (
     <>
       <Navbar expand="lg" className="navbar p-0">
@@ -70,7 +76,7 @@ const NavbarFarmaceutico = () => {
               <Dropdown.Item className=" dropItem" href="#/action-1">
                 Mi perfil
               </Dropdown.Item>
-              <Dropdown.Item className="dropItem" href="#/action-2">
+              <Dropdown.Item className="dropItem" onClick={(e)=>cerrarSesion()}>
                 Cerrar sesion
               </Dropdown.Item>
             </Dropdown.Menu>
