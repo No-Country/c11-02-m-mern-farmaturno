@@ -1,5 +1,4 @@
 import { ProgressBar } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
 import Footer from '../../components/Footer/Footer';
 import PharmacyOwnerDetails from './pharmacyOwnerDetails/PharmacyOwnerDetails';
 import PharmacyDetails from './pharmacyDetails/PharmacyDetails';
@@ -39,7 +38,7 @@ const SignUpPharmacy = () => {
     }
   };
   return (
-    <Container className="signUpPharmacy">
+    <div className="signUpPharmacy">
       <div className="title-button__container">
         <img
           className="goBackButton"
@@ -54,7 +53,7 @@ const SignUpPharmacy = () => {
       {(formToShow === 'c' || formToShow === 'd') && <SignInDetails />}
       <ProgressBar now={now} variant="success" className="progressBar" />
       <Footer />
-    </Container>
+    </div>
   );
 };
 

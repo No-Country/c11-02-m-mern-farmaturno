@@ -40,3 +40,14 @@
   width: 75%;
   height: 4px;
 }
+
+@media (min-width: 768px) {
+  .signUpPharmacy {
+    width: 100vw;
+    padding: 0 2rem;
+  }
+  .title-button__container img {
+    position: absolute;
+    left: 3.75rem;
+  }
+}

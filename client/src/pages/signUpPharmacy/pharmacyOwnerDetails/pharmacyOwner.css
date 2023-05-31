@@ -43,3 +43,47 @@
   font-size: 1.6rem;
   align-self: center;
 }
+.pharmacy-owner img {
+  widht: 0;
+  height: 0;
+}
+
+@media (min-width: 768px) {
+  .pharmacy-owner {
+    width: 100vw;
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .pharmacy-owner form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 25.4rem;
+    grid-template-rows: 6.5rem 6.5rem contain 4rem;
+    gap: 4rem;
+  }
+  .pharmacy-owner .row1 {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  .pharmacy-owner .row2 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+  .pharmacy-owner .row3 {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  .pharmacy-owner img {
+    widht: inherit;
+    height: inherit;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+  }
+  .pharmacy-owner button {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    margin: 0 auto;
+  }
+}
