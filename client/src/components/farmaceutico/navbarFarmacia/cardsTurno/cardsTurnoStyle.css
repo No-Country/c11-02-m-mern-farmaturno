@@ -1,9 +1,16 @@
 .tarde{
-    background-color: rgba(169, 153, 129, 0.36);
+    background-color: rgba(167, 60, 60, 0.36);
+    width: 100vh;
 }
 .proximo{
-    background-color: rgb(216, 16, 16);
+    background-color: rgb(255, 252, 252);
+    width: 100vh;
 }
 .atendido{
     background-color: rgb(129, 169, 145);
+    width: 100vh;
+}
+
+.iconosCards{
+width: 16px!important;
 }
