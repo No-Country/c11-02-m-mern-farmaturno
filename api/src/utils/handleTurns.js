@@ -1,5 +1,6 @@
 const Colors = require('@colors/colors');
 const {turnModel} = require("../models");
+const handleSendEmail = require('./handleSendEmail');
 
 const handleTurns = async () => {
     const turns = await turnModel.find({});
@@ -10,7 +11,7 @@ const handleTurns = async () => {
         turns.forEach(a => {
             data.push({
                 _id: a._id,
-                customerEmail: a.customer.mobilePhone,
+                customerEmail: a.customer.customerEmail,
                 customerName: a.customer.name +" "+ a.customer.surName,
                 hour: a.timeSlot,
                 action: 'update'
@@ -27,9 +28,14 @@ const handleTurns = async () => {
             }
               return hourA - hourB;
         });
+
+        const filterTurn = turnSort.filter(t => {
+            const hourSistem = new Date().getHours();
+            const [hourA] = t.hour?.split(":").map(Number);
+            return hourA === (hourSistem + 1);
+        });
         console.log(Colors.bgCyan.black(`==>>** Turns Loaded **`));
-        console.log(turnSort);
-        return turnSort;
+        handleSendEmail(filterTurn);
     }
     
 };
