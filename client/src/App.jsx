@@ -22,7 +22,7 @@ function App() {
 
       {location.pathname !== '/' &&
       location.pathname !== '/pharmacy/signUp' &&
-      location.pathname !== '/perfil_farmacia' &&
+      location.pathname !== '/pharmacy/profile' &&
       location.pathname !== '/pharmacy' ? (
         <Footer />
       ) : (
