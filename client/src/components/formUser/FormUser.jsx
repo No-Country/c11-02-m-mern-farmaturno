@@ -11,12 +11,12 @@ const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, emailCustomer, timeSlot, identificationNumber } =
+  const { name, surName, customerEmail, timeSlot, identificationNumber } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
-    email: emailCustomer,
+    email: customerEmail,
     hour: timeSlot,
     isCheckboxChecked: false,
     isTurnoDisponible: false,
@@ -110,7 +110,7 @@ const FormUser = () => {
 
       case 'email':
         if (!expresiones.email.test(value)) {
-          errorMessage = 'El número telefónico debe tener 10 dígitos';
+          errorMessage = 'Ingrese una dirección de correo valida';
           setValid((prevValid) => ({
             ...prevValid,
             [name]: false,
@@ -137,7 +137,7 @@ const FormUser = () => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    if (valid.name & valid.lastName & valid.phone) {
+    if (valid.name & valid.lastName & valid.email) {
       if (form.checkValidity()) {
         if (formData.isCheckboxChecked) {
           setValidated(true);
@@ -145,7 +145,7 @@ const FormUser = () => {
             addUser({
               name: formData.name,
               surName: formData.lastName,
-              emailCustomer: formData.phone,
+              customerEmail: formData.email,
             }),
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));
@@ -153,12 +153,28 @@ const FormUser = () => {
           const data = {
             name: formData.name,
             surName: formData.lastName,
-            emailCustomer: formData.email,
+            customerEmail: formData.email,
             timeSlot: formData.hour,
             identificationNumber,
           };
           console.log(data);
-          postTurn(data, 'api/turn/');
+          postTurn(data, 'api/turn/')
+          .then((response) => {
+            console.log(response);
+            alert('Su cuenta ha sido creada con éxito');
+            {seeModalConfirm && (
+              <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
+            )}
+            
+          })
+          .catch((error) => {
+            console.error(error);
+            alert(
+              'Hubo un error al pedir su turno',
+            );
+          });
+       
+
 
           resetForm();
         } else {
@@ -177,8 +193,8 @@ const FormUser = () => {
     setFormData({
       name: name,
       lastName: surName,
-      email: emailCustomer,
-      hour: 0,
+      email: customerEmail,
+      hour: timeSlot,
       range: timeSlot,
       isCheckboxChecked: false,
       isHorarioElegido: false,
@@ -200,9 +216,7 @@ const FormUser = () => {
 
   return (
     <>
-      {seeModalConfirm && (
-        <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
-      )}
+      
       <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1 className="titulo">Farmacia Cruz Verde</h1>
