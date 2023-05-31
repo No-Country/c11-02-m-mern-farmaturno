@@ -1,15 +1,22 @@
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { useGetTurnsQuery } from "../../redux/turnSlices";
+import { useEffect, useCallback } from 'react';
+import { useGetTurnsQuery, useDeleteTurnMutation } from "../../services/apiSlices";
 import Table from 'react-bootstrap/Table';
+import './PageTurnoStyle.css';
+import moment from 'moment'; 
+import Swal from 'sweetalert2';
 
 
 
 
 const Turno = () => {
 	const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
+	// if (isLoading) return <div>Loading...</div>;
+	// else if (isError) return <div>Error:{error}</div>;
+	console.log(data)
+	const [deleteTurn] = useDeleteTurnMutation();
 	const identificationNumber = useSelector((state) => state.user.identificationNumber);
-	console.log(identificationNumber);
+	// console.log(identificationNumber);
 	const users = data && data.filter((item) => item.customer.identificationNumber === identificationNumber);
 	// useEffect(() => {
 		// if (data) {
@@ -20,38 +27,58 @@ const Turno = () => {
 		// }
 	//   }, [data, identificationNumber]);
  console.log(users);
-	if (isLoading) return <div>Loading...</div>;
-	else if (isError) return <div>Error:{error}</div>;
-	console.log(data)
+	
 
 	const formatDate = (dateString) => {
-		const date = new Date(dateString);
-		const day = date.getDate();
-		const month = date.getMonth() + 1;
-		const year = date.getFullYear().toString().substr(-2);
-		return `${padZero(day)}/${padZero(month)}/${year}`;
-	  };
-	  const padZero = (value) => {
-		return value.toString().padStart(2, '0');
+		const date = moment(dateString, 'MMMM Do YYYY, h:mm:ss a');
+		return date.format('DD/MM/YY');
 	  };
 
+	  
+
+	const borrarTurn = useCallback((identificationNumber) => {
+		Swal.fire({
+			title: "Estas seguro?",
+			text: "No se podra revertir!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#E95821",
+			cancelButtonColor: "#5B5B5B",
+			confirmButtonText: "Si, borrar!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				deleteTurn(users[0].customer.identificationNumber);
+				Swal.fire({
+					icon: "success",
+					title: "Producto borrado!",
+					showConfirmButton: false,
+					timer: 1500,
+				});
+				// setShow(false);
+			}
+		});
+	}, []);
 
 return (
-	<>
-		<Table  borderless hover >
-		 <thead>
+	<div className='general'>
+		<p>
+	<h1>Consulta tu turno</h1>
+	<p className='parrafo'>Puedes revisar la información detallada del último turno que solicitaste, junto al historial guardado en nuestro sistema.</p>
+	</p>
+		<Table className='table'  borderless hover >
+		 <thead className='encabezado'>
         <tr>
           <th>Datos Personales</th>
           <th>Fecha y hora</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
 		{users.map((user) => (
 			
 			<>
-        <tr key={user._id}>
-          <td>{user.customer.name} {user.customer.surName}   Telefono: {user.customer.mobilePhone}</td>
-          <td>{formatDate(user.date)}      {user.timeSlot}</td>
+        <tr className='body' key={user._id}>
+          <td >{user.customer.name} {user.customer.surName}   email: {user.customer.customerEmail}</td>
+          <td >{formatDate(user.date)}      {user.timeSlot}</td>
         </tr>
         
       
@@ -59,8 +86,8 @@ return (
 		))}
 		</tbody>
 		</Table>
-		<p>Haz click aqui para eliminar tu historial de turnos  datos personales</p>
-		</>
+		<p className='parrafo'>Haz click <a href="#" onClick={borrarTurn}>aqui</a> para eliminar tu historial de turnos  datos personales</p>
+		</div>
 	);
 };
 

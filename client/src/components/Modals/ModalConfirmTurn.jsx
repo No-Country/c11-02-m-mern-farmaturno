@@ -1,7 +1,10 @@
 import './styleConfirm.css';
 import logo from '../../images/success.png';
 import { useNavigate } from 'react-router-dom';
+import {  useSelector } from 'react-redux';
 export default function ModalToConfirmYourTurn ({closeMenu}){
+    const { date, timeSlot,  } =
+    useSelector((state) => state.user);
     const navigate=useNavigate()
     return(
         <div className='container_modal_confirm'>
@@ -12,7 +15,8 @@ export default function ModalToConfirmYourTurn ({closeMenu}){
            <button onClick={closeMenu}>X</button></header>
            <h3 className='message_alert'>Turno confirmado!</h3>
            <div className='data_turn'>
-            especificaciones
+            <p>Fecha: {date}</p>
+            <p>Horario: {timeSlot} hs</p>
            </div>
            <div className='describe_data'>
            Ya tienes disponible tu número de turno para recibir atención en la farmacia. 
