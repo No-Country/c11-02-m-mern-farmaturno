@@ -2,97 +2,57 @@ import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/Nav
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../pagePerfilFarmaceutico/pageHomeFarmacia.css';
 import Footer from '../../components/Footer/Footer';
-import { useGetTurnsQuery } from '../../services/apiSlices';
+import { useGetTurnsQuery } from '../../redux/turnSlices';
 import moment from 'moment';
 import CardsTurno from '../../components/farmaceutico/navbarFarmacia/cardsTurno/CardsTurno';
 
 const PageHomeFarmacia = () => {
   const currentDate = moment().format(' D/MM/YYYY');
-  const currentTime = moment().format('HH ');
-  
+  const currentTime = moment().format('HH');
+  // const turnoTarde = (moment().add(1, 'hours').format('HH'))
+  const turnoTardeNumero = parseInt(currentTime)
+
 
   const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
 
   if (isLoading) return <div>Loading...</div>;
   else if (isError) return <div>Error:{error}</div>;
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
       <div className="homeFarmacia">
         <NavbarFarmaceutico />
-        <Container className="bodyHomeFarmacia">
-          <h1>Turnos reservados</h1>
-          <p>
+        <div className="bodyHomeFarmacia">
+        <div className='m-0 p-0 divTituloFarmacia'>
+         <p className='p-4 align-item-center'>Sistema de FarmaTurno</p>
+        </div>
+
+          <div className='m-4 p-4'>
+          <h1 className='titulo my-4'>Turnos reservados</h1>
+          <p className='texto my-4 py-4'>
             Gestiona y visualiza los turnos que ya fueron reservados por tus
             clientes, junto a sus datos personales.
           </p>
-          <p>Fecha de hoy: {currentDate}</p>
-          <p>Horario de atención: de 7:00 a 19:00</p>
-          <p>HORA: {(currentTime)}</p>
-
-          <Row>
+          <p className='texto mt-4'>Fecha de hoy: {currentDate}</p>
+          <p className='texto '>Horario de atención: de 7:00 a 19:00</p>
+         
+          </div>
+          
+          <Row sm={12} lg={12}>
+            <Col>
             {data.map((turn) =>
-              turn.status ? (
-               Number(turn.timeSlot.substring(0,2)) <= Number(currentTime)+1 ? (
-                  <CardsTurno turn={turn} cardType="proximo" key={turn._id}/>
-                ) : (
-                  <CardsTurno turn={turn} cardType="tarde" key={turn._id}/>
-                )
-              ) : (
-                <CardsTurno turn={turn} cardType="atendido" key={turn._id}/>
-              ),
-            )}
-
+                   <CardsTurno turn={turn} turnoTardeNumero={turnoTardeNumero} key={turn._id} _id={turn._id}/>
+             )}
+            </Col>
+            
             <Col sm={12}>
               <Footer />
             </Col>
           </Row>
-        </Container>
+        </div>
 
-        {/* <div className='divPrincipal'> */}
-        {/* <Row className='mb-2'> */}
-        {/* <p className='titulo mt-4 mx-4'>¿Qué quieres hacer?</p> */}
-        {/* <div className='divImagen'> */}
-        {/* <Image 
-    src='https://i.ibb.co/vs7FLtd/ON3-W8-H1-1.png'
-    className='imgHomeFarmacia'
-  /> */}
-        {/* </div> */}
-        {/* <Col sm={12} md={4}>
-    <Card className="mx-4  my-1">
-    <Card.Body>
-    <Card.Title className='tituloCard'>Nuevos turnos</Card.Title>
-    <Card.Text className='tituloText'>
-    Habilita la cantidad de turnos que desees, por hora.        </Card.Text>
-    <Button className="btnVerMas d-block mx-auto">Ver más</Button>
-    </Card.Body>
-    </Card>
-    </Col>
-    <Col sm={12} md={4}>
-    <Card className="mx-4  my-1">
-      <Card.Body>
-      <Card.Title className='tituloCard'>Turnos reservados</Card.Title>
-      <Card.Text className='tituloText'>
-      Gestiona y visualiza los turnos que ya fueron reservados por tus clientes.        </Card.Text>
-      <Button className="btnVerMas d-block mx-auto"variant="primary">Ver más</Button>
-      </Card.Body>
-    </Card>
-    </Col>
-    <Col sm={12} md={4}>
-    <Card className="mx-4  my-1">
-    <Card.Body>
-    <Card.Title className='tituloCard'>Reserva de turno manualmente</Card.Title>
-    <Card.Text className='tituloText'>
-    Utiliza esta funcionalidad para reservar un turno a un cliente.        </Card.Text>
-    <Button className="btnVerMas d-block mx-auto"variant="primary">Ver más</Button>
-    </Card.Body>
-    </Card>
-  </Col> */}
 
-        {/* </Row> */}
-        {/* </div> */}
-        {/* <Footer/> */}
       </div>
     </>
   );
