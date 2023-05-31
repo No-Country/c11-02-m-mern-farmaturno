@@ -27,7 +27,7 @@ const initialState = {
   name: '',
   surName: '',
   identificationNumber: '',
-  mobilePhone: '',
+  emailCustomer: '',
 };
 
 export const userSlice = createSlice({
@@ -39,10 +39,10 @@ export const userSlice = createSlice({
       state.identificationNumber = identificationNumber;
     },
     addUser: (state, action) => {
-      const { name, surName, mobilePhone } = action.payload;
+      const { name, surName, emailCustomer } = action.payload;
       state.name = name;
       state.surName = surName;
-      state.mobilePhone = mobilePhone;
+      state.emailCustomer = emailCustomer;
     },
     addTimeSlot: (state, action) => {
       const { timeSlot } = action.payload;

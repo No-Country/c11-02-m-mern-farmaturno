@@ -32,6 +32,14 @@ export const apiSlices = createApi({
       invalidatesTags: ['Turns'],
     }),
 
+    deleteTurns: build.mutation({
+      query: (_id) => ({
+        url: `/product/${_id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Turns"],
+    }),
+
     invalidatesTags: ['Turns'],
   }),
 });

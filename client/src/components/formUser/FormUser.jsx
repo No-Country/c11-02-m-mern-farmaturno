@@ -11,12 +11,12 @@ const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, mobilePhone, timeSlot, identificationNumber } =
+  const { name, surName, emailCustomer, timeSlot, identificationNumber } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
-    phone: mobilePhone,
+    email: emailCustomer,
     hour: timeSlot,
     isCheckboxChecked: false,
     isTurnoDisponible: false,
@@ -25,21 +25,21 @@ const FormUser = () => {
   const [errors, setErrors] = useState({
     name: '',
     lastName: '',
-    phone: '',
+    email: '',
     isCheckboxChecked: '',
   });
 
   const [valid, setValid] = useState({
     name: false,
     lastName: false,
-    phone: false,
+    email: false,
   });
 
   const dispatch = useDispatch();
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    phone: /^\d{10}$/, // 7 a 14 numeros.
+    email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
   };
 
   const horarios = [];
@@ -108,8 +108,8 @@ const FormUser = () => {
         }
         break;
 
-      case 'phone':
-        if (!expresiones.phone.test(value)) {
+      case 'email':
+        if (!expresiones.email.test(value)) {
           errorMessage = 'El número telefónico debe tener 10 dígitos';
           setValid((prevValid) => ({
             ...prevValid,
@@ -145,7 +145,7 @@ const FormUser = () => {
             addUser({
               name: formData.name,
               surName: formData.lastName,
-              mobilePhone: formData.phone,
+              emailCustomer: formData.phone,
             }),
           );
           dispatch(addTimeSlot({ timeSlot: formData.range }));
@@ -153,7 +153,7 @@ const FormUser = () => {
           const data = {
             name: formData.name,
             surName: formData.lastName,
-            mobilePhone: formData.phone,
+            emailCustomer: formData.email,
             timeSlot: formData.hour,
             identificationNumber,
           };
@@ -177,7 +177,7 @@ const FormUser = () => {
     setFormData({
       name: name,
       lastName: surName,
-      phone: mobilePhone,
+      email: emailCustomer,
       hour: 0,
       range: timeSlot,
       isCheckboxChecked: false,
@@ -188,7 +188,7 @@ const FormUser = () => {
     setErrors({
       name: '',
       lastName: '',
-      phone: '',
+      email: '',
       isCheckboxChecked: false,
     });
     // setValid({
@@ -248,21 +248,21 @@ const FormUser = () => {
           <br />
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridNumber">
-              <Form.Label className="texto">Número telefónico</Form.Label>
+              <Form.Label className="texto">Correo electrónico</Form.Label>
               <Form.Control
                 className="form"
-                type="number"
-                placeholder="Ingrese su número telefónico"
+                type="email"
+                placeholder="Ingrese su número correo electrónico"
                 required
-                inputMode="numeric"
-                name="phone"
-                value={formData.phone}
+                
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
-                isInvalid={errors.phone !== ''}
-                isValid={valid.phone}
+                isInvalid={errors.email !== ''}
+                isValid={valid.email}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-                {errors.phone}
+                {errors.email}
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -273,7 +273,7 @@ const FormUser = () => {
                 }`}
                 variant="secondary"
                 onClick={handleShow}
-                disabled={!valid.name || !valid.lastName || !valid.phone}
+                disabled={!valid.name || !valid.lastName || !valid.email}
               >
                 {formData.isHorarioElegido ? formData.hour : 'Elige un horario'}
               </Button>

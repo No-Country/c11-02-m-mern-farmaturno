@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useGetTurnsQuery } from "../../services/apiSlices";
 import Table from 'react-bootstrap/Table';
+import './PageTurnoStyle.css' 
 
 
 
@@ -37,21 +38,25 @@ const Turno = () => {
 
 
 return (
-	<>
-		<Table  borderless hover >
-		 <thead>
-        <tr>
+	<div className='general'>
+		<p>
+	<h1>Consulta tu turno</h1>
+	<p className='parrafo'>Puedes revisar la información detallada del último turno que solicitaste, junto al historial guardado en nuestro sistema.</p>
+	</p>
+		<Table className='table'  borderless hover >
+		 <thead >
+        <tr className='encabezado'>
           <th>Datos Personales</th>
           <th>Fecha y hora</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
 		{users.map((user) => (
 			
 			<>
-        <tr key={user._id}>
-          <td>{user.customer.name} {user.customer.surName}   Telefono: {user.customer.mobilePhone}</td>
-          <td>{formatDate(user.date)}      {user.timeSlot}</td>
+        <tr className='body' key={user._id}>
+          <td >{user.customer.name} {user.customer.surName}   Telefono: {user.customer.mobilePhone}</td>
+          <td >{formatDate(user.date)}      {user.timeSlot}</td>
         </tr>
         
       
@@ -59,8 +64,8 @@ return (
 		))}
 		</tbody>
 		</Table>
-		<p>Haz click aqui para eliminar tu historial de turnos  datos personales</p>
-		</>
+		<p className='parrafo'>Haz click aqui para eliminar tu historial de turnos  datos personales</p>
+		</div>
 	);
 };
 
