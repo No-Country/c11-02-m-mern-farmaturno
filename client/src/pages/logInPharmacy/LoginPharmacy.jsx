@@ -1,9 +1,10 @@
 import './loginPharmacy.css';
 import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
-/* import { useNavigate } from 'react-router'; */
+import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { postTurn } from '../../services/PostTurn';
 
 export default function LoginPharmacy() {
   const [dataLogin, setDataLogin] = useState({
@@ -12,6 +13,7 @@ export default function LoginPharmacy() {
     errors: {},
   });
   const [isValid, setIsValid] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +27,28 @@ export default function LoginPharmacy() {
     e.preventDefault();
     const errors = validateLoginForm();
     if (Object.keys(errors).length === 0) {
+      const data = {
+        userName: dataLogin.userName,
+        password: dataLogin.userPassword,
+      };
+      console.log(data);
+      postTurn(data, 'api/login')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Error al enviar los datos');
+          }
+          return response.json();
+        })
+        .then((responseData) => {
+          //console.log(responseData);
+          sessionStorage.setItem('companyName', responseData.companyName);
+          sessionStorage.setItem('token', responseData.token);
+          navigate('/perfil_farmacia');
+        })
+        .catch((error) => {
+          alert('hubo un error al iniciar sesión');
+          console.error(error);
+        });
       //Hacer el post
       //si retorna un hash guardarlo y pasar a la siguiente pagina
       //si no retorna el hash mostrar un cartel que diga: Los datos ingresados
@@ -62,13 +86,14 @@ export default function LoginPharmacy() {
     <div className="logIn_container">
       <div className="welcome_div">
         <div className="container_welcome">
-          <p className="set_text">Te damos la bienvenida a</p>
+          <p className="first_text">Te damos la bienvenida a</p>
           <p className="title_page">FarmaTurno</p>
-          <p className="set_text">¡Gracias por elegirnos!</p>
+          <p className="second_text">¡Gracias por elegirnos!</p>
         </div>
       </div>
       <Form noValidate onSubmit={handleSubmit}>
         <Row className="custom-row">
+          <h2>Inicio de sesión</h2>
           <Form.Label className="label">Usuario</Form.Label>
           <Form.Control
             required
@@ -111,7 +136,8 @@ export default function LoginPharmacy() {
           ¿Olvidaste tu contraseña? <Link to="/"> Contáctanos</Link>
         </p>
         <p>
-          ¿Aun no tienes tu cuenta? <Link to="/"> Regístrate aquí </Link>
+          ¿Aun no tienes tu cuenta?
+          <Link to="/pharmacy/signUp"> Regístrate aquí </Link>
         </p>
       </div>
     </div>

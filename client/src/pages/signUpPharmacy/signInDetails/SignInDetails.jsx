@@ -6,6 +6,8 @@ import { SignUpContext } from '../context/pharmacyContext';
 import './signInDetails.css';
 import { addRegistrationDetails } from '../../../redux/authSlice';
 import { useDispatch } from 'react-redux';
+import { postTurn } from '../../../services/PostTurn';
+import { useSelector } from 'react-redux';
 
 const SignInDetails = () => {
   const navigate = useNavigate();
@@ -18,6 +20,18 @@ const SignInDetails = () => {
   });
   const dispatch = useDispatch();
   const [isValid, setIsValid] = useState(false);
+  const {
+    ownerName,
+    ownerSurname,
+    ownerDni,
+    pharmacyName,
+    pharmacyNit,
+    pharmacyCity,
+    pharmacyAdress,
+    pharmacyPhone,
+    pharmacyOpenHour,
+    pharmacyCloseHour,
+  } = useSelector((state) => state.auth);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,9 +57,35 @@ const SignInDetails = () => {
         setFormToShow('d');
       }, 500);
 
-      setTimeout(() => {
-        navigate('adminitration_allowed');
-      }, 1500);
+      const data = {
+        name: ownerName,
+        surName: ownerSurname,
+        identificationNumber: parseInt(ownerDni),
+        companyName: pharmacyName,
+        nit: pharmacyNit,
+        city: pharmacyCity,
+        address: pharmacyAdress,
+        phone: parseInt(pharmacyPhone),
+        email: registrationData.registrationEmail,
+        hourAttention: `${pharmacyOpenHour}-${pharmacyCloseHour}`,
+        userName: registrationData.registrationUsername,
+        password: registrationData.registrationPassword,
+      };
+
+      postTurn(data, 'api/pharmacy')
+        .then((response) => {
+          console.log(response);
+          alert('Su cuenta ha sido creada con éxito');
+          setTimeout(() => {
+            navigate('adminitration_allowed');
+          }, 1500);
+        })
+        .catch((error) => {
+          console.error(error);
+          alert(
+            'Hubo un error al crear su cuneta, revise que todos los datos sean correctos y que no haya creado otra cuenta con los mismos datos',
+          );
+        });
     } else {
       setRegistrationData((prevregistrationData) => ({
         ...prevregistrationData,

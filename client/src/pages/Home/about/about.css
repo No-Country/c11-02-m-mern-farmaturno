@@ -1,5 +1,5 @@
 .about {
-  padding: 52px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
 }
@@ -30,6 +30,14 @@ span {
 .span_title {
   display: grid;
   margin-top: 16px;
+  font-size: 25px;
+}
+
+@media (max-width: 1024px) {
+  .column-right{
+    
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
@@ -42,15 +50,20 @@ span {
     flex-basis: 100%;
     margin-bottom: 24px;
   }
+
+  .column-right{
+    display: flex;
+    left: 100px;
+  }
 }
 
 @media (max-width: 360px) {
   .about {
-    padding: 34px;
+    padding: 14px;
   }
 
   .column {
-    padding: 1.5rem;
+    padding: 0.5rem;
   }
 
   .column h2 {
@@ -73,5 +86,9 @@ span {
   .span_title {
     display: block;
     margin-top: 12px;
+  }
+  
+  .column-right{
+    width: 100%;
   }
 }

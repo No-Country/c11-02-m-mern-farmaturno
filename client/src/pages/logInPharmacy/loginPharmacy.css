@@ -4,10 +4,27 @@
   display: flex;
   flex-direction: column;
 }
+.logIn_container .welcome_div .container_welcome .first_text {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+.logIn_container .welcome_div .container_welcome .title_page {
+  font-size: 3.8rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+  color: var(--green);
+}
+.logIn_container .welcome_div .container_welcome .second_text {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
 .logIn_container form {
   display: flex;
   flex-direction: column;
 }
+
 .logIn_container h2 {
   font-size: 1.8rem;
   line-height: 2.1rem;
