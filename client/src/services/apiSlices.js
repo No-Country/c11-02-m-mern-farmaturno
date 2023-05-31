@@ -14,7 +14,7 @@ export const apiSlices = createApi({
     getTurns: build.query({
       query: () => `/turn`,
       providesTags: ['Turns'], //esto es una propiedad que le da nombre a esta funcion y sirve para decirle a los mutation ejecuten "Productos" y se actualice solo
-      //  transformResponse:response=>response.sort((a,b)=>b.codigo-a.codigo)   //sirve para ordenar o modificar la forma en la que vienen los datos en este caso de mayor a menor
+      transformResponse:response=>response.sort((a,b)=>a.timeSlot-b.timeSlot)   //sirve para ordenar o modificar la forma en la que vienen los datos en este caso de mayor a menor
     }),
 
     getTurnsById: build.query({
