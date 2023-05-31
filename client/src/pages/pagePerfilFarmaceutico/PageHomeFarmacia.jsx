@@ -1,7 +1,6 @@
 import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/NavbarFarmaceutico';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../pagePerfilFarmaceutico/pageHomeFarmacia.css';
-import { ButtonEstado } from '../../components/farmaceutico/navbarFarmacia/BotonConfirmacionTurno';
 import Footer from '../../components/Footer/Footer';
 import { useGetTurnsQuery } from '../../services/apiSlices';
 import moment from 'moment';
@@ -23,79 +22,35 @@ const PageHomeFarmacia = () => {
   return (
     <>
       <div className="homeFarmacia">
-        {/* <NavbarFarmaceutico /> */}
-        <Container className="bodyHomeFarmacia">
-          <h1>Turnos reservados</h1>
-          <p>
+        <NavbarFarmaceutico />
+        <div className="bodyHomeFarmacia">
+        <div className='m-0 p-0 divTituloFarmacia'>
+         <p className='p-4 align-item-center'>Sistema de FarmaTurno</p>
+        </div>
+
+          <div className='m-4 p-4'>
+          <h1 className='titulo my-4'>Turnos reservados</h1>
+          <p className='texto my-4 py-4'>
             Gestiona y visualiza los turnos que ya fueron reservados por tus
             clientes, junto a sus datos personales.
           </p>
-          <p>Fecha de hoy: {currentDate}</p>
-          <p>Horario de atención: de 7:00 a 19:00</p>
-          <p>hora turno tarde: {turnoTardeNumero}</p>
+          <p className='texto mt-4'>Fecha de hoy: {currentDate}</p>
+          <p className='texto '>Horario de atención: de 7:00 a 19:00</p>
+         
+          </div>
           
           <Row sm={12} lg={12}>
             <Col>
             {data.map((turn) =>
-              turn.status ? (
-               Number(turn.timeSlot.substring(0,2))>=turnoTardeNumero ? (
-                   <CardsTurno turn={turn} cardType="proximo" key={turn._id}/>
-                ) : (
-                   <CardsTurno turn={turn} cardType="tarde" key={turn._id}/>
-                )
-              ) : (
-                <CardsTurno turn={turn} cardType="atendido" key={turn._id}/>
-              ),
-            )}
+                   <CardsTurno turn={turn} turnoTardeNumero={turnoTardeNumero} key={turn._id} _id={turn._id}/>
+             )}
             </Col>
-
-
-
-
-
-
-
-            <Container>
-      <Row className="mi-tabla">
-        <Col lg={2} md={12} sm={12}>
-          <p>Columna 1</p>
-        </Col>
-        <Col lg={2} md={6} sm={6}>
-          <p>Columna 2</p>
-        </Col>
-        <Col lg={2} md={6} sm={6}>
-          <p>Columna 3</p>
-        </Col>
-        <Col lg={2} md={6} sm={6}>
-          <p>Columna 4</p>
-        </Col>
-        <Col lg={2} md={6} sm={6}>
-          <p>Columna 5</p>
-        </Col>
-        <Col lg={2} md={6} sm={6}>
-          <p>Columna 6</p>
-        </Col>
-        <Col lg={2} md={12} sm={12}>
-          <p>Columna 7</p>
-        </Col>
-      </Row>
-    </Container>
-
-
-
-
-
-
-
-
-
             
-
             <Col sm={12}>
               <Footer />
             </Col>
           </Row>
-        </Container>
+        </div>
 
 
       </div>
