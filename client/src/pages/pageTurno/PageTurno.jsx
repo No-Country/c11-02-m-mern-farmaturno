@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useCallback } from 'react';
-import { useGetTurnsQuery, useDeleteTurnMutation } from "../../services/apiSlices";
+import { useGetTurnsQuery, useDeleteTurnMutation } from "../../redux/turnSlices";
 import Table from 'react-bootstrap/Table';
 import './PageTurnoStyle.css';
 import moment from 'moment'; 

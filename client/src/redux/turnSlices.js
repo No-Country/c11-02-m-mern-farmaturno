@@ -1,6 +1,5 @@
 //RTK query sirve para manejar estados haciendo llamass apis evinyando usar thunks etc, lo que reduce la cantidad de codigos
-/* 
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/React"; */
+
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/React';
 
@@ -44,4 +43,4 @@ export const turnSlices = createApi({
   }),
 });
 
-export const { useGetTurnsQuery, useUpdateEstadoTurnoMutation, useDeleteTurnMutation } = apiSlices; //hook para solicitar datos //esto es un hook que da redux toolkit para usarlo en el frontend y me permite maejar cuadno esta cargando , cuando hay un error, etc
+export const { useGetTurnsQuery, useUpdateEstadoTurnoMutation, useDeleteTurnMutation } = turnSlices; //hook para solicitar datos //esto es un hook que da redux toolkit para usarlo en el frontend y me permite maejar cuadno esta cargando , cuando hay un error, etc
