@@ -1,0 +1,54 @@
+.navbar {
+    border-bottom: 0.1em solid rgba(169, 165, 165, 0.37);
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .offcanvas {
+    width: 50% !important;
+  }
+  .txTitle img {
+    height: 5rem;
+  }
+  .txCategory {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #111 !important;
+  }
+  .txCategory1 {
+    font-size: 1.15em;
+    /* font-size: 1.3em; */
+    font-weight: 700;
+    color: #111 !important;
+  }
+  
+  .txSubcategory {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #111;
+  }
+  .dropdownPerfil {
+    border: 0;
+  }
+  
+  @media (max-width: 991.98px) {
+    /* .navbar .navbar-collapse { */
+    /* display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 1rem; */
+    /* } */
+  
+    .navbar .navbar-toggler {
+      order: -1;
+    }
+    .navbar .navbar-brand {
+      text-align: center;
+      margin-right: auto;
+      margin-left: 0.5rem;
+    }
+  }
+  
