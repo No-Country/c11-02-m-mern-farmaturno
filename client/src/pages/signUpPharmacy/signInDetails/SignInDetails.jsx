@@ -188,10 +188,9 @@ const SignInDetails = () => {
             {registrationData.errors.registrationPassword}
           </Form.Control.Feedback>
         </Row>
-        <Form.Group className="mb-3 row4" id="formGridCheckbox">
+        <Row className="custom-row row4">
           <Form.Check
             type="checkbox"
-            label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
             required
             name="isCheckboxChecked"
             checked={true}
@@ -199,10 +198,11 @@ const SignInDetails = () => {
             /* onChange={} */
             // isinvalid={errors.isCheckboxChecked !== ''}
           />
-          <Form.Control.Feedback type="invalid" className="custom-feedback">
-            {}
-          </Form.Control.Feedback>
-        </Form.Group>
+          <p className="acepto-terminos-signIn">
+            Acepto los terminos y condiciones y autorizo el uso de mis datos de
+            acuerdo a la Declaracion de privacidad
+          </p>
+        </Row>
         <img src={logo} alt="imagen descriptiva" />
         <Button
           variant={`${isValid ? 'success' : 'secondary'}`}
