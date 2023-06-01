@@ -1,0 +1,24 @@
+.general{
+    background-color: #FAFAFA;
+    display: grid;
+    grid-template-rows: 15% 75% 10%
+}
+.parrafo{
+    font-size: 1.5rem;
+}
+.table {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    font-size: 1.5rem;
+    width: 80%;
+  
+ }
+
+ .encabezado {
+    border-bottom: 2px solid #008C73;
+ }
+
+  .body{
+    border-bottom: 1px solid #b4bbba;
+    width: 100%; 
+ }

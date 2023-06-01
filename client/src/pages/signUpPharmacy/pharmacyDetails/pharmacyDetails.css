@@ -43,3 +43,65 @@
   font-size: 1.6rem;
   align-self: center;
 }
+
+form img {
+  widht: 0;
+  height: 0;
+}
+
+@media (min-width: 768px) {
+  .pharmacy-details {
+    width: 100vw;
+  }
+  .pharmacyTitle_container {
+    padding: 0 4rem;
+  }
+
+  .pharmacy-details form {
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 24.8rem;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 4rem;
+  }
+  .pharmacy-details .row1 {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  .pharmacy-details .row2 {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  .pharmacy-details .row3 {
+    grid-column-start: 1;
+    grid-row-start: 3;
+  }
+  .pharmacy-details .row4 {
+    grid-column-start: 1;
+    grid-row-start: 4;
+  }
+  .pharmacy-details .row5 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+  .pharmacy-details .row6 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+  .pharmacy-details .row7 {
+    grid-column-start: 2;
+    grid-row-start: 3;
+  }
+  .pharmacy-details form img {
+    widht: inherit;
+    height: inherit;
+    grid-row-start: 3;
+    grid-row-end: 6;
+  }
+  .pharmacy-details form button {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    margin: 0 auto;
+  }
+}

@@ -5,6 +5,7 @@ import { SignUpContext } from '../context/pharmacyContext';
 import './pharmacyDetails.css';
 import { addPharmacyDetails } from '../../../redux/authSlice';
 import { useDispatch } from 'react-redux';
+import pana from '../assets/pana.png';
 
 const PharmacyDetails = () => {
   const { setFormToShow } = useContext(SignUpContext);
@@ -104,13 +105,15 @@ const PharmacyDetails = () => {
   };
   return (
     <div className="pharmacy-details">
-      <h2>Datos de la farmacia</h2>
-      <p>
-        A continuación, completa los campos con la información de tu farmacia.
-      </p>
+      <div className="pharmacyTitle_container">
+        <h2>Datos de la farmacia</h2>
+        <p>
+          A continuación, completa los campos con la información de tu farmacia.
+        </p>
+      </div>
 
       <Form noValidate onSubmit={handleSubmit}>
-        <Row className="custom-row">
+        <Row className="custom-row row1">
           <Form.Label className="label">Nombre de la farmacia</Form.Label>
           <Form.Control
             required
@@ -125,7 +128,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyName}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row2">
           <Form.Label className="label">NIT</Form.Label>
           <Form.Control
             required
@@ -140,7 +143,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyNit}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row3">
           <Form.Label className="label">Ciudad</Form.Label>
           <Form.Control
             required
@@ -155,7 +158,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyCity}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row4">
           <Form.Label className="label">Dirección</Form.Label>
           <Form.Control
             required
@@ -170,7 +173,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyAdress}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row5">
           <Form.Label className="label">
             Número telefónico (opcional)
           </Form.Label>
@@ -186,7 +189,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyPhone}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row6">
           <Form.Label className="label">Horario de apertura </Form.Label>
           <Form.Control
             required
@@ -201,7 +204,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyOpenHour}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row7">
           <Form.Label className="label">Horario de cierre</Form.Label>
           <Form.Control
             required
@@ -216,6 +219,7 @@ const PharmacyDetails = () => {
             {pharmacyData.errors.pharmacyCloseHour}
           </Form.Control.Feedback>
         </Row>
+        <img src={pana} alt="" />
         <Button
           variant={`${isValid ? 'success' : 'secondary'}`}
           type="submit"

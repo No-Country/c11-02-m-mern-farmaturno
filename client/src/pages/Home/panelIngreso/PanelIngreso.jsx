@@ -41,7 +41,7 @@ const PanelIngreso = () => {
       setDniError('');
       setValidated(true);
       dispatch(addIdentificationNumer({ identificationNumber: parseInt(dni) }));
-      fetchData('http://localhost:3002/api/customer/')
+      fetchData(`${import.meta.env.VITE_API_URL}api/customer/`)
         .then((data) => {
           console.log(data);
           const dnis = data.map((user) => user.identificationNumber);
@@ -50,7 +50,13 @@ const PanelIngreso = () => {
           if (dnis.includes(parseInt(dni))) {
             data.forEach((user) => {
               user.identificationNumber === parseInt(dni) &&
-                dispatch(addUser({ name: user.name, surName: user.surName, mobilePhone: user.mobilePhone }));
+                dispatch(
+                  addUser({
+                    name: user.name,
+                    surName: user.surName,
+                    mobilePhone: user.mobilePhone,
+                  }),
+                );
             });
           }
         })
@@ -58,7 +64,9 @@ const PanelIngreso = () => {
           console.log('Ocurrio un error: ' + err);
         });
 
-        {activePideTurno ? (navigate('nuevoTurno')): (navigate('miTurno'))};
+      {
+        activePideTurno ? navigate('nuevoTurno') : navigate('miTurno');
+      }
     }
   };
 
