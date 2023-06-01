@@ -32,6 +32,10 @@ function main(){
   */
   cron.schedule('59 06-18 * * *', async () => {
    await handleTurns();
+  },
+  {
+    scheduled: true,
+    timezone: "America/Bogota"
   })
   // handleTurns(); // Descomentar esta linea para que ejecute la funcion sin temporizador
 

@@ -5,6 +5,7 @@ import { SignUpContext } from '../context/pharmacyContext';
 import './pharmacyOwner.css';
 import { addOwnerDetails } from '../../../redux/authSlice';
 import { useDispatch } from 'react-redux';
+import pana from '../assets/pana.png';
 
 const PharmacyOwnerDetails = () => {
   const { setFormToShow } = useContext(SignUpContext);
@@ -72,13 +73,15 @@ const PharmacyOwnerDetails = () => {
 
   return (
     <div className="pharmacy-owner">
-      <h2>Datos del encargado/responsable</h2>
-      <p>
-        Para comenzar, completa los campos con la información del responsable de
-        la farmacia.
-      </p>
+      <div className="ownerTitle_container">
+        <h2>Datos del encargado/responsable</h2>
+        <p>
+          Para comenzar, completa los campos con la información del responsable
+          de la farmacia.
+        </p>
+      </div>
       <Form noValidate onSubmit={handleSubmit}>
-        <Row className="custom-row">
+        <Row className="custom-row row1">
           <Form.Label className="label">Nombre</Form.Label>
           <Form.Control
             required
@@ -93,7 +96,7 @@ const PharmacyOwnerDetails = () => {
             {ownerData.errors.ownerName}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row2">
           <Form.Label className="label">Apellido</Form.Label>
           <Form.Control
             required
@@ -108,7 +111,7 @@ const PharmacyOwnerDetails = () => {
             {ownerData.errors.ownerSurname}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row3">
           <Form.Label className="label">Número de identidad</Form.Label>
           <Form.Control
             required
@@ -123,6 +126,7 @@ const PharmacyOwnerDetails = () => {
             {ownerData.errors.ownerDni}
           </Form.Control.Feedback>
         </Row>
+        <img src={pana} alt="imagen descriptiva del servicio" />
         <Button
           variant={`${isValid ? 'success' : 'secondary'}`}
           type="submit"
