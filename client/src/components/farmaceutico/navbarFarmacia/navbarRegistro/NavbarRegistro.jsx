@@ -55,8 +55,8 @@ import {
                   <Nav.Link href="">
                     <p className="txCategory m-2 mx-4">Ayuda</p>
                   </Nav.Link>
-                  <Nav.Link href="/pharmacy/signUp/adminitration_allowed">
-                    <p className="txCategory m-2 mx-4">Iniciar Sesion</p>
+                  <Nav.Link href="">
+                    <p className="txCategory m-2 mx-4" onClick={() => navigate('/pharmacy/signUp/adminitration_allowed')}>Iniciar Sesión</p>
                   </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
