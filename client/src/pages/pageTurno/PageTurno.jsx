@@ -41,52 +41,55 @@ const Turno = () => {
     );
 
   console.log(users[0].customer.identificationNumber);
-  const borrarTurn = useCallback(() => {
-	Swal.fire({
-		title: "Estas seguro?",
-		text: "No se podra revertir!",
-		icon: "warning",
-		showCancelButton: true,
-		confirmButtonColor: "#E95821",
-		cancelButtonColor: "#5B5B5B",
-		confirmButtonText: "Si, borrar!",
-	}).then((result) => {
-		if (result.isConfirmed) {
-			deleteTurn(identificationNumber);
-			Swal.fire({
-				icon: "success",
-				title: "Producto borrado!",
-				showConfirmButton: false,
-				timer: 1500,
-			});
-			// setShow(false);
-		}
-	});
-}, []);
+//   const borrarTurn = useCallback(() => {
+// 	Swal.fire({
+// 		title: "Estas seguro?",
+// 		text: "No se podra revertir!",
+// 		icon: "warning",
+// 		showCancelButton: true,
+// 		confirmButtonColor: "#E95821",
+// 		cancelButtonColor: "#5B5B5B",
+// 		confirmButtonText: "Si, borrar!",
+// 	}).then((result) => {
+// 		if (result.isConfirmed) {
+// 			deleteTurn(identificationNumber);
+// 			Swal.fire({
+// 				icon: "success",
+// 				title: "Producto borrado!",
+// 				showConfirmButton: false,
+// 				timer: 1500,
+// 			});
+// 			// setShow(false);
+// 		}
+// 	});
+// }, []);
   return(
   <div className="general">
-    <p>
+    <div>
       <h1>Consulta tu turno</h1>
       <p className="parrafo">
         Puedes revisar la información detallada del último turno que
         solicitaste, junto al historial guardado en nuestro sistema.
       </p>
-    </p>
+    </div>
     <Table className="table" borderless hover>
       <thead className="encabezado">
         <tr>
           <th>Datos Personales</th>
+		  
           <th>Fecha y hora</th>
+		  
         </tr>
       </thead>
       <tbody>
         {users.map((user) => (
           <>
-            <tr className="body" key={user._id}>
+            <tr className='body' key={user._id}>
               <td>
-                {user.customer.name} {user.customer.surName} email:{' '}
-                {user.customer.customerEmail}
+                {user.customer.name} {user.customer.surName}    email: {user.customer.customerEmail}
+                
               </td>
+
               <td>
                 {formatDate(user.date)} {user.timeSlot}
               </td>
