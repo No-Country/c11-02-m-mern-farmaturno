@@ -58,7 +58,7 @@
   .pharmacy-owner form {
     display: grid;
     grid-template-columns: 1fr 1fr 25.4rem;
-    grid-template-rows: 6.5rem 6.5rem contain 4rem;
+    grid-template-rows: 6.5rem 6.5rem contain 4rem 4rem;
     gap: 4rem;
   }
   .pharmacy-owner .row1 {
