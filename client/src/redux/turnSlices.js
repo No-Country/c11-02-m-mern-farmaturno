@@ -5,7 +5,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const turnSlices = createApi({
   reducerPath: 'turnosApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3002/api',
+    baseUrl: `${import.meta.env.VITE_API_URL}api`,
   }),
   endpoints: (build) => ({
     //funcion que devuelve un objeto //el builder permite definir cuales son las peticiones que traen datos(query)=>(get) y las que mutas datos (mutaciones)=>(put/delete/post)
