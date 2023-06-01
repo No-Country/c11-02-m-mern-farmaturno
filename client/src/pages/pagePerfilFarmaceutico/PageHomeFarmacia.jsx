@@ -17,7 +17,7 @@ const PageHomeFarmacia = () => {
 
   if (isLoading) return <div>Loading...</div>;
   else if (isError) return <div>Error:{error}</div>;
-  // console.log(data);
+   console.log(data);
 
   return (
     <>
