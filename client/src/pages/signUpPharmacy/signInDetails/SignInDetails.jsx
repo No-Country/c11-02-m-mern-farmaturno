@@ -8,6 +8,7 @@ import { addRegistrationDetails } from '../../../redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { postTurn } from '../../../services/PostTurn';
 import { useSelector } from 'react-redux';
+import logo from '../assets/pana.png';
 
 const SignInDetails = () => {
   const navigate = useNavigate();
@@ -130,13 +131,15 @@ const SignInDetails = () => {
 
   return (
     <div className="signIn-details">
-      <h2>Datos de inicio de sesión</h2>
-      <p>
-        Por último, completa los campos con la información correspondiente.
-        Recuerda que estos son los datos que usarás para iniciar sesión.
-      </p>
+      <div className="farmacyTitle_container">
+        <h2>Datos de inicio de sesión</h2>
+        <p>
+          Por último, completa los campos con la información correspondiente.
+          Recuerda que estos son los datos que usarás para iniciar sesión.
+        </p>
+      </div>
       <Form noValidate onSubmit={handleSubmit}>
-        <Row className="custom-row">
+        <Row className="custom-row row1">
           <Form.Label className="label">Correo electrónico</Form.Label>
           <Form.Control
             required
@@ -151,7 +154,7 @@ const SignInDetails = () => {
             {registrationData.errors.registrationEmail}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row2">
           <Form.Label className="label">Usuario</Form.Label>
           <Form.Control
             required
@@ -168,7 +171,7 @@ const SignInDetails = () => {
             {registrationData.errors.registrationUsername}
           </Form.Control.Feedback>
         </Row>
-        <Row className="custom-row">
+        <Row className="custom-row row3">
           <Form.Label className="label">Contraseña</Form.Label>
           <Form.Control
             required
@@ -185,7 +188,7 @@ const SignInDetails = () => {
             {registrationData.errors.registrationPassword}
           </Form.Control.Feedback>
         </Row>
-        <Form.Group className="mb-3" id="formGridCheckbox">
+        <Form.Group className="mb-3 row4" id="formGridCheckbox">
           <Form.Check
             type="checkbox"
             label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
@@ -200,6 +203,7 @@ const SignInDetails = () => {
             {}
           </Form.Control.Feedback>
         </Form.Group>
+        <img src={logo} alt="imagen descriptiva" />
         <Button
           variant={`${isValid ? 'success' : 'secondary'}`}
           type="submit"
