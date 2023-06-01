@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import './pharmacyPlans.css';
 import Footer from '../../components/Footer/Footer';
 import NavbarRegistro from '../../components/farmaceutico/navbarFarmacia/navbarRegistro/NavbarRegistro';
@@ -16,9 +17,9 @@ const PharmacyPlans = () => {
           como para el personal.
         </p>
         <span>¿Quieres comenzar a utilizarlo ya?</span>
-        <button className="signUp_button" onClick={() => navigate('signUp')}>
+        <Button className="signUp_button" onClick={() => navigate('signUp')}>
           Registrate
-        </button>
+        </Button>
 
         <div className="pharmacy">
           <h3>Mas fácil que nunca</h3>
