@@ -1,39 +1,51 @@
 .container {
-    /**max-width: 100rem;**/
-    margin: 0 auto;
-    padding: 2rem;
-    /* aspect-ratio: 4/3; */
-    background-color: white;
-    font-size: 1.5rem;
-    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    padding: 24px;
+    gap: 50px;
+    
+    /* position: absolute; */
+    width: 58rem;
+    height: 36rem;
+    left: 519px;
+    top: 247px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    
+   
 }
 
 .form{
     
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    
 }
 
 .titulo{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .info{
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: #767676;
 }
 
 .texto{
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 .buttonTurno{
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     border-radius: 5px;
     background-color: #767676;
     
 }
 
 .buttonHorario{
-    font-size: 1.5rem;
+
+    font-size: 1.1rem;
     
     background-color: rgb(26, 156, 113);
    
@@ -44,6 +56,10 @@
 }
 
 .buttonHorario--inactive{
+   
+    
+  
+        font-size: 1.1rem;
     background-color: #767676;
 }
 
@@ -55,7 +71,7 @@
 
 .buttonModal{
     margin: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color:  rgb(26, 156, 113);
     
     background-color: rgb(254, 255, 255);

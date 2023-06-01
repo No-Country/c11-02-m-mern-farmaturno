@@ -31,8 +31,8 @@ const Turno = () => {
 
 
   const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
-  if (isLoading) return <div>Loading...</div>;
-  else if (isError) return <div>Error:{error}</div>;
+//   if (isLoading) return <div>Loading...</div>;
+//   else if (isError) return <div>Error:{error}</div>;
   console.log(data);
   const users =
     
@@ -59,7 +59,7 @@ const Turno = () => {
 // 				showConfirmButton: false,
 // 				timer: 1500,
 // 			});
-// 			// setShow(false);
+// 			setShow(false);
 // 		}
 // 	});
 // }, []);
