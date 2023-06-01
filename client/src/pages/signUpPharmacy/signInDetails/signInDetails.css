@@ -12,7 +12,7 @@
   line-height: 2.1rem;
   font-weight: 500;
 }
-.signIn-details p {
+.signIn-details .farmacyTitle_container p {
   font-size: 1.6rem;
   line-height: 1.9rem;
   font-weight: 400;
@@ -29,7 +29,31 @@
   margin-bottom: 1.6rem;
   align-items: center;
 }
+.signIn-details .custom-row.row4 {
+  width: 100%;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.custom-row.row4 .checkbox {
+  margin: 0;
+  width: 1.6rem;
+  height: 100%;
+  margin-right: 1.6rem;
+  align-self: flex-start;
+}
+.custom-row.row4 .checkbox input {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.acepto-terminos-signIn {
+  font-size: 1.2rem;
+}
 
+.acepto-terminos-signIn {
+  width: 200px;
+}
 .signIn-details .custom-row input {
   widht: 100%;
   height: 3.8rem;
@@ -45,4 +69,62 @@
   height: 4rem;
   font-size: 1.6rem;
   align-self: center;
+}
+
+.signIn-details form img {
+  width: 0;
+  height: 0;
+}
+
+@media (min-width: 768px) {
+  .signIn-details {
+    width: 100vw;
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .signIn-details form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 25.4rem;
+    grid-template-rows: 6.5rem 6.5rem contain 4rem;
+    column-gap: 4rem;
+  }
+  .signIn-details .row1 {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  .signIn-details .row2 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+  .signIn-details .row3 {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  .signIn-details .row4 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+  }
+  .signIn-details img {
+    widht: inherit;
+    height: inherit;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+  }
+  .signIn-details button {
+    width: 164px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    margin: 0 auto;
+  }
+  .signIn-details form img {
+    width: inherit;
+    height: inherit;
+  }
+  .acepto-terminos-signIn {
+    width: 399px;
+  }
 }

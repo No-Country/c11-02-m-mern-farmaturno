@@ -2,10 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './pharmacyPlans.css';
 import Footer from '../../components/Footer/Footer';
+import NavbarRegistro from '../../components/farmaceutico/navbarFarmacia/navbarRegistro/NavbarRegistro';
 const PharmacyPlans = () => {
   const navigate = useNavigate();
 
   return (
+    <>
+      <NavbarRegistro/>
     <div className="pharmacyPlans">
       <div className="pharmacyBiografi">
         <h2>Accede a la manera más sencilla de gestionar tus turnos</h2>
@@ -51,6 +54,7 @@ const PharmacyPlans = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 

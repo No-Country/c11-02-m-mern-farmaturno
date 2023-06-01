@@ -2,21 +2,23 @@ import { useState } from 'react';
 import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import { ToggleButton, Stack } from 'react-bootstrap';
 import './FormUserStyle.css';
-import { addUser, addTimeSlot } from '../../redux/userSlice';
+import { addUser, addTimeSlot, addDate } from '../../redux/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
 import { postTurn } from '../../services/PostTurn';
+import moment from 'moment';
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const { name, surName, mobilePhone, timeSlot, identificationNumber } =
+  const currentDate = moment().format(' D/MM/YYYY');
+  const { name, surName, customerEmail, timeSlot, identificationNumber, date } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
     name: name,
     lastName: surName,
-    phone: mobilePhone,
+    email: customerEmail,
     hour: timeSlot,
     isCheckboxChecked: false,
     isTurnoDisponible: false,
@@ -25,21 +27,21 @@ const FormUser = () => {
   const [errors, setErrors] = useState({
     name: '',
     lastName: '',
-    phone: '',
+    email: '',
     isCheckboxChecked: '',
   });
 
   const [valid, setValid] = useState({
     name: false,
     lastName: false,
-    phone: false,
+    email: false,
   });
 
   const dispatch = useDispatch();
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    phone: /^\d{10}$/, // 7 a 14 numeros.
+    email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
   };
 
   const horarios = [];
@@ -108,9 +110,9 @@ const FormUser = () => {
         }
         break;
 
-      case 'phone':
-        if (!expresiones.phone.test(value)) {
-          errorMessage = 'El número telefónico debe tener 10 dígitos';
+      case 'email':
+        if (!expresiones.email.test(value)) {
+          errorMessage = 'Ingrese una dirección de correo valida';
           setValid((prevValid) => ({
             ...prevValid,
             [name]: false,
@@ -137,7 +139,7 @@ const FormUser = () => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    if (valid.name & valid.lastName & valid.phone) {
+    if (valid.name & valid.lastName & valid.email) {
       if (form.checkValidity()) {
         if (formData.isCheckboxChecked) {
           setValidated(true);
@@ -145,20 +147,35 @@ const FormUser = () => {
             addUser({
               name: formData.name,
               surName: formData.lastName,
-              mobilePhone: formData.phone,
+              customerEmail: formData.email,
             }),
           );
-          dispatch(addTimeSlot({ timeSlot: formData.range }));
-
+          dispatch(addTimeSlot({ timeSlot: formData.hour }));
+          dispatch(addDate({ date: currentDate }));
           const data = {
             name: formData.name,
             surName: formData.lastName,
-            mobilePhone: formData.phone,
+            customerEmail: formData.email,
             timeSlot: formData.hour,
             identificationNumber,
           };
           console.log(data);
-          postTurn(data, 'api/turn/');
+          postTurn(data, 'api/turn/')
+          .then((response) => {
+            console.log(response);
+            
+            setSeeModalConfirm(true);
+            
+            
+          })
+          .catch((error) => {
+            console.error(error);
+            alert(
+              'Hubo un error al pedir su turno',
+            );
+          });
+       
+
 
           resetForm();
         } else {
@@ -177,8 +194,8 @@ const FormUser = () => {
     setFormData({
       name: name,
       lastName: surName,
-      phone: mobilePhone,
-      hour: 0,
+      email: customerEmail,
+      hour: timeSlot,
       range: timeSlot,
       isCheckboxChecked: false,
       isHorarioElegido: false,
@@ -188,7 +205,7 @@ const FormUser = () => {
     setErrors({
       name: '',
       lastName: '',
-      phone: '',
+      email: '',
       isCheckboxChecked: false,
     });
     // setValid({
@@ -201,8 +218,8 @@ const FormUser = () => {
   return (
     <>
       {seeModalConfirm && (
-        <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
-      )}
+              <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
+            )}
       <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1 className="titulo">Farmacia Cruz Verde</h1>
@@ -248,21 +265,21 @@ const FormUser = () => {
           <br />
           <Row className="justify-content-md-center">
             <Form.Group className="mb-3" as={Col} controlId="formGridNumber">
-              <Form.Label className="texto">Número telefónico</Form.Label>
+              <Form.Label className="texto">Correo electrónico</Form.Label>
               <Form.Control
                 className="form"
-                type="number"
-                placeholder="Ingrese su número telefónico"
+                type="email"
+                placeholder="Ingrese su número correo electrónico"
                 required
-                inputMode="numeric"
-                name="phone"
-                value={formData.phone}
+                
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
-                isInvalid={errors.phone !== ''}
-                isValid={valid.phone}
+                isInvalid={errors.email !== ''}
+                isValid={valid.email}
               />
               <Form.Control.Feedback type="invalid" className="custom-feedback">
-                {errors.phone}
+                {errors.email}
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -273,7 +290,7 @@ const FormUser = () => {
                 }`}
                 variant="secondary"
                 onClick={handleShow}
-                disabled={!valid.name || !valid.lastName || !valid.phone}
+                disabled={!valid.name || !valid.lastName || !valid.email}
               >
                 {formData.isHorarioElegido ? formData.hour : 'Elige un horario'}
               </Button>
@@ -303,7 +320,7 @@ const FormUser = () => {
               variant="secondary"
               type="submit"
               disabled={!formData.isTurnoDisponible}
-              onClick={() => setSeeModalConfirm(true)}
+              
             >
               PEDIR TURNO
             </Button>

@@ -43,7 +43,7 @@ export default function LoginPharmacy() {
           //console.log(responseData);
           sessionStorage.setItem('companyName', responseData.companyName);
           sessionStorage.setItem('token', responseData.token);
-          navigate('/perfil_farmacia');
+          navigate('/pharmacy/profile');
         })
         .catch((error) => {
           alert('hubo un error al iniciar sesión');
