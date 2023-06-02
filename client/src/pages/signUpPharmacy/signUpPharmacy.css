@@ -51,3 +51,39 @@
     left: 3.75rem;
   }
 }
+@media (min-width: 1440px) {
+  .signUpPharmacy {
+    padding: 0 3rem;
+    height: 90vh;
+    width: 100%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-rows: 7.3rem auto 4rem 10rem;
+    justify-items: left;
+    background-color: transparent;
+  }
+  .title-button__container {
+    position: relative;
+    padding-left: 2.8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  .title-button__container p {
+    padding-left: 2rem;
+    font-size: 2.4rem;
+  }
+
+  .title-button__container img {
+    position: inherit;
+    left: 1rem;
+  }
+  .progressBar {
+    margin-top: 1.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 4px;
+  }
+}

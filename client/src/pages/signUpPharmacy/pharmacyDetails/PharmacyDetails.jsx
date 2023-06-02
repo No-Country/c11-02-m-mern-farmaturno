@@ -83,8 +83,8 @@ const PharmacyDetails = () => {
   const validatePharmacyForm = () => {
     const errors = {};
 
-    if (!pharmacyData.pharmacyName.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)) {
-      errors.ownerName = 'Ingrese un nombre válido';
+    if (!pharmacyData.pharmacyName.match(/^(?!\s*$)[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)) {
+      errors.pharmacyName = 'Ingrese un nombre válido';
     }
 
     if (!pharmacyData.pharmacyNit.match(/^\d{10}$/)) {

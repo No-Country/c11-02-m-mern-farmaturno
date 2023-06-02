@@ -51,3 +51,9 @@
     margin: 0;
   }
 }
+
+@media (min-width: 768px) {
+  .footer {
+    width: 100%;
+  }
+}
