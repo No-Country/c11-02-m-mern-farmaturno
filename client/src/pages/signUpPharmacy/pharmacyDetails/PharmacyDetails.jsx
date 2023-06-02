@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { SignUpContext } from '../context/pharmacyContext';
 import './pharmacyDetails.css';
 import { addPharmacyDetails } from '../../../redux/authSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import pana from '../assets/pana.png';
 
 const PharmacyDetails = () => {
@@ -21,6 +22,28 @@ const PharmacyDetails = () => {
   });
   const dispatch = useDispatch();
   const [isValid, setIsValid] = useState(false);
+  const {
+    pharmacyName,
+    pharmacyNit,
+    pharmacyCity,
+    pharmacyAdress,
+    pharmacyPhone,
+    pharmacyOpenHour,
+    pharmacyCloseHour,
+  } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    setPharmacyData((prevPharmacyData) => ({
+      ...prevPharmacyData,
+      pharmacyName: pharmacyName,
+      pharmacyNit: pharmacyNit,
+      pharmacyCity: pharmacyCity,
+      pharmacyAdress: pharmacyAdress,
+      pharmacyPhone: pharmacyPhone,
+      pharmacyOpenHour: pharmacyOpenHour,
+      pharmacyCloseHour: pharmacyCloseHour,
+    }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

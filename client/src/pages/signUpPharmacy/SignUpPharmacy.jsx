@@ -33,6 +33,8 @@ const SignUpPharmacy = () => {
       setFormToShow('a');
     } else if (formToShow === 'c') {
       setFormToShow('b');
+    } else if (formToShow === 'd') {
+      setFormToShow('c');
     } else {
       navigate('/pharmacy');
     }
