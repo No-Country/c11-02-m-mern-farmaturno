@@ -128,3 +128,48 @@
     width: 399px;
   }
 }
+
+@media (min-width: 1440px) {
+  .signIn-details h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    padding-bottom: 2rem;
+  }
+  .signIn-details .farmacyTitle_container p {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    font-weight: 400;
+    margin-bottom: 2.7rem;
+  }
+  .signIn-details form {
+    position: relative;
+    display: grid;
+    grid-template-columns: 41.3rem 41.3rem auto;
+    grid-template-rows: 6.9rem 6.9rem 10rem 10rem;
+    gap: 4rem;
+  }
+  .signIn-details .row4 {
+    padding-top: 4rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+  }
+  .signIn-details form img {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: -200px;
+    right: 20px;
+  }
+  .signIn-details button {
+    width: 31.5rem;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    margin: 4rem auto 0 auto;
+  }
+  .signIn-details .custom-row .invalid-feedback {
+    font-size: 1.4rem;
+  }
+}

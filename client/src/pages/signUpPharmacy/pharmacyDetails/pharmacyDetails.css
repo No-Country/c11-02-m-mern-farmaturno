@@ -114,10 +114,10 @@ form img {
     margin-bottom: 2rem;
   }
   .pharmacy-details p {
+    width: 61.6rem;
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 2.1rem;
-    margin-bottom: 5rem;
   }
   .pharmacy-details form {
     position: relative;
@@ -160,7 +160,7 @@ form img {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 5;
-    margin: 0 auto;
+    margin: 4rem auto 0 auto;
   }
   .pharmacy-details .custom-row .invalid-feedback {
     font-size: 1.4rem;
