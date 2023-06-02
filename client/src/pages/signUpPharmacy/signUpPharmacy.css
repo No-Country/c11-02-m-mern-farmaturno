@@ -47,6 +47,19 @@
     width: 100vw;
     padding: 0 2rem;
   }
+  .title-button__container {
+    position: relative;
+    padding-left: 2.8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  .title-button__container p {
+    padding-left: 4rem;
+    font-size: 2.4rem;
+  }
+
   .title-button__container img {
     position: absolute;
     left: 3.75rem;
