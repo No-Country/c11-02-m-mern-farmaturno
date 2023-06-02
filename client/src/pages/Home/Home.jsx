@@ -5,6 +5,7 @@ import Divider from './divider/Divider';
 import About from './about/About';
 import Instructions from './instructions/Instructions';
 import Footer from '../../components/Footer/Footer';
+import FarmaciaAdicionales from './FarmaciasAdicionales/FarmaciaAdicionales';
 const Home = () => {
   return (
     <div className="home">
@@ -13,6 +14,7 @@ const Home = () => {
           <p>Te damos la bienvenida a</p>
           <p> Farmaturno</p>
           <p> ¡Gracias por elegirnos!</p>
+      <FarmaciaAdicionales />
         </div>
         <PanelIngreso />
       </div>

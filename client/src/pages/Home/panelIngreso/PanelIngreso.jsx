@@ -16,15 +16,6 @@ const PanelIngreso = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  /*   useEffect(() => {
-    fetchData('http://localhost:3002/api/customer/')
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log('Ocurrio un error: ' + err);
-      });
-  }, []); */
   const handleSubmit = (event) => {
     event.preventDefault();
 

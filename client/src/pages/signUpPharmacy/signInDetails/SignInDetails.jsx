@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { SignUpContext } from '../context/pharmacyContext';
 import './signInDetails.css';
 import { addRegistrationDetails } from '../../../redux/authSlice';
@@ -32,7 +33,21 @@ const SignInDetails = () => {
     pharmacyPhone,
     pharmacyOpenHour,
     pharmacyCloseHour,
+    registrationEmail,
+    registrationUsername,
+    registrationPassword,
   } = useSelector((state) => state.auth);
+
+  const [checked, setIsChecked] = useState(false);
+
+  useEffect(() => {
+    setRegistrationData((prevregistrationData) => ({
+      ...prevregistrationData,
+      registrationEmail: registrationEmail,
+      registrationUsername: registrationUsername,
+      registrationPassword: registrationPassword,
+    }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,7 +61,7 @@ const SignInDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = validateRegistrationForm();
-    if (Object.keys(errors).length === 0) {
+    if (Object.keys(errors).length === 0 && checked) {
       dispatch(
         addRegistrationDetails({
           registrationEmail: registrationData.registrationEmail,
@@ -88,6 +103,7 @@ const SignInDetails = () => {
           );
         });
     } else {
+      alert('Debe aceptar los términos y condiciones');
       setRegistrationData((prevregistrationData) => ({
         ...prevregistrationData,
         errors,
@@ -127,6 +143,10 @@ const SignInDetails = () => {
 
     setIsValid(Object.keys(errors).length === 0);
     return errors;
+  };
+
+  const handleCheck = () => {
+    setIsChecked(!checked);
   };
 
   return (
@@ -193,9 +213,9 @@ const SignInDetails = () => {
             type="checkbox"
             required
             name="isCheckboxChecked"
-            checked={true}
+            checked={checked}
             className="checkbox"
-            /* onChange={} */
+            onClick={handleCheck}
             // isinvalid={errors.isCheckboxChecked !== ''}
           />
           <p className="acepto-terminos-signIn">

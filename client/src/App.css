@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+* {
+  font-family: 'Roboto';
+}
+
 .main_container {
   width: 100vw;
   height: 100vh;
@@ -5,4 +10,5 @@
   grid-template-columns: 1fr;
   grid-template-rows: 10% 75% 15%;
   overflow-y: hidden;
+  overflow-x: hidden;
 }

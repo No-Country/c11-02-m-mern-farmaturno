@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { SignUpContext } from '../context/pharmacyContext';
 import './pharmacyOwner.css';
 import { addOwnerDetails } from '../../../redux/authSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import pana from '../assets/pana.png';
 
 const PharmacyOwnerDetails = () => {
@@ -17,6 +18,18 @@ const PharmacyOwnerDetails = () => {
   });
   const dispatch = useDispatch();
   const [isValid, setIsValid] = useState(false);
+  const { ownerName, ownerSurname, ownerDni } = useSelector(
+    (state) => state.auth,
+  );
+
+  useEffect(() => {
+    setOwnerData((prevOwnerData) => ({
+      ...prevOwnerData,
+      ownerName: ownerName,
+      ownerSurname: ownerSurname,
+      ownerDni: ownerDni,
+    }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

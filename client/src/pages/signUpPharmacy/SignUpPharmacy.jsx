@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import backButton from './assets/backButton.svg';
 import { useNavigate } from 'react-router';
-
 const SignUpPharmacy = () => {
   const { formToShow, setFormToShow } = useContext(SignUpContext);
   const [now, setNow] = useState(0);
@@ -33,6 +32,8 @@ const SignUpPharmacy = () => {
       setFormToShow('a');
     } else if (formToShow === 'c') {
       setFormToShow('b');
+    } else if (formToShow === 'd') {
+      setFormToShow('c');
     } else {
       navigate('/pharmacy');
     }

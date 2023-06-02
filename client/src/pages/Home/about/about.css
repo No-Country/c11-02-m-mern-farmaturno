@@ -2,6 +2,7 @@
   padding: 14px;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .column {
@@ -35,7 +36,7 @@ span {
 
 @media (max-width: 1024px) {
   .column-right{
-    
+
     display: flex;
   }
 }
