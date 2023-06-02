@@ -50,6 +50,18 @@ form img {
 }
 
 @media (min-width: 768px) {
+  .pharmacy-details h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    margin-bottom: 2rem;
+  }
+  .pharmacy-details p {
+    width: 40.6rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+  }
   .pharmacy-details {
     width: 100vw;
   }
@@ -58,10 +70,11 @@ form img {
   }
 
   .pharmacy-details form {
+    position: relative;
     padding: 0 4rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 24.8rem;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 25.3rem 25.3rem auto;
+    grid-template-rows: repeat(4, 6.5rem) 8.1rem auto;
     gap: 4rem;
   }
   .pharmacy-details .row1 {
@@ -93,8 +106,12 @@ form img {
     grid-row-start: 3;
   }
   .pharmacy-details form img {
-    widht: inherit;
-    height: inherit;
+    align-self: center;
+    justify-self: center;
+    width: 254.59px;
+    height: 248px;
+    grid-column-start: 3;
+    grid-row-end: 4;
     grid-row-start: 3;
     grid-row-end: 6;
   }
@@ -103,6 +120,9 @@ form img {
     grid-column-end: 4;
     grid-row-start: 6;
     margin: 0 auto;
+  }
+  .pharmacy-details .custom-row .invalid-feedback {
+    font-size: 1.2rem;
   }
 }
 

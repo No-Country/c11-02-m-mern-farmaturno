@@ -235,8 +235,8 @@ const PharmacyDetails = () => {
             name="pharmacyCloseHour"
             value={pharmacyData.pharmacyCloseHour}
             onChange={handleChange}
-            isInvalid={!isValid && !!pharmacyData.errors.pharmacyOpenHour}
-            isValid={isValid && !pharmacyData.errors.pharmacyOpenHour}
+            isInvalid={!isValid && !!pharmacyData.errors.pharmacyCloseHour}
+            isValid={isValid && !pharmacyData.errors.pharmacyCloseHour}
           />
           <Form.Control.Feedback type="invalid">
             {pharmacyData.errors.pharmacyCloseHour}
