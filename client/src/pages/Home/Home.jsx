@@ -14,10 +14,10 @@ const Home = () => {
           <p>Te damos la bienvenida a</p>
           <p> Farmaturno</p>
           <p> ¡Gracias por elegirnos!</p>
+      <FarmaciaAdicionales />
         </div>
         <PanelIngreso />
       </div>
-      <FarmaciaAdicionales />
       <FirstDescription />
       <Divider />
       <About />
