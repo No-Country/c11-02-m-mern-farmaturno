@@ -36,25 +36,27 @@ function main(){
     console.log(Colors.bgGreen.black(`==>> Server is running on ${URL}:${PORT} `));
   })
   dbConnection();
-
+  let cont = 1;
   /**
-   * Cron library that executes the function of load all turns every hour.
+   * Cron library that executes the function of load all turns every hour. 59 06-18
   */
   cron.schedule('59 06-18 * * *', async () => {
-   await handleTurns();
+   await handleTurns(cont);
+   cont = cont + 1;
   },
   {
     scheduled: true,
     timezone: "America/Bogota"
   })
   //handleTurns(); // Descomentar esta linea para que ejecute la funcion sin temporizador
-
+  
   /**
    * Cron library that executes the function of restarting the Turn collection every day at 0 hours.
   */
   cron.schedule('59 59 23 * * *', async () => {
     console.log(Colors.cyan('==>> Restarting Turn collection'))
     await handleRestartDBTurn()
+    cont = 1;
   },
   {
     scheduled: true,
