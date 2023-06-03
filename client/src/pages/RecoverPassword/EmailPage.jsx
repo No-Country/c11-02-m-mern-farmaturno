@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 import goBack from './assets/backButton.svg';
 import { RecoverContext } from './context/recoverContext';
-
+import './emailPage.css';
 const EmailPage = () => {
   const [isValid, setIsValid] = useState(false);
   const { emailData, setEmailData } = useContext(RecoverContext);
@@ -57,7 +57,7 @@ const EmailPage = () => {
   };
 
   return (
-    <section>
+    <section className="emailPage">
       <div className="title_subtitle__email">
         <div>
           <img
@@ -76,7 +76,7 @@ const EmailPage = () => {
         <div className="emailContainer_title__email">
           <h3>Reestablece tu contraseña</h3>
         </div>
-        <Form noValidate onSubmit={handleSubmit}>
+        <Form className="form-email" noValidate onSubmit={handleSubmit}>
           <Form.Label>Correo electrónico</Form.Label>
           <Form.Control
             required
