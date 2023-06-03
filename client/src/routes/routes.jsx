@@ -10,7 +10,9 @@ import PharmacyPlans from '../pages/pharmacyPlans/PharmacyPlans';
 import SignUpPharmacy from '../pages/signUpPharmacy/SignUpPharmacy';
 import PharmacyProvider from '../pages/signUpPharmacy/context/PharmacyProvider';
 import LoginPharmacy from '../pages/logInPharmacy/LoginPharmacy';
-
+import EmailPage from '../pages/RecoverPassword/EmailPage';
+import CodeAndPasswordPage from '../pages/RecoverPassword/CodeAndPasswordPage';
+import RecoverContextProvider from '../pages/RecoverPassword/context/RecoverContextProvider';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -47,6 +49,22 @@ export const router = createBrowserRouter([
           </PharmacyProvider>
         ),
         children: [{}],
+      },
+      {
+        path: 'pharmacy/recoverPassword/email',
+        element: (
+          <RecoverContextProvider>
+            <EmailPage />
+          </RecoverContextProvider>
+        ),
+      },
+      {
+        path: 'pharmacy/recoverPassword/codeandpassword/:email?',
+        element: (
+          <RecoverContextProvider>
+            <CodeAndPasswordPage />
+          </RecoverContextProvider>
+        ),
       },
     ],
   },

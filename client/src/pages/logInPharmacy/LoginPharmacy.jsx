@@ -133,7 +133,8 @@ export default function LoginPharmacy() {
       </Form>
       <div>
         <p>
-          ¿Olvidaste tu contraseña? <Link to="/"> Contáctanos</Link>
+          ¿Olvidaste tu contraseña?{' '}
+          <Link to="/pharmacy/recoverPassword/email"> Contáctanos</Link>
         </p>
         <p>
           ¿Aun no tienes tu cuenta?
