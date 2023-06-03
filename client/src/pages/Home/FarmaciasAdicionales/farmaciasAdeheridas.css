@@ -2,14 +2,3 @@
     display: grid;
     text-align: center;
 }
-
-.Mainfarmaci h2 {
-    position: relative;
-    margin-top: 15px;
-}
-
-.FarmaciaBoton{
-    font-size: 35px;
-    height: 50px;
-    margin-top: 15px;
-}

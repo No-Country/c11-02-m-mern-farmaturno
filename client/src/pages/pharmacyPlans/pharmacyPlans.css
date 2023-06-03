@@ -94,9 +94,8 @@ span{
   justify-content: center;
 }
 
-img {
-  max-width: 100;
-  height: auto;
+.image-container img {
+  height: 160px;
 }
 
 @media (max-width: 1024px){
