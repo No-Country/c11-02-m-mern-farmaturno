@@ -4,7 +4,8 @@ import { Form, Button, Row } from 'react-bootstrap';
 import goBack from './assets/backButton.svg';
 import { putData } from '../../services/putData';
 import { useNavigate } from 'react-router';
-
+import './codeAndPassword.css';
+import Footer from '../../components/Footer/Footer';
 const CodeAndPasswordPage = () => {
   const navigate = useNavigate();
   const { emailData, setEmailData } = useContext(RecoverContext);
@@ -110,15 +111,15 @@ const CodeAndPasswordPage = () => {
     navigate('/pharmacy/recoverPassword/email');
   };
   return (
-    <section>
+    <section className="code-section">
       <div className="title_subtitle__code">
-        <div>
+        <div className="goBackAndTitle">
           <img src={goBack} alt="boton para ir atras" onClick={handleGoBack} />
           <h2>Listo, código enviado</h2>
         </div>
         <p>Ingresa el código que te enviamos a tu correo electrónico.</p>
-        <Form noValidate onSubmit={handleSubmitCode}>
-          <Form.Label>Correo electrónico</Form.Label>
+        <Form className="form-code" noValidate onSubmit={handleSubmitCode}>
+          <Form.Label>Código</Form.Label>
           <Form.Control
             required
             type="number"
@@ -133,10 +134,14 @@ const CodeAndPasswordPage = () => {
           </Form.Control.Feedback>
         </Form>
       </div>
-      <div>
+      <div className="new-password">
         <h3>Ingresa tu nueva contraseña</h3>
         <p>Recuerda que la contraseña debe tener entre 8 y 16 dígitos</p>
-        <Form noValidate onSubmit={handleSubmitPassword}>
+        <Form
+          className="form-password"
+          noValidate
+          onSubmit={handleSubmitPassword}
+        >
           <Row className="custom-row row1">
             <Form.Label className="label">Nueva Contraseña</Form.Label>
             <Form.Control
@@ -179,6 +184,7 @@ const CodeAndPasswordPage = () => {
           </Button>
         </Form>
       </div>
+      <Footer />
     </section>
   );
 };

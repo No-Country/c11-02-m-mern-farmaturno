@@ -85,8 +85,9 @@
   }
   .signIn-details form {
     display: grid;
-    grid-template-columns: 1fr 1fr 25.4rem;
-    grid-template-rows: 6.5rem 6.5rem contain 4rem;
+    grid-template-columns: 25.3rem 25.3rem auto;
+    grid-template-rows: 6.9rem 6.9rem 10rem 10rem;
+    row-gap: 4rem;
     column-gap: 4rem;
   }
   .signIn-details .row1 {
@@ -102,13 +103,15 @@
     grid-row-start: 2;
   }
   .signIn-details .row4 {
+    padding-top: 4rem;
+
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
   }
-  .signIn-details img {
-    widht: inherit;
-    height: inherit;
+  .signIn-details form img {
+    width: 25.6rem;
+    height: 24.8rem;
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
@@ -120,10 +123,10 @@
     grid-row-start: 4;
     margin: 0 auto;
   }
-  .signIn-details form img {
+  /*   .signIn-details form img {
     width: inherit;
     height: inherit;
-  }
+  } */
   .acepto-terminos-signIn {
     width: 399px;
   }
