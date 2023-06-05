@@ -99,7 +99,7 @@ const SignInDetails = () => {
         .catch((error) => {
           console.error(error);
           alert(
-            'Hubo un error al crear su cuneta, revise que todos los datos sean correctos y que no haya creado otra cuenta con los mismos datos',
+            'Hubo un error al crear su cuenta, revise que todos los datos sean correctos y que no haya creado otra cuenta con los mismos datos',
           );
         });
     } else {

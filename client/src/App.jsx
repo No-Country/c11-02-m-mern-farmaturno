@@ -1,6 +1,5 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { Outlet } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
@@ -11,7 +10,11 @@ function App() {
     //Aca van botones navbar y todo lo que este en el home
     <main className="main_container">
       {location.pathname !== '/pharmacy/profile' &&
-      location.pathname!==`/pharmacy` ? <NavBar /> : <></>}
+      location.pathname !== `/pharmacy` ? (
+        <NavBar />
+      ) : (
+        <></>
+      )}
 
       <Outlet />
       {/*       {(location.pathname === '/') &
@@ -24,6 +27,8 @@ function App() {
       {location.pathname !== '/' &&
       location.pathname !== '/pharmacy/signUp' &&
       location.pathname !== '/pharmacy/profile' &&
+      location.pathname !== '/pharmacy/signUp/adminitration_allowed' &&
+      location.pathname !== '/pharmacy/recoverPassword/codeandpassword' &&
       location.pathname !== '/pharmacy' ? (
         <Footer />
       ) : (

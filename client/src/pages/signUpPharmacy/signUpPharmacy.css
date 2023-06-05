@@ -14,6 +14,7 @@
 .signUpPharmacy .goBackButton {
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
 }
 
 .title-button__container {
@@ -78,7 +79,7 @@
   }
   .title-button__container {
     position: relative;
-    padding-left: 2.8rem;
+    padding-left: 7rem;
     width: 100%;
     display: flex;
     align-items: center;

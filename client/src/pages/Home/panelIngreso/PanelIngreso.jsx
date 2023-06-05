@@ -96,7 +96,7 @@ const PanelIngreso = () => {
             setActivePideTurno(false);
           }}
         >
-          consulta tu turno
+          Consulta tu turno
         </button>
       </div>
       {activePideTurno ? (

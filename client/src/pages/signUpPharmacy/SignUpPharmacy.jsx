@@ -39,7 +39,7 @@ const SignUpPharmacy = () => {
     }
   };
   return (
-    <div className="signUpPharmacy">
+    <section className="signUpPharmacy">
       <div className="title-button__container">
         <img
           className="goBackButton"
@@ -54,7 +54,7 @@ const SignUpPharmacy = () => {
       {(formToShow === 'c' || formToShow === 'd') && <SignInDetails />}
       <ProgressBar now={now} variant="success" className="progressBar" />
       <Footer />
-    </div>
+    </section>
   );
 };
 
