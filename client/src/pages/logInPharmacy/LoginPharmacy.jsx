@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { postTurn } from '../../services/PostTurn';
+import Footer from '../../components/Footer/Footer';
 
 export default function LoginPharmacy() {
   const [dataLogin, setDataLogin] = useState({
@@ -86,60 +87,65 @@ export default function LoginPharmacy() {
     <div className="logIn_container">
       <div className="welcome_div">
         <div className="container_welcome">
-          <p className="first_text">Te damos la bienvenida a</p>
+          <p className="first_text">Gracias por elegir</p>
           <p className="title_page">FarmaTurno</p>
-          <p className="second_text">¡Gracias por elegirnos!</p>
+          <p className="second_text">Igresa para comenzar</p>
         </div>
       </div>
       <Form noValidate onSubmit={handleSubmit}>
-        <Row className="custom-row">
-          <h2>Inicio de sesión</h2>
-          <Form.Label className="label">Usuario</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            name="userName"
-            value={dataLogin.userName}
-            onChange={handleChange}
-            isInvalid={!isValid && !!dataLogin.errors.nameError}
-            isValid={isValid && !dataLogin.errors.nameError}
-          />
-          <Form.Control.Feedback type="invalid">
-            {dataLogin.errors.nameError}
-          </Form.Control.Feedback>
-        </Row>
-        <Row className="custom-row">
-          <Form.Label className="label">Contraseña</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            name="userPassword"
-            value={dataLogin.userPassword}
-            onChange={handleChange}
-            isInvalid={!isValid && !!dataLogin.errors.passwordError}
-            isValid={isValid && !dataLogin.errors.passwordError}
-          />
-          <Form.Control.Feedback type="invalid">
-            {dataLogin.errors.passwordError}
-          </Form.Control.Feedback>
-        </Row>
-        <Button
-          variant={`${isValid ? 'success' : 'secondary'}`}
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Iniciar sesión
-        </Button>
+        <h2>Inicio de sesión</h2>
+        <div className="login-dates-container">
+          <Row className="custom-row">
+            <Form.Label className="label">Usuario</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              name="userName"
+              value={dataLogin.userName}
+              onChange={handleChange}
+              isInvalid={!isValid && !!dataLogin.errors.nameError}
+              isValid={isValid && !dataLogin.errors.nameError}
+            />
+            <Form.Control.Feedback type="invalid">
+              {dataLogin.errors.nameError}
+            </Form.Control.Feedback>
+          </Row>
+          <Row className="custom-row">
+            <Form.Label className="label">Contraseña</Form.Label>
+            <Form.Control
+              required
+              type="password"
+              name="userPassword"
+              value={dataLogin.userPassword}
+              onChange={handleChange}
+              isInvalid={!isValid && !!dataLogin.errors.passwordError}
+              isValid={isValid && !dataLogin.errors.passwordError}
+            />
+            <Form.Control.Feedback type="invalid">
+              {dataLogin.errors.passwordError}
+            </Form.Control.Feedback>
+          </Row>
+          <Button
+            variant={`${isValid ? 'success' : 'secondary'}`}
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Iniciar sesión
+          </Button>
+          <div className="forgotPassword-container">
+            <p>
+              ¿Olvidaste tu contraseña?{' '}
+              <Link to="/pharmacy/recoverPassword/email"> Contáctanos</Link>
+            </p>
+            <p>
+              ¿Aun no tienes tu cuenta?
+              <Link to="/pharmacy/signUp"> Regístrate aquí </Link>
+            </p>
+          </div>
+        </div>
       </Form>
-      <div>
-        <p>
-          ¿Olvidaste tu contraseña? <Link to="/"> Contáctanos</Link>
-        </p>
-        <p>
-          ¿Aun no tienes tu cuenta?
-          <Link to="/pharmacy/signUp"> Regístrate aquí </Link>
-        </p>
-      </div>
+
+      <Footer className="footer-signIn" />
     </div>
   );
 }
