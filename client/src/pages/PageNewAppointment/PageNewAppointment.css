@@ -7,9 +7,19 @@
     height: 100%;
     background-color: #FAFAFA;
     display: grid;
+    grid-template-columns: 1fr 20fr;
     grid-template-rows: 15% 85% !important
 }
-
+.margin{
+  margin: 2rem;
+}
+.titulo{
+  font-size: 1.5rem;
+}
+.texto{
+  font-size: 1.1rem;
+  font-family: 'Roboto';
+}
 
 .body {
    
