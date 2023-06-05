@@ -1,14 +1,16 @@
 import { RecoverContext } from './context/recoverContext';
+
 import { useContext, useState } from 'react';
-import { Form, Button, Row } from 'react-bootstrap';
+import { Form, Button, Row, Modal } from 'react-bootstrap';
 import goBack from './assets/backButton.svg';
 import { putData } from '../../services/putData';
 import { useNavigate } from 'react-router';
 import './codeAndPassword.css';
 import Footer from '../../components/Footer/Footer';
+
 const CodeAndPasswordPage = () => {
   const navigate = useNavigate();
-  const { emailData, setEmailData } = useContext(RecoverContext);
+  const { emailData } = useContext(RecoverContext);
   const [validCode, setValidCode] = useState(false);
   const [myCode, setMyCode] = useState('123456');
   const [typedCode, setTypedCode] = useState({
@@ -24,6 +26,7 @@ const CodeAndPasswordPage = () => {
   //ninjinFarma
   //ElNinja123
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleCodeChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +73,11 @@ const CodeAndPasswordPage = () => {
       putData(data, 'api/pharmacy')
         .then((response) => {
           console.log(response);
-          alert('Su contraseña ha sido cambiada con éxito');
+          alert('La contraseña ha sido cambiada con éxito');
+          setShowModal(true);
+          setTimeout(() => {
+            navigate('/pharmacy/signUp/adminitration_allowed');
+          }, 500);
         })
         .catch((error) => {
           console.error(error);
