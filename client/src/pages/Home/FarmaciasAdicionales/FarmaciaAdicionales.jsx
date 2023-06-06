@@ -8,7 +8,11 @@ const FarmaciaAdicionales = () => {
     <div className="adheridasFarmacia">
       <h2>Farmacias y droguerias adheridas</h2>
       <div className="farmaciaBotom">
-        <img src={cruzVerde} alt="Logotipo de farmacia cruz verde" />
+        <img
+          className="cruzVerde"
+          src={cruzVerde}
+          alt="Logotipo de farmacia cruz verde"
+        />
         <button onClick={() => navigate('/pharmacy')}>
           <img src={substract} alt="icono de sumar farmacia" />
           Adherir mi farmacia
