@@ -31,7 +31,7 @@
   font-size: 1.3331rem;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 360x) {
   .footer {
     height: 107px;
     width: 380px;
@@ -40,11 +40,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
   }
-  .footer-container{
+  .footer-container {
     text-align: left;
-    margin-left:5%;
+    margin-left: 5%;
   }
   .footer-brand {
     color: #767676;
@@ -77,8 +77,8 @@
     align-items: center;
     justify-content: center;
   }
-  .footer-container{
+  .footer-container {
     text-align: left;
-    margin-left:5%;
+    margin-left: 5%;
   }
 }

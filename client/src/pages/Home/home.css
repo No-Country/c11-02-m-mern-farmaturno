@@ -1,4 +1,6 @@
 .home {
+  width: 100%;
+  overflow-x: hidden;
   padding: 4rem 0rem;
   overflow-y: scroll;
   height: 92vh;
