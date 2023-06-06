@@ -13,15 +13,14 @@ const Home = () => {
         <div className="mensajeBienvenida">
           <p>Te damos la bienvenida a</p>
           <p> Farmaturno</p>
-          <p> ¡Gracias por elegirnos!</p>
-      <FarmaciaAdicionales />
         </div>
-        <PanelIngreso />
+        <FarmaciaAdicionales />
+        <PanelIngreso id="homeContainer" />
       </div>
+      <Instructions />
       <FirstDescription />
       <Divider />
       <About />
-      <Instructions />
       <Footer className="footer" />
     </div>
   );
