@@ -103,7 +103,9 @@ const SignInDetails = () => {
           );
         });
     } else {
-      alert('Debe aceptar los términos y condiciones');
+      if (!checked) {
+        alert('Debe aceptar los términos y condiciones');
+      }
       setRegistrationData((prevregistrationData) => ({
         ...prevregistrationData,
         errors,
@@ -124,10 +126,8 @@ const SignInDetails = () => {
         'Ingrese un Email válido Ej: example@gmail.com';
     }
 
-    // Validación para registrationPassword
-    if (
-      !registrationData.registrationUsername.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)
-    ) {
+    // Validación para nombre de usuario
+    if (!registrationData.registrationUsername.match(/^[a-zA-Z0-9]+$/)) {
       errors.registrationUsername = 'Ingrese un nombre de usuario válido';
     }
 
