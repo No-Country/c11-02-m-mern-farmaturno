@@ -15,7 +15,7 @@ const Home = () => {
           <p> Farmaturno</p>
         </div>
         <FarmaciaAdicionales />
-        <PanelIngreso />
+        <PanelIngreso id="homeContainer" />
       </div>
       <Instructions />
       <FirstDescription />

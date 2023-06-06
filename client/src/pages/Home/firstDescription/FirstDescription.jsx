@@ -1,6 +1,6 @@
 import './firstDescription.css';
 import timeImage from './assets/time.png';
-import { Button } from 'react-bootstrap';
+/* import { Button } from 'react-bootstrap'; */
 const FirstDescription = () => {
   return (
     <div className="firstDescription">
@@ -10,7 +10,7 @@ const FirstDescription = () => {
         Pide tu turno de forma fácil y rápida, y evita las largas filas de
         espera.
       </p>
-      <Button variant="outline-success">Quiero un turno</Button>
+      {/* <Button variant="outline-success">Quiero un turno</Button> */}
     </div>
   );
 };
