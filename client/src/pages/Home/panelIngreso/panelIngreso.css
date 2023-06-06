@@ -1,9 +1,10 @@
 .panelIngreso {
+  margin: 4rem auto;
   position: relative;
-  padding: 2rem 0;
+  padding: 1rem 0 1rem 0rem;
   width: 90%;
   min-width: 340px;
-  height: 70%;
+  height: 36rem;
   border: 0 solid #767676;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -11,7 +12,7 @@
 
 .top-buttons-container {
   width: 100%;
-  height: 6rem;
+  height: 5rem;
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid var(--gray);
@@ -22,8 +23,9 @@
   width: 100%;
   background-color: transparent;
   border: none;
-  font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
 }
 
 .top-button:hover {
@@ -47,41 +49,44 @@
   height: 40rem;
 }
 .bottom-section h3 {
-  font-size: 2.4rem;
-  font-weight: semibold;
-  margin-bottom: 1.2rem;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
 }
 
 .bottom-section p {
-  font-size: 1.8rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
 }
 
 .bottom-section label {
-  font-size: 2rem;
-  font-weight: semibold;
-  line-height: 2.3rem;
+  margin-top: 3.4rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
 }
 
 .bottom-section input {
-  width: 65%;
-  height: 4.4rem;
+  width: 100%;
+  height: 3.8rem;
+
   border: solid 1px #black;
   border-radius: 1rem;
 }
 
 .bottom-section button {
-  width: 65%;
-  height: 4.4rem;
-  position: absolute;
-  bottom: 4rem;
+  margin-top: 2rem;
+  width: 100%;
+  height: 4.8rem;
   border-radius: 0.4rem;
+  font-weight: 500;
   font-size: 1.8rem;
   line-height: 2.1rem;
-  font-weight: semibold;
 }
 
 .custom-feedback {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   position: absolute;
   width: 65%;
 }
@@ -94,79 +99,4 @@
 
 .form-control-lg[type='number'] {
   -moz-appearance: textfield;
-}
-
-@media (max-width: 768px) {
-  .panelIngreso {
-    align-self: center;
-    margin: 0 auto;
-    height: 100%;
-  }
-  .top-button {
-    font-size: 1.8rem;
-  }
-  .bottom-section {
-    padding: 2rem 4rem 1rem 4rem;
-    height: 80%;
-  }
-  .bottom-section .titleAndSubtitle_container {
-    height: 2.81rem;
-  }
-  .bottom-section .titleAndSubtitle_container h3 {
-    font-size: 2.2rem;
-  }
-  .bottom-section .titleAndSubtitle_container p {
-    font-size: 1.6rem;
-  }
-  .bottom-section label {
-    font-size: 1.6rem;
-  }
-  .bottom-section input {
-    height: 3.5rem;
-    width: 50%;
-  }
-  .bottom-section button {
-    height: 4.2rem;
-    width: 40%;
-    right: 2rem;
-    bottom: 2rem;
-  }
-  .custom-feedback {
-    line-height: 1.6rem;
-    width: 90%;
-  }
-}
-
-@media (max-width: 360px) {
-  .panelIngreso {
-    display: flex;
-    padding: 0rem;
-    width: 80%;
-    min-width: 300px;
-    
-  }
-  .top-buttons-container {
-    height: 6rem;
-  }
-  .top-button {
-    height: 100%;
-    line-height: 6rem;
-  }
-  .bottom-section {
-    padding: 1rem;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .bottom-section input {
-    width: 100%;
-  }
-  .bottom-section button {
-    right: 1rem;
-    width: 93%;
-  }
-  .custom-feedback {
-    line-height: 2rem;
-  }
 }

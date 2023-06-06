@@ -1,10 +1,11 @@
 import './instructions.css';
+import mobileInstructions from './assets/pasopasomobile.png';
 const Instructions = () => {
-  return <div className="instructions">
-    <div className='container'>
-      <img src="/instruction.svg" alt="" />
+  return (
+    <div className="instructions">
+      <img src={mobileInstructions} alt="instrucciones" />
     </div>
-  </div>;
+  );
 };
 
 export default Instructions;

@@ -103,7 +103,7 @@ const PanelIngreso = () => {
         <div className="bottom-section">
           <div className="titleAndSubtitle_container">
             <h3>Optimiza tu tiempo y solicita un turno aquí</h3>
-            <p>Pide un turno para ser atendido en tu farmacia</p>
+            <p>Por favor, ingresa tu número de identidad.</p>
           </div>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group controlId="validationCustom01">
