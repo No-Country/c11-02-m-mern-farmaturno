@@ -87,7 +87,7 @@ const PharmacyDetails = () => {
       errors.pharmacyName = 'Ingrese un nombre válido';
     }
 
-    if (!pharmacyData.pharmacyNit.match(/^\d{10}$/)) {
+    if (!pharmacyData.pharmacyNit.match(/^[a-zA-Z0-9]{1,10}$/)) {
       errors.pharmacyNit = 'Ingrese un NIT valido';
     }
 
@@ -155,7 +155,7 @@ const PharmacyDetails = () => {
           <Form.Label className="label">NIT</Form.Label>
           <Form.Control
             required
-            type="number"
+            type="text"
             name="pharmacyNit"
             value={pharmacyData.pharmacyNit}
             onChange={handleChange}

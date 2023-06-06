@@ -13,10 +13,13 @@ import LoginPharmacy from '../pages/logInPharmacy/LoginPharmacy';
 import EmailPage from '../pages/RecoverPassword/EmailPage';
 import CodeAndPasswordPage from '../pages/RecoverPassword/CodeAndPasswordPage';
 import RecoverContextProvider from '../pages/RecoverPassword/context/RecoverContextProvider';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
+
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <Home /> },
       { path: 'nuevoTurno', element: <PageNewAppointment /> },
