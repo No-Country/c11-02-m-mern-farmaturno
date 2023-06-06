@@ -34,11 +34,19 @@ const PharmacyPlans = () => {
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
-              <p>Alerta por mensaje</p>
+              <p>Alerta por sms</p>
+            </div>
+            <div className="item">
+              <i className="bi bi-check-all"></i>
+              <p>Emisión de 10 turnos por hora</p>
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
               <p>Tranzabilidad por turnos</p>
+            </div>
+            <div className="item">
+              <i className="bi bi-check-all"></i>
+              <p>Diseño de web responsivo</p>
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
