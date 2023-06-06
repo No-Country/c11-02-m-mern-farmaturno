@@ -17,7 +17,7 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
         <Table className="tabla">
           <tbody>
             {data.map((turn) => (
-              <>
+              
                 <tr key={turn._id} className="divFilas">
                   <td>
                     <div className="div1">
@@ -100,7 +100,7 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
                     </div>
                   </td>
                 </tr>
-              </>
+              
             ))}
           </tbody>
         </Table>
