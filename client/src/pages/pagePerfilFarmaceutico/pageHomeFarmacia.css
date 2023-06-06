@@ -1,6 +1,5 @@
-
 .homeFarmacia {
-  width: 100%!important;
+  width: auto !important;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -8,28 +7,29 @@
   overflow-y: scroll;
   padding: 0;
   margin: 0;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 .bodyHomeFarmacia {
-  width: 100%!important;
+  width: 100% !important;
   background-color: white;
   padding: 0;
 }
-.divTituloFarmacia{
-    height: 100px;
-    background-color: #008c73;
-    color: white;
-    font-size: 40px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+.divTituloFarmacia {
+  height: 100px;
+  width: auto;
+  background-color: #008c73;
+  color: white;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-.titulo{
-    font-size: 28px;
+.titulo {
+  font-size: 28px;
 }
-.texto{
-    font-size: 18px;
+.texto {
+  font-size: 18px;
 }
 .divImagen {
   height: fit-content;
@@ -39,7 +39,6 @@
   width: 25%;
   height: 25%;
 }
-
 
 .btnVerMas {
   font-size: 1.5em;
@@ -60,24 +59,26 @@
   margin-right: auto;
 }
 
-@media (max-width: 380px)  {
-    .card{
+@media (max-width: 380px) {
+  /* .card{
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 14.5831rem;
         min-width: 27.3325rem;
     
-    }
-    .imgHomeFarmacia{
-        width:12.5rem;
-        height:12.5rem ;
-    }
-
+    } */
+  .imgHomeFarmacia {
+    width: 12.5rem;
+    height: 12.5rem;
+  }
 }
 
-@media (max-width: 767px) {
-    .mi-tabla-responsive {
+@media (max-width: 200px) {
+  .divTexto {
+    width: 100%;
+  }
+  /* .mi-tabla-responsive {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -90,8 +91,5 @@
     .mi-tabla-responsive > div:nth-child(1),
     .mi-tabla-responsive > div:nth-child(7) {
       flex: 0 0 30%;
-    }
-  }
-
-
-  
+    } */
+}

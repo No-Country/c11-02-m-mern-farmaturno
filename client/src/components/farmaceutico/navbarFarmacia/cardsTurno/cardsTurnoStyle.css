@@ -1,53 +1,324 @@
-.badge{
-    width: 182px;
-    height: 45px;
-    font-size: 18px;
+.badge {
+  width: 182px;
+  height: 45px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+}
+.badge-proximo {
+  background-color: #4034cf !important;
+}
+.badge-atendido {
+  background-color: #008c73 !important;
+}
+.badge-tarde {
+  background-color: #f65800 !important;
+}
+.btnCheckboxFalse {
+  border: white;
+  background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
+  width: 29px;
+  height: 29px;
+}
+/* .checkbox {
+  background-color: white;
+  border-color: 1px solid rgba(47, 47, 47, 0.5);
+  width: 29px;
+  height: 29px;
+} */
+
+.divTabla {
+  display: flex;
+  justify-content: center;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.tabla {
+  width: 97%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.tx-tabla {
+  font-size: 18px;
+  color: #767676;
+}
+
+.div1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 8%;
+  margin-left: 0;
+}
+.div2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center !important;
+  width: 90%;
+}
+.div3 {
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tx-turnoId {
+  margin-left: 4%;
+}
+.tx-turno {
+  margin-left: 5%;
+}
+
+.tx-name {
+  margin: 0;
+}
+
+.divEmail {
+  display: flex;
+  justify-self: start;
+  flex-wrap: wrap;
+  text-align: start;
+}
+.tx-email {
+  text-align: start;
+  display: flex;
+  justify-self: flex-start;
+  margin: 0;
+}
+@media (max-width: 1200px) {
+  /* .checkbox {
+    background-color: white;
+    border-color: 1px solid rgba(47, 47, 47, 0.5);
+    width: 30px;
+    height: 30px;
+  } */
+  .btnCheckboxFalse {
+    border: white;
+    background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
+    width: 29px;
+    height: 29px;
+  }
+
+  .divTabla {
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .tabla {
+    width: 97%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .tx-tabla {
+    font-size: 14px;
+    color: #767676;
+  }
+  /* .divFilas{
+        display: flex;
+        align-content: center;
+        /* justify-content:space-evenly; */
+  /* }  */
+  .div1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 8%;
+    margin-left: 0;
+  }
+  .div2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center !important;
+    width: 90%;
+  }
+  .div3 {
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tx-turnoId {
+    margin-left: 4%;
+  }
+  .tx-turno {
+    margin-left: 5%;
+  }
+
+  .tx-name {
+    margin: 0;
+  }
+
+  .divEmail {
+    display: flex;
+    justify-self: start;
+    flex-wrap: wrap;
+    text-align: start;
+  }
+  .tx-email {
+    text-align: start;
+    display: flex;
+    justify-self: flex-start;
+    margin: 0;
+  }
+}
+
+@media (max-width: 870px) {
+  .tabla {
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  /* .checkbox {
+    background-color: white;
+    border-color: 1px solid rgba(47, 47, 47, 0.5);
+    width: 28px;
+    height: 28px;
+  } */
+  .btnCheckboxFalse {
+    border: white;
+    background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
+    width: 28px;
+    height: 28px;
+  }
+  .badge {
+    width: 88px;
+    height: 32px;
+    font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 20px!important ;
-}
-.tx-tabla{
+    margin-bottom: 10%;
+    border-radius: 8px;
+    margin-left: 10%;
+  }
+  .tx-tabla {
     font-size: 18px;
     color: #767676;
+  }
+  .div1 {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 20%;
+    margin-bottom: 10%;
+  }
+  .div2 {
+    display: flex;
+    flex-direction: column;
+    text-align: start !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    min-height: 120px;
+    margin: 0;
+  }
+  .div3 {
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10%;
+  }
+  .tx-turnoId {
+    order: 1;
+    margin-left: 0;
+  }
+  .tx-turno {
+    font-size: 18px;
+    margin-left: 0;
+  }
+  .tx-name {
+    margin: 0;
+  }
+  .tx-email {
+    display: flex;
+    justify-self: start;
+    margin: 0;
+  }
 }
-.badge-proximo{
-    background-color: #4034CF!important;
-}
-.badge-atendido{
-    background-color: #008C73!important;
-}
-.badge-tarde{
-    background-color: #F65800!important;
-}
-
-.checkbox{
+@media (max-width: 475px) {
+  .tabla {
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  /* .checkbox {
     background-color: white;
     border-color: 1px solid rgba(47, 47, 47, 0.5);
-    width: 30px;
-    height: 30px;
-
-} 
-
-.iconosCards{
-width: 16px!important;
-}
-
-@media (max-width: 400px) {
-    .mi-tabla-responsive {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-    
-      .mi-tabla-responsive > div {
-        flex: 0 0 100%;
-      }
-    
-      .mi-tabla-responsive > div:nth-child(1),
-      .mi-tabla-responsive > div:nth-child(7) {
-        flex: 0 0 30%;
-      }
+    width: 24px;
+    height: 24px;
+  } */
+  .btnCheckboxFalse {
+    border: white;
+    background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
+    width: 24px;
+    height: 24px;
   }
+
+  .badge {
+    width: 88px;
+    height: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10%;
+    border-radius: 8px;
+    margin-left: 10%;
+  }
+  .tx-tabla {
+    font-size: 14px;
+    color: #767676;
+  }
+  .div1 {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 20%;
+    margin-bottom: 10%;
+  }
+  .div2 {
+    display: flex;
+    flex-direction: column;
+    text-align: start !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    min-height: 120px;
+    margin: 0;
+  }
+  .div3 {
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10%;
+  }
+  .tx-turnoId {
+    order: 1;
+    margin-left: 0;
+  }
+  .tx-turno {
+    font-size: 18px;
+    margin-left: 0;
+  }
+  .tx-name {
+    margin: 0;
+  }
+  .tx-email {
+    display: flex;
+    justify-self: start;
+    margin: 0;
+  }
+}

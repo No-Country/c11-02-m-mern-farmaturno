@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
-box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 .txTitle img {
@@ -14,41 +14,41 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   margin-right: 80.34px;
 }
 
-
 .dropdownPerfil {
   border: 0;
-  margin-left:80.34px ;
+  margin-left: 80.34px;
   width: 424px;
   height: 120px;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12),
+    0px 5px 5px rgba(0, 0, 0, 0.2);
   font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
 }
 
-@media (max-width: 400.98px) {
-
+@media (max-width: 200px) {
   .navbar .navbar-brand {
     text-align: center;
     margin-right: auto;
     margin-left: 0.5rem;
   }
-  .dropdownImg{
-   margin-right: 60px!important;
+  .dropdownImg {
+    margin-right: 60px !important;
   }
 
   .dropdownPerfil {
     border: 0;
-    margin-right:50.34px ;
+    margin-right: 50.34px;
     width: 130px;
     height: 80px;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14),
+      0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
     font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
   }
 }
