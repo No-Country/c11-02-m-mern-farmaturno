@@ -1,25 +1,55 @@
-.general{
+
+.general-consult{
     background-color: #FAFAFA;
+    /* height: 90%; */
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 15% 75% 10%
+    grid-template-columns: 1fr 20fr ;
+    
 }
-.parrafo{
+.body-consult{
+    
+    width: 100%; 
+    
+    margin: 2rem;
+ }
+.titulo-consult{
     font-size: 1.5rem;
 }
 .table {
     margin-left: 4rem;
     margin-right: 4rem;
     font-size: 1.5rem;
-    width: 80%;
+    width: 85%;
   
  }
 
  .encabezado {
     border-bottom: 2px solid #008C73;
  }
-
-  .body{
+ .td{
     border-bottom: 1px solid #b4bbba;
-    width: 100%; 
+    height: 5rem;
+   
+ }
+
+ @media (max-width: 768px){
+    .general-consult{
+        background-color: #FAFAFA;
+        /* height: 90%; */
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 5% 95%;
+        row-gap: 0px;
+        
+    }
+    .margin{
+        margin: 0pxs;
+        height: fit-content;
+    }
+    .body-consult{
+    
+        width: 100%; 
+        
+        margin: 1rem;
+     }
  }
