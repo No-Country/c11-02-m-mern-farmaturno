@@ -6,7 +6,8 @@ import {
     Offcanvas,
     Dropdown,
   } from 'react-bootstrap';
-  import '../navbarRegistro/navbarRegistroStyles.css';
+  // import '../navbarRegistro/navbarRegistroStyles.css';
+  import '../../../NavBar/navbar.css'
   import { useNavigate } from 'react-router-dom';
   
   const NavbarRegistro = () => {
@@ -18,53 +19,49 @@ import {
     }
   
     return (
-      <>
-        <Navbar expand="lg" className="navbar p-0">
-          <Container fluid className=" mx-4 ">
-            {/* <div className="d-flex align-items-center justify-content-between"> */}
-            <Navbar.Brand href="/" className="txTitle">
-              <img
-                src="https://i.ibb.co/Z8NKxKV/logo-removebg-preview.png"
+        <>
+      <Navbar expand="lg" className="navbar p-0">
+        <Container fluid className="  my-1 ">
+          <Navbar.Brand href="/" className="txTitle">
+            <img
+              src="https://i.ibb.co/wpSp6pg/logo1-1-Photo-Room-png-Photo-Room.png"
+              alt="logo"
+              className="logo   "
+            />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Offcanvas
+            className="offcanvas"
+            id={`offcanvasNavbar-expand-xs`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-xs`}
+            placement="start"
+          >
+            <Offcanvas.Header closeButton className='offcanvasHeader'>   
+            <img
+                src="https://i.ibb.co/wpSp6pg/logo1-1-Photo-Room-png-Photo-Room.png"
                 alt="logo"
-                className="mr-3 align-self-start   "
+                className="mr-3  logoOffcanvas   "
               />
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
-            <Navbar.Offcanvas
-              className="offcanvas"
-              id={`offcanvasNavbar-expand-lg`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
-              placement="start"
-            >
-              <Offcanvas.Header closeButton></Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="me-auto"></Nav>
-                <Nav className="txCategory">
-                  {/* <NavDropdown
-                    title="Soy Farmacia"
-                    id="basic-nav-dropdown"
-                    className="txCategory1 m-2"
-                  >
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="txSubcategory"
-                    >
-                      <p className="txSubcategory m-2">Turnos reservados</p>
-                    </NavDropdown.Item>
-                  </NavDropdown> */}
-                  <Nav.Link href="">
-                    <p className="txCategory m-2 mx-4">Ayuda</p>
-                  </Nav.Link>
-                  <Nav.Link href="">
-                    <p className="txCategory m-2 mx-4" onClick={() => navigate('/pharmacy/signUp/adminitration_allowed')}>Iniciar Sesión</p>
-                  </Nav.Link>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
+              </Offcanvas.Header>
+            <Offcanvas.Body className='offcanvasBody'>
+              <Nav className="me-auto"></Nav>
+              <Nav className="txCategory">
+                <Nav.Link>
+                  <p className="txCategory  my-1 acercaFarmTx">Acerca de FarmaTurno</p>
+                </Nav.Link>
+                <Nav.Link>
+                  <p
+                    className="txCategory my-1 soyFarmaciaTx"
+                    onClick={() => navigate('/pharmacy/signUp/adminitration_allowed')}
+                  >Iniciar Sesion</p>
+                </Nav.Link>
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+    </>
 
-          </Container>
-        </Navbar>
-      </>
     );
   };
   
