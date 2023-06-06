@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table';
 import './PageTurnoStyle.css';
 import moment from 'moment';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Turno = () => {
   const [deleteTurn] = useDeleteTurnMutation();
@@ -15,17 +16,10 @@ const Turno = () => {
     (state) => state.user.identificationNumber,
   );
   console.log(identificationNumber);
-  // useEffect(() => {
-  // if (data) {
-  // Filtra los customers por identificationNumber
-  //   const filteredCustomers = data.filter((item) => item.customer.identificationNumber === identificationNumber);
-  //   users.push(filteredCustomers)
-  // Aquí puedes guardar los customers filtrados en el estado de Redux, si es necesario
-  // }
-  //   }, [data, identificationNumber]);
+  const navigate=useNavigate()
 
   const formatDate = (dateString) => {
-    const date = moment(dateString, 'MMMM Do YYYY, h:mm:ss a');
+    const date = moment(dateString, 'MM/DD/YYYY, h:mm:ss a');
     return date.format('DD/MM/YY');
   };
 
@@ -61,13 +55,28 @@ const Turno = () => {
   // 	});
   // }, []);
   return (
-    <div className="general-consult">
+    <div>
+    {users ? (
+     Swal.fire({
+      title: 'No tenemos registros de turnos con el nro de documento brindado',
+      icon: 'question',
+      showCloseButton: true,
+      confirmButtonText:
+        'volver',
+    }) .then((result) => {
+      if (result.isConfirmed) {
+        navigate('/')
+      } 
+    })
+    ) : (
+      <div className="general-consult">
       <div className="margin">
         <a href="/">
           <img
             src="https://i.ibb.co/T0psFH9/arrow-left-circle-fillback.png"
             alt="arrow-left-circle-fillback"
             border="0"
+            className='arrow'
           />
         </a>
       </div>
@@ -116,6 +125,8 @@ const Turno = () => {
           </p>
         </div> */}
       </div>
+    </div>
+    )}
     </div>
   );
 };

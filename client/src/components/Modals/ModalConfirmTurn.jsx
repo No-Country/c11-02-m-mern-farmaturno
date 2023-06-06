@@ -20,11 +20,10 @@ export default function ModalToConfirmYourTurn ({closeMenu}){
            </div>
            <div className='describe_data'>
            Ya tienes disponible tu número de turno para recibir atención en la farmacia. 
-Te enviaremos una notificación para que puedas verificar tus datos. 
-Recuerda que puedes dar de baja el turno solicitado desde la sección de “Consulta tu turno”.
+Te enviaremos un email para que puedas verificar tus datos.
            </div>
            <footer className='btn_container'>
-            <button className='check'>Consultar turno</button>
+            <button className='check' onClick={()=>navigate('/miTurno')}>Consultar turno</button>
             <button className='came_back' onClick={()=>navigate('/')}>Volver al inicio</button>
            </footer>
             </article>

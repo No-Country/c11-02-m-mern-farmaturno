@@ -226,7 +226,7 @@ const FormUser = () => {
           <p className="mb-0 info">/Direccion</p>
           <p className="mb-3 info">/Horario de atencion</p>
           <Row className=" mb-3">
-            <Form.Group  as={Col } xs={12} md={6} controlId="formGridName">
+            <Form.Group className='mb-3' as={Col } xs={12} md={6} controlId="formGridName">
               <Form.Label className="texto">Nombre</Form.Label>
               <Form.Control
                 className="form"
