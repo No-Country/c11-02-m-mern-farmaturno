@@ -17,7 +17,7 @@ const PageNuevoTurno = () => {
         </a>
       </div>
       <div className="body-new">
-        <div>
+        <div className='margin'>
           <h1 className="titulo-new">Pide tu turno</h1>
           <p className="texto-new">
             Recuerda que estas reservando un turno para el dia de hoy{' '}

@@ -225,8 +225,8 @@ const FormUser = () => {
           <h1 className="titulo">Farmacia Cruz Verde</h1>
           <p className="mb-0 info">/Direccion</p>
           <p className="mb-3 info">/Horario de atencion</p>
-          <Row className="justify-content-md-center">
-            <Form.Group className="mb-3" as={Col} controlId="formGridName">
+          <Row className=" mb-3">
+            <Form.Group  as={Col } xs={12} md={6} controlId="formGridName">
               <Form.Label className="texto">Nombre</Form.Label>
               <Form.Control
                 className="form"
@@ -244,7 +244,7 @@ const FormUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" as={Col} controlId="formGridLastname">
+            <Form.Group  as={Col} controlId="formGridLastname">
               <Form.Label className="texto">Apellido</Form.Label>
               <Form.Control
                 className="form"

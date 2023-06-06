@@ -2,74 +2,94 @@
   font-family: 'Roboto';
 } */
 
-.general-new{
-    padding: 0rem 8rem;
-    height: 100%;
-    background-color: #FAFAFA;
-    display: grid;
-    grid-template-columns: 1fr 20fr ;
-    
+.general-new {
+  padding: 0rem 8rem;
+  height: 100%;
+  background-color: #fafafa;
+  display: grid;
+  grid-template-columns: 1fr 20fr;
 }
-.body-new{
-  grid-template-rows: 15% 85% 
+.body-new {
+  grid-template-rows: 15% 85%;
 }
-.margin{
+.margin {
   margin: 2rem;
 }
-.titulo-new{
+.titulo-new {
   font-size: 1.5rem;
 }
-.texto-new{
+.texto-new {
   font-size: 1.1rem;
   font-family: 'Roboto';
 }
 
 .body-main-new {
-   
-    
-    display: grid;
-    
-    grid-template-columns: 1fr 2fr;
+  display: grid;
+
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-items: center;
+  /* gap: 2rem; */
+}
+
+.img-new {
+  display: flex;
+  align-items: center;
+  /* position: absolute; */
+  /* width: 382.01px; */
+  height: 30rem;
+  left: 30rem;
+  top: calc(50% - 360px / 2);
+  left: 519px;
+  top: 247px;
+  padding: 24px;
+  gap: 50px;
+  padding: 24px;
+  gap: 50px;
+
+  /* transform: matrix(-1, 0, 0, 1, 0, 0); */
+}
+
+@media (max-width: 768px) {
+  .general-new {
+    padding: 0rem 2rem;
+    grid-template-columns: 1fr;
+  }
+  .body-main-new {
+    display: flex;
+    flex-direction: column-reverse;
     align-items: center;
-  justify-content: center;
+    justify-content: center;
     /* gap: 2rem; */
   }
+  .margin {
+    margin: 1em;
+  }
 
-  .img-new{
-   
+  .img-new {
     display: flex;
     align-items: center;
     /* position: absolute; */
-/* width: 382.01px; */
-height: 30rem;
-left: 30rem;
-top: calc(50% - 360px/2);
-left: 519px;
+    /* width: 382.01px; */
+    height: 26rem;
+    left: 30rem;
+    top: calc(50% - 360px / 2);
+    left: 519px;
     top: 247px;
     padding: 24px;
     gap: 50px;
     padding: 24px;
     gap: 50px;
 
-/* transform: matrix(-1, 0, 0, 1, 0, 0); */
-    
+    /* transform: matrix(-1, 0, 0, 1, 0, 0); */
   }
+}
 
-  @media (max-width: 768px){
-    .general-new{
-      padding: 0rem 8rem;
-      height: 100%;
-      background-color: #FAFAFA;
-      display: grid;
-      grid-template-columns: 1fr  ;
-      
+@media (max-width: 360px) {
+  .general-new {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* width: 360px; */
+    padding: 0rem ;
   }
-  .body-main-new {
-      display: grid;
-     grid-template-columns: 1fr;
-    align-items: center;
-  justify-content: center;
-    /* gap: 2rem; */
-  }
-
-  }
+}
