@@ -29,7 +29,7 @@ const About = () => {
         <div className="first-promoting">
           <div className="tittle-logo-container__promoting">
             <img src={calendar} alt="imagen de calendario" />
-            <h2>Rapidez para clientes</h2>
+            <h2>Practicidad para farmacias</h2>
           </div>
           <p>
             Con FarmaTurno podrás evitar que tus clientes formen largas filas
@@ -47,13 +47,13 @@ const About = () => {
             <h2>Rapidez para clientes</h2>
           </div>
           <p>
-            Con FarmaTurno podrás evitar que tus clientes formen largas filas
-            afuera de tu farmacia para obtener un turno. Lograrás una atención
-            organizada, personalizada y empática, marcando un diferencial.
+            Conocemos la problemática que implican las largas filas de espera
+            para obtener un turno en la farmacia, y nos comprometemos en brindar
+            una solución.
           </p>
           <p>
-            Con un rápido y ágil registro, formarás parte de este nuevo sistema
-            de gestión de turnos para farmacias.
+            Podrás pedir un turno cuando quieras, sin importar dónde estés. Unos
+            pocos datos serán necesarios para hacer tu reserva.
           </p>
         </div>
       </div>

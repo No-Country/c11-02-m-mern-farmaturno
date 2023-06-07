@@ -36,3 +36,34 @@
     color: var(--green);
   }
 }
+
+@media (min-width: 1440px) {
+  .home .welcomeSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 37.5rem;
+  }
+
+  .home .welcomeSection .mensajeBienvenida {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    display: flex;
+    width: 50%;
+    margin-left: 6rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home .welcomeSection .mensajeBienvenida p:nth-child(1) {
+    font-weight: 500;
+    font-size: 5.8rem;
+    line-height: 6.8rem;
+  }
+
+  .home .welcomeSection .mensajeBienvenida p:nth-child(2) {
+    margin-top: 2rem;
+    font-weight: 500;
+    font-size: 8.8rem;
+    line-height: 6.8rem;
+    color: var(--green);
+  }
+}
