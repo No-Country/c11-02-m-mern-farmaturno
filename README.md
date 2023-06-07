@@ -64,6 +64,10 @@ Por otra parte, FarmaTurno ofrece a las farmacias registrarse de forma gratuita 
 
 [![Linkedin](https://img.shields.io/badge/-MarcosMartilotta-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/marcos-octavio-martilotta-450a621a6)
 
+<h5>Kevin Rojas</h5> 
+
+[![Linkedin](https://img.shields.io/badge/-KevinRojas-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/kevin-oswaldo-rojas-velandia-73a343241/)
+
 
 <h5>Martina Soria Lanzi</h5> 
 
