@@ -3,24 +3,32 @@ import Button from 'react-bootstrap/Button';
 import './pharmacyPlans.css';
 import Footer from '../../components/Footer/Footer';
 import NavbarRegistro from '../../components/farmaceutico/navbarFarmacia/navbarRegistro/NavbarRegistro';
+import pana from './assets/pana.png';
 const PharmacyPlans = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <NavbarRegistro/>
-    <div className="pharmacyPlans">
-      <div className="pharmacyBiografi">
-        <h2>Accede a la manera más sencilla de gestionar tus turnos</h2>
-        <p>
-          Mayor organización, eficiencia y satisfaccíon tanto para los clientes
-          como para el personal.
-        </p>
-        <span>¿Quieres comenzar a utilizarlo ya?</span>
-        <Button className="signUp_button" onClick={() => navigate('signUp')}>
-          Registrate
-        </Button>
-
+      <NavbarRegistro />
+      <div className="pharmacyPlans">
+        <div className="pharmacyBiografi">
+          <img className="graphics" src={pana} alt="Imagen descriptiva" />
+          <div className="right-section">
+            <h2>Accede a la manera más sencilla de gestionar tus turnos</h2>
+            <p>
+              Mayor organización, eficiencia y satisfaccíon tanto para los
+              clientes como para el personal.
+            </p>
+            <span>¿Quieres comenzar a utilizarlo ya?</span>
+            <Button
+              className="signUp_button"
+              variant="success"
+              onClick={() => navigate('signUp')}
+            >
+              Registrate
+            </Button>
+          </div>
+        </div>
         <div className="pharmacy">
           <h3>Mas fácil que nunca</h3>
           <img src="/public/phon.svg" alt="" />
@@ -34,7 +42,7 @@ const PharmacyPlans = () => {
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
-              <p>Alerta por mensaje</p>
+              <p>Alerta por mail</p>
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
@@ -44,6 +52,10 @@ const PharmacyPlans = () => {
               <i className="bi bi-check-all"></i>
               <p>Diseño de web responsivo</p>
             </div>
+            <div className="item">
+              <i className="bi bi-check-all"></i>
+              <p>Servicio gratuito</p>
+            </div>
           </div>
           <div className="columns">
             <div className="image-container">
@@ -51,9 +63,9 @@ const PharmacyPlans = () => {
             </div>
           </div>
         </div>
+
+        <Footer />
       </div>
-      <Footer />
-    </div>
     </>
   );
 };
