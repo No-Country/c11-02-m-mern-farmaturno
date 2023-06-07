@@ -7,7 +7,7 @@ const PageNuevoTurno = () => {
 
   return (
     <div className="general-new">
-      <div className="margin">
+      <div className="arrow-new">
         <a href="/">
           <img
             src="https://i.ibb.co/T0psFH9/arrow-left-circle-fillback.png"

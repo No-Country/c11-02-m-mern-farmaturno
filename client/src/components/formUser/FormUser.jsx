@@ -7,12 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
 import { postTurn } from '../../services/PostTurn';
 import moment from 'moment';
+import { useGetTurnsQuery } from "../../redux/turnSlices";
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
-  const currentDate = moment().format(' D/MM/YYYY');
+  const currentDate = moment().format(' DD/MM/YYYY');
   const { name, surName, customerEmail, timeSlot, identificationNumber, date } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
@@ -44,14 +45,36 @@ const FormUser = () => {
     email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
   };
 
+  const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
+    if (isLoading) return <div>Loading...</div>;
+    else if (isError) return <div>Error:{error}</div>;
+    
   const horarios = [];
   for (let i = 8; i <= 19; i++) {
     const hora = {
       name: `${i < 10 ? '0' + i + ':00' : i + ':00'}`,
-      value: (i - 7).toString(),
+      value: 0,
     };
     horarios.push(hora);
   }
+  if (data) {
+    data.forEach((item) => {
+      const timeSlot = item.timeSlot;
+      const index = horarios.findIndex((hora) => hora.name === timeSlot);
+      if (index !== -1) {
+        horarios[index].value++;
+      }
+    });
+  };
+  console.log(horarios)
+  // const horarios = [];
+  // for (let i = 8; i <= 19; i++) {
+  //   const hora = {
+  //     name: `${i < 10 ? '0' + i + ':00' : i + ':00'}`,
+  //     value: 0,
+  //   };
+  //   horarios.push(hora);
+  // }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -225,8 +248,8 @@ const FormUser = () => {
           <h1 className="titulo">Farmacia Cruz Verde</h1>
           <p className="mb-0 info">/Direccion</p>
           <p className="mb-3 info">/Horario de atencion</p>
-          <Row className=" mb-3">
-            <Form.Group className='mb-3' as={Col } xs={12} md={6} controlId="formGridName">
+          <Row >
+            <Form.Group className='mb-3' as={Col } xs={12} sm={6} controlId="formGridName">
               <Form.Label className="texto">Nombre</Form.Label>
               <Form.Control
                 className="form"
@@ -244,7 +267,7 @@ const FormUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group  as={Col} controlId="formGridLastname">
+            <Form.Group  as={Col} xs={12} sm={6} controlId="formGridLastname">
               <Form.Label className="texto">Apellido</Form.Label>
               <Form.Control
                 className="form"
@@ -264,7 +287,7 @@ const FormUser = () => {
           </Row>
           <br />
           <Row className="justify-content-md-center">
-            <Form.Group className="mb-3" as={Col} controlId="formGridNumber">
+            <Form.Group className="mb-3" as={Col} xs={12} sm={6} controlId="formGridNumber">
               <Form.Label className="texto">Correo electrónico</Form.Label>
               <Form.Control
                 className="form"
@@ -348,6 +371,7 @@ const FormUser = () => {
               // onChange={(e) => setRadioValue(e.currentTarget.value)}
               onClick={handlechoose}
               data-name={hora.name}
+              disabled={hora.value > 4}
             >
               {hora.name}hs
             </ToggleButton>
