@@ -13,8 +13,7 @@ export const store = configureStore({
     [turnSlices.reducerPath]: turnSlices.reducer,
     [companySlices.reducerPath]: companySlices.reducer,
   },
-  middleware: (gDM) => gDM().concat(turnSlices.middleware),
-  middleware: (gDM) => gDM().concat(companySlices.middleware),
+  middleware: (gDM) => gDM().concat(turnSlices.middleware,companySlices.middleware),
 });
 
 
