@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../pharmacyData/pharmacyDataStyle.css';
 import { useGetCompanyByNameQuery } from '../../redux/companySlices';
 import Footer from "../../components/Footer/Footer"
+// import { fetchDatos } from './fetchDatos';
 
 const PharmacyData = () => {
   const { data, isError, isLoading, error } = useGetCompanyByNameQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
@@ -10,6 +11,24 @@ const PharmacyData = () => {
   else if (isError) return <div>Error:{error}</div>;
   console.log(data);
   const datos = data.result;
+
+
+  // const [datos, setDatos] = useState([])
+
+  // useEffect(() => {
+  //   const getDatos= async () => {
+  //     const response = await fetchDatos();
+  //     setDatos(response);
+   
+  //   };
+
+  //   getDatos();
+  // }, [datos]);
+ 
+
+
+
+
 
   return (
     <>
