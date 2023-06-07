@@ -10,7 +10,8 @@ function App() {
     //Aca van botones navbar y todo lo que este en el home
     <main className="main_container">
       {location.pathname !== '/pharmacy/profile' &&
-      location.pathname !== `/pharmacy` ? (
+      location.pathname !== `/pharmacy`&&
+      location.pathname !== '/pharmacy/profile/data' ? (
         <NavBar />
       ) : (
         <></>

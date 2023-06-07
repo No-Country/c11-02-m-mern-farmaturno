@@ -20,21 +20,21 @@ const PageHomeFarmacia = () => {
 
   return (
     <>
-      <div className="homeFarmacia">
+      <div className="homeFarmacia1">
         <NavbarFarmaceutico />
-        <div className="bodyHomeFarmacia">
-          <div className="m-0 p-0 divTituloFarmacia">
+        <div className="bodyHomeFarmacia1">
+          <div className="m-0 p-0 divTituloFarmacia1">
             <p className="p-4 align-item-center">Sistema de FarmaTurno</p>
           </div>
 
-          <div className="m-4 p-4 divTexto">
-            <h1 className="titulo my-4">Turnos reservados</h1>
-            <p className="texto my-4 py-4">
+          <div className="m-4 p-4 divTexto1">
+            <h1 className="titulo1 my-4">Turnos reservados</h1>
+            <p className="texto1 my-4 py-4">
               Gestiona y visualiza los turnos que ya fueron reservados por tus
               clientes, junto a sus datos personales.
             </p>
-            <p className="texto mt-4">Fecha de hoy: {currentDate}</p>
-            <p className="texto ">Horario de atención: de 7:00 a 19:00</p>
+            <p className="texto1 mt-4">Fecha de hoy: {currentDate}</p>
+            <p className="texto1 ">Horario de atención: de 7:00 a 19:00</p>
           </div>
 
           <CardsTurno data={data} turnoTardeNumero={turnoTardeNumero} />

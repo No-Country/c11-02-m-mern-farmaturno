@@ -17,7 +17,9 @@
   height: 20px;
   width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .footer-container .footer-brand .brand-color {
   margin-left: 1rem;
@@ -30,7 +32,7 @@
 }
 .footer-links {
   margin-top: 2rem;
-  text-align: left;
+  text-align: center;
 }
 .footer-links .footer-link {
   color: #008c73;
@@ -40,6 +42,8 @@
 .footer-brand {
   color: #767676;
   font-size: 1.3331rem;
+  text-align: center;
+
 }
 
 @media (min-width: 768px) {
