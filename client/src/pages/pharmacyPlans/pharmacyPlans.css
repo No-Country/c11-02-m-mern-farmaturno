@@ -187,11 +187,6 @@ img {
     display: flex;
     justify-content: center;
   }
-
-  img {
-    width: 25.6rem;
-    height: 20.6rem;
-  }
 }
 
 @media (min-width: 1440px) {
