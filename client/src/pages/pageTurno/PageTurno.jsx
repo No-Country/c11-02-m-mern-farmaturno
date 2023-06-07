@@ -27,9 +27,8 @@ const Turno = () => {
   if (isLoading) return <div>Loading...</div>;
   else if (isError) return <div>Error:{error}</div>;
   console.log(data);
-  const users = data.filter(
-    (item) => item.customer.identificationNumber === identificationNumber,
-  );
+  const users =data && data.filter((item) => item.customer.identificationNumber === identificationNumber);
+    
 
   console.log(users);
   //   const borrarTurn = useCallback(() => {
@@ -56,7 +55,7 @@ const Turno = () => {
   // }, []);
   return (
     <div>
-    {users ? (
+    {users.length === 0 ? (
      Swal.fire({
       title: 'No tenemos registros de turnos con el nro de documento brindado',
       icon: 'question',

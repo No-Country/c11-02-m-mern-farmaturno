@@ -3,7 +3,7 @@ import moment from 'moment';
 import '../PageNewAppointment/PageNewAppointment.css';
 
 const PageNuevoTurno = () => {
-  const currentDate = moment().format(' D/MM/YYYY');
+  const currentDate = moment().format(' DD/MM/YYYY');
 
   return (
     <div className="general-new">
@@ -21,7 +21,7 @@ const PageNuevoTurno = () => {
           <h1 className="titulo-new">Pide tu turno</h1>
           <p className="texto-new">
             Recuerda que estas reservando un turno para el dia de hoy{' '}
-            {currentDate}
+           <strong> {currentDate}</strong>
           </p>
         </div>
         <div className="body-main-new">
