@@ -14,6 +14,7 @@ const FormUser = () => {
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
   const currentDate = moment().format(' DD/MM/YYYY');
+  const currentHour = moment().format('HH:mm');
   const { name, surName, customerEmail, timeSlot, identificationNumber, date } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
@@ -67,14 +68,7 @@ const FormUser = () => {
     });
   };
   console.log(horarios)
-  // const horarios = [];
-  // for (let i = 8; i <= 19; i++) {
-  //   const hora = {
-  //     name: `${i < 10 ? '0' + i + ':00' : i + ':00'}`,
-  //     value: 0,
-  //   };
-  //   horarios.push(hora);
-  // }
+ 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -371,7 +365,7 @@ const FormUser = () => {
               // onChange={(e) => setRadioValue(e.currentTarget.value)}
               onClick={handlechoose}
               data-name={hora.name}
-              disabled={hora.value > 4}
+              disabled={hora.value > 10 || hora.name < currentHour}
             >
               {hora.name}hs
             </ToggleButton>
