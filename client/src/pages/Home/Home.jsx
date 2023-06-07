@@ -21,7 +21,7 @@ const Home = () => {
       <FirstDescription />
       <Divider />
       <About />
-      <Footer className="footer" />
+      <Footer />
     </div>
   );
 };

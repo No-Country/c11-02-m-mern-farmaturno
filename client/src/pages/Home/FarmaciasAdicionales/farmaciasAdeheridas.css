@@ -33,6 +33,11 @@
   border-radius: 50px;
 }
 
+.adheridasFarmacia .farmaciaBotom .cruzVerde {
+  width: 6.8rem;
+  height: 6.8rem;
+}
+
 .adheridasFarmacia .farmaciaBotom button img {
   margin-right: 1rem;
 }

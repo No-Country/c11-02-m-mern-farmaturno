@@ -1,8 +1,6 @@
 .pharmacyPlans {
   padding: 2rem;
-  height: 100%;
-  width: 100vw;
-  overflow-y: scroll;
+  width: 100%;
   overflow-x: hidden;
 }
 .pharmacyPlans .graphics {
@@ -30,7 +28,7 @@
   line-height: 21px;
   letter-spacing: 0.38px;
 }
-.pharmacyPlans span {
+.pharmacyPlans .pharmacyBiografi span {
   display: block;
   margin-top: 6rem;
   font-weight: 500;
@@ -94,9 +92,8 @@
   justify-content: center;
 }
 
-img {
-  max-width: 100;
-  height: auto;
+.footer {
+  display: block;
 }
 
 @media (min-width: 768px) {
