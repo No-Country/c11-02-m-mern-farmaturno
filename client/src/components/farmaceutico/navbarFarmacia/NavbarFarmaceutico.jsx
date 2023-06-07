@@ -14,7 +14,8 @@ const NavbarFarmaceutico = () => {
 
   const cerrarSesion=()=>{
     sessionStorage.removeItem('token');
-    navigate(`/pharmacy`)
+    sessionStorage.removeItem('companyName');
+    navigate(`/pharmacy/signUp/adminitration_allowed`)
   }
 
   return (

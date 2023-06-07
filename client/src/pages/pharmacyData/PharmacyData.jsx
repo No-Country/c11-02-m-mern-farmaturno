@@ -8,7 +8,7 @@ const PharmacyData = () => {
 
   if (isLoading) return <div>Loading...</div>;
   else if (isError) return <div>Error:{error}</div>;
-  console.log(data.result);
+  console.log(data);
   const datos = data.result;
 
   return (
