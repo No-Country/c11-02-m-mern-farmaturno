@@ -261,7 +261,7 @@ const FormUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group  as={Col} xs={12} sm={6} controlId="formGridLastname">
+            <Form.Group  className='mb-3' as={Col} xs={12} sm={6} controlId="formGridLastname">
               <Form.Label className="texto">Apellido</Form.Label>
               <Form.Control
                 className="form"
@@ -300,9 +300,9 @@ const FormUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" as={Col}>
+            <Form.Group className="mb-3 mt-4" as={Col}>
               <Button
-                className={`buttonHorario mt-5 ${
+                className={`buttonHorario mt-2 ${
                   formData.isHorarioElegido ? 'buttonHorario--inactive' : ''
                 }`}
                 variant="secondary"
