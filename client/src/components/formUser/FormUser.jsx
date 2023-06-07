@@ -108,13 +108,13 @@ const FormUser = () => {
       case 'name':
       case 'lastName':
         if (!expresiones.name.test(value)) {
-          errorMessage = `El ${name} sólo puede contener letras, espacios y acentos`;
+          errorMessage = `El nombre y apellido sólo puede contener letras, espacios y acentos`;
           setValid((prevValid) => ({
             ...prevValid,
             [name]: false,
           }));
         } else if (value.length < 3) {
-          errorMessage = `El ${name} debe contener al menos 3 dígitos`;
+          errorMessage = `El nombre y apellido debe contener al menos 3 dígitos`;
           setValid((prevValid) => ({
             ...prevValid,
             [name]: false,
@@ -256,7 +256,7 @@ const FormUser = () => {
                 isInvalid={errors.name !== ''}
                 isValid={valid.name}
               />
-              <Form.Control.Feedback type="invalid" className="custom-feedback">
+              <Form.Control.Feedback type="invalid" className=" texto">
                 {errors.name}
               </Form.Control.Feedback>
             </Form.Group>
@@ -274,7 +274,7 @@ const FormUser = () => {
                 isInvalid={errors.lastName !== ''}
                 isValid={valid.lastName}
               />
-              <Form.Control.Feedback type="invalid" className="custom-feedback">
+              <Form.Control.Feedback type="invalid" className=" texto">
                 {errors.lastName}
               </Form.Control.Feedback>
             </Form.Group>
@@ -295,7 +295,7 @@ const FormUser = () => {
                 isInvalid={errors.email !== ''}
                 isValid={valid.email}
               />
-              <Form.Control.Feedback type="invalid" className="custom-feedback">
+              <Form.Control.Feedback type="invalid" className=" texto">
                 {errors.email}
               </Form.Control.Feedback>
             </Form.Group>
@@ -317,14 +317,25 @@ const FormUser = () => {
           <Form.Group className="mb-3 info" id="formGridCheckbox">
             <Form.Check
               type="checkbox"
-              label="Acepto los terminos y condiciones y autorizo el uso de mis datos de acuerdo a la Declaracion de privacidad"
+              label={
+                <>
+                  Acepto los{" "}
+                  <a href="https://drive.google.com/file/d/1FiGncNfCX7mb2QH-fDWp6-VFUQfnUgSo/view" target="_blank" rel="noopener noreferrer">
+                    Términos y condiciones
+                  </a>{" "}
+                  y autorizo el uso de mis datos de acuerdo a la {" "}
+                  <a href="https://drive.google.com/file/d/1LxTcS5IrkKUMO1f0uNqHt8xra3-TplGK/view" target="_blank" rel="noopener noreferrer">
+                  Declaración de privacidad
+                  </a>{" "}
+                </>
+              }
               required
               name="isCheckboxChecked"
               checked={formData.isCheckboxChecked}
               onChange={handleCheckboxChange}
               // isinvalid={errors.isCheckboxChecked !== ''}
             />
-            <Form.Control.Feedback type="invalid" className="custom-feedback">
+            <Form.Control.Feedback type="invalid" className=" texto">
               {errors.isCheckboxChecked}
             </Form.Control.Feedback>
           </Form.Group>
