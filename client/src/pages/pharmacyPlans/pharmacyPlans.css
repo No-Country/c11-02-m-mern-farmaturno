@@ -31,6 +31,7 @@
   letter-spacing: 0.38px;
 }
 .pharmacyPlans span {
+  display: block;
   margin-top: 6rem;
   font-weight: 500;
   font-size: 1.8rem;
@@ -100,6 +101,7 @@ img {
 
 @media (min-width: 768px) {
   .pharmacyBiografi {
+    padding-right: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -192,8 +194,90 @@ img {
   }
 }
 
-@media (max-width: 320px) {
-  .pharmacy {
-    margin-top: 1.8rem;
+@media (min-width: 1440px) {
+  .pharmacyPlans h2 {
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 4rem;
+    line-height: 4.7rem;
+  }
+  .pharmacyPlans p {
+    margin-top: 4.7rem;
+    font-weight: 400;
+    font-size: 2.8rem;
+    line-height: 3.3rem;
+  }
+  .pharmacyPlans .right-section span {
+    margin-top: 5.4rem;
+    font-weight: 500;
+    font-size: 2.8rem;
+    line-height: 3.3rem;
+    letter-spacing: 0.38px;
+  }
+  .pharmacyPlans .pharmacyBiografi img {
+    margin-left: 10rem;
+    margin-top: 5rem;
+    width: 38.5rem;
+    height: 40.6rem;
+  }
+  .signUp_button {
+    margin-top: 4.5rem;
+    width: 40.5rem;
+    height: 4.8rem;
+  }
+
+  .pharmacy h3 {
+    margin-top: 4rem;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: 0.38px;
+  }
+
+  .gallery {
+    display: grid;
+    margin-top: 9rem;
+    margin-left: 5rem;
+    padding-left: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columns {
+    display: grid;
+    grid-template-rows: repeat(1, auto);
+    margin-top: auto;
+  }
+
+  .columnas {
+    display: grid;
+    grid-template-rows: repeat(1, auto);
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .item i {
+    color: #008c73;
+    font-size: 40px;
+  }
+
+  .item p {
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.38px;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 61.3rem;
+    height: 48.5rem;
   }
 }
