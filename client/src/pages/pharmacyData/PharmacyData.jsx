@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../pharmacyData/pharmacyDataStyle.css';
 import { useGetCompanyByNameQuery } from '../../redux/companySlices';
 import Footer from "../../components/Footer/Footer"
+import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/NavbarFarmaceutico';
 // import { fetchDatos } from './fetchDatos';
 
 const PharmacyData = () => {
@@ -32,6 +33,7 @@ const PharmacyData = () => {
 
   return (
     <>
+    <NavbarFarmaceutico/>
       <div>
         <div className="divVerde">
           

@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
-box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
 }
 .logo{
   width: 141.8px!important;
@@ -135,8 +135,8 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   } 
   .logo{
     margin-left: 0px!important;
-    height: 40px!important;
-    width: 90px!important;
+    width:90.5px ;
+    height: 40px;
   }
   .logoOffcanvas{
     width:113.5px ;
