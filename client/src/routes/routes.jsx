@@ -14,6 +14,7 @@ import EmailPage from '../pages/RecoverPassword/EmailPage';
 import CodeAndPasswordPage from '../pages/RecoverPassword/CodeAndPasswordPage';
 import RecoverContextProvider from '../pages/RecoverPassword/context/RecoverContextProvider';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import PharmacyData from '../pages/pharmacyData/PharmacyData.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             <CodeAndPasswordPage />
           </RecoverContextProvider>
         ),
+      },
+      {
+        path: 'pharmacy/profile/data',
+        element:<PharmacyData/>,
       },
     ],
   },

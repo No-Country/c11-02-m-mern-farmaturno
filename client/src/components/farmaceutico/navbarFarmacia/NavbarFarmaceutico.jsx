@@ -14,14 +14,14 @@ const NavbarFarmaceutico = () => {
 
   const cerrarSesion=()=>{
     sessionStorage.removeItem('token');
-    navigate(`/pharmacy`)
+    sessionStorage.removeItem('companyName');
+    navigate(`/pharmacy/signUp/adminitration_allowed`)
   }
 
   return (
     <>
       <Navbar expand="lg" className="navbar p-0">
         <Container fluid className=" mx-4 ">
-          {/* <div className="d-flex align-items-center justify-content-between"> */}
           <Navbar.Brand href="/" className="txTitle">
             <img
               src="https://i.ibb.co/Z8NKxKV/logo-removebg-preview.png"
@@ -30,7 +30,6 @@ const NavbarFarmaceutico = () => {
             />
           </Navbar.Brand>
           <Dropdown
-            // drop='start'
             align={'end'}
             className="mx-4"
             variant="white"
@@ -44,7 +43,7 @@ const NavbarFarmaceutico = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className=" dropdownPerfil">
-              <Dropdown.Item className=" dropItem" href="#/action-1">
+              <Dropdown.Item className=" dropItem" onClick={(e) => navigate('/pharmacy/profile/data')} >
                 Mi perfil
               </Dropdown.Item>
               <Dropdown.Item className="dropItem" onClick={(e)=>cerrarSesion()}>
