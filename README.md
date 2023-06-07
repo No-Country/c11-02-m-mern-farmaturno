@@ -26,7 +26,7 @@ Por otra parte, FarmaTurno ofrece a las farmacias registrarse de forma gratuita 
  <h4>Herramientas utilizadas:</h4>
  
  ⌚ Trello
-
+ 💻 Figma
 
 
  <h4><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="50"> Diseño UX/UI</h4> 
