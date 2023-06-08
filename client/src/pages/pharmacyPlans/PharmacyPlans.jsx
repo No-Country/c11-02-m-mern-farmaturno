@@ -26,7 +26,7 @@ const PharmacyPlans = () => {
                 variant="success"
                 onClick={() => navigate('signUp')}
               >
-                Regstrate
+                Registrate
               </Button>
             </div>
           </div>
