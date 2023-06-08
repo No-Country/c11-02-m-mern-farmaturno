@@ -2,7 +2,9 @@
   width: 100%;
   overflow-x: hidden;
 }
-
+.home .welcomeSection {
+  width: 100%;
+}
 .home .welcomeSection .mensajeBienvenida {
   padding: 2rem;
   padding-left: 4rem;
@@ -49,7 +51,7 @@
     grid-column-start: 1;
     grid-row-start: 1;
     display: flex;
-    width: 50%;
+    width: 55%;
     margin-left: 6rem;
     flex-direction: column;
     justify-content: center;
