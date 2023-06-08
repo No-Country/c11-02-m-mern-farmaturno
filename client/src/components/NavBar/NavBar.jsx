@@ -10,7 +10,7 @@ const NavBar = () => {
     <>
       <Navbar expand="lg" className="navbar p-0">
         <Container fluid className="  my-1 ">
-          <Navbar.Brand href="#about" className="txTitle">
+          <Navbar.Brand href="/" className="txTitle">
             <img
               src="https://i.ibb.co/wpSp6pg/logo1-1-Photo-Room-png-Photo-Room.png"
               alt="logo"
@@ -35,9 +35,13 @@ const NavBar = () => {
               <Nav className="me-auto"></Nav>
               <Nav className="txCategory justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="#about">
-                  {location.pathname === '/nuevoTurno' &&
-                  location.pathname === '/miTurno' &&
-                  location.pathname === '/pharmacy' ? (
+                  {location.pathname.startsWith('/nuevoTurno') ||
+                  location.pathname.startsWith('/miTurno') ||
+                  location.pathname.startsWith('/pharmacy') ||
+                  location.pathname.startsWith('/pharmacy/signUp') ||
+                  location.pathname.startsWith(
+                    '/pharmacy/signUp/adminitration_allowed',
+                  ) ? (
                     <p
                       onClick={() => navigate('/#about')}
                       className="txCategory  my-1 acercaFarmTx"

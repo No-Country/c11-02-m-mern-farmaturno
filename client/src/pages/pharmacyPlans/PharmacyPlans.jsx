@@ -2,14 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './pharmacyPlans.css';
 import Footer from '../../components/Footer/Footer';
-import NavbarRegistro from '../../components/farmaceutico/navbarFarmacia/navbarRegistro/NavbarRegistro';
+import NavBar from '../../components/NavBar/NavBar';
 import pana from './assets/pana.png';
 const PharmacyPlans = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <NavbarRegistro />
+      <NavBar />
       <div className="pharmacyPlans">
         <div className="pharmacyBiografi">
           <img className="graphics" src={pana} alt="Imagen descriptiva" />
@@ -25,7 +25,7 @@ const PharmacyPlans = () => {
               variant="success"
               onClick={() => navigate('signUp')}
             >
-              Regístrate
+              Regstrate
             </Button>
           </div>
         </div>
