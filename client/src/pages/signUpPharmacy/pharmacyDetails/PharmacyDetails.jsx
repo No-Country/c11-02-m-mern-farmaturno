@@ -161,6 +161,7 @@ const PharmacyDetails = () => {
             onChange={handleChange}
             isInvalid={!isValid && !!pharmacyData.errors.pharmacyNit}
             isValid={isValid && !pharmacyData.errors.pharmacyNit}
+            maxLength={10}
           />
           <Form.Control.Feedback type="invalid">
             {pharmacyData.errors.pharmacyNit}
