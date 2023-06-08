@@ -3,7 +3,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows:  auto;
+  grid-template-rows:  20%;
   overflow-y: hidden;
   padding: 0;
   margin: 0;
@@ -26,7 +26,7 @@
 }
 .divDatos {
   margin-left: 5%;
-  margin-top: 7%;
+  margin-top: 6%;
   /* margin-bottom: 2%; */
   margin-bottom: 4%;
 }
