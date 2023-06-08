@@ -5,7 +5,6 @@ import Footer from '../../components/Footer/Footer';
 import { useGetTurnsQuery } from '../../redux/turnSlices';
 import moment from 'moment';
 import CardsTurno from '../../components/farmaceutico/navbarFarmacia/cardsTurno/CardsTurno';
-import Tabla from '../../components/farmaceutico/navbarFarmacia/cardsTurno/Tabla';
 
 const PageHomeFarmacia = () => {
   const currentDate = moment().format(' D/MM/YYYY');
