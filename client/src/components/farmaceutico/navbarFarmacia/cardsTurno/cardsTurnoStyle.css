@@ -102,7 +102,17 @@
   margin: 0;
 }
 @media (max-width: 1210px) {
-
+  .badge2 {
+    width: 16.4rem;
+    height: 3.6rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.8rem;
+  }
   .btnCheckboxFalse2 {
     border: white;
     background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
@@ -182,6 +192,17 @@
 }
 
 @media (max-width: 995px) {
+  .badge2 {
+    width: 16.4rem;
+    height: 4.6rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.8rem;
+  }
   .tabla2 {
     width: 100%;
     margin-left: 0.2rem;
@@ -194,7 +215,7 @@
     width: 2.8rem;
     height: 2.8rem;
   }
-  .badge2 {
+  /* .badge2 {
     width: 8.8rem;
     height: 3.2rem;
     font-size: 1.4rem;
@@ -206,7 +227,7 @@
     margin-bottom: 10%;
     border-radius: 0.8rem;
     margin-left: 10%;
-  }
+  } */
   .tx-tabla2 {
     font-size: 1.6rem;
     color: #767676;
@@ -277,14 +298,14 @@
   .badge2 {
     width: 8.8rem;
     height: 3.2rem;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-bottom: 10%;
-    border-radius: 0.8rem;
+    border-radius: 8px;
     margin-left: 10%;
   }
   .tx-tabla2 {
@@ -355,8 +376,8 @@
   }
 
   .badge2 {
-    width: 88px;
-    height: 32px;
+    width: 8.8rem;
+    height: 3.2rem;
     font-size: 14px;
     font-weight: 500;
     display: flex;
