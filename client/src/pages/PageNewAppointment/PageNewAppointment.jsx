@@ -1,11 +1,13 @@
 import FormUser from '../../components/formUser/FormUser';
 import moment from 'moment';
 import './PageNewAppointment.css';
+import Footer from '../../components/Footer/Footer';
 
 const PageNuevoTurno = () => {
   const currentDate = moment().format(' DD/MM/YYYY');
 
   return (
+    <>
     <div className="general-new">
       <div className="arrow-new">
         <a href="/">
@@ -35,6 +37,10 @@ const PageNuevoTurno = () => {
         </div>
       </div>
     </div>
+    
+    <Footer/>
+    
+    </>
   );
 };
 
