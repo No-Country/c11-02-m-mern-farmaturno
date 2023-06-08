@@ -2,9 +2,8 @@ import './panelIngreso.css';
 
 import { Form, Button } from 'react-bootstrap';
 import { useState /* useEffect */ } from 'react';
-import { fetchData } from '../../../services/fetchData';
 import { useDispatch } from 'react-redux';
-import { addIdentificationNumer, addUser } from '../../../redux/userSlice';
+import { addIdentificationNumer } from '../../../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 const PanelIngreso = () => {
@@ -32,29 +31,6 @@ const PanelIngreso = () => {
       setDniError('');
       setValidated(true);
       dispatch(addIdentificationNumer({ identificationNumber: parseInt(dni) }));
-      fetchData(`${import.meta.env.VITE_API_URL}api/customer/`)
-        .then((data) => {
-          console.log(data);
-          const dnis = data.map((user) => user.identificationNumber);
-          console.log(dnis);
-          console.log(typeof dni);
-          if (dnis.includes(parseInt(dni))) {
-            data.forEach((user) => {
-              user.identificationNumber === parseInt(dni) &&
-                dispatch(
-                  addUser({
-                    name: user.name,
-                    surName: user.surName,
-                    mobilePhone: user.mobilePhone,
-                  }),
-                );
-            });
-          }
-        })
-        .catch((err) => {
-          console.log('Ocurrio un error: ' + err);
-        });
-
       {
         activePideTurno ? navigate('nuevoTurno') : navigate('miTurno');
       }
