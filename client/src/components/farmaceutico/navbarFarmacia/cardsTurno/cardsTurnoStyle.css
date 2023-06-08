@@ -132,7 +132,7 @@
     justify-content: center;
     justify-content: space-between;
     align-items: center;
-    margin-right: 8%;
+    margin-right: 7%;
     margin-left: 0;
   }
   .div22 {
@@ -168,9 +168,13 @@
   .divEmail2 {
     display: flex;
     justify-self: start;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     text-align: start;
-  }
+    /* width: 2.0rem; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  } 
   .tx-email2 {
     text-align: start;
     display: flex;
@@ -340,18 +344,12 @@
 }
 
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   .tabla2 {
     width: 60%;
-    /* margin-left: 2px;
-    margin-right: 2px; */
+
   }
-  /* .checkbox {
-    background-color: white;
-    border-color: 1px solid rgba(47, 47, 47, 0.5);
-    width: 24px;
-    height: 24px;
-  } */
+
   .btnCheckboxFalse2 {
     border: white;
     background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
@@ -422,13 +420,13 @@
   }
 }
 
-
+ */
 
 @media (max-width: 430px) {
   .tabla2 {
-    width: 50%;
-    /* margin-left: 2px;
-    margin-right: 2px; */
+    width: 60%;
+    margin-left: 2px;
+    /* margin-right: 2px; */
   }
  
   .btnCheckboxFalse2 {
@@ -463,7 +461,9 @@
     justify-content: space-evenly !important;
     margin-top: 3rem;
     margin-bottom:3rem;
-    /* width: 20rem!important; */
+    margin-right: 1rem!important;
+    width: 8rem!important;
+    
   }
   .div22 {
     display: flex;
@@ -473,19 +473,24 @@
     justify-content: space-evenly !important;
     margin-top: 3rem;
     margin-bottom:3rem;
+    margin-right: 1rem;
+     /* width:12rem!important;  */
+    
   }
   .div32 {
     height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 10%;
+    /* padding-right: 10%; */
     margin-top: 3rem;
     margin-bottom:3rem;
+    width: 1rem;
   }
   .tx-turnoId2 {
     order: 1;
     margin-left: 0;
+    width: 80px;
   }
   .tx-turno2 {
     font-size: 15px;
