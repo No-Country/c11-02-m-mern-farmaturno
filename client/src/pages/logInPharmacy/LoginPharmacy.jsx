@@ -72,7 +72,7 @@ export default function LoginPharmacy() {
 
     if (
       !dataLogin.userPassword.match(
-        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚñÑ]).{8,16}$/,
+        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚ]).{8,16}$/,
       )
     ) {
       errors.passwordError =
@@ -89,7 +89,7 @@ export default function LoginPharmacy() {
         <div className="container_welcome">
           <p className="first_text">Gracias por elegir</p>
           <p className="title_page">FarmaTurno</p>
-          <p className="second_text">Igresa para comenzar</p>
+          <p className="second_text">Ingresa para comenzar</p>
         </div>
       </div>
       <Form noValidate onSubmit={handleSubmit}>
