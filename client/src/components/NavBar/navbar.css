@@ -9,9 +9,9 @@
 box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
 }
 .logo{
-  width: 141.8px!important;
-  height: 50px!important;
-  margin-left: 80px!important;
+  width: 14.18rem!important;
+  height: 5.0rem!important;
+  margin-left: 8.0rem!important;
 }
 
 .txCategory {
@@ -21,26 +21,26 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   color: #111;
   font-family: 'Roboto';
   font-style: normal;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
 }
 .txCategory1 {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 100!important;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
 }
 .soyFarmaciaTx{
-  margin-right:80px 	;
+  margin-right:8.0rem 	;
 }
 .acercaFarmTx{
-  margin-right:24px!important 	;
+  margin-right:2.4rem!important 	;
   
 }
 .logoOffcanvas{
-  width:113.5px!important ;
-  height: 40px!important;
+  width:11.35rem!important ;
+  height: 4.0rem!important;
   text-align: center;
     margin-right: auto;
     margin-left: 0.5rem;
@@ -59,8 +59,8 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
     /* height:32px ; */
     /* width: 32px; */
     border-color: white!important;
-    margin-left: 25px;
-    margin-bottom: 10px;
+    margin-left: 2.5rem;
+    margin-bottom: 1.0rem;
   }
   
   
@@ -70,34 +70,34 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
     margin-left: 0.5rem;
   }
   .logo{
-    margin-left: 10px!important;
+    margin-left: 1.0rem!important;
     /* height: 40px!important;
     width: 113.5px!important; */
   }
   .logoOffcanvas{
-    width:113.5px ;
-    height: 50px!important;
+    width:11.35rem ;
+    height: 5.0rem!important;
     order: 1;
-    margin-left: 16px;
+    margin-left: 1.6rem;
     
   }
   .offcanvas{
     width:50%!important ;
   }
   .offcanvasBody{
-    width: 200px;
+    width: 20.0rem;
     overflow-x: hidden;
     padding-left: 0;
   }
   .offcanvasHeader{
-    width: 200px!important;
+    width: 20.0rem!important;
   }
   .txCategory1 {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 100!important;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
   }
 
   .acercaFarmTx{
@@ -122,8 +122,8 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
     /* height:32px ; */
     /* width: 32px; */
     border-color: white!important;
-    margin-left: 25px;
-    margin-bottom: 10px;
+    margin-left: 2.5rem;
+    margin-bottom: 1.0rem;
   }
   
   
@@ -135,14 +135,14 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   } 
   .logo{
     margin-left: 0px!important;
-    height: 40px!important;
-    width: 90px!important;
+    height: 4.0rem!important;
+    width: 9.0rem!important;
   }
   .logoOffcanvas{
-    width:113.5px ;
-    height: 50px!important;
+    width:11.35rem ;
+    height: 5.0rem!important;
     order: 1;
-    margin-left: 16px;
+    margin-left: 1.6rem;
     
   }
   .offcanvas{
@@ -154,14 +154,14 @@ box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
     padding-left: 0;
   }
   .offcanvasHeader{
-    width: 200px!important;
+    width: 20.0rem!important;
   }
   .txCategory1 {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 100!important;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
   }
 
   .acercaFarmTx{

@@ -33,16 +33,16 @@ const PharmacyData = () => {
 
   return (
     <>
-      <div className='divPrincipalpageDatos'>
         <NavbarFarmDatos/>
-        <div className="divVerde"></div>
-        <div className="divImgPerfil1">
-            <img
+      <div className='divPrincipalpageDatos'>
+        <div className="divVerde">
+        <img
               src="https://i.ibb.co/FmwtyVR/Group-170.png"
               alt=""
               className="imgPerfil1"
             />
-          </div>
+        </div>
+        
           <div className='divDatos'>
         <h1 className="tituloName mx-2">{datos.companyName}</h1>
         <p className="tituloDatosGenerales mx-2">Datos generales</p>
