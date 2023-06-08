@@ -103,6 +103,10 @@
 .logIn_container .forgotPassword-container p {
   text-align: center;
 }
+.logIn_container .invalid-feedback {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
 @media (min-width: 768px) {
 }
 @media (min-width: 1440px) {
