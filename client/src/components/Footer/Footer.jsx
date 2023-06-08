@@ -5,10 +5,12 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <p className="footer-brand">
-          © 2023 <span className="brand-color">FarmaTurno</span>. Todos los
-          derechos reservados
-        </p>
+        <div className="paragraph-footer">
+          <p className="footer-brand">
+            © 2023 <span className="brand-color">FarmaTurno</span>. Todos los
+            derechos reservados
+          </p>
+        </div>
         <Row lg={3} className="footer-links justify-content-center">
           <a
             href="https://drive.google.com/file/d/1LxTcS5IrkKUMO1f0uNqHt8xra3-TplGK/view"

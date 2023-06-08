@@ -44,7 +44,21 @@
 }
 
 @media (min-width: 768px) {
-  .footer-links {
+  .paragraph-footer {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .footer-container .footer-brand {
+    margin-top: 2rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+  }
+  .footer-links a {
     text-align: center;
+    width: 20rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
   }
 }
