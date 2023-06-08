@@ -25,7 +25,7 @@ const PharmacyPlans = () => {
               variant="success"
               onClick={() => navigate('signUp')}
             >
-              Registrate
+              Regístrate
             </Button>
           </div>
         </div>
@@ -42,11 +42,11 @@ const PharmacyPlans = () => {
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
-              <p>Alerta por mail</p>
+              <p>Alerta por email</p>
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>
-              <p>Tranzabilidad por turnos</p>
+              <p>Trazabilidad de turnos</p>
             </div>
             <div className="item">
               <i className="bi bi-check-all"></i>

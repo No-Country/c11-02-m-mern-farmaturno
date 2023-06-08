@@ -35,7 +35,9 @@ const NavBar = () => {
               <Nav className="me-auto"></Nav>
               <Nav className="txCategory justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="#about">
-                  {location.pathname === '/nuevoTurno' ? (
+                  {location.pathname === '/nuevoTurno' &&
+                  location.pathname === '/miTurno' &&
+                  location.pathname === '/pharmacy' ? (
                     <p
                       onClick={() => navigate('/#about')}
                       className="txCategory  my-1 acercaFarmTx"
