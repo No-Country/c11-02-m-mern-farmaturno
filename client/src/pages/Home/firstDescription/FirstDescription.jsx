@@ -1,6 +1,5 @@
 import './firstDescription.css';
 import timeImage from './assets/time.png';
-/* import { Button } from 'react-bootstrap'; */
 const FirstDescription = () => {
   return (
     <div className="firstDescription">
@@ -16,7 +15,6 @@ const FirstDescription = () => {
           espera.
         </p>
       </div>
-      {/* <Button variant="outline-success">Quiero un turno</Button> */}
     </div>
   );
 };
