@@ -313,7 +313,7 @@ const FormUser = () => {
 
             <Form.Group className="mb-3 mt-4" as={Col}>
               <Button
-                className={`buttonHorario mt-2 ${
+                className={`buttonHorario mt-3 ${
                   formData.isHorarioElegido ? 'buttonHorario--inactive' : ''
                 }`}
                 variant="secondary"
