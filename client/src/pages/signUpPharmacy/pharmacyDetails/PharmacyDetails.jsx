@@ -87,7 +87,7 @@ const PharmacyDetails = () => {
       errors.pharmacyName = 'Ingrese un nombre válido';
     }
 
-    if (!pharmacyData.pharmacyNit.match(/^[a-zA-Z0-9]{1,10}$/)) {
+    if (!pharmacyData.pharmacyNit.match(/^[a-zA-Z0-9]{10}$/)) {
       errors.pharmacyNit = 'Ingrese un NIT valido';
     }
 

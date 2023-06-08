@@ -134,7 +134,7 @@ const SignInDetails = () => {
     // Validación para registrationPassword
     if (
       !registrationData.registrationPassword.match(
-        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚñÑ]).{8,16}$/,
+        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚ]).{8,16}$/,
       )
     ) {
       errors.registrationPassword =

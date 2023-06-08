@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
 }
+.signIn-details a {
+  color: var(--green);
+}
 .signIn-details form {
   display: flex;
   flex-direction: column;

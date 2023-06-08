@@ -55,12 +55,23 @@ const NavBar = () => {
                   )}
                 </Nav.Link>
                 <Nav.Link>
-                  <p
-                    className="txCategory my-1 soyFarmaciaTx"
-                    onClick={() => navigate('pharmacy')}
-                  >
-                    Soy farmacia
-                  </p>
+                  {location.pathname.startsWith('/pharmacy') ? (
+                    <p
+                      className="txCategory my-1 soyFarmaciaTx"
+                      onClick={() =>
+                        navigate('/pharmacy/signUp/adminitration_allowed')
+                      }
+                    >
+                      Iniciar sesión
+                    </p>
+                  ) : (
+                    <p
+                      className="txCategory my-1 soyFarmaciaTx"
+                      onClick={() => navigate('/pharmacy')}
+                    >
+                      Soy farmacia
+                    </p>
+                  )}
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>

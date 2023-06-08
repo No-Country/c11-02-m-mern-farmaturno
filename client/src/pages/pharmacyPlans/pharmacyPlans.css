@@ -1,7 +1,11 @@
 .pharmacyPlans {
-  padding: 2rem;
+  position: relative;
   width: 100%;
   overflow-x: hidden;
+}
+
+.pharmacyPlans-topSection {
+  padding: 2rem;
 }
 .pharmacyPlans .graphics {
   width: 0;
