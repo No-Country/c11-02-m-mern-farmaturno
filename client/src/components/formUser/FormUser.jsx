@@ -14,7 +14,7 @@ const FormUser = () => {
   const [validated, setValidated] = useState(false);
   const [seeModalConfirm, setSeeModalConfirm] = useState(false);
   const currentDate = moment().format(' DD/MM/YYYY');
-  const currentHour = moment().format('HH:mm');
+  const currentHour = moment().subtract(2, 'hours').format('HH');
   const { name, surName, customerEmail, timeSlot, identificationNumber, date } =
     useSelector((state) => state.user);
   const [formData, setFormData] = useState({
