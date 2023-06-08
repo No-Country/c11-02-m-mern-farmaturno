@@ -157,9 +157,7 @@
     font-size: 13px;
     
    }
-  /* .tx-turno2 { */
-    /* margin-left: 5%; */
-  /* } */
+
 
   .tx-name2 {
     margin: 0;
@@ -268,12 +266,7 @@
     margin-left: 0.2rem;
     margin-right: 0.2rem;
   }
-  /* .checkbox {
-    background-color: white;
-    border-color: 1px solid rgba(47, 47, 47, 0.5);
-    width: 24px;
-    height: 24px;
-  } */
+
   .btnCheckboxFalse2 {
     border: white;
     background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
@@ -347,89 +340,11 @@
 }
 
 
-/* @media (max-width: 500px) {
+
+@media (max-width: 470px) {
   .tabla2 {
-    width: 60%;
-
-  }
-
-  .btnCheckboxFalse2 {
-    border: white;
-    background-image: 'https://i.ibb.co/dLfgZKs/ic-check-box-outline-blank-24px.png';
-    width: 24px;
-    height: 24px;
-  }
-
-  .badge2 {
-    width: 88px;
-    height: 32px;
-    font-size: 14px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 10%;
-    border-radius: 8px;
-    margin-left: 10%;
-  }
-  .tx-tabla2 {
-    font-size: 12px;
-    color: #767676;
-  }
-  .div12 {
-    display: flex;
-    flex-direction: column-reverse;
-    text-align: start !important;
-    align-items: center !important;
-    justify-content: space-evenly !important;
-    margin-top: 3rem;
-    margin-bottom:3rem;
-  }
-  .div22 {
-    display: flex;
-    flex-direction: column;
-    text-align: start !important;
-    align-items: center !important;
-    justify-content: space-evenly !important;
-    margin-top: 3rem;
-    margin-bottom:3rem;
-  }
-  .div32 {
-    height: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 10%;
-    margin-top: 3rem;
-    margin-bottom:3rem;
-  }
-  .tx-turnoId2 {
-    order: 1;
-    margin-left: 0;
-    width:max-content;
-  }
-  .tx-turno2 {
-    font-size: 15px;
-    margin-left: 0;
-  }
-  .tx-name2 {
-    margin: 0;
-  }
-  .tx-email2 {
-    display: flex;
-    justify-self: start;
-    margin: 0;
-  }
-}
-
- */
-
-@media (max-width: 430px) {
-  .tabla2 {
-    width: 60%;
+    width: 100%;
     margin-left: 2px;
-    /* margin-right: 2px; */
   }
  
   .btnCheckboxFalse2 {
@@ -477,7 +392,6 @@
     margin-top: 3rem;
     margin-bottom:3rem;
     margin-right: 1rem;
-     /* width:12rem!important;  */
     
   }
   .div32 {
