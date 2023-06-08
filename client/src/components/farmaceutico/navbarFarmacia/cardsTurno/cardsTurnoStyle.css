@@ -53,9 +53,11 @@
 .div22 {
   display: flex;
   flex-direction: row;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr;
   justify-content: space-between;
   align-items: center !important;
-  width: 90%;
+  width: 100%;
 }
 .div32 {
   height: max-content;
@@ -64,11 +66,11 @@
   align-items: center;
 }
 .tx-turnoId2 {
-  margin-left: 4%;
+  margin-left: 10%;
 }
-.tx-turno2 {
-  margin-left: 5%;
-}
+/* .tx-turno2 {
+  /* margin-left: 5%; */
+/* }  */
 
 .tx-name2 {
   margin: 0;
@@ -143,10 +145,11 @@
     align-items: center;
   }
   .tx-turnoId2 {
-    margin-left: 4%;
+    /* margin-left: 4%;
+    font-size: 13px; */
   }
   .tx-turno2 {
-    margin-left: 5%;
+    /* margin-left: 5%; */
   }
 
   .tx-name2 {
@@ -241,7 +244,7 @@
     margin: 0;
   }
 }
-@media (max-width: 475px) {
+@media (max-width: 500px) {
   .tabla2 {
     width: 100%;
     margin-left: 2px;

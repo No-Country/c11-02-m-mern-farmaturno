@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../pharmacyData/pharmacyDataStyle.css';
 import { useGetCompanyByNameQuery } from '../../redux/companySlices';
 import Footer from "../../components/Footer/Footer"
-import NavbarFarmaceutico from '../../components/farmaceutico/navbarFarmacia/NavbarFarmaceutico';
+import NavbarFarmDatos from '../../components/farmaceutico/navbarFarmacia/NavbarFarmDatos'
 // import { fetchDatos } from './fetchDatos';
 
 const PharmacyData = () => {
@@ -34,7 +34,7 @@ const PharmacyData = () => {
   return (
     <>
       <div className='divPrincipalpageDatos'>
-        <NavbarFarmaceutico/>
+        <NavbarFarmDatos/>
         <div className="divVerde"></div>
         <div className="divImgPerfil1">
             <img

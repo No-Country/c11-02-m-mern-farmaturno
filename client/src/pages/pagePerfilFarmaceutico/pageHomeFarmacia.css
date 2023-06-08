@@ -58,7 +58,12 @@
     align-items: center;
     text-align: center;
   }
-  
+  .titulo1 {
+    font-size: 20px;
+  }
+  .texto1 {
+    font-size: 16px;
+  }
 
   .imgHomeFarmacia1 {
     width: 12.5rem;

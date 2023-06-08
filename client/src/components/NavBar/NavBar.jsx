@@ -31,7 +31,7 @@ const NavBar = () => {
             <Offcanvas.Body className='offcanvasBody'>
               <Nav className="me-auto"></Nav>
               <Nav className="txCategory justify-content-end flex-grow-1 pe-3">
-                <Nav.Link>
+                <Nav.Link href=''>
                   <p className="txCategory  my-1 acercaFarmTx">Acerca de FarmaTurno</p>
                 </Nav.Link>
                 <Nav.Link>
