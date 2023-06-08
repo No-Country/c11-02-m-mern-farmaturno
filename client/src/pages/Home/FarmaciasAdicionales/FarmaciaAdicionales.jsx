@@ -6,7 +6,7 @@ const FarmaciaAdicionales = () => {
   const navigate = useNavigate();
   return (
     <div className="adheridasFarmacia">
-      <h2>Farmacias y droguerias adheridas</h2>
+      <h2>Farmacias y droguerías adheridas</h2>
       <div className="farmaciaBotom">
         <img
           className="cruzVerde"

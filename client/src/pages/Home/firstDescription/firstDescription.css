@@ -16,6 +16,8 @@
   line-height: 2.3rem;
 }
 .firstDescription p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.9rem;

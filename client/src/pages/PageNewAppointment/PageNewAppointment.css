@@ -7,18 +7,25 @@
   height: 100%;
   background-color: #fafafa;
   display: grid;
-  grid-template-columns: 1fr 20fr;
+  grid-template-rows: 7.5rem auto;
+  row-gap: 2rem;
+  overflow-y: scroll;
 }
 .body-new {
   grid-template-rows: 15% 85%;
 }
-.arrow-new{
+.arrow-new {
   margin: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .margin {
   margin: 2rem;
 }
 .titulo-new {
+  padding-top: 2.5rem;
   font-size: 1.5rem;
 }
 .texto-new {
@@ -58,15 +65,15 @@
     padding: 0rem 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: 5%, 95%;
+    overflow-y: scroll;
   }
- .arrow-new{
-  height: min-content;
- }
- .body-new {
-  margin-top: 0;
-}
+  .arrow-new {
+    height: min-content;
+  }
+  .body-new {
+    margin-top: 0;
+  }
   .body-main-new {
-    
     display: flex;
     flex-direction: column-reverse;
     /* align-items: center; */
@@ -101,6 +108,6 @@
     overflow-y: scroll;
     overflow-x: hidden;
     /* width: 360px; */
-    padding: 0rem ;
+    padding: 0rem;
   }
 }

@@ -12,7 +12,7 @@ const Home = () => {
       <div className="welcomeSection">
         <div className="mensajeBienvenida">
           <p>Te damos la bienvenida a</p>
-          <p> Farmaturno</p>
+          <p> FarmaTurno</p>
         </div>
         <FarmaciaAdicionales />
         <PanelIngreso id="homeContainer" />
@@ -20,7 +20,7 @@ const Home = () => {
       <Instructions />
       <FirstDescription />
       <Divider />
-      <About />
+      <About id="about" />
       <Footer />
     </div>
   );

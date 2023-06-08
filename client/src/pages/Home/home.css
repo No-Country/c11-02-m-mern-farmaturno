@@ -5,6 +5,7 @@
 
 .home .welcomeSection .mensajeBienvenida {
   padding: 2rem;
+  padding-left: 4rem;
 }
 
 .home .welcomeSection .mensajeBienvenida p:nth-child(1) {

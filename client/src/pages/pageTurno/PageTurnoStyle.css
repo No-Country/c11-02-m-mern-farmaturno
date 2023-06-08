@@ -27,7 +27,7 @@
   height: 5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .general-consult {
     display: grid;
     grid-template-columns: 1fr;
@@ -39,7 +39,7 @@
     height: fit-content;
   }
   .body-consult {
-    width: 100%;
+    width: fit-content;
     margin: 1rem;
   }
 }
@@ -49,8 +49,8 @@
         grid-template-rows: 10% 90%;
       }
       .table {
-        margin-left: 0rem;
-        margin-right: 2rem;
-        width: auto;
+       margin-left: 0;
+       margin-right: 2rem;
+        width: 100%;
       }
 }

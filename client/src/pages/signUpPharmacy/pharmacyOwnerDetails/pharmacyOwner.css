@@ -17,6 +17,7 @@
   line-height: 1.9rem;
   font-weight: 400;
   margin-bottom: 2.7rem;
+  margin-top: 1rem;
 }
 
 .pharmacy-owner .label {
@@ -46,6 +47,10 @@
 .pharmacy-owner img {
   widht: 0;
   height: 0;
+}
+.pharmacy-owner .invalid-feedback {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
 }
 
 @media (min-width: 768px) {
@@ -113,6 +118,10 @@
     grid-row-start: 3;
     width: 248px;
     height: 254px;
+  }
+  .pharmacy-owner .invalid-feedback {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
   }
 }
 
@@ -188,5 +197,9 @@
     right: 82px;
     width: 489px;
     height: 502px;
+  }
+  .pharmacy-owner .invalid-feedback {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
   }
 }

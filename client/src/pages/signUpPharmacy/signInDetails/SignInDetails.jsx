@@ -219,8 +219,22 @@ const SignInDetails = () => {
             // isinvalid={errors.isCheckboxChecked !== ''}
           />
           <p className="acepto-terminos-signIn">
-            Acepto los terminos y condiciones y autorizo el uso de mis datos de
-            acuerdo a la Declaracion de privacidad
+            Acepto los{' '}
+            <a
+              href="https://drive.google.com/file/d/1FiGncNfCX7mb2QH-fDWp6-VFUQfnUgSo/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Términos y condiciones
+            </a>{' '}
+            y autorizo el uso de mis datos de acuerdo a la{' '}
+            <a
+              href="https://drive.google.com/file/d/1LxTcS5IrkKUMO1f0uNqHt8xra3-TplGK/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Declaración de privacidad
+            </a>{' '}
           </p>
         </Row>
         <img src={logo} alt="imagen descriptiva" />

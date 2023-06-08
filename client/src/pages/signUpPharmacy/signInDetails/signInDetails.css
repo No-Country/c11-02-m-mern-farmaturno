@@ -76,6 +76,11 @@
   height: 0;
 }
 
+.signIn-details .invalid-feedback {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
+
 @media (min-width: 768px) {
   .signIn-details {
     width: 100vw;

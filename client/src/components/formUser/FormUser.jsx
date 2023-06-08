@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ModalToConfirmYourTurn from '../Modals/ModalConfirmTurn';
 import { postTurn } from '../../services/PostTurn';
 import moment from 'moment';
-import { useGetTurnsQuery } from "../../redux/turnSlices";
+import { useGetTurnsQuery } from '../../redux/turnSlices';
 
 const FormUser = () => {
   const [show, setShow] = useState(false);
@@ -43,13 +43,14 @@ const FormUser = () => {
 
   const expresiones = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+    email:
+      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
   };
 
   const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
-    if (isLoading) return <div>Loading...</div>;
-    else if (isError) return <div>Error:{error}</div>;
-    
+  if (isLoading) return <div>Loading...</div>;
+  else if (isError) return <div>Error:{error}</div>;
+
   const horarios = [];
   for (let i = 8; i <= 19; i++) {
     const hora = {
@@ -66,9 +67,9 @@ const FormUser = () => {
         horarios[index].value++;
       }
     });
-  };
-  console.log(horarios)
- 
+  }
+  console.log(horarios);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -178,21 +179,15 @@ const FormUser = () => {
           };
           console.log(data);
           postTurn(data, 'api/turn/')
-          .then((response) => {
-            console.log(response);
-            
-            setSeeModalConfirm(true);
-            
-            
-          })
-          .catch((error) => {
-            console.error(error);
-            alert(
-              'Hubo un error al pedir su turno',
-            );
-          });
-       
+            .then((response) => {
+              console.log(response);
 
+              setSeeModalConfirm(true);
+            })
+            .catch((error) => {
+              console.error(error);
+              alert('Hubo un error al pedir su turno');
+            });
 
           resetForm();
         } else {
@@ -235,20 +230,27 @@ const FormUser = () => {
   return (
     <>
       {seeModalConfirm && (
-              <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
-            )}
+        <ModalToConfirmYourTurn closeMenu={() => setSeeModalConfirm(false)} />
+      )}
       <div className="container">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h1 className="titulo">Farmacia Cruz Verde</h1>
-          <p className="mb-0 info">/Direccion</p>
-          <p className="mb-3 info">/Horario de atencion</p>
-          <Row >
-            <Form.Group className='mb-3' as={Col } xs={12} sm={6} controlId="formGridName">
+          <p className="mb-0 info">Dirección: Cra. 15 #95-84 95-a</p>
+          <p className="mb-3 info">
+            Horario de atencion: Lunes a Sábados de 07hs a 19hs
+          </p>
+          <Row>
+            <Form.Group
+              className="mb-3"
+              as={Col}
+              xs={12}
+              sm={6}
+              controlId="formGridName"
+            >
               <Form.Label className="texto">Nombre</Form.Label>
               <Form.Control
                 className="form"
                 type="name"
-                placeholder="Ingrese su nombre"
                 required
                 name="name"
                 value={formData.name}
@@ -261,12 +263,17 @@ const FormUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group  as={Col} xs={12} sm={6} controlId="formGridLastname">
+            <Form.Group
+              className="mb-3"
+              as={Col}
+              xs={12}
+              sm={6}
+              controlId="formGridLastname"
+            >
               <Form.Label className="texto">Apellido</Form.Label>
               <Form.Control
                 className="form"
                 type="name"
-                placeholder="Ingrese su Apellido"
                 required
                 name="lastName"
                 value={formData.lastName}
@@ -281,14 +288,18 @@ const FormUser = () => {
           </Row>
           <br />
           <Row className="justify-content-md-center">
-            <Form.Group className="mb-3" as={Col} xs={12} sm={6} controlId="formGridNumber">
+            <Form.Group
+              className="mb-3"
+              as={Col}
+              xs={12}
+              sm={6}
+              controlId="formGridNumber"
+            >
               <Form.Label className="texto">Correo electrónico</Form.Label>
               <Form.Control
                 className="form"
                 type="email"
-                placeholder="Ingrese su número correo electrónico"
                 required
-                
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
@@ -300,9 +311,9 @@ const FormUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" as={Col}>
+            <Form.Group className="mb-3 mt-4" as={Col}>
               <Button
-                className={`buttonHorario mt-5 ${
+                className={`buttonHorario mt-2 ${
                   formData.isHorarioElegido ? 'buttonHorario--inactive' : ''
                 }`}
                 variant="secondary"
@@ -319,14 +330,22 @@ const FormUser = () => {
               type="checkbox"
               label={
                 <>
-                  Acepto los{" "}
-                  <a href="https://drive.google.com/file/d/1FiGncNfCX7mb2QH-fDWp6-VFUQfnUgSo/view" target="_blank" rel="noopener noreferrer">
+                  Acepto los{' '}
+                  <a
+                    href="https://drive.google.com/file/d/1FiGncNfCX7mb2QH-fDWp6-VFUQfnUgSo/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Términos y condiciones
-                  </a>{" "}
-                  y autorizo el uso de mis datos de acuerdo a la {" "}
-                  <a href="https://drive.google.com/file/d/1LxTcS5IrkKUMO1f0uNqHt8xra3-TplGK/view" target="_blank" rel="noopener noreferrer">
-                  Declaración de privacidad
-                  </a>{" "}
+                  </a>{' '}
+                  y autorizo el uso de mis datos de acuerdo a la{' '}
+                  <a
+                    href="https://drive.google.com/file/d/1LxTcS5IrkKUMO1f0uNqHt8xra3-TplGK/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Declaración de privacidad
+                  </a>{' '}
                 </>
               }
               required
@@ -348,9 +367,8 @@ const FormUser = () => {
               variant="secondary"
               type="submit"
               disabled={!formData.isTurnoDisponible}
-              
             >
-              PEDIR TURNO
+              Pedir turno
             </Button>
           </Stack>
         </Form>
@@ -359,8 +377,8 @@ const FormUser = () => {
       {/* modal elegir horario */}
 
       <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header >
-          <Modal.Title className='mx-auto'>Elige un horario</Modal.Title>
+        <Modal.Header>
+          <Modal.Title className="mx-auto">Elige un horario</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal">
           {horarios.map((hora, idx) => (
@@ -383,11 +401,13 @@ const FormUser = () => {
           ))}
         </Modal.Body>
         <Modal.Footer>
-        
-          <Button className='buttonHorario mx-auto' variant='success' onClick={handleClose}>
+          <Button
+            className="buttonHorario mx-auto"
+            variant="success"
+            onClick={handleClose}
+          >
             Confirmar
           </Button>
-          
         </Modal.Footer>
       </Modal>
     </>

@@ -96,7 +96,7 @@ const PharmacyDetails = () => {
     }
 
     if (
-      !pharmacyData.pharmacyAdress.match(/^[A-Za-z0-9\s#áéíóúñÁÉÍÓÚÑ.,()-]*$/)
+      !pharmacyData.pharmacyAdress.match(/^[A-Za-z0-9\s#áéíóúñÁÉÍÓÚÑ.,()-]+$/)
     ) {
       errors.pharmacyAdress = 'Ingrese una dirección válida';
     }
