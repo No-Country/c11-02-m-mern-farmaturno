@@ -1,6 +1,6 @@
 import FormUser from '../../components/formUser/FormUser';
 import moment from 'moment';
-import '../PageNewAppointment/PageNewAppointment.css';
+import './PageNewAppointment.css';
 
 const PageNuevoTurno = () => {
   const currentDate = moment().format(' DD/MM/YYYY');
@@ -15,15 +15,15 @@ const PageNuevoTurno = () => {
             border="0"
           />
         </a>
-      </div>
-      <div className="body-new">
-        <div className='margin'>
+        <div className="margin">
           <h1 className="titulo-new">Pide tu turno</h1>
           <p className="texto-new">
             Recuerda que estas reservando un turno para el dia de hoy{' '}
-           <strong> {currentDate}</strong>
+            <strong> {currentDate}</strong>
           </p>
         </div>
+      </div>
+      <div className="body-new">
         <div className="body-main-new">
           <img
             className="img-new"

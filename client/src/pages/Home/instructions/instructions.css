@@ -16,6 +16,7 @@
 }
 
 .instructions .tablet {
+  position: absolute;
   width: 0;
   height: 0;
 }
@@ -35,6 +36,7 @@
     height: 0;
   }
   .instructions .tablet {
+    position: inherit;
     width: 704px;
     height: 1297px;
   }

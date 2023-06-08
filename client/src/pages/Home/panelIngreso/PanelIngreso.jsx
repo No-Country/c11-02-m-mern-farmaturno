@@ -20,13 +20,13 @@ const PanelIngreso = () => {
     event.preventDefault();
 
     if (dni.trim() === '') {
-      setDniError('El número de identidad es obligatorio');
+      setDniError('Su documento de identidad es obligatorio');
       setValidated(false);
     } else if (dni.length < 6) {
-      setDniError('El número de identidad debe ser mayor a 6 dígitos');
+      setDniError('Su documento de identidad debe ser mayor a 6 dígitos');
       setValidated(false);
     } else if (dni.length > 10) {
-      setDniError('El número de identidad debe tener menos de 10 dígitos');
+      setDniError('Su documento de identidad debe tener menos de 10 dígitos');
       setValidated(false);
     } else {
       setDniError('');
@@ -64,10 +64,10 @@ const PanelIngreso = () => {
   const handleDniChange = (event) => {
     setDni(event.target.value);
     if (dni.trim() === '') {
-      setDniError('El número de identidad es obligatorio');
+      setDniError('Su documento de identidad es obligatorio');
       setValidated(false);
     } else if (dni.length > 10) {
-      setDniError('Su DNI debe tener menos de 10 dígitos');
+      setDniError('Su documento de identidad debe tener entre 6 y 10 dígitos');
       setValidated(false);
     } else {
       setDniError('');

@@ -144,8 +144,7 @@ export default function LoginPharmacy() {
           </div>
         </div>
       </Form>
-
-      <Footer className="footer-signIn" />
+      <Footer />
     </div>
   );
 }
