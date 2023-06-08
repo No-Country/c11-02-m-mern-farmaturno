@@ -6,26 +6,26 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0.1rem 0.8rem rgba(0, 0, 0, 0.2);
 }
 
 .txTitle img {
   height: 5rem;
-  margin-right: 80.34px;
+  margin-right: 8.034rem;
 }
 
 .dropdownPerfil {
   border: 0;
-  margin-left: 80.34px;
-  width: 424px;
-  height: 120px;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12),
-    0px 5px 5px rgba(0, 0, 0, 0.2);
+  margin-left: 8.034rem;
+  width: 42.4rem;
+  height: 12.0rem;
+  box-shadow: 0rem 0.8rem 1.0rem rgba(0, 0, 0, 0.14), 0rem 0.3rem 1.4rem rgba(0, 0, 0, 0.12),
+    0px 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 1.4rem;
+  line-height: 2.0rem;
 }
 .dropItem:hover{
   background-color: #008C73 ;
@@ -44,15 +44,15 @@
 
   .dropdownPerfil {
     border: 0;
-    margin-right: 50.34px;
-    width: 130px;
-    height: 80px;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14),
-      0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+    margin-right: 5.034rem;
+    width: 13.0rem;
+    height: 8.0rem;
+    box-shadow: 0rem 0.8rem 1.0rem rgba(0, 0, 0, 0.14),
+      0rem 0.3rem 1.4rem rgba(0, 0, 0, 0.12), 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1.4rem;
+    line-height: 2.0rem;
   }
 }

@@ -15,11 +15,12 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
     <>
       <div className="divTabla2">
         <Table className="tabla2">
-          <tbody>
+          <div className="bodyTable"></div>
+          <tbody >
             {data.map((turn) => (
               
                 <tr key={turn._id} className="divFilas2">
-                  <td>
+                  <td className='td2'>
                     <div className="div12">
                       {turn.status ? (
                         Number(turn.timeSlot.substring(0, 2)) >=
@@ -39,7 +40,7 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
                       <p className="tx-tabla2 tx-turno2">{turn.timeSlot}</p>
                     </div>
                   </td>
-                  <td className="">
+                  <td className='td2'>
                     <div className="div22">
                       <div className="divName2">
                         <p className="tx-tabla2 tx-name2">
@@ -55,7 +56,7 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
                           <img
                             src="https://i.ibb.co/dW8nLvg/Vector-2.png"
                             alt=""
-                            className="iconosCards2 mb-3"
+                            className="iconosCards2 "
                           />
                           <p className="tx-tabla2 tx-email2">
                             {turn.customer.customerEmail}
@@ -76,7 +77,7 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td className='td2'>
                     <div className="div32">
                       {turn.status ? (
                         <Button

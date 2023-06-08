@@ -5,11 +5,11 @@ import Footer from '../../components/Footer/Footer';
 import { useGetTurnsQuery } from '../../redux/turnSlices';
 import moment from 'moment';
 import CardsTurno from '../../components/farmaceutico/navbarFarmacia/cardsTurno/CardsTurno';
+import Tabla from '../../components/farmaceutico/navbarFarmacia/cardsTurno/Tabla';
 
 const PageHomeFarmacia = () => {
   const currentDate = moment().format(' D/MM/YYYY');
   const currentTime = moment().format('HH');
-  // const turnoTarde = (moment().add(1, 'hours').format('HH'))
   const turnoTardeNumero = parseInt(currentTime);
 
   const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
@@ -33,11 +33,13 @@ const PageHomeFarmacia = () => {
               Gestiona y visualiza los turnos que ya fueron reservados por tus
               clientes, junto a sus datos personales.
             </p>
-            <p className="texto1 mt-4">Fecha de hoy: {currentDate}</p>
-            <p className="texto1 ">Horario de atención: de 7:00 a 19:00</p>
+            <p className="texto1 mt-4"><span className="txNegrita">Fecha de hoy:</span> {currentDate}</p>
+            <p className="texto1 "><span className="txNegrita">Horario de atención:</span> de 7:00 a 19:00</p>
           </div>
 
           <CardsTurno data={data} turnoTardeNumero={turnoTardeNumero} />
+          {/* <h1 className='m-4'>Tabla 2</h1>
+          <Tabla data={data} turnoTardeNumero={turnoTardeNumero} /> */}
 
           <Footer />
         </div>
