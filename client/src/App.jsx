@@ -21,6 +21,7 @@ function App() {
 
 
       {location.pathname !== '/' &&
+      location.pathname !== '/nuevoTurno' &&
       location.pathname !== '/pharmacy/signUp' &&
       location.pathname !== '/pharmacy/profile' &&
       location.pathname !== '/pharmacy/signUp/adminitration_allowed' &&

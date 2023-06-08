@@ -77,7 +77,7 @@ const PharmacyOwnerDetails = () => {
 
     // Validación para ownerDni
     if (!ownerData.ownerDni.match(/^\d{6,10}$/)) {
-      errors.ownerDni = 'Ingrese un número de DNI válido';
+      errors.ownerDni = 'Ingrese un número de identidad válido';
     }
 
     setIsValid(Object.keys(errors).length === 0);
@@ -134,6 +134,7 @@ const PharmacyOwnerDetails = () => {
             onChange={handleChange}
             isInvalid={!isValid && !!ownerData.errors.ownerDni}
             isValid={isValid && !ownerData.errors.ownerDni}
+            maxLength={10}
           />
           <Form.Control.Feedback type="invalid">
             {ownerData.errors.ownerDni}

@@ -136,7 +136,7 @@ const PanelIngreso = () => {
       ) : (
         <div className="bottom-section">
           <div className="titleAndSubtitle_container">
-            <h3>Visualiza y administra tu historial de turnos y datos.</h3>
+            <h3>Visualiza y administra tu historial de turnos y datos</h3>
             <p>Por favor ingresa tu número de identidad</p>
           </div>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>

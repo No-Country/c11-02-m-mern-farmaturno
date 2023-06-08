@@ -1,7 +1,11 @@
 .pharmacyPlans {
-  padding: 2rem;
+  position: relative;
   width: 100%;
   overflow-x: hidden;
+}
+
+.pharmacyPlans-topSection {
+  padding: 2rem;
 }
 .pharmacyPlans .graphics {
   width: 0;
@@ -232,6 +236,9 @@
     margin-left: 5rem;
     padding-left: 4rem;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery p {
+    margin: 0;
   }
 
   .columns {
