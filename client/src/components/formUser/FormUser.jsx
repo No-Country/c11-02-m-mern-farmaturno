@@ -47,9 +47,9 @@ const FormUser = () => {
       /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
   };
 
-  // const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
-  // if (isLoading) return <div>Loading...</div>;
-  // else if (isError) return <div>Error:{error}</div>;
+  const { data, isError, isLoading, error } = useGetTurnsQuery(); //ME PUEDO DVOLVER LA DATA, EL ERROR(TRUE FALSE), PROPIEDAD IS LOADING (TRUEFALSE), ERROR CUAL ES EL ERROR
+  if (isLoading) return <div>Loading...</div>;
+  else if (isError) return <div>Error:{error}</div>;
 
   const horarios = [];
   for (let i = 8; i <= 19; i++) {
@@ -59,15 +59,15 @@ const FormUser = () => {
     };
     horarios.push(hora);
   }
-  // if (data) {
-  //   data.forEach((item) => {
-  //     const timeSlot = item.timeSlot;
-  //     const index = horarios.findIndex((hora) => hora.name === timeSlot);
-  //     if (index !== -1) {
-  //       horarios[index].value++;
-  //     }
-  //   });
-  // }
+  if (data) {
+    data.forEach((item) => {
+      const timeSlot = item.timeSlot;
+      const index = horarios.findIndex((hora) => hora.name === timeSlot);
+      if (index !== -1) {
+        horarios[index].value++;
+      }
+    });
+  }
   console.log(horarios);
 
   const handleClose = () => setShow(false);
@@ -394,7 +394,7 @@ const FormUser = () => {
               // onChange={(e) => setRadioValue(e.currentTarget.value)}
               onClick={handlechoose}
               data-name={hora.name}
-              disabled={hora.value > 10 || hora.name < currentHour}
+              disabled={hora.value > 4 || hora.name < currentHour}
             >
               {hora.name}hs
             </ToggleButton>
