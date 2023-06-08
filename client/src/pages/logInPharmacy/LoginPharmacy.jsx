@@ -66,13 +66,13 @@ export default function LoginPharmacy() {
   const validateLoginForm = () => {
     const errors = {};
 
-    if (!dataLogin.userName.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)) {
+    if (!dataLogin.userName.match(/^[a-zA-Z0-9]+$/)) {
       errors.nameError = 'El nombre de usuario ingresado no es válido';
     }
 
     if (
       !dataLogin.userPassword.match(
-        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚñÑ]).{8,16}$/,
+        /^(?=.*[a-zA-Z0-9])(?!.*[\s-áéíóúÁÉÍÓÚ]).{8,16}$/,
       )
     ) {
       errors.passwordError =
@@ -89,7 +89,7 @@ export default function LoginPharmacy() {
         <div className="container_welcome">
           <p className="first_text">Gracias por elegir</p>
           <p className="title_page">FarmaTurno</p>
-          <p className="second_text">Igresa para comenzar</p>
+          <p className="second_text">Ingresa para comenzar</p>
         </div>
       </div>
       <Form noValidate onSubmit={handleSubmit}>
