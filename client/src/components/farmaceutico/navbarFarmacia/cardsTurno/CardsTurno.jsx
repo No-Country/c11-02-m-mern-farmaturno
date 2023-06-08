@@ -11,6 +11,7 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
     updateState({ status: false, _id });
   };
 
+  
   return (
     <>
       <div className="divTabla2">
@@ -34,7 +35,8 @@ const CardsTurno = ({ turnoTardeNumero, data }) => {
                       )}
 
                       <p className="tx-tabla2 tx-turnoId2">
-                        Turno: {turn._id.substring(0, 4)}{' '}
+                        Turno: {' '} {Math.floor(Math.random() * 9000) + 1000}
+                        {/* {turn._id.substring(0, 4)}{' '} */}
                       </p>
 
                       <p className="tx-tabla2 tx-turno2">{turn.timeSlot}</p>
