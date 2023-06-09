@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './pharmacyPlans.css';
-import Footer from '../../components/Footer/Footer';
 import NavBar from '../../components/NavBar/NavBar';
 import pana from './assets/pana.png';
+import '../../../public/photo.svg'
+import Footer from '../../components/Footer/Footer';
 const PharmacyPlans = () => {
   const navigate = useNavigate();
 
@@ -23,7 +24,6 @@ const PharmacyPlans = () => {
               <span>¿Quieres comenzar a utilizarlo ya?</span>
               <Button
                 className="signUp_button"
-                variant="success"
                 onClick={() => navigate('signUp')}
               >
                 Regístrate
@@ -32,7 +32,7 @@ const PharmacyPlans = () => {
           </div>
           <div className="pharmacy">
             <h3>Mas fácil que nunca</h3>
-            <img src="/public/phon.svg" alt="" />
+            <img className='imgLinea3' src="https://i.ibb.co/4tdr82f/Captura-de-pantalla-2023-06-08-232524.png" alt="" />
           </div>
 
           <div className="gallery">
@@ -58,14 +58,14 @@ const PharmacyPlans = () => {
                 <p>Servicio gratuito</p>
               </div>
             </div>
-            <div className="columns">
+            <div className="columns1">
               <div className="image-container">
-                <img src="/public/photo.svg" alt="" />
+                <img  className='imageCel3' src="https://i.ibb.co/6XqFqCT/rafiki.png" alt="" />
               </div>
             </div>
           </div>
         </div>
-        <Footer className="footer" />
+        <Footer/>
       </div>
     </>
   );

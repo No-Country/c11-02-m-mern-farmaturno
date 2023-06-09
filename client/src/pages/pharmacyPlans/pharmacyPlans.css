@@ -2,6 +2,8 @@
   position: relative;
   width: 100%;
   overflow-x: hidden;
+  display: grid;
+  grid-template-rows: auto;
 }
 
 .pharmacyPlans-topSection {
@@ -31,6 +33,12 @@
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.38px;
+  background-color: #008c73;  
+  border-color: #008c73;
+}
+.signUp_button:hover{
+   background-color: #008c73;
+  border-color: #008c73;
 }
 .pharmacyPlans .pharmacyBiografi span {
   display: block;
@@ -59,12 +67,17 @@
 
 .gallery {
   display: grid;
-  margin-top: 9rem;
+  margin-top: 6rem;
   padding-bottom: 2rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
 .columns {
+  display: grid;
+  grid-template-rows: repeat(1, auto);
+  margin-top: auto;
+}
+.columns1 {
   display: grid;
   grid-template-rows: repeat(1, auto);
   margin-top: auto;
@@ -96,8 +109,14 @@
   justify-content: center;
 }
 
-.footer {
-  display: block;
+.imageCel3{
+  width:11rem!important;
+  height: 9.5rem!important;
+}
+
+.imgLinea3{
+  width: 28.4rem;
+  height: 4rem;
 }
 
 @media (min-width: 768px) {
@@ -132,7 +151,7 @@
   .signUp_button {
     margin-top: 4rem;
     width: 30rem;
-    hright: 5.41rem;
+    height: 5.41rem;
   }
 
   .pharmacy h3 {
@@ -159,6 +178,7 @@
     display: grid;
     grid-template-rows: repeat(1, auto);
     margin-top: auto;
+    margin-left: 4rem;
   }
 
   .columnas {
@@ -170,6 +190,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-bottom: 4rem;
   }
 
   .item i {
@@ -187,6 +208,14 @@
   .image-container {
     display: flex;
     justify-content: center;
+  }
+  .imageCel3{
+    width: 40rem!important;
+    height:30.29rem!important;
+  }
+  .imgLinea3{
+    width: 51rem;
+    height: 7rem;
   }
 }
 
@@ -231,20 +260,27 @@
   }
 
   .gallery {
-    display: grid;
+    /* display: grid;
     margin-top: 9rem;
     margin-left: 5rem;
     padding-left: 4rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); */
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-content: start;
   }
   .gallery p {
     margin: 0;
   }
 
   .columns {
-    display: grid;
-    grid-template-rows: repeat(1, auto);
-    margin-top: auto;
+     display: flex;
+    flex-direction: column;
+    /* align-content:start ;  */
+    height:50rem;
+     /* width: min-content;  */
+     margin-left:10rem ;
   }
 
   .columnas {
@@ -256,6 +292,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-bottom: 4rem;
   }
 
   .item i {
@@ -274,9 +311,13 @@
     display: flex;
     justify-content: center;
   }
-
+  .imageCel3{
+    width: 61.355rem!important;
+    height: 48.51rem!important;
+  }
+/* 
   .gallery img {
     width: 61.3rem;
     height: 48.5rem;
-  }
+  } */
 }

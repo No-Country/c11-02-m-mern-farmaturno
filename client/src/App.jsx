@@ -25,8 +25,8 @@ function App() {
       location.pathname !== '/pharmacy/signUp' &&
       location.pathname !== '/pharmacy/profile' &&
       location.pathname !== '/pharmacy/signUp/adminitration_allowed' &&
-      location.pathname !== '/pharmacy/recoverPassword/codeandpassword' &&
-      location.pathname !== '/pharmacy' 
+      location.pathname !== '/pharmacy/recoverPassword/codeandpassword' 
+      && location.pathname !== '/pharmacy' 
       // && location.pathname !== '/pharmacy/profile/data'
       ? (
         <Footer />
