@@ -4,16 +4,30 @@
 <h3>Te damos la bienvenida!! </h3> 
 
 <h3>Instalación </h3> 
-Para probar el proyecto en local hay que clonar el repositorio y hacer npm install para trabajar sobre él.
+
+<h4>Iniciar el servidor de Font-End: </h4>
+◾ Para probar el proyecto en local hay que clonar el repositorio, moverse a la carpeta client y hacer npm install para trabajar sobre él.
+
+◾ Crear un archivo .env que contenga la siguiente variable de entorno VITE_API_URL = https://locallhost:3002
+
+<h4>Iniciar el servidor de back-end: </h4>
+◾  Configurar la variables de entorno en el archivo .env se puede usar como ejemplo el archivo .env.example
+
+◾  Ejecutar los comandos npm install para instalar dependencias y npm start para iniciar el servidor
+
+
+
 <h3>Nuestro proyecto </h3> 
 
- Farmaturno es una aplicación web que tiene como objetivo evitar largas filas presenciales en las farmacias de Colombia adscritas al servicio de salud. A partir de dos principales funcionalidades logramos optimizar el tiempo de atención en las farmacias.
+Farmaturno es una aplicación web que tiene como objetivo evitar largas filas presenciales en las farmacias de Colombia adscritas al servicio de salud. A partir de dos principales funcionalidades logramos optimizar el tiempo de atención en las farmacias.
 
 Nuestro sistema permite que el cliente solicite un turno de manera fácil y rápida para ser atendido en la farmacia, durante la fecha corriente. 
 
 Por otra parte, FarmaTurno ofrece a las farmacias registrarse de forma gratuita y de esta forma ofrecer el servicio a sus clientes donde podrán emitir 10 turnos por hora y visualizar los que fueron reservados. 
 
-<p> Visita la web: https://c11-02-m-mern-farmaturno.vercel.app/</p>
+
+⭐️ Ingresa a nuestro proyecto [FarmaTurno](https://c11-02-m-mern-farmaturno.vercel.app/nuevoTurno)
+
 
 <h3>Nuestro equipo </h3> 
  
