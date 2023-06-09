@@ -41,32 +41,70 @@
 
 .buttonHorario {
   font-size: 1.5rem;
-
-  background-color: rgb(26, 156, 113);
+  background-color: #008c73;
   width: 28.5rem;
+  height:4.8rem ;
+
   
 }
 
 .buttonTurno--active {
-  background-color: rgb(26, 156, 113);
+  background-color: #008c73;
 }
 
 .buttonHorario--inactive {
   font-size: 1.5rem;
-  background-color: #767676;
+  background-color: #d97676;
 }
 
 .modal {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .buttonModal {
-  margin: 1rem;
+  margin: 1.5rem;
   font-size: 1.5rem;
-  color: rgb(26, 156, 113);
+  border-color: #008c73;
+  color: #008c73;
+  background: #ffffff;
+  border: 1px solid #008c73;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  width: 7.9rem;
+  height: 6.7rem;
+  background-color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem!important;
+  line-height: 1.9rem!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.buttonModalDisabled {
+background: #D9D9D9!important;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25)!important;
+border-radius: 8px!important;
+border-color: #D9D9D9!important;
+font-style: normal;
+font-weight: 500!important;
+font-size: 1.6rem!important;
+line-height: 1.9rem!important;
+color: #767676!important;
+}
 
-  background-color: rgb(254, 255, 255);
+.tituloModal{
+  font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+display: flex;
+align-items: center;
+letter-spacing: -0.32px;
+
 }
 
 @media (max-width: 850px) {
@@ -81,11 +119,11 @@
   .form {
     font-size: 1.1rem;
   }
-  
+
   .titulo {
     font-size: 1.5rem;
   }
-  
+
   .info {
     font-size: 1.1rem;
   }
@@ -95,7 +133,7 @@
   .buttonTurno {
     font-size: 1.1rem;
   }
-  
+
   .buttonHorario {
     font-size: 1.1rem;
     width: 200px;
@@ -103,19 +141,108 @@
   .buttonHorario--inactive {
     font-size: 1.1rem;
   }
+
   .buttonModal {
-    font-size: 1.1rem;
+    margin: 1.5rem;
+    font-size: 1.5rem;
+    border-color: #008c73;
+    color: #008c73;
+    background: #ffffff;
+    border: 1px solid #008c73;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    width: 7.9rem;
+    height: 6.7rem;
+    background-color: white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem!important;
+    line-height: 1.9rem!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
- 
+  .buttonModalDisabled {
+  background: #D9D9D9!important;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25)!important;
+  border-radius: 8px!important;
+  border-color: #D9D9D9!important;
+  font-style: normal;
+  font-weight: 500!important;
+  font-size: 1.6rem!important;
+  line-height: 1.9rem!important;
+  color: #767676!important;
+  }
+  
+  .tituloModal{
+    font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.32px;
+  
+  }
 }
 @media (max-width: 430px) {
-    .container {
-        display: flex;
-  flex-direction: column;
-        
-width: auto;
-height: auto;
-top: 0px
-      }
-      
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    height: auto;
+    top: 0px;
+  }
+
+  .buttonModal {
+    margin: 1.5rem;
+    font-size: 1.5rem;
+    border-color: #008c73;
+    color: #008c73;
+    background: #ffffff;
+    border: 1px solid #008c73;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    width: 6.7rem;
+    height: 6.2rem;
+    background-color: white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem!important;
+    line-height: 1.6rem!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .buttonModalDisabled {
+  background: #D9D9D9!important;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25)!important;
+  border-radius: 8px!important;
+  border-color: #D9D9D9!important;
+  font-style: normal;
+  font-weight: 500!important;
+  font-size: 1.4rem!important;
+  line-height: 1.6rem!important;
+  color: #767676!important;
+  }
+  
+  .tituloModal{
+    font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.3rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.38px;
+  
+  }
+  .buttonHorario {
+    font-size: 1.5rem;
+    background-color: #008c73;
+    width: 30rem;
+    height:4.8rem ;
+  }
 }

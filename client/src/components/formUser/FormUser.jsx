@@ -54,7 +54,7 @@ const FormUser = () => {
   const horarios = [];
   for (let i = 8; i <= 19; i++) {
     const hora = {
-      name: `${i < 10 ? '0' + i + ':00' : i + ':00'}`,
+      name: `${i < 10 ? '0' + i  : i }`,
       value: 0,
     };
     horarios.push(hora);
@@ -378,12 +378,12 @@ const FormUser = () => {
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header>
-          <Modal.Title className="mx-auto">Elige un horario</Modal.Title>
+          <Modal.Title className="mx-auto tituloModal">Elige un horario</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal">
           {horarios.map((hora, idx) => (
             <ToggleButton
-              className="buttonModal "
+              className={`buttonModal ${hora.value > 4 || hora.name < currentHour ? 'buttonModalDisabled' : ''}`}
               key={idx}
               id={`radio-${idx}`}
               type="radio"
@@ -396,7 +396,7 @@ const FormUser = () => {
               data-name={hora.name}
               disabled={hora.value > 4 || hora.name < currentHour}
             >
-              {hora.name}hs
+              {hora.name} hs
             </ToggleButton>
           ))}
         </Modal.Body>
