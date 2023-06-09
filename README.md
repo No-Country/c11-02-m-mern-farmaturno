@@ -5,12 +5,12 @@
 
 <h3>Instalación </h3> 
 
-<h4>Iniciar el servidor de Font-End: </h4>
+<h4>Iniciar el servidor de Front-End: </h4>
 ◾ Para probar el proyecto en local hay que clonar el repositorio, moverse a la carpeta client y hacer npm install para trabajar sobre él.
 
 ◾ Crear un archivo .env que contenga la siguiente variable de entorno VITE_API_URL = https://locallhost:3002
 
-<h4>Iniciar el servidor de back-end: </h4>
+<h4>Iniciar el servidor de back-End: </h4>
 ◾  Configurar la variables de entorno en el archivo .env se puede usar como ejemplo el archivo .env.example
 
 ◾  Ejecutar los comandos npm install para instalar dependencias y npm start para iniciar el servidor
@@ -74,7 +74,7 @@ Por otra parte, FarmaTurno ofrece a las farmacias registrarse de forma gratuita 
 💻 Figma/ Figjam/ Optimal workshop/ photoshop/ Illustrator
 <br>
 
-<h4><img src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" width="70" /> Desarrollo front-end</h4>
+<h4><img src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" width="70" /> Desarrollo front-End</h4>
 
 <h5>Marcos Martilotta</h5> 
 
@@ -109,7 +109,7 @@ Por otra parte, FarmaTurno ofrece a las farmacias registrarse de forma gratuita 
 ````
 
 
-<h4> <img src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif" width="90"/> Desarrollo back-end </h4>
+<h4> <img src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif" width="90"/> Desarrollo back-End </h4>
 
 <h5>Victor Rueda</h5> 
 
