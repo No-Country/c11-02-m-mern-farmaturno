@@ -13,6 +13,8 @@ Nuestro sistema permite que el cliente solicite un turno de manera fácil y ráp
 
 Por otra parte, FarmaTurno ofrece a las farmacias registrarse de forma gratuita y de esta forma ofrecer el servicio a sus clientes donde podrán emitir 10 turnos por hora y visualizar los que fueron reservados. 
 
+<p> Visita la web: https://c11-02-m-mern-farmaturno.vercel.app/</p>
+
 <h3>Nuestro equipo </h3> 
  
 <h4> <img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="50"> Project manager </h4> 
