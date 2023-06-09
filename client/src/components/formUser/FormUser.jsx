@@ -52,11 +52,11 @@ const FormUser = () => {
   else if (isError) return <div>Error:{error}</div>;
 
   const horarios = [];
-  for (let i = 8; i <= 19; i++) {
-    const hora = {
-      name: `${i < 10 ? '0' + i  : i }`,
-      value: 0,
-    };
+    for (let i = 8; i <= 19; i++) {
+      const hora = {
+        name: `${i < 10 ? '0' + i + ':00' : i + ':00'}`,
+        value: 0,
+      };
     horarios.push(hora);
   }
   if (data) {
@@ -396,7 +396,7 @@ const FormUser = () => {
               data-name={hora.name}
               disabled={hora.value > 4 || hora.name < currentHour}
             >
-              {hora.name} hs
+              {hora.name}hs
             </ToggleButton>
           ))}
         </Modal.Body>
