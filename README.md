@@ -10,7 +10,7 @@
 
 ◾ Crear un archivo .env que contenga la siguiente variable de entorno VITE_API_URL = https://locallhost:3002
 
-<h4>Iniciar el servidor de back-End: </h4>
+<h4>Iniciar el servidor de Back-End: </h4>
 ◾  Configurar la variables de entorno en el archivo .env se puede usar como ejemplo el archivo .env.example
 
 ◾  Ejecutar los comandos npm install para instalar dependencias y npm start para iniciar el servidor
